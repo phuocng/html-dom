@@ -9,10 +9,15 @@
     "homepage": "https://htmldom.dev",
     "keywords": [
         "dom",
-        "document object model",        
+        "document object model",
         "dom api",
         "html"
     ],
+    "scripts": {
+        "build": "eleventy",
+        "watch": "eleventy --watch",
+        "serve": "eleventy --serve"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/phuoc-ng/html-dom"
@@ -20,5 +25,8 @@
     "bugs": {
         "url": "https://github.com/phuoc-ng/html-dom/issues"
     },
-    "license": "MIT"
+    "license": "MIT",
+    "devDependencies": {
+        "@11ty/eleventy": "^0.10.0"
+    }
 }
