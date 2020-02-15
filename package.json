@@ -14,7 +14,9 @@
         "html"
     ],
     "scripts": {
-        "build": "eleventy",
+        "build": "npm run build:css && npm run build:html",
+        "build:css": "postcss css/tailwind.css -o css/styles.css",
+        "build:html": "eleventy",
         "watch": "eleventy --watch",
         "serve": "eleventy --serve"
     },
@@ -27,6 +29,9 @@
     },
     "license": "MIT",
     "devDependencies": {
-        "@11ty/eleventy": "^0.10.0"
+        "@11ty/eleventy": "^0.10.0",
+        "autoprefixer": "^9.7.4",
+        "postcss-cli": "^7.1.0",
+        "tailwindcss": "^1.2.0"
     }
 }
