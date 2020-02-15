@@ -1,3 +1,4 @@
 _site
+.netlify
 css/styles.css
 node_modules

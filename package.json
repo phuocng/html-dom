@@ -18,7 +18,8 @@
         "build:css": "postcss css/tailwind.css -o css/styles.css",
         "build:html": "eleventy",
         "watch": "eleventy --watch",
-        "serve": "eleventy --serve"
+        "serve": "eleventy --serve",
+        "deploy": "npm run build && netlify deploy --dir=_site --prod"
     },
     "repository": {
         "type": "git",
