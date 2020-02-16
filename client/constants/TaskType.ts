@@ -1,6 +1,7 @@
 enum TaskType {
     AddClass = 'AddClass',
     Append = 'Append',
+    Attribute = 'Attribute',
     Children = 'Children',
     Clone = 'Clone',
     Closest = 'Closest',
