@@ -9,6 +9,7 @@ interface TaskPageProps {
 }
 
 const TaskPage: React.FC<TaskPageProps> = ({ slug }) => {
+    
     const task = TaskMetaList.find((v) => v.slug === slug);
 
     return (
