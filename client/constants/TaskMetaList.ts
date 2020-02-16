@@ -1,6 +1,6 @@
 import TaskType from './TaskType';
 
-interface TaskMeta {
+export interface TaskMeta {
     taskType: TaskType;
     title: string;
     slug: string;
