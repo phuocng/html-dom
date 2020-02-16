@@ -1,9 +1,12 @@
 import React from 'react';
 
 import Markdown from '../components/Markdown';
+import RelatedTasks from '../components/RelatedTasks';
+import TaskType from '../constants/TaskType';
 
 const LoopNodeList: React.FC<{}> = () => {
     return (
+<>
 <Markdown
     content={`
 Assume that \`elements\` is a NodeList that matches given selector:
@@ -46,6 +49,8 @@ elements.forEach(function(ele) {
 ~~~
 `}
 />
+<RelatedTasks tasks={[TaskType.Select]} />
+</>
     );
 };
 
