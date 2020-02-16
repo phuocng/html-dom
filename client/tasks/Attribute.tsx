@@ -1,9 +1,12 @@
 import React from 'react';
 
 import Markdown from '../components/Markdown';
+import RelatedTasks from '../components/RelatedTasks';
+import TaskType from '../constants/TaskType';
 
 const Attribute: React.FC<{}> = () => {
     return (
+<>
 <Markdown
     content={`
 ## Get the attribute's value
@@ -29,6 +32,8 @@ ele.removeAttribute('title');
 ~~~
 `}
 />
+<RelatedTasks tasks={[TaskType.Data]} />
+</>
     );
 };
 

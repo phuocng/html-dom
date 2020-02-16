@@ -15,6 +15,7 @@ const TaskMetaList: TaskMeta[] = [
     { taskType: TaskType.Create, title: 'Create an element', slug: 'create-an-element' },
     { taskType: TaskType.Ready, title: 'Execute code when the document is ready', slug: 'execute-code-when-the-document-is-ready' },
     { taskType: TaskType.Attribute, title: 'Get, set and remove attributes', slug: 'get-set-and-remove-attributes' },
+    { taskType: TaskType.Data, title: 'Get, set and remove data attributes', slug: 'get-set-and-remove-data-attributes' },
     { taskType: TaskType.InnerHtml, title: 'Get or set the HTML of an element', slug: 'get-or-set-the-html-of-an-element' },
     { taskType: TaskType.Sibling, title: 'Get siblings of an element', slug: 'get-siblings-of-an-element' },
     { taskType: TaskType.Closest, title: 'Get the closest element by given selector', slug: 'get-the-closest-element-by-given-selector' },
