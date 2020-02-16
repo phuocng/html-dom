@@ -22,7 +22,7 @@ const TaskLayout: React.FC<TaskLayoutProps> = ({ children, task }) => {
             <div className='mt-32 text-center'>
                 <span className='bg-black text-white text-3xl px-3 py-2 rounded'>{index + 1}/{numTasks}</span>
             </div>
-            <h1 className='font-bold mt-4 mb-4 text-center text-4xl lg:text-5xl px-1'>{task.title}</h1>
+            <h1 className='font-bold mt-4 mb-4 text-center text-3xl lg:text-4xl px-1'>{task.title}</h1>
 
             <div className="mb-12 text-center">
                 <Link
