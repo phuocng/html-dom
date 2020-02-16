@@ -9,7 +9,7 @@ const Layout: React.FC<{}> = ({ children }) => {
 
     return (
         <>
-            <div className='ml-auto mr-auto max-w-4xl px-2 lg:px-0'>
+            <div className='flex-1 ml-auto mr-auto max-w-4xl px-2 lg:px-0'>
                 {children}
             </div>
             <Footer />
