@@ -12,6 +12,7 @@ enum TaskType {
     Replace = 'Replace',
     Select = 'Select',
     Show = 'Show',
+    Wrap = 'Wrap',
 }
 
 export default TaskType;
