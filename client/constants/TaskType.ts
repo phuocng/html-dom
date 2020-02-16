@@ -1,5 +1,5 @@
 enum TaskType {
-    Show = 'show',
+    Show = 'Show',
 }
 
 export default TaskType;

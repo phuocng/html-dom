@@ -30,6 +30,7 @@
         "deploy": "npm run build && netlify deploy --dir=dist --prod"
     },
     "dependencies": {
+        "@loadable/component": "^5.12.0",
         "highlight.js": "^9.17.1",
         "react": "^16.12.0",
         "react-dom": "^16.12.0",
@@ -40,6 +41,7 @@
         "@babel/core": "^7.8.3",
         "@babel/preset-env": "^7.8.3",
         "@babel/preset-react": "^7.7.4",
+        "@types/loadable__component": "^5.10.0",
         "@types/react": "^16.9.17",
         "@types/react-dom": "^16.9.4",
         "@types/react-helmet": "^5.0.15",

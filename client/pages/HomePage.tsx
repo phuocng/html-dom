@@ -2,13 +2,10 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
-import TaskMetaMap from '../constants/TaskMetaMap';
-import TaskType from '../constants/TaskType';
-import slug from '../helpers/slug';
+import TaskMetaList from '../constants/TaskMetaList';
 import Layout from './Layout';
 
 const HomePage = () => {
-    console.log(TaskMetaMap);
     return (
         <Layout>
             <Helmet>
@@ -34,16 +31,15 @@ const HomePage = () => {
             <div className='ml-auto mr-auto max-w-4xl'>
                 <ul>
                 {
-                    Object.values(TaskType).map((task, index) => {
-                        const title = TaskMetaMap.get(task).title;
+                    TaskMetaList.map((meta, index) => {
                         const idx = (index < 10) ? `0${index + 1}` : `${index + 1}`;
                         return (
-                            <li key={task}>
+                            <li key={meta.taskType}>
                                 <Link
-                                    to={`/${slug(title)}`}
+                                    to={`/${meta.slug}`}
                                     className='font-light text-2xl bg-gray-200 px-2 py-1 block'
                                 >
-                                    {idx} - {title}
+                                    {idx} - {meta.title}
                                 </Link>
                             </li>
                         );
