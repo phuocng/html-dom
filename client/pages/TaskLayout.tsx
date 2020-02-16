@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-import Filter from '../components/Filter';
 import TaskMetaList, { TaskMeta } from '../constants/TaskMetaList';
 import Layout from './Layout';
 
@@ -41,10 +40,6 @@ const TaskLayout: React.FC<TaskLayoutProps> = ({ children, task }) => {
                 >
                     Github
                 </a>
-            </div>
-
-            <div className='ml-auto mr-auto w-1/2 mb-8'>
-                <Filter />
             </div>
 
             <div className='mb-4'>
