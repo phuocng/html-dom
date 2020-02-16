@@ -6,6 +6,7 @@ enum TaskType {
     Clone = 'Clone',
     Closest = 'Closest',
     Create = 'Create',
+    Data = 'Data',
     HasClass = 'HasClass',
     InnerHtml = 'InnerHtml',
     Insert = 'Insert',
