@@ -34,12 +34,12 @@ const HomePage = () => {
                     TaskMetaList.map((meta, index) => {
                         const idx = (index < 10) ? `0${index + 1}` : `${index + 1}`;
                         return (
-                            <li key={meta.taskType}>
+                            <li key={meta.taskType} className='mb-4'>
                                 <Link
                                     to={`/${meta.slug}`}
                                     className='font-light text-2xl bg-gray-200 px-2 py-1 block'
                                 >
-                                    {idx} - {meta.title}
+                                    {idx} — {meta.title}
                                 </Link>
                             </li>
                         );
