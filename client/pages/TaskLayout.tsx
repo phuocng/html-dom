@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 import { TaskMeta } from '../constants/TaskMetaList';
 import Layout from './Layout';
@@ -11,6 +12,9 @@ interface TaskLayoutProps {
 const TaskLayout: React.FC<TaskLayoutProps> = ({ children, task }) => {
     return (
         <Layout>
+            <Helmet>
+                <title>HTML DOM - {task.title}</title>
+            </Helmet>
             <h1 className='font-bold mt-32 mb-4 text-center text-4xl lg:text-5xl px-1'>{task.title}</h1>
 
             <div className="mb-12 text-center">

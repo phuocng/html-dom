@@ -14,7 +14,7 @@ const HomePage = () => {
             </Helmet>
 
             <h1 className='font-bold mt-32 text-center text-4xl lg:text-5xl px-1'>How to manage HTML DOM</h1>
-            <h3 className='font-light mb-16 text-3xl text-center'>native API only</h3>
+            <h3 className='font-light mb-16 text-3xl text-center'>with native API only</h3>
 
             <div className="mb-12 text-center">
                 <a
