@@ -4,6 +4,7 @@ enum TaskType {
     LoopNodeList = 'LoopNodeList',
     Remove = 'Remove',
     RemoveAllChildren = 'RemoveAllChildren',
+    Select = 'Select',
     Show = 'Show',
 }
 

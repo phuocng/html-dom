@@ -42,7 +42,7 @@ const Markdown: React.FC<MarkdownProps> = ({ content }) => {
                 : <ul className="mb-8 ml-4 list-disc">{p.children}</ul>;
     };
     const renderParagraph = (p: any) => {
-        return <p className="mb-8">{p.children}</p>;
+        return <p className="mb-2">{p.children}</p>;
     };
     const renderTable = (p: any) => {
         return <table className="border mb-8 text-white">{p.children}</table>;

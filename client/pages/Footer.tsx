@@ -103,7 +103,6 @@ const Footer: React.FC<{}> = () => {
                                 github/phuoc-ng
                             </a>
                         </li>
-                        <li className='flex-1' />
                     </ul>
                 </div>
 
