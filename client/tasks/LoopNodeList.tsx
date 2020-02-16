@@ -49,7 +49,7 @@ elements.forEach(function(ele) {
 ~~~
 `}
 />
-<RelatedTasks tasks={[TaskType.Select]} />
+<RelatedTasks tasks={[TaskType.Select, TaskType.Children]} />
 </>
     );
 };

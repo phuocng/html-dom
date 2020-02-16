@@ -25,6 +25,7 @@ const TaskMetaList: TaskMeta[] = [
     { taskType: TaskType.Remove, title: 'Remove an element', slug: 'remove-an-element' },
     { taskType: TaskType.Replace, title: 'Replace an element', slug: 'replace-an-element' },
     { taskType: TaskType.Select, title: 'Select an element or list of elements', slug: 'select-an-element-or-list-of-elements' },
+    { taskType: TaskType.Children, title: 'Select the children of an element', slug: 'select-the-children-of-an-element' },
     { taskType: TaskType.Show, title: 'Show or hide an element', slug: 'show-or-hide-an-element' },
     { taskType: TaskType.Unwrap, title: 'Unwrap an element', slug: 'unwrap-an-element' },
     { taskType: TaskType.Wrap, title: 'Wrap an element around a given element', slug: 'wrap-an-element-around-a-given-element' },
