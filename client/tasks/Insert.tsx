@@ -1,9 +1,12 @@
 import React from 'react';
 
 import Markdown from '../components/Markdown';
+import RelatedTasks from '../components/RelatedTasks';
+import TaskType from '../constants/TaskType';
 
 const Insert: React.FC<{}> = () => {
     return (
+<>
 <Markdown
     content={`
 ## Insert after
@@ -23,6 +26,8 @@ refEle.parentNode.insertBefore(ele, refEle);
 ~~~
 `}
 />
+<RelatedTasks tasks={[TaskType.Prepend]} />
+</>
     );
 };
 
