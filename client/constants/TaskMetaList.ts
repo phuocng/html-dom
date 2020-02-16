@@ -17,6 +17,7 @@ const TaskMetaList: TaskMeta[] = [
     { taskType: TaskType.LoopNodeList, title: 'Loop over a NodeList', slug: 'loop-over-a-nodelist' },
     { taskType: TaskType.RemoveAllChildren, title: 'Remove all children of a node', slug: 'remove-all-children-of-a-node' },
     { taskType: TaskType.Remove, title: 'Remove an element', slug: 'remove-an-element' },
+    { taskType: TaskType.Replace, title: 'Replace an element', slug: 'replace-an-element' },
     { taskType: TaskType.Select, title: 'Select an element or list of elements', slug: 'select-an-element-or-list-of-elements' },
     { taskType: TaskType.Show, title: 'Show or hide an element', slug: 'show-or-hide-an-element' },
 ];

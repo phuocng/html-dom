@@ -9,6 +9,7 @@ enum TaskType {
     Ready = 'Ready',
     Remove = 'Remove',
     RemoveAllChildren = 'RemoveAllChildren',
+    Replace = 'Replace',
     Select = 'Select',
     Show = 'Show',
 }
