@@ -18,7 +18,7 @@ const RelatedTasks: React.FC<RelatedTasksProps> = ({ tasks }) => {
                     const meta = TaskMetaList.find((v) => v.taskType === task);
                     const idx = (index < 10) ? `0${index + 1}` : `${index + 1}`;
                     return (
-                        <li key={meta.taskType} className='mb-4'>
+                        <li key={meta.taskType}>
                             <Link
                                 to={`/${meta.slug}`}
                                 className='px-2 py-1 block'
