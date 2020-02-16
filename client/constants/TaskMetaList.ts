@@ -14,6 +14,7 @@ const TaskMetaList: TaskMeta[] = [
     { taskType: TaskType.Create, title: 'Create an element', slug: 'create-an-element' },
     { taskType: TaskType.Ready, title: 'Execute code when the document is ready', slug: 'execute-code-when-the-document-is-ready' },
     { taskType: TaskType.Closest, title: 'Get the closest element by given selector', slug: 'get-the-closest-element-by-given-selector' },
+    { taskType: TaskType.Insert, title: 'Insert an element after or before other element', slug: 'insert-an-element-after-or-before-other-element' },
     { taskType: TaskType.LoopNodeList, title: 'Loop over a NodeList', slug: 'loop-over-a-nodelist' },
     { taskType: TaskType.RemoveAllChildren, title: 'Remove all children of a node', slug: 'remove-all-children-of-a-node' },
     { taskType: TaskType.Remove, title: 'Remove an element', slug: 'remove-an-element' },

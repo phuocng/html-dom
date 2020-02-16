@@ -4,6 +4,7 @@ enum TaskType {
     Closest = 'Closest',
     Create = 'Create',
     HasClass = 'HasClass',
+    Insert = 'Insert',
     LoopNodeList = 'LoopNodeList',
     Match = 'Match',
     Ready = 'Ready',
