@@ -3,6 +3,7 @@ enum TaskType {
     HasClass = 'HasClass',
     LoopNodeList = 'LoopNodeList',
     Remove = 'Remove',
+    RemoveAllChildren = 'RemoveAllChildren',
     Show = 'Show',
 }
 
