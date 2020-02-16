@@ -12,6 +12,7 @@ enum TaskType {
     Replace = 'Replace',
     Select = 'Select',
     Show = 'Show',
+    Unwrap = 'Unwrap',
     Wrap = 'Wrap',
 }
 

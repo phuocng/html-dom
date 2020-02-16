@@ -29,7 +29,7 @@ while (node.firstChild) {
 ~~~
 `}
 />
-<RelatedTasks tasks={[TaskType.Remove]} />
+<RelatedTasks tasks={[TaskType.Remove, TaskType.Unwrap]} />
 </>
     );
 };

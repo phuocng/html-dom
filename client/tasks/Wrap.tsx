@@ -1,9 +1,12 @@
 import React from 'react';
 
 import Markdown from '../components/Markdown';
+import RelatedTasks from '../components/RelatedTasks';
+import TaskType from '../constants/TaskType';
 
 const Wrap: React.FC<{}> = () => {
     return (
+<>
 <Markdown
     content={`
 Wrap the \`wrapper\` element around the \`ele\` element:
@@ -17,6 +20,8 @@ wrapper.appendChild(ele);
 ~~~
 `}
 />
+<RelatedTasks tasks={[TaskType.Unwrap]} />
+</>
     );
 };
 
