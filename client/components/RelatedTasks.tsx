@@ -28,9 +28,9 @@ const RelatedTasks: React.FC<RelatedTasksProps> = ({ tasks }) => {
                             <li key={meta.taskType} className='mb-4'>
                                 <Link
                                     to={`/${meta.slug}`}
-                                    className='bg-gray-200 px-2 py-1 block'
+                                    className='px-2 py-1 block'
                                 >
-                                    {meta.title}
+                                    # {meta.title}
                                 </Link>
                             </li>
                         );
