@@ -13,8 +13,11 @@ const HomePage = () => {
                 <meta name='description' content='Common tasks of managing HTML DOM with native API' />
             </Helmet>
 
-            <h1 className='font-bold mt-32 text-center text-4xl lg:text-5xl px-1'>How to manage HTML DOM</h1>
-            <h3 className='font-light mb-16 text-3xl text-center'>with native API only</h3>
+            <h1 className='font-bold mt-32 text-center text-4xl lg:text-5xl px-1'>how to manage HTML DOM</h1>
+            <h3 className='font-light mb-1 text-3xl text-center'>
+                with <span className='bg-blue-200 p-1'>native API</span> only?
+            </h3>
+            <h4 className='font-light mb-16 text-xl text-center italic'>for modern browsers and IE 11+</h4>
 
             <div className="mb-12 text-center">
                 <a

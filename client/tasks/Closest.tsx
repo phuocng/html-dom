@@ -4,13 +4,12 @@ import Markdown from '../components/Markdown';
 import RelatedTasks from '../components/RelatedTasks';
 import TaskType from '../constants/TaskType';
 
-const Match: React.FC<{}> = () => {
+const Closest: React.FC<{}> = () => {
     return (
 <>
 <Markdown
     content={`
 ~~~ javascript
-// Return true if \`ele\` matches the CSS selector \`selector\`
 const matches = function(ele, selector) {
     return (
         ele.matches || 
@@ -21,12 +20,24 @@ const matches = function(ele, selector) {
         ele.oMatchesSelector
     ).call(ele, selector);
 };
+
+// Find the closest element to \`ele\` and matches the \`selector\`
+const closest = function(ele, selector) {
+    let e = ele;
+    while (e) {
+        if (matches(e, selector)) {
+            break;
+        }
+        e = e.parentNode;
+    }
+    return e;
+};
 ~~~
 `}
 />
-<RelatedTasks tasks={[TaskType.Closest]} />
+<RelatedTasks tasks={[TaskType.Match]} />
 </>
     );
 };
 
-export default Match;
+export default Closest;
