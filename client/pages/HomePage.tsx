@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
+import Filter from '../components/Filter';
 import TaskMetaList from '../constants/TaskMetaList';
 import Layout from './Layout';
 
@@ -26,6 +27,10 @@ const HomePage = () => {
                 >
                     Github
                 </a>
+            </div>
+
+            <div className='ml-auto mr-auto w-1/2 mb-8'>
+                <Filter />
             </div>
 
             <div className='ml-auto mr-auto max-w-4xl'>
