@@ -71,7 +71,7 @@ const Footer: React.FC<{}> = () => {
                 </div>
 
                 <div className='mt-6'>
-                    <h3 className='text-2xl font-semibold mb-2'>Follow me</h3>
+                    <h3 className='text-2xl font-semibold mb-2'>Follow me <span className='font-light text-gray-600 ml-2'>I love building products!</span></h3>
                     <ul className='flex'>
                         <li className='flex-1'>
                             <a
@@ -80,7 +80,8 @@ const Footer: React.FC<{}> = () => {
                                 style={{ textDecoration: 'none' }}
                                 target="_blank"
                             >
-                                twitter/nghuuphuoc
+                                <div className='font-semibold'>Twitter</div>
+                                <span className='text-gray-600'>@nghuuphuoc</span>
                             </a>
                         </li>
                         <li className='flex-1'>
@@ -90,7 +91,8 @@ const Footer: React.FC<{}> = () => {
                                 style={{ textDecoration: 'none' }}
                                 target="_blank"
                             >
-                                dev.to/phuocng
+                                <div className='font-semibold'>dev.to</div>
+                                <span className='text-gray-600'>@phuocng</span>
                             </a>
                         </li>
                         <li className='flex-1'>
@@ -100,7 +102,8 @@ const Footer: React.FC<{}> = () => {
                                 style={{ textDecoration: 'none' }}
                                 target="_blank"
                             >
-                                github/phuoc-ng
+                                <div className='font-semibold'>Github</div>
+                                <span className='text-gray-600'>@phuoc-ng</span>
                             </a>
                         </li>
                     </ul>
