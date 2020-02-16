@@ -1,6 +1,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url><loc>https://htmldom.dev/add-or-remove-class-from-an-element</loc></url>
     <url><loc>https://htmldom.dev/check-if-an-element-has-given-class</loc></url>
+    <url><loc>https://htmldom.dev/execute-code-when-the-document-is-ready</loc></url>
     <url><loc>https://htmldom.dev/loop-over-a-nodelist</loc></url>
     <url><loc>https://htmldom.dev/remove-an-element</loc></url>
     <url><loc>https://htmldom.dev/remove-all-children-of-a-node</loc></url>
