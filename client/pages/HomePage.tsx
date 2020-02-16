@@ -35,7 +35,7 @@ const HomePage = () => {
                 <ul>
                 {
                     TaskMetaList.map((meta, index) => {
-                        const idx = (index < 10) ? `0${index + 1}` : `${index + 1}`;
+                        const idx = (index < 9) ? `0${index + 1}` : `${index + 1}`;
                         return (
                             <li key={meta.taskType} className='mb-4'>
                                 <Link
