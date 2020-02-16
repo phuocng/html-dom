@@ -11,8 +11,15 @@ interface RelatedTasksProps {
 const RelatedTasks: React.FC<RelatedTasksProps> = ({ tasks }) => {
     return (
         <section>
-            <h3 className='text-2xl mb-2 inline-block border-b-2 border-black'>Might be useful</h3>
-            <ul>
+            <div className='relative border border-gray-400'>
+                <h3
+                    className='absolute top-0 ml-4 px-2 bg-white text-2xl inline-block'
+                    style={{ transform: 'translate(0px, -50%)' }}
+                >
+                    Might be useful
+                </h3>
+
+                <ul className='mt-6'>
                 {
                     tasks.map((task, index) => {
                         const meta = TaskMetaList.find((v) => v.taskType === task);
@@ -29,7 +36,8 @@ const RelatedTasks: React.FC<RelatedTasksProps> = ({ tasks }) => {
                         );
                     })
                 }
-            </ul>
+                </ul>
+            </div>
         </section>
     );
 };
