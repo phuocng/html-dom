@@ -1,6 +1,6 @@
 enum TaskType {
-    Show = 'Show',
     AddClass = 'AddClass',
+    Show = 'Show',
 }
 
 export default TaskType;

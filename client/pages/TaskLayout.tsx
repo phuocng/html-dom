@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-import { TaskMeta } from '../constants/TaskMetaList';
+import TaskMetaList, { TaskMeta } from '../constants/TaskMetaList';
 import Layout from './Layout';
 
 interface TaskLayoutProps {
@@ -10,12 +10,19 @@ interface TaskLayoutProps {
 }
 
 const TaskLayout: React.FC<TaskLayoutProps> = ({ children, task }) => {
+    const numTasks = TaskMetaList.length;
+    const index = TaskMetaList.indexOf(task);
+
     return (
         <Layout>
             <Helmet>
                 <title>HTML DOM - {task.title}</title>
             </Helmet>
-            <h1 className='font-bold mt-32 mb-4 text-center text-4xl lg:text-5xl px-1'>{task.title}</h1>
+
+            <div className='mt-32 text-center'>
+                <span className='bg-black text-white text-3xl px-3 py-2 rounded'>{index + 1}/{numTasks}</span>
+            </div>
+            <h1 className='font-bold mt-4 mb-4 text-center text-4xl lg:text-5xl px-1'>{task.title}</h1>
 
             <div className="mb-12 text-center">
                 <Link
