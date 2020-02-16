@@ -1,6 +1,7 @@
 enum TaskType {
     AddClass = 'AddClass',
     Closest = 'Closest',
+    Create = 'Create',
     HasClass = 'HasClass',
     LoopNodeList = 'LoopNodeList',
     Match = 'Match',
