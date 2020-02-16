@@ -14,6 +14,7 @@ const TaskMetaList: TaskMeta[] = [
     { taskType: TaskType.Clone, title: 'Clone an element', slug: 'clone-an-element' },
     { taskType: TaskType.Create, title: 'Create an element', slug: 'create-an-element' },
     { taskType: TaskType.Ready, title: 'Execute code when the document is ready', slug: 'execute-code-when-the-document-is-ready' },
+    { taskType: TaskType.InnerHtml, title: 'Get or set the HTML of an element', slug: 'get-or-set-the-html-of-an-element' },
     { taskType: TaskType.Closest, title: 'Get the closest element by given selector', slug: 'get-the-closest-element-by-given-selector' },
     { taskType: TaskType.TextContent, title: 'Get the text content of an element', slug: 'get-the-text-content-of-an-element' },
     { taskType: TaskType.Insert, title: 'Insert an element after or before other element', slug: 'insert-an-element-after-or-before-other-element' },

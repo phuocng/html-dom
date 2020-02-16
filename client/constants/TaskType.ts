@@ -5,6 +5,7 @@ enum TaskType {
     Closest = 'Closest',
     Create = 'Create',
     HasClass = 'HasClass',
+    InnerHtml = 'InnerHtml',
     Insert = 'Insert',
     LoopNodeList = 'LoopNodeList',
     Match = 'Match',
