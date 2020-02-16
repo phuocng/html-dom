@@ -9,13 +9,13 @@ const Show: React.FC<{}> = () => {
 ## Show an element
 
 ~~~ javascript
-ele.style.display = 'none';
+ele.style.display = '';
 ~~~
 
 ## Hide an element
 
 ~~~ javascript
-ele.style.display = '';
+ele.style.display = 'none';
 ~~~
 `}
 />
