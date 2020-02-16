@@ -8,6 +8,7 @@ export interface TaskMeta {
 
 const TaskMetaList: TaskMeta[] = [
     { taskType: TaskType.AddClass, title: 'Add or remove class from an element', slug: 'add-or-remove-class-from-an-element' },
+    { taskType: TaskType.HasClass, title: 'Check if an element has given class', slug: 'check-if-an-element-has-given-class' },
     { taskType: TaskType.Show, title: 'Show or hide an element', slug: 'show-or-hide-an-element' },
 ];
 

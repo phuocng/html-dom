@@ -1,5 +1,6 @@
 enum TaskType {
     AddClass = 'AddClass',
+    HasClass = 'HasClass',
     Show = 'Show',
 }
 
