@@ -48,7 +48,7 @@ const TaskLayout: React.FC<TaskLayoutProps> = ({ children, task }) => {
             {index > 0 && (
                 <div className='mb-2'>
                     <Link
-                        className='text-2xl'
+                        className='text-xl sm:text-2xl'
                         to={`/${TaskMetaList[index - 1].slug}`}
                         title={TaskMetaList[index - 1].title}
                     >
@@ -59,7 +59,7 @@ const TaskLayout: React.FC<TaskLayoutProps> = ({ children, task }) => {
             {index < numTasks - 1 && (
                 <div className='mb-2 text-right'>
                     <Link
-                        className='text-2xl'
+                        className='text-xl sm:text-2xl'
                         to={`/${TaskMetaList[index + 1].slug}`}
                         title={TaskMetaList[index + 1].title}
                     >
