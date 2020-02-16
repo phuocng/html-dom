@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch as RouteSwitch } from 'react-router-dom';
 
+import './index.css';
+
 import HomePage from './pages/HomePage';
 import TaskPage from './pages/TaskPage';
 
