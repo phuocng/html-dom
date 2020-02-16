@@ -16,6 +16,7 @@ const TaskMetaList: TaskMeta[] = [
     { taskType: TaskType.Ready, title: 'Execute code when the document is ready', slug: 'execute-code-when-the-document-is-ready' },
     { taskType: TaskType.InnerHtml, title: 'Get or set the HTML of an element', slug: 'get-or-set-the-html-of-an-element' },
     { taskType: TaskType.Closest, title: 'Get the closest element by given selector', slug: 'get-the-closest-element-by-given-selector' },
+    { taskType: TaskType.Parent, title: 'Get the parent node of an element', slug: 'get-the-parent-node-of-an-element' },
     { taskType: TaskType.TextContent, title: 'Get the text content of an element', slug: 'get-the-text-content-of-an-element' },
     { taskType: TaskType.Insert, title: 'Insert an element after or before other element', slug: 'insert-an-element-after-or-before-other-element' },
     { taskType: TaskType.LoopNodeList, title: 'Loop over a NodeList', slug: 'loop-over-a-nodelist' },
