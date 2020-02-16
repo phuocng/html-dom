@@ -11,7 +11,7 @@ interface RelatedTasksProps {
 const RelatedTasks: React.FC<RelatedTasksProps> = ({ tasks }) => {
     return (
         <div className='border-l-4 pl-2 border-gray-400'>
-            <h3 className='px-2 font-semibold bg-white text-2xl'>Might be useful</h3>
+            <h3 className='px-2 font-semibold bg-white text-xl sm:text-2xl'>Might be useful</h3>
             <ul className='mt-2'>
             {
                 tasks.map((task, index) => {

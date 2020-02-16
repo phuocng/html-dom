@@ -5,9 +5,9 @@ const Footer: React.FC<{}> = () => {
         <div className='border-t pt-4 border-gray-400'>
             <div className='ml-auto mr-auto max-w-3xl mb-16 px-2 lg:px-0'>
                 <div>
-                    <h3 className='text-2xl font-semibold mb-2'>Products</h3>
+                    <h3 className='text-xl sm:text-2xl font-semibold mb-2'>Products</h3>
                     <ul className='flex flex-wrap -ml-1 -mr-1'>
-                        <li className='w-1/3 px-1 mb-6'>
+                        <li className='w-1/2 sm:w-1/3 px-1 mb-6'>
                             <a
                                 href="https://blur.page"
                                 rel="noopener noreferrer"
@@ -19,7 +19,7 @@ const Footer: React.FC<{}> = () => {
                                 <span className='text-gray-600'>a browser extension to hide sensitive element on page</span>
                             </a>
                         </li>
-                        <li className='w-1/3 px-1 mb-6'>
+                        <li className='w-1/2 sm:w-1/3 px-1 mb-6'>
                             <a
                                 href="https://csslayout.io"
                                 rel="noopener noreferrer"
@@ -31,7 +31,7 @@ const Footer: React.FC<{}> = () => {
                                 <span className='text-gray-600'>a collection of popular layouts and patterns made with CSS</span>
                             </a>
                         </li>
-                        <li className='w-1/3 px-1 mb-6'>
+                        <li className='w-1/2 sm:w-1/3 px-1 mb-6'>
                             <a
                                 href="https://fakenumbers.io"
                                 rel="noopener noreferrer"
@@ -43,7 +43,7 @@ const Footer: React.FC<{}> = () => {
                                 <span className='text-gray-600'>a JavaScript library to fake a number</span>
                             </a>
                         </li>
-                        <li className='w-1/3 px-1 mb-6'>
+                        <li className='w-1/2 sm:w-1/3 px-1 mb-6'>
                             <a
                                 href="https://formvalidation.io"
                                 rel="noopener noreferrer"
@@ -55,7 +55,7 @@ const Footer: React.FC<{}> = () => {
                                 <span className='text-gray-600'>the best validation library for JavaScript</span>
                             </a>
                         </li>
-                        <li className='w-1/3 px-1 mb-6'>
+                        <li className='w-1/2 sm:w-1/3 px-1 mb-6'>
                             <a
                                 href="https://react-pdf-viewer.dev"
                                 rel="noopener noreferrer"
@@ -71,7 +71,7 @@ const Footer: React.FC<{}> = () => {
                 </div>
 
                 <div className='mt-6'>
-                    <h3 className='text-2xl font-semibold mb-2'>Follow me <span className='font-light text-gray-600 ml-2'>I love building products!</span></h3>
+                    <h3 className='text-xl sm:text-2xl font-semibold mb-2'>Follow me <span className='font-light text-gray-600 ml-2'>I love building products!</span></h3>
                     <ul className='flex'>
                         <li className='flex-1'>
                             <a
