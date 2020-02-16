@@ -1,9 +1,12 @@
 import React from 'react';
 
 import Markdown from '../components/Markdown';
+import RelatedTasks from '../components/RelatedTasks';
+import TaskType from '../constants/TaskType';
 
 const Remove: React.FC<{}> = () => {
     return (
+<>
 <Markdown
     content={`
 ## 1. Use the remove method
@@ -23,6 +26,8 @@ if (ele.parentNode) {
 ~~~
 `}
 />
+<RelatedTasks tasks={[TaskType.RemoveAllChildren]} />
+</>
     );
 };
 
