@@ -17,6 +17,7 @@ enum TaskType {
     RemoveAllChildren = 'RemoveAllChildren',
     Replace = 'Replace',
     Select = 'Select',
+    Sibling = 'Sibling',
     TextContent = 'TextContent',
     Show = 'Show',
     Unwrap = 'Unwrap',
