@@ -31,6 +31,7 @@ const TaskMetaList: TaskMeta[] = [
     { taskType: TaskType.RemoveAllChildren, title: 'Remove all children of a node', slug: 'remove-all-children-of-a-node' },
     { taskType: TaskType.Remove, title: 'Remove an element', slug: 'remove-an-element' },
     { taskType: TaskType.Replace, title: 'Replace an element', slug: 'replace-an-element' },
+    { taskType: TaskType.ScrollTop, title: 'Scroll to top of the page', slug: 'scroll-to-top-of-the-page' },
     { taskType: TaskType.Select, title: 'Select an element or list of elements', slug: 'select-an-element-or-list-of-elements' },
     { taskType: TaskType.Children, title: 'Select the children of an element', slug: 'select-the-children-of-an-element' },
     { taskType: TaskType.SetStyle, title: 'Set CSS style for an element', slug: 'set-css-style-for-an-element' },
