@@ -9,6 +9,7 @@ export interface TaskMeta {
 const TaskMetaList: TaskMeta[] = [
     { taskType: TaskType.AddClass, title: 'Add or remove class from an element', slug: 'add-or-remove-class-from-an-element' },
     { taskType: TaskType.Append, title: 'Append to an element', slug: 'append-to-an-element' },
+    { taskType: TaskType.On, title: 'Attach or detach an event handler', slug: 'attach-or-detach-an-event-handler' },
     { taskType: TaskType.Match, title: 'Check an element against a selector', slug: 'check-an-element-against-a-selector' },
     { taskType: TaskType.HasClass, title: 'Check if an element has given class', slug: 'check-if-an-element-has-given-class' },
     { taskType: TaskType.Clone, title: 'Clone an element', slug: 'clone-an-element' },

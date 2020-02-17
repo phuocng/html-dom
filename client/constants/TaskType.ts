@@ -12,6 +12,7 @@ enum TaskType {
     Insert = 'Insert',
     LoopNodeList = 'LoopNodeList',
     Match = 'Match',
+    On = 'On',
     Parent = 'Parent',
     Prepend = 'Prepend',
     Ready = 'Ready',
