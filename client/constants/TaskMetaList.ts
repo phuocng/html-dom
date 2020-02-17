@@ -14,6 +14,7 @@ const TaskMetaList: TaskMeta[] = [
     { taskType: TaskType.HasClass, title: 'Check if an element has given class', slug: 'check-if-an-element-has-given-class' },
     { taskType: TaskType.Clone, title: 'Clone an element', slug: 'clone-an-element' },
     { taskType: TaskType.Create, title: 'Create an element', slug: 'create-an-element' },
+    { taskType: TaskType.ClickOutside, title: 'Detect clicks outside of an element', slug: 'detect-clicks-outside-of-an-element' },
     { taskType: TaskType.Ready, title: 'Execute code when the document is ready', slug: 'execute-code-when-the-document-is-ready' },
     { taskType: TaskType.Attribute, title: 'Get, set and remove attributes', slug: 'get-set-and-remove-attributes' },
     { taskType: TaskType.Data, title: 'Get, set and remove data attributes', slug: 'get-set-and-remove-data-attributes' },
