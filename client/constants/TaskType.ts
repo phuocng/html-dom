@@ -20,8 +20,9 @@ enum TaskType {
     Replace = 'Replace',
     Select = 'Select',
     Sibling = 'Sibling',
-    TextContent = 'TextContent',
     Show = 'Show',
+    TextContent = 'TextContent',
+    Trigger = 'Trigger',
     Unwrap = 'Unwrap',
     Wrap = 'Wrap',
 }
