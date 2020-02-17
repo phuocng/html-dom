@@ -22,6 +22,7 @@ enum TaskType {
     Remove = 'Remove',
     RemoveAllChildren = 'RemoveAllChildren',
     Replace = 'Replace',
+    ScrollTop = 'ScrollTop',
     Select = 'Select',
     SetStyle = 'SetStyle',
     Sibling = 'Sibling',
