@@ -7,6 +7,7 @@ enum TaskType {
     Closest = 'Closest',
     Create = 'Create',
     Data = 'Data',
+    GetStyle = 'GetStyle',
     HasClass = 'HasClass',
     InnerHtml = 'InnerHtml',
     Insert = 'Insert',
