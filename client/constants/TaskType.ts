@@ -3,6 +3,7 @@ enum TaskType {
     Append = 'Append',
     Attribute = 'Attribute',
     Children = 'Children',
+    ClickOutside = 'ClickOutside',
     Clone = 'Clone',
     Closest = 'Closest',
     Create = 'Create',
