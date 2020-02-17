@@ -31,6 +31,7 @@ const TaskMetaList: TaskMeta[] = [
     { taskType: TaskType.Replace, title: 'Replace an element', slug: 'replace-an-element' },
     { taskType: TaskType.Select, title: 'Select an element or list of elements', slug: 'select-an-element-or-list-of-elements' },
     { taskType: TaskType.Children, title: 'Select the children of an element', slug: 'select-the-children-of-an-element' },
+    { taskType: TaskType.SetStyle, title: 'Set CSS style for an element', slug: 'set-css-style-for-an-element' },
     { taskType: TaskType.Show, title: 'Show or hide an element', slug: 'show-or-hide-an-element' },
     { taskType: TaskType.Trigger, title: 'Trigger an event', slug: 'trigger-an-event' },
     { taskType: TaskType.Unwrap, title: 'Unwrap an element', slug: 'unwrap-an-element' },

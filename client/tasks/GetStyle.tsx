@@ -1,9 +1,12 @@
 import React from 'react';
 
 import Markdown from '../components/Markdown';
+import RelatedTasks from '../components/RelatedTasks';
+import TaskType from '../constants/TaskType';
 
 const GetStyle: React.FC<{}> = () => {
     return (
+<>
 <Markdown
     content={`
 We can get all CSS styles via the \`getComputedStyle\` method:
@@ -35,6 +38,8 @@ const bgColor = styles.getPropertyValue('backgroundColor');
 ~~~
 `}
 />
+<RelatedTasks tasks={[TaskType.SetStyle]} />
+</>
     );
 };
 
