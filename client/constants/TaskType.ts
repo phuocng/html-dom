@@ -19,6 +19,7 @@ enum TaskType {
     Parent = 'Parent',
     Prepend = 'Prepend',
     Ready = 'Ready',
+    Reload = 'Reload',
     Remove = 'Remove',
     RemoveAllChildren = 'RemoveAllChildren',
     Replace = 'Replace',
