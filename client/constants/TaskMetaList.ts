@@ -26,6 +26,7 @@ const TaskMetaList: TaskMeta[] = [
     { taskType: TaskType.Parent, title: 'Get the parent node of an element', slug: 'get-the-parent-node-of-an-element' },
     { taskType: TaskType.TextContent, title: 'Get the text content of an element', slug: 'get-the-text-content-of-an-element' },
     { taskType: TaskType.Insert, title: 'Insert an element after or before other element', slug: 'insert-an-element-after-or-before-other-element' },
+    { taskType: TaskType.LoadJs, title: 'Load a JavaScript file dynamically', slug: 'load-a-javascript-file-dynamically' },
     { taskType: TaskType.LoopNodeList, title: 'Loop over a NodeList', slug: 'loop-over-a-nodelist' },
     { taskType: TaskType.Prepend, title: 'Prepend to an element', slug: 'prepend-to-an-element' },
     { taskType: TaskType.Reload, title: 'Reload the current page', slug: 'reload-the-current-page' },
