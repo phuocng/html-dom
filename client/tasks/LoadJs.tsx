@@ -97,7 +97,7 @@ loadScriptsInOrder([
 ~~~
 `}
 />
-<RelatedTasks tasks={[TaskType.Append]} />
+<RelatedTasks tasks={[TaskType.Append, TaskType.LoadCss]} />
 </>
     );
 };

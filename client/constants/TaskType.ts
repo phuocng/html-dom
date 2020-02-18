@@ -13,6 +13,7 @@ enum TaskType {
     HasClass = 'HasClass',
     InnerHtml = 'InnerHtml',
     Insert = 'Insert',
+    LoadCss = 'LoadCss',
     LoadJs = 'LoadJs',
     LoopNodeList = 'LoopNodeList',
     Match = 'Match',
