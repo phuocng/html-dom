@@ -27,16 +27,16 @@ const PostLoader: LoadableComponent<PostLoaderProps> = loadable(loadDetails, {
                 width: '100%',
             }}
         >
-            <svg className="spinner" width="64px" height="64px" viewBox="0 0 32 32">
+            <svg className="spinner" width="64px" height="64px" viewBox="0 0 48 48">
                 <circle
-                    cx="16"
-                    cy="16"
+                    cx="24"
+                    cy="24"
                     fill="none"
-                    r="12"
+                    r="18"
                     stroke="rgba(0, 0, 0, 0.4)"
                     strokeDasharray={Math.PI * 2 * 9}
                     strokeLinecap="round"
-                    strokeWidth="4"
+                    strokeWidth="2"
                 />
             </svg>
         </div>
