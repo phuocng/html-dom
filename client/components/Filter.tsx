@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import TaskMetaList from '../constants/TaskMetaList';
+import TaskList from '../constants/TaskList';
+import { slugify, unslugify } from '../helpers/slugify';
 import SearchIcon from './SearchIcon';
 
 const Filter: React.FC<{}> = () => {
@@ -12,8 +13,10 @@ const Filter: React.FC<{}> = () => {
     const onChangeSearchBox = (e: React.ChangeEvent<HTMLInputElement>) => setKeyword(e.target.value);
     const onClickTask = () => setKeyword('');
 
+    const allTitles = TaskList.map((s) => unslugify(s));
+
     const tasks = keyword
-                ? TaskMetaList.filter((v) => v.title.toLowerCase().includes(keyword.toLowerCase()))
+                ? allTitles.filter((v) => v.toLowerCase().includes(keyword.toLowerCase()))
                 : [];
 
     return (
@@ -42,18 +45,19 @@ const Filter: React.FC<{}> = () => {
                 >
                     <ul>
                     {
-                        tasks.map((task, index) => {
+                        tasks.map((title, index) => {
+                            const slug = slugify(title);
                             return (
                                 <li
-                                    key={task.slug}
+                                    key={slug}
                                     className={`border-gray-400 hover:bg-gray-200 p-2 truncate ${index === 0 ? '' : 'border-t'}`}
                                 >
                                     <Link
                                         onClick={onClickTask}
-                                        to={`/${task.slug}`}
-                                        title={task.title}
+                                        to={`/${slug}`}
+                                        title={title}
                                     >
-                                        {task.title}
+                                        {title}
                                     </Link>
                                 </li>
                             );
