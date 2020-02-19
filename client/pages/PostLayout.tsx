@@ -2,15 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-import TaskList from '../constants/TaskList';
+import TaskList from '../constants/PostList';
 import { slugify, unslugify } from '../helpers/slugify';
 import Layout from './Layout';
 
-interface TaskLayoutProps {
+interface PostLayoutProps {
     slug: string;
 }
 
-const TaskLayout: React.FC<TaskLayoutProps> = ({ children, slug }) => {
+const PostLayout: React.FC<PostLayoutProps> = ({ children, slug }) => {
     const numTasks = TaskList.length;
     const index = TaskList.indexOf(slug);
     const title = unslugify(slug);
@@ -73,4 +73,4 @@ const TaskLayout: React.FC<TaskLayoutProps> = ({ children, slug }) => {
     );
 };
 
-export default TaskLayout;
+export default PostLayout;

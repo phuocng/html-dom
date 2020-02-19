@@ -1,4 +1,4 @@
-const TaskList: string[] = [
+const PostList: string[] = [
     'add-or-remove-class-from-an-element',
     'append-to-an-element',
     'attach-or-detach-an-event-handler',
@@ -36,4 +36,4 @@ const TaskList: string[] = [
     'wrap-an-element-around-a-given-element',
 ];
 
-export default TaskList;
+export default PostList;

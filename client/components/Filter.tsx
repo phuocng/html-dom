@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import TaskList from '../constants/TaskList';
+import PostList from '../constants/PostList';
 import { slugify, unslugify } from '../helpers/slugify';
 import SearchIcon from './SearchIcon';
 
@@ -13,10 +13,10 @@ const Filter: React.FC<{}> = () => {
     const onChangeSearchBox = (e: React.ChangeEvent<HTMLInputElement>) => setKeyword(e.target.value);
     const onClickTask = () => setKeyword('');
 
-    const allTitles = TaskList.map((s) => unslugify(s));
+    const allPosts = PostList.map((s) => unslugify(s));
 
     const tasks = keyword
-                ? allTitles.filter((v) => v.toLowerCase().includes(keyword.toLowerCase()))
+                ? allPosts.filter((v) => v.toLowerCase().includes(keyword.toLowerCase()))
                 : [];
 
     return (

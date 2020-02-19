@@ -3,7 +3,7 @@ import React from 'react';
 
 import './spinner.css';
 
-interface TaskLoaderProps {
+interface PostLoaderProps {
     slug: string;
 }
 
@@ -14,9 +14,9 @@ interface TaskLoaderProps {
 //  {
 //      "plugins": ["@loadable/babel-plugin"],
 //  }
-const loadDetails = /* #__LOADABLE__ */ (props: TaskLoaderProps) => import(`../tasks/${props.slug}`);
+const loadDetails = /* #__LOADABLE__ */ (props: PostLoaderProps) => import(`../posts/${props.slug}`);
 
-const TaskLoader: LoadableComponent<TaskLoaderProps> = loadable(loadDetails, {
+const PostLoader: LoadableComponent<PostLoaderProps> = loadable(loadDetails, {
     fallback: (
         <div
             style={{
@@ -43,4 +43,4 @@ const TaskLoader: LoadableComponent<TaskLoaderProps> = loadable(loadDetails, {
     ),
 });
 
-export default TaskLoader;
+export default PostLoader;
