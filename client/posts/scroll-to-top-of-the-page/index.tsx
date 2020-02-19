@@ -29,9 +29,19 @@ The browser keeps the current scroll position. We have to scroll to the top when
 is used in the layout of a React application using the [React Router](https://github.com/ReactTraining/react-router):
 
 ~~~ javascript
-useEffect(() => {
-    window.scrollTo(0, 0);
-}, []);
+import { useLocation } from 'react-router-dom';
+
+export default ({ children }) => {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
+    return (
+        ...
+    );
+};
 ~~~
 `}
 />

@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import Filter from '../components/Filter';
 import Footer from './Footer';
 
 const Layout: React.FC<{}> = ({ children }) => {
+    const { pathname } = useLocation();
+
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
+    }, [pathname]);
 
     return (
         <>
