@@ -16,6 +16,7 @@ const PostList: string[] = [
     'get-the-closest-element-by-given-selector',
     'get-the-document-height-and-width',
     'get-the-parent-node-of-an-element',
+    'get-the-position-of-an-element-relative-to-the-document',
     'get-the-text-content-of-an-element',
     'insert-an-element-after-or-before-other-element',
     'load-a-css-file-dynamically',
