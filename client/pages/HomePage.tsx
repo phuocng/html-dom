@@ -2,7 +2,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
-import TaskMetaList from '../constants/TaskMetaList';
+import PostList from '../constants/PostList';
+import { unslugify } from '../helpers/slugify';
 import Layout from './Layout';
 
 const HomePage = () => {
@@ -34,15 +35,15 @@ const HomePage = () => {
             <div className='ml-auto mr-auto max-w-4xl'>
                 <ul>
                 {
-                    TaskMetaList.map((meta, index) => {
+                    PostList.map((slug, index) => {
                         const idx = (index < 9) ? `0${index + 1}` : `${index + 1}`;
                         return (
-                            <li key={meta.taskType} className='mb-4'>
+                            <li key={slug} className='mb-4'>
                                 <Link
-                                    to={`/${meta.slug}`}
+                                    to={`/${slug}`}
                                     className='font-light text-xl sm:text-2xl bg-gray-200 px-2 py-1 block'
                                 >
-                                    {idx} — {meta.title}
+                                    {idx} — {unslugify(slug)}
                                 </Link>
                             </li>
                         );
