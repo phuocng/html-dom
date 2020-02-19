@@ -1,7 +1,6 @@
 import React from 'react';
 
 import TaskLoader from '../components/TaskLoader';
-import TaskMetaList from '../constants/TaskMetaList';
 import TaskLayout from './TaskLayout';
 
 interface TaskPageProps {
@@ -9,12 +8,9 @@ interface TaskPageProps {
 }
 
 const TaskPage: React.FC<TaskPageProps> = ({ slug }) => {
-    
-    const task = TaskMetaList.find((v) => v.slug === slug);
-
     return (
-        <TaskLayout task={task}>
-            <TaskLoader taskType={task.taskType} />
+        <TaskLayout slug={slug}>
+            <TaskLoader slug={slug} />
         </TaskLayout>
     );
 };

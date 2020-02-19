@@ -2,27 +2,29 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-import TaskMetaList, { TaskMeta } from '../constants/TaskMetaList';
+import TaskList from '../constants/TaskList';
+import { slugify, unslugify } from '../helpers/slugify';
 import Layout from './Layout';
 
 interface TaskLayoutProps {
-    task: TaskMeta;
+    slug: string;
 }
 
-const TaskLayout: React.FC<TaskLayoutProps> = ({ children, task }) => {
-    const numTasks = TaskMetaList.length;
-    const index = TaskMetaList.indexOf(task);
+const TaskLayout: React.FC<TaskLayoutProps> = ({ children, slug }) => {
+    const numTasks = TaskList.length;
+    const index = TaskList.indexOf(slug);
+    const title = unslugify(slug);
 
     return (
         <Layout>
             <Helmet>
-                <title>HTML DOM - {task.title}</title>
+                <title>HTML DOM - {title}</title>
             </Helmet>
 
             <div className='mt-32 text-center'>
                 <span className='bg-black text-white text-3xl px-3 py-2 rounded'>{index + 1}/{numTasks}</span>
             </div>
-            <h1 className='font-bold mt-4 mb-4 text-center text-3xl lg:text-4xl px-1'>{task.title}</h1>
+            <h1 className='font-bold mt-4 mb-4 text-center text-3xl lg:text-4xl px-1'>{title}</h1>
 
             <div className="mb-12 text-center">
                 <Link
@@ -49,10 +51,10 @@ const TaskLayout: React.FC<TaskLayoutProps> = ({ children, task }) => {
                 <div className='mb-2'>
                     <Link
                         className='text-xl sm:text-2xl'
-                        to={`/${TaskMetaList[index - 1].slug}`}
-                        title={TaskMetaList[index - 1].title}
+                        to={`/${slugify(TaskList[index - 1])}`}
+                        title={unslugify(TaskList[index - 1])}
                     >
-                        ← {TaskMetaList[index - 1].title}
+                        ← {unslugify(TaskList[index - 1])}
                     </Link>
                 </div>
             )}
@@ -60,10 +62,10 @@ const TaskLayout: React.FC<TaskLayoutProps> = ({ children, task }) => {
                 <div className='mb-2 text-right'>
                     <Link
                         className='text-xl sm:text-2xl'
-                        to={`/${TaskMetaList[index + 1].slug}`}
-                        title={TaskMetaList[index + 1].title}
+                        to={`/${slugify(TaskList[index + 1])}`}
+                        title={unslugify(TaskList[index + 1])}
                     >
-                        {TaskMetaList[index + 1].title} →
+                        {unslugify(TaskList[index + 1])} →
                     </Link>
                 </div>
             )}

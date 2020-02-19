@@ -4,7 +4,7 @@ import React from 'react';
 import './spinner.css';
 
 interface TaskLoaderProps {
-    taskType: string;
+    slug: string;
 }
 
 // In order to create a link to another page that is dynamically loaded (via <Link to="...">),
@@ -14,7 +14,7 @@ interface TaskLoaderProps {
 //  {
 //      "plugins": ["@loadable/babel-plugin"],
 //  }
-const loadDetails = /* #__LOADABLE__ */ (props: TaskLoaderProps) => import(`../tasks/${props.taskType}`);
+const loadDetails = /* #__LOADABLE__ */ (props: TaskLoaderProps) => import(`../tasks/${props.slug}`);
 
 const TaskLoader: LoadableComponent<TaskLoaderProps> = loadable(loadDetails, {
     fallback: (
