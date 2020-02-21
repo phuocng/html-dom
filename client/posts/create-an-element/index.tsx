@@ -17,6 +17,10 @@ const ele = document.createElement('div');
 ~~~ javascript
 const ele = document.createTextNode('Hello World!');
 ~~~
+
+## Might be useful
+
+* [Download a file](/download-a-file)
 `}
 />
     );
