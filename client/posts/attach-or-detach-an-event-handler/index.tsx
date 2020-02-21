@@ -43,6 +43,7 @@ It differs from the first approach which requires to prefix the event name with 
 ## Might be useful
 
 * [Get the size of an image](/get-the-size-of-an-image)
+* [Replace broken images](/replace-broken-images)
 * [Resize an iframe to fit its content](/resize-an-iframe-to-fit-its-content)
 `}
 />
