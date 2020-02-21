@@ -47,6 +47,7 @@ elements.forEach(function(ele) {
 
 ## Might be useful
 
+* [Replace broken images](/replace-broken-images)
 * [Select an element or list of elements](/select-an-element-or-list-of-elements)
 * [Select the children of an element](/select-the-children-of-an-element)
 `}

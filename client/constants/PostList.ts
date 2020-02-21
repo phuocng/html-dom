@@ -31,6 +31,7 @@ const PostList: string[] = [
     'remove-all-children-of-a-node',
     'remove-an-element',
     'replace-an-element',
+    'replace-broken-images',
     'resize-an-iframe-to-fit-its-content',
     'scroll-to-top-of-the-page',
     'select-an-element-or-list-of-elements',
