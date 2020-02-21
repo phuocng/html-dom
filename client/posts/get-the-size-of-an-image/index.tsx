@@ -63,7 +63,7 @@ calculateSize('/path/to/image.png').then(function(data) {
 });
 ~~~
 
-## Use cases
+## Use case
 
 Assume that you want to show the size of avatar which can be uploaded via a file input:
 
