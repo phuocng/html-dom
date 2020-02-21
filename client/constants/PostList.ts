@@ -7,6 +7,7 @@ const PostList: string[] = [
     'clone-an-element',
     'create-an-element',
     'detect-clicks-outside-of-an-element',
+    'download-a-file',
     'execute-code-when-the-document-is-ready',
     'get-set-and-remove-attributes',
     'get-set-and-remove-data-attributes',
