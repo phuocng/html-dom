@@ -50,6 +50,10 @@ e.initCustomEvent('hello', true, true, { message: 'Hello World' });
 // Trigger the event
 ele.dispatchEvent(e);
 ~~~
+
+## Might be useful
+
+* [Download a file](/download-a-file)
 `}
 />
     );
