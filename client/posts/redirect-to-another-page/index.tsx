@@ -6,21 +6,13 @@ export default () => {
     return (
 <Markdown
     content={`
-## Reload and keep the POST data
-
 ~~~ javascript
-location.reload();
-~~~
-
-## Reload and ignore the POST data
-
-~~~ javascript
-location.href = location.href;
+location.href = '/the/new/url';
 ~~~
 
 ## Might be useful
 
-* [Redirect to another page](redirect-to-another-page)
+* [Reload the current page](reload-the-current-page)
 `}
 />
     );

@@ -29,6 +29,7 @@ const PostList: string[] = [
     'loop-over-a-nodelist',
     'prepend-to-an-element',
     'preview-an-image-before-uploading-it',
+    'redirect-to-another-page',
     'reload-the-current-page',
     'remove-all-children-of-a-node',
     'remove-an-element',
