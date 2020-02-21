@@ -24,6 +24,7 @@ if (ele.parentNode) {
 
 ## Might be useful
 
+* [Download a file](/download-a-file)
 * [Remove all children of a node](/remove-all-children-of-a-node)
 `}
 />

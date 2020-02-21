@@ -14,6 +14,7 @@ target.appendChild(ele);
 
 ## Might be useful
 
+* [Download a file](/download-a-file)
 * [Prepend to an element](/prepend-to-an-element)
 `}
 />

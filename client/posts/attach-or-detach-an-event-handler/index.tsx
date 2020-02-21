@@ -39,6 +39,10 @@ ele.removeEventListener('click', handler);
 
 Note that the event name is passed as the first parameter in both the \`addEventListener\` and \`removeEventListener\` methods.
 It differs from the first approach which requires to prefix the event name with \`on\`.
+
+## Might be useful
+
+* [Resize an iframe to fit its content](/resize-an-iframe-to-fit-its-content)
 `}
 />
     );
