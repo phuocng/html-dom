@@ -18,6 +18,7 @@ const PostList: string[] = [
     'get-the-closest-element-by-given-selector',
     'get-the-document-height-and-width',
     'get-the-parent-node-of-an-element',
+    'get-the-position-of-an-element-relative-to-another',
     'get-the-position-of-an-element-relative-to-the-document',
     'get-the-size-of-an-image',
     'get-the-text-content-of-an-element',

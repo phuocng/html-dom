@@ -15,6 +15,10 @@ const rect = ele.getBoundingClientRect();
 const top = rect.top + document.body.scrollTop;
 const left = rect.left + document.body.scrollLeft;
 ~~~
+
+## Might be useful
+
+* [Get the position of an element relative to another](/get-the-position-of-an-element-relative-to-another)
 `}
 />
     );
