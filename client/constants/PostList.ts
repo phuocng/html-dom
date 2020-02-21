@@ -28,6 +28,7 @@ const PostList: string[] = [
     'load-a-javascript-file-dynamically',
     'loop-over-a-nodelist',
     'prepend-to-an-element',
+    'preview-an-image-before-uploading-it',
     'reload-the-current-page',
     'remove-all-children-of-a-node',
     'remove-an-element',
