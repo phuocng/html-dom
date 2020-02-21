@@ -18,6 +18,7 @@ const PostList: string[] = [
     'get-the-document-height-and-width',
     'get-the-parent-node-of-an-element',
     'get-the-position-of-an-element-relative-to-the-document',
+    'get-the-size-of-an-image',
     'get-the-text-content-of-an-element',
     'go-back-to-the-previous-page',
     'insert-an-element-after-or-before-other-element',
