@@ -14,6 +14,7 @@ const parent = ele.parentNode;
 
 ## Might be useful
 
+* [Check if an element is a descendant of another](/check-if-an-element-is-a-descendant-of-another)
 * [Select the children of an element](/select-the-children-of-an-element)
 `}
 />

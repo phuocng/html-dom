@@ -19,6 +19,7 @@ document.addEventListener('click', function(evt) {
 ## Might be useful
 
 * [Attach or detach an event handler](/attach-or-detach-an-event-handler)
+* [Check if an element is a descendant of another](/check-if-an-element-is-a-descendant-of-another)
 `}
 />
     );

@@ -4,6 +4,7 @@ const PostList: string[] = [
     'attach-or-detach-an-event-handler',
     'check-an-element-against-a-selector',
     'check-if-an-element-has-given-class',
+    'check-if-an-element-is-a-descendant-of-another',
     'clone-an-element',
     'create-an-element',
     'detect-clicks-outside-of-an-element',
