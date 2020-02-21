@@ -6,6 +6,16 @@ export default () => {
     return (
 <Markdown
     content={`
+## 1. Use the native closest() method
+
+~~~ javascript
+const result = ele.closest(selector);
+~~~
+
+Note that the [closest](https://developer.mozilla.org/en-US/docs/Web/API/Element/closest) method isn't supported in IE.
+
+## 2. Traverse up until find the matching element
+
 ~~~ javascript
 const matches = function(ele, selector) {
     return (
