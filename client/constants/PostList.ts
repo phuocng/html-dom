@@ -8,6 +8,7 @@ const PostList: string[] = [
     'clone-an-element',
     'copy-text-to-the-clipboard',
     'create-an-element',
+    'create-one-time-event-handler',
     'detect-clicks-outside-of-an-element',
     'download-a-file',
     'execute-code-when-the-document-is-ready',

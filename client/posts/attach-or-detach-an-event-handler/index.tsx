@@ -40,6 +40,8 @@ ele.removeEventListener('click', handler);
 Note that the event name is passed as the first parameter in both the \`addEventListener\` and \`removeEventListener\` methods.
 It differs from the first approach which requires to prefix the event name with \`on\`.
 
+If you want the handler to be invoke once, then look at the [Create one time event handler](/create-one-time-event-handler) post.
+
 ## Might be useful
 
 * [Get the size of an image](/get-the-size-of-an-image)
