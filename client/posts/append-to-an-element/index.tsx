@@ -14,6 +14,7 @@ target.appendChild(ele);
 
 ## Might be useful
 
+* [Copy text to the clipboard](/copy-text-to-the-clipboard)
 * [Download a file](/download-a-file)
 * [Prepend to an element](/prepend-to-an-element)
 `}
