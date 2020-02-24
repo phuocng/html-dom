@@ -53,6 +53,7 @@ ele.dispatchEvent(e);
 
 ## Might be useful
 
+* [Copy text to the clipboard](/copy-text-to-the-clipboard)
 * [Download a file](/download-a-file)
 `}
 />

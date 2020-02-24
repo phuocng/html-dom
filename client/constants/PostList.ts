@@ -6,6 +6,7 @@ const PostList: string[] = [
     'check-if-an-element-has-given-class',
     'check-if-an-element-is-a-descendant-of-another',
     'clone-an-element',
+    'copy-text-to-the-clipboard',
     'create-an-element',
     'detect-clicks-outside-of-an-element',
     'download-a-file',

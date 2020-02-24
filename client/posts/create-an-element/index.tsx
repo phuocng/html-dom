@@ -20,6 +20,7 @@ const ele = document.createTextNode('Hello World!');
 
 ## Might be useful
 
+* [Copy text to the clipboard](/copy-text-to-the-clipboard)
 * [Download a file](/download-a-file)
 `}
 />
