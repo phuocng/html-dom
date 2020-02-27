@@ -1,5 +1,5 @@
 interface Post {
-    level: 'Basic' | 'Intermediate' |  'Advanced',
+    level: 'Basic' | 'Intermediate' |  'Advanced';
     slug: string;
 }
 
@@ -34,7 +34,7 @@ const PostList: Post[] = [
     },
     {
         slug: 'copy-text-to-the-clipboard',
-        level: 'Basic',
+        level: 'Intermediate',
     },
     {
         slug: 'create-an-element',

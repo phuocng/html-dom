@@ -41,9 +41,19 @@ const HomePage = () => {
                             <li key={post.slug} className='mb-4'>
                                 <Link
                                     to={`/${post.slug}`}
-                                    className='font-light text-xl sm:text-2xl bg-gray-200 px-2 py-1 block'
+                                    className='font-light text-xl sm:text-2xl bg-gray-200 px-2 py-1 flex items-center justify-between'
                                 >
-                                    {idx} — {unslugify(post.slug)}
+                                    <span>{idx} — {unslugify(post.slug)}</span>
+                                    <span
+                                        className={`
+                                            p-1 text-sm text-white rounded
+                                            ${post.level === 'Basic' ? 'bg-gray-600' : ''}
+                                            ${post.level === 'Intermediate' ? 'bg-blue-600' : ''}
+                                            ${post.level === 'Advanced' ? 'bg-red-600' : ''}
+                                        `}
+                                    >
+                                        {post.level.toLowerCase()}
+                                    </span>
                                 </Link>
                             </li>
                         );
