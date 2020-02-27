@@ -27,6 +27,7 @@ const isScrollable = function(ele) {
 ## Might be useful
 
 * [Get css styles of an element](/get-css-styles-of-an-element)
+* [Get the first scrollable parent of an element](/get-the-first-scrollable-parent-of-an-element)
 `}
 />
     );

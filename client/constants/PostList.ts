@@ -93,6 +93,10 @@ const PostList: Post[] = [
         level: 'Basic',
     },
     {
+        slug: 'get-the-first-scrollable-parent-of-an-element',
+        level: 'Intermediate',
+    },
+    {
         slug: 'get-the-parent-node-of-an-element',
         level: 'Basic',
     },
