@@ -42,6 +42,7 @@ const PostList: string[] = [
     'scroll-to-top-of-the-page',
     'select-an-element-or-list-of-elements',
     'select-the-children-of-an-element',
+    'select-the-text-of-a-textarea-automatically',
     'set-css-style-for-an-element',
     'show-or-hide-an-element',
     'trigger-an-event',

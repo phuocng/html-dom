@@ -48,6 +48,7 @@ If you want the handler to be invoke once, then look at the [Create one time eve
 * [Preview an image before uploading it](/preview-an-image-before-uploading-it)
 * [Replace broken images](/replace-broken-images)
 * [Resize an iframe to fit its content](/resize-an-iframe-to-fit-its-content)
+* [Select the text of a textarea automatically](/select-the-text-of-a-textarea-automatically)
 `}
 />
     );
