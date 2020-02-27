@@ -1,53 +1,209 @@
-const PostList: string[] = [
-    'add-or-remove-class-from-an-element',
-    'append-to-an-element',
-    'attach-or-detach-an-event-handler',
-    'check-an-element-against-a-selector',
-    'check-if-an-element-has-given-class',
-    'check-if-an-element-is-a-descendant-of-another',
-    'clone-an-element',
-    'copy-text-to-the-clipboard',
-    'create-an-element',
-    'create-one-time-event-handler',
-    'detect-clicks-outside-of-an-element',
-    'download-a-file',
-    'execute-code-when-the-document-is-ready',
-    'get-css-styles-of-an-element',
-    'get-or-set-the-document-title',
-    'get-or-set-the-html-of-an-element',
-    'get-set-and-remove-attributes',
-    'get-set-and-remove-data-attributes',
-    'get-siblings-of-an-element',
-    'get-the-closest-element-by-given-selector',
-    'get-the-document-height-and-width',
-    'get-the-parent-node-of-an-element',
-    'get-the-position-of-an-element-relative-to-another',
-    'get-the-position-of-an-element-relative-to-the-document',
-    'get-the-size-of-an-image',
-    'get-the-text-content-of-an-element',
-    'go-back-to-the-previous-page',
-    'insert-an-element-after-or-before-other-element',
-    'load-a-css-file-dynamically',
-    'load-a-javascript-file-dynamically',
-    'loop-over-a-nodelist',
-    'prepend-to-an-element',
-    'preview-an-image-before-uploading-it',
-    'redirect-to-another-page',
-    'reload-the-current-page',
-    'remove-all-children-of-a-node',
-    'remove-an-element',
-    'replace-an-element',
-    'replace-broken-images',
-    'resize-an-iframe-to-fit-its-content',
-    'scroll-to-top-of-the-page',
-    'select-an-element-or-list-of-elements',
-    'select-the-children-of-an-element',
-    'select-the-text-of-a-textarea-automatically',
-    'set-css-style-for-an-element',
-    'show-or-hide-an-element',
-    'trigger-an-event',
-    'unwrap-an-element',
-    'wrap-an-element-around-a-given-element',
+interface Post {
+    level: 'Basic' | 'Intermediate' |  'Advanced';
+    slug: string;
+}
+
+const PostList: Post[] = [
+    {
+        slug: 'add-or-remove-class-from-an-element',
+        level: 'Basic',
+    },
+    {
+        slug: 'append-to-an-element',
+        level: 'Basic',
+    },
+    {
+        slug: 'attach-or-detach-an-event-handler',
+        level: 'Basic',
+    },
+    {
+        slug: 'check-an-element-against-a-selector',
+        level: 'Basic',
+    },
+    {
+        slug: 'check-if-an-element-has-given-class',
+        level: 'Basic',
+    },
+    {
+        slug: 'check-if-an-element-is-a-descendant-of-another',
+        level: 'Basic',
+    },
+    {
+        slug: 'check-if-an-element-is-scrollable',
+        level: 'Intermediate',
+    },
+    {
+        slug: 'clone-an-element',
+        level: 'Basic',
+    },
+    {
+        slug: 'copy-text-to-the-clipboard',
+        level: 'Intermediate',
+    },
+    {
+        slug: 'create-an-element',
+        level: 'Basic',
+    },
+    {
+        slug: 'create-one-time-event-handler',
+        level: 'Basic',
+    },
+    {
+        slug: 'detect-clicks-outside-of-an-element',
+        level: 'Basic',
+    },
+    {
+        slug: 'download-a-file',
+        level: 'Intermediate',
+    },
+    {
+        slug: 'execute-code-when-the-document-is-ready',
+        level: 'Basic',
+    },
+    {
+        slug: 'get-css-styles-of-an-element',
+        level: 'Basic',
+    },
+    {
+        slug: 'get-or-set-the-document-title',
+        level: 'Basic',
+    },
+    {
+        slug: 'get-or-set-the-html-of-an-element',
+        level: 'Basic',
+    },
+    {
+        slug: 'get-set-and-remove-attributes',
+        level: 'Basic',
+    },
+    {
+        slug: 'get-set-and-remove-data-attributes',
+        level: 'Basic',
+    },
+    {
+        slug: 'get-siblings-of-an-element',
+        level: 'Basic',
+    },
+    {
+        slug: 'get-the-closest-element-by-given-selector',
+        level: 'Basic',
+    },
+    {
+        slug: 'get-the-document-height-and-width',
+        level: 'Basic',
+    },
+    {
+        slug: 'get-the-parent-node-of-an-element',
+        level: 'Basic',
+    },
+    {
+        slug: 'get-the-position-of-an-element-relative-to-another',
+        level: 'Basic',
+    },
+    {
+        slug: 'get-the-position-of-an-element-relative-to-the-document',
+        level: 'Basic',
+    },
+    {
+        slug: 'get-the-size-of-an-image',
+        level: 'Basic',
+    },
+    {
+        slug: 'get-the-text-content-of-an-element',
+        level: 'Basic',
+    },
+    {
+        slug: 'go-back-to-the-previous-page',
+        level: 'Basic',
+    },
+    {
+        slug: 'insert-an-element-after-or-before-other-element',
+        level: 'Basic',
+    },
+    {
+        slug: 'load-a-css-file-dynamically',
+        level: 'Intermediate',
+    },
+    {
+        slug: 'load-a-javascript-file-dynamically',
+        level: 'Intermediate',
+    },
+    {
+        slug: 'loop-over-a-nodelist',
+        level: 'Basic',
+    },
+    {
+        slug: 'prepend-to-an-element',
+        level: 'Basic',
+    },
+    {
+        slug: 'preview-an-image-before-uploading-it',
+        level: 'Intermediate',
+    },
+    {
+        slug: 'redirect-to-another-page',
+        level: 'Basic',
+    },
+    {
+        slug: 'reload-the-current-page',
+        level: 'Basic',
+    },
+    {
+        slug: 'remove-all-children-of-a-node',
+        level: 'Basic',
+    },
+    {
+        slug: 'remove-an-element',
+        level: 'Basic',
+    },
+    {
+        slug: 'replace-an-element',
+        level: 'Basic',
+    },
+    {
+        slug: 'replace-broken-images',
+        level: 'Basic',
+    },
+    {
+        slug: 'resize-an-iframe-to-fit-its-content',
+        level: 'Basic',
+    },
+    {
+        slug: 'scroll-to-top-of-the-page',
+        level: 'Basic',
+    },
+    {
+        slug: 'select-an-element-or-list-of-elements',
+        level: 'Basic',
+    },
+    {
+        slug: 'select-the-children-of-an-element',
+        level: 'Basic',
+    },
+    {
+        slug: 'select-the-text-of-a-textarea-automatically',
+        level: 'Basic',
+    },
+    {
+        slug: 'set-css-style-for-an-element',
+        level: 'Basic',
+    },
+    {
+        slug: 'show-or-hide-an-element',
+        level: 'Basic',
+    },
+    {
+        slug: 'trigger-an-event',
+        level: 'Basic',
+    },
+    {
+        slug: 'unwrap-an-element',
+        level: 'Basic',
+    },
+    {
+        slug: 'wrap-an-element-around-a-given-element',
+        level: 'Basic',
+    },
 ];
 
 export default PostList;

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-import TaskList from '../constants/PostList';
+import PostList from '../constants/PostList';
 import { slugify, unslugify } from '../helpers/slugify';
 import Layout from './Layout';
 
@@ -11,8 +11,8 @@ interface PostLayoutProps {
 }
 
 const PostLayout: React.FC<PostLayoutProps> = ({ children, slug }) => {
-    const numTasks = TaskList.length;
-    const index = TaskList.indexOf(slug);
+    const numTasks = PostList.length;
+    const index = PostList.findIndex((post) => post.slug === slug);
     const title = unslugify(slug);
 
     return (
@@ -45,10 +45,10 @@ const PostLayout: React.FC<PostLayoutProps> = ({ children, slug }) => {
                 <div className='mb-2'>
                     <Link
                         className='text-xl sm:text-2xl'
-                        to={`/${slugify(TaskList[index - 1])}`}
-                        title={unslugify(TaskList[index - 1])}
+                        to={`/${slugify(PostList[index - 1].slug)}`}
+                        title={unslugify(PostList[index - 1].slug)}
                     >
-                        ← {unslugify(TaskList[index - 1])}
+                        ← {unslugify(PostList[index - 1].slug)}
                     </Link>
                 </div>
             )}
@@ -56,10 +56,10 @@ const PostLayout: React.FC<PostLayoutProps> = ({ children, slug }) => {
                 <div className='mb-2 text-right'>
                     <Link
                         className='text-xl sm:text-2xl'
-                        to={`/${slugify(TaskList[index + 1])}`}
-                        title={unslugify(TaskList[index + 1])}
+                        to={`/${slugify(PostList[index + 1].slug)}`}
+                        title={unslugify(PostList[index + 1].slug)}
                     >
-                        {unslugify(TaskList[index + 1])} →
+                        {unslugify(PostList[index + 1].slug)} →
                     </Link>
                 </div>
             )}
