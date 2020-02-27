@@ -13,9 +13,9 @@ const Filter: React.FC<{}> = () => {
     const onChangeSearchBox = (e: React.ChangeEvent<HTMLInputElement>) => setKeyword(e.target.value);
     const onClickTask = () => setKeyword('');
 
-    const allPosts = PostList.map((s) => unslugify(s));
+    const allPosts = PostList.map((s) => unslugify(s.slug));
 
-    const tasks = keyword
+    const posts = keyword
                 ? allPosts.filter((v) => v.toLowerCase().includes(keyword.toLowerCase()))
                 : [];
 
@@ -33,19 +33,19 @@ const Filter: React.FC<{}> = () => {
             <button className='absolute border-none p-2 right-0 top-0' onClick={onClickSearchIcon}>
                 <SearchIcon />
             </button>
-            {keyword && tasks.length === 0 && (
+            {keyword && posts.length === 0 && (
                 <div className='absolute left-0 w-full bg-white border-l border-r border-b border-gray-400 p-2'>
                     Not found
                 </div>
             )}
-            {keyword && tasks.length > 0 && (
+            {keyword && posts.length > 0 && (
                 <div
                     className='absolute left-0 w-full bg-white border-l border-r border-b border-gray-400 overflow-auto'
                     style={{ maxHeight: '300px' }}
                 >
                     <ul>
                     {
-                        tasks.map((title, index) => {
+                        posts.map((title, index) => {
                             const slug = slugify(title);
                             return (
                                 <li
