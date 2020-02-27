@@ -29,6 +29,10 @@ const PostList: Post[] = [
         level: 'Basic',
     },
     {
+        slug: 'check-if-an-element-is-scrollable',
+        level: 'Intermediate',
+    },
+    {
         slug: 'clone-an-element',
         level: 'Basic',
     },
