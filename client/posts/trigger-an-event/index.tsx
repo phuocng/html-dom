@@ -55,6 +55,7 @@ ele.dispatchEvent(e);
 
 * [Copy text to the clipboard](/copy-text-to-the-clipboard)
 * [Download a file](/download-a-file)
+* [Select the text of a textarea automatically](/select-the-text-of-a-textarea-automatically)
 `}
 />
     );
