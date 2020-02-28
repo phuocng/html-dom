@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 ## 1. Use the remove method
@@ -21,13 +23,15 @@ if (ele.parentNode) {
     ele.parentNode.removeChild(ele);
 }
 ~~~
-
-## Might be useful
-
-* [Copy text to the clipboard](/copy-text-to-the-clipboard)
-* [Download a file](/download-a-file)
-* [Remove all children of a node](/remove-all-children-of-a-node)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'copy-text-to-the-clipboard',
+        'download-a-file',
+        'remove-all-children-of-a-node',
+    ]}
+/>
+</>
     );
 };

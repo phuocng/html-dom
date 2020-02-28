@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 ## Reload and keep the POST data
@@ -17,11 +19,13 @@ location.reload();
 ~~~ javascript
 location.href = location.href;
 ~~~
-
-## Might be useful
-
-* [Redirect to another page](redirect-to-another-page)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'redirect-to-another-page',
+    ]}
+/>
+</>
     );
 };

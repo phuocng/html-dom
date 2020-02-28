@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 ## Trigger event for inputs
@@ -50,13 +52,15 @@ e.initCustomEvent('hello', true, true, { message: 'Hello World' });
 // Trigger the event
 ele.dispatchEvent(e);
 ~~~
-
-## Might be useful
-
-* [Copy text to the clipboard](/copy-text-to-the-clipboard)
-* [Download a file](/download-a-file)
-* [Select the text of a textarea automatically](/select-the-text-of-a-textarea-automatically)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'copy-text-to-the-clipboard',
+        'download-a-file',
+        'select-the-text-of-a-textarea-automatically',
+    ]}
+/>
+</>
     );
 };

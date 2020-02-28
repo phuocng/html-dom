@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 Remove the \`ele\` element except its children:
@@ -21,12 +23,14 @@ while (ele.firstChild) {
 // Remove it from the parent
 parent.removeChild(ele);
 ~~~
-
-## Might be useful
-
-* [Remove all children of a node](/remove-all-children-of-a-node)
-* [Wrap an element around a given element](/wrap-an-element-around-a-given-element)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'remove-all-children-of-a-node',
+        'wrap-an-element-around-a-given-element',
+    ]}
+/>
+</>
     );
 };

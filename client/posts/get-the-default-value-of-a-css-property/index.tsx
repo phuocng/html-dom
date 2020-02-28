@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 The function below returns the default value of CSS \`property\` for given \`tagName\`:
@@ -57,11 +59,13 @@ getDefaultProperty('div', 'font-size');
 // Or
 getDefaultProperty('div', 'fontSize');
 ~~~
-
-## Might be useful
-
-* [Get css styles of an element](/get-css-styles-of-an-element)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'get-css-styles-of-an-element',
+    ]}
+/>
+</>
     );
 };

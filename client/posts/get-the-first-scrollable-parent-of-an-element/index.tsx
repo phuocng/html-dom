@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 Starting from the given \`ele\` element, we traverse all parents up to the root of document (\`document.body\`).
@@ -25,12 +27,14 @@ const getScrollableParent = function(ele) {
         : (isScrollable(ele) ? ele : getScrollableParent(ele.parentNode));
 };
 ~~~
-
-## Might be useful
-
-* [Check if an element is scrollable](/check-if-an-element-is-scrollable)
-* [Get the parent node of an element](/get-the-parent-node-of-an-element)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'check-if-an-element-is-scrollable',
+        'get-the-parent-node-of-an-element',
+    ]}
+/>
+</>
     );
 };

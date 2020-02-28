@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 ## Select an element by given ID
@@ -37,11 +39,13 @@ Returns the list of elements that match a given selector:
 ~~~ javascript
 ele.querySelectorAll('div.hello');
 ~~~
-
-## Might be useful
-
-* [Loop over a NodeList](/loop-over-a-nodelist)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'loop-over-a-nodelist',
+    ]}
+/>
+</>
     );
 };

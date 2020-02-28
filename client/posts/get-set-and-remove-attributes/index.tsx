@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 ## Get the attribute's value
@@ -27,11 +29,13 @@ image.setAttribute('height', '120px');
 // Remove the \`title\` attribute
 ele.removeAttribute('title');
 ~~~
-
-## Might be useful
-
-* [Get, set and remove data attributes](get-set-and-remove-data-attributes)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'get-set-and-remove-data-attributes',
+    ]}
+/>
+</>
     );
 };

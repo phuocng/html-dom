@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 Assume that we want to copy a given text, \`text\`, to the clipboard.
@@ -45,12 +47,14 @@ try {
     document.body.removeChild(textAreaEle);
 }
 ~~~
-
-## Might be useful
-
-* [Append to an element](/append-to-an-element)
-* [Remove an element](/remove-an-element)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'append-to-an-element',
+        'remove-an-element',
+    ]}
+/>
+</>
     );
 };

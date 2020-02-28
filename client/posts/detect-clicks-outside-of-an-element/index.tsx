@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 Check if a click was outside of the \`ele\` element:
@@ -15,12 +17,14 @@ document.addEventListener('click', function(evt) {
     // \`isClickedOutside\` is true if the clicked target is outside of \`ele\`
 });
 ~~~
-
-## Might be useful
-
-* [Attach or detach an event handler](/attach-or-detach-an-event-handler)
-* [Check if an element is a descendant of another](/check-if-an-element-is-a-descendant-of-another)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'attach-or-detach-an-event-handler',
+        'check-if-an-element-is-a-descendant-of-another',
+    ]}
+/>
+</>
     );
 };

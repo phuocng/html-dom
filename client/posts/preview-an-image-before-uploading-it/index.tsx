@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 We prepare the markup for a file input which allows to choose an image, and an \`img\` element for previewing the selected file.
@@ -52,12 +54,14 @@ fileEle.addEventListener('change', function(e) {
     reader.readAsDataURL(file);
 });
 ~~~
-
-## Might be useful
-
-* [Attach or detach an event handler](/attach-or-detach-an-event-handler)
-* [Get the size of an image](/get-the-size-of-an-image)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'attach-or-detach-an-event-handler',
+        'get-the-size-of-an-image',
+    ]}
+/>
+</>
     );
 };

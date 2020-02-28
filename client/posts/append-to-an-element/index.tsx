@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 Append the \`ele\` element to the end of the \`target\` element:
@@ -11,13 +13,15 @@ Append the \`ele\` element to the end of the \`target\` element:
 ~~~ javascript
 target.appendChild(ele);
 ~~~
-
-## Might be useful
-
-* [Copy text to the clipboard](/copy-text-to-the-clipboard)
-* [Download a file](/download-a-file)
-* [Prepend to an element](/prepend-to-an-element)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'copy-text-to-the-clipboard',
+        'download-a-file',
+        'prepend-to-an-element',
+    ]}
+/>
+</>
     );
 };

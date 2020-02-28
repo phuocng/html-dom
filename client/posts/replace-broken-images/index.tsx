@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 Replace the broken images with an image telling visitors that they are not found:
@@ -19,12 +21,14 @@ const images = document.querySelectorAll('img');
     });
 });
 ~~~
-
-## Might be useful
-
-* [Attach or detach an event handler](/attach-or-detach-an-event-handler)
-* [Loop over a nodelist](/loop-over-a-nodelist)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'attach-or-detach-an-event-handler',
+        'loop-over-a-nodelist',
+    ]}
+/>
+</>
     );
 };

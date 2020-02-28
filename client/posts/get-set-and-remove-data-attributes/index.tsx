@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 ## Get the data attribute's value
@@ -35,11 +37,13 @@ delete ele.dataset.message;
 ~~~
 
 Note that calling \`delete ele.dataset\` doesn't remove all data attributes.
-
-## Might be useful
-
-* [Get, set and remove attributes](/get-set-and-remove-attributes)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'get-set-and-remove-attributes',
+    ]}
+/>
+</>
     );
 };

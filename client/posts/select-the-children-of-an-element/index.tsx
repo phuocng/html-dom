@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 Get the children nodes of the \`ele\` element:
@@ -25,12 +27,14 @@ There are properties to access the first and last child directly:
 const first = ele.firstChild;
 const last = ele.lastChild;
 ~~~
-
-## Might be useful
-
-* [Get the parent node of an element](/get-the-parent-node-of-an-element)
-* [Loop over a NodeList](/loop-over-a-nodelist)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'get-the-parent-node-of-an-element',
+        'loop-over-a-nodelist',
+    ]}
+/>
+</>
     );
 };

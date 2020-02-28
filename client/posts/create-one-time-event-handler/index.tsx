@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 ## 1. Use the once option
@@ -34,11 +36,13 @@ const handler = function(e) {
 
 ele.addEventListener('event-name', handler);
 ~~~
-
-## Might be useful
-
-* [Attach or detach an event handler](/attach-or-detach-an-event-handler)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'attach-or-detach-an-event-handler',
+    ]}
+/>
+</>
     );
 };

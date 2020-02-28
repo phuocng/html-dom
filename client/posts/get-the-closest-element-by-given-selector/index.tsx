@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 ## 1. Use the native closest() method
@@ -40,11 +42,13 @@ const closest = function(ele, selector) {
     return e;
 };
 ~~~
-
-## Might be useful
-
-* [Check an element against a selector](/check-an-element-against-a-selector)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'check-an-element-against-a-selector',
+    ]}
+/>
+</>
     );
 };
