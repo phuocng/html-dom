@@ -41,6 +41,7 @@ const bgColor = styles.getPropertyValue('backgroundColor');
     slugs={[
         'check-if-an-element-is-scrollable',
         'get-the-default-value-of-a-css-property',
+        'measure-the-width-of-given-text-of-given-font',
         'set-css-style-for-an-element',
     ]}
 />

@@ -29,6 +29,7 @@ if (ele.parentNode) {
     slugs={[
         'copy-text-to-the-clipboard',
         'download-a-file',
+        'measure-the-width-of-given-text-of-given-font',
         'remove-all-children-of-a-node',
     ]}
 />

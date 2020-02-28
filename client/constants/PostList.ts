@@ -145,6 +145,10 @@ const PostList: Post[] = [
         level: 'Basic',
     },
     {
+        slug: 'measure-the-width-of-given-text-of-given-font',
+        level: 'Intermediate',
+    },
+    {
         slug: 'prepend-to-an-element',
         level: 'Basic',
     },
