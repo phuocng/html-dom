@@ -58,6 +58,7 @@ ele.dispatchEvent(e);
     slugs={[
         'copy-text-to-the-clipboard',
         'download-a-file',
+        'put-cursor-at-the-end-of-an-input',
         'select-the-text-of-a-textarea-automatically',
     ]}
 />
