@@ -17,6 +17,10 @@ const PostList: Post[] = [
         level: 'Basic',
     },
     {
+        slug: 'change-the-website-favicon',
+        level: 'Intermediate',
+    },
+    {
         slug: 'check-an-element-against-a-selector',
         level: 'Basic',
     },

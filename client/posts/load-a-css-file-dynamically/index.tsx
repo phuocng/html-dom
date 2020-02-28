@@ -21,6 +21,7 @@ document.head.appendChild(link);
 />
 <RelatedPosts
     slugs={[
+        'change-the-website-favicon',
         'load-a-javascript-file-dynamically',
     ]}
 />
