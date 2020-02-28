@@ -22,7 +22,9 @@
     },
     "license": "MIT",
     "scripts": {
-        "copy": "rimraf dist && mkdir dist && cp -rf public/* dist && NODE_ENV=production postcss vendors/tailwind@1.1.4/tailwind.css -o dist/demo/tailwind.css",
+        "copy": "npm run copy:public && npm run copy:demo",
+        "copy:public": "rimraf dist && mkdir dist && cp -rf public/* dist",
+        "copy:demo": "cp -rf demo dist && NODE_ENV=production postcss vendors/tailwind@1.1.4/tailwind.css -o dist/demo/styles.css",
         "dev": "npm run copy && webpack --mode development",
         "dev-server": "npm run copy && webpack-dev-server",
         "build": "npm run copy && webpack --mode production && npm run export",
