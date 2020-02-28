@@ -13,16 +13,20 @@ const Demo: React.FC<DemoProps> = ({ src }) => {
     };
 
     return (
-        <div className='border border-gray-400 my-8 relative'>
-            <div
-                className='absolute top-0 left-0 w-full text-center'
-                style={{
-                    transform: 'translate(0, -50%)',
-                }}
-            >
-                <h2 className='bg-white inline text-2xl sm:text-3xl p-2'>DEMO</h2>
+        <div className='my-4'>
+            <div className='inline-flex px-2 py-1 bg-gray-400'>
+                <div className='mr-2'>Demo</div>
+                (<a
+                    className='underline'
+                    href={`https://github.com/phuoc-ng/html-dom/blob/master/demo/${src}`}
+                    target='_blank'
+                >
+                    source
+                </a>)
             </div>
-            <iframe className='border-none w-full' src={`demo/${src}`} onLoad={onLoad} />
+            <div className='border border-gray-400'>
+                <iframe className='border-none w-full' src={`demo/${src}`} onLoad={onLoad} />
+            </div>
         </div>
     );
 };
