@@ -31,6 +31,7 @@ el.style.cssText = 'background-color: red; color: white';
     slugs={[
         'get-css-styles-of-an-element',
         'show-or-hide-an-element',
+        'toggle-an-element',
     ]}
 />
 </>
