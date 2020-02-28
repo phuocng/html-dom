@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 ## Show an element
@@ -17,11 +19,13 @@ ele.style.display = '';
 ~~~ javascript
 ele.style.display = 'none';
 ~~~
-
-## Might be useful
-
-* [Set CSS style for an element](/set-css-style-for-an-element)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'set-css-style-for-an-element',
+    ]}
+/>
+</>
     );
 };

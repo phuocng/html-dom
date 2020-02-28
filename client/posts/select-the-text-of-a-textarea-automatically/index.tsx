@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 Assume that \`ele\` represents a textarea element.
@@ -14,12 +16,14 @@ ele.addEventListener('focus', function(e) {
     e.target.select();
 });
 ~~~
-
-## Might be useful
-
-* [Attach or detach an event handler](/attach-or-detach-an-event-handler)
-* [Trigger an event](/trigger-an-event)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'attach-or-detach-an-event-handler',
+        'trigger-an-event',
+    ]}
+/>
+</>
     );
 };

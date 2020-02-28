@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 The following function returns \`true\` if the \`ele\` element is scrollable.
@@ -23,12 +25,14 @@ const isScrollable = function(ele) {
     return hasScrollableContent && !isOverflowHidden;
 };
 ~~~
-
-## Might be useful
-
-* [Get css styles of an element](/get-css-styles-of-an-element)
-* [Get the first scrollable parent of an element](/get-the-first-scrollable-parent-of-an-element)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'get-css-styles-of-an-element',
+        'get-the-first-scrollable-parent-of-an-element',
+    ]}
+/>
+</>
     );
 };

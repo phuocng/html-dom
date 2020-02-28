@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 ## Use the on attribute (not recommended)
@@ -41,15 +43,17 @@ Note that the event name is passed as the first parameter in both the \`addEvent
 It differs from the first approach which requires to prefix the event name with \`on\`.
 
 If you want the handler to be invoke once, then look at the [Create one time event handler](/create-one-time-event-handler) post.
-
-## Might be useful
-
-* [Get the size of an image](/get-the-size-of-an-image)
-* [Preview an image before uploading it](/preview-an-image-before-uploading-it)
-* [Replace broken images](/replace-broken-images)
-* [Resize an iframe to fit its content](/resize-an-iframe-to-fit-its-content)
-* [Select the text of a textarea automatically](/select-the-text-of-a-textarea-automatically)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'get-the-size-of-an-image',
+        'review-an-image-before-uploading-it',
+        'replace-broken-images',
+        'resize-an-iframe-to-fit-its-content',
+        'select-the-text-of-a-textarea-automatically',
+    ]}
+/>
+</>
     );
 };

@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 Assume that \`elements\` is a NodeList that matches given selector:
@@ -44,13 +46,15 @@ elements.forEach(function(ele) {
     ...
 });
 ~~~
-
-## Might be useful
-
-* [Replace broken images](/replace-broken-images)
-* [Select an element or list of elements](/select-an-element-or-list-of-elements)
-* [Select the children of an element](/select-the-children-of-an-element)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'replace-broken-images',
+        'select-an-element-or-list-of-elements',
+        'select-the-children-of-an-element',
+    ]}
+/>
+</>
     );
 };

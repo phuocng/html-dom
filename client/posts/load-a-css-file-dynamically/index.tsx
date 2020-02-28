@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 ~~~ javascript
@@ -15,11 +17,13 @@ link.setAttribute('href', '/path/to/js/file.css');
 // Append to the \`head\` element
 document.head.appendChild(link);
 ~~~
-
-## Might be useful
-
-* [Load a JavaScript file dynamically](/load-a-javascript-file-dynamically)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'load-a-javascript-file-dynamically',
+    ]}
+/>
+</>
     );
 };

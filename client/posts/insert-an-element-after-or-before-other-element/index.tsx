@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 ## Insert after
@@ -21,11 +23,13 @@ Insert the \`ele\` element before the \`refEle\` element:
 ~~~ javascript
 refEle.parentNode.insertBefore(ele, refEle);
 ~~~
-
-## Might be useful
-
-* [Prepend to an element](/prepend-to-an-element)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'prepend-to-an-element',
+    ]}
+/>
+</>
     );
 };

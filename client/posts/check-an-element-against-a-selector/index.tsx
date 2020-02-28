@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 ~~~ javascript
@@ -19,11 +21,13 @@ const matches = function(ele, selector) {
     ).call(ele, selector);
 };
 ~~~
-
-## Might be useful
-
-* [Get the closest element by given selector](/get-the-closest-element-by-given-selector)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'get-the-closest-element-by-given-selector',
+    ]}
+/>
+</>
     );
 };

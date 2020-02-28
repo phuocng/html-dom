@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 ## Image is already loaded
@@ -98,13 +100,14 @@ avatarEle.addEventListener('change', function(e) {
     });
 });
 ~~~
-
-
-## Might be useful
-
-* [Attach or detach an event handler](/attach-or-detach-an-event-handler)
-* [Preview an image before uploading it](/preview-an-image-before-uploading-it)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'attach-or-detach-an-event-handler',
+        'preview-an-image-before-uploading-it',
+    ]}
+/>
+</>
     );
 };

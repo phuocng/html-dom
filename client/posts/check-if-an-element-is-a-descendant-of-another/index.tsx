@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 Assume that we want to find out if the \`child\` element is a descendant of the \`parent\` element.
@@ -33,12 +35,14 @@ const isDescendant = function(parent, child) {
     return false;
 };
 ~~~
-
-## Might be useful
-
-* [Detect clicks outside of an element](/detect-clicks-outside-of-an-element)
-* [Get the parent node of an element](/get-the-parent-node-of-an-element)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'detect-clicks-outside-of-an-element',
+        'get-the-parent-node-of-an-element',
+    ]}
+/>
+</>
     );
 };

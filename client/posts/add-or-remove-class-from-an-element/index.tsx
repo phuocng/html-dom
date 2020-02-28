@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 ## Add a class to an element
@@ -23,11 +25,13 @@ ele.classList.remove('class-name');
 ~~~ javascript
 ele.classList.toggle('class-name');
 ~~~
-
-## Might be useful
-
-* [Check if an element has given class](/check-if-an-element-has-given-class)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'check-if-an-element-has-given-class',
+    ]}
+/>
+</>
     );
 };

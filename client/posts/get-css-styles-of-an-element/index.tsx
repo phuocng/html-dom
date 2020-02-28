@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 We can get all CSS styles via the \`getComputedStyle\` method:
@@ -33,12 +35,15 @@ const bgColor = styles.getPropertyValue('background-color');
 // Or turn the parameter to camelCase format:
 const bgColor = styles.getPropertyValue('backgroundColor');
 ~~~
-
-## Might be useful
-
-* [Check if an element is scrollable](/check-if-an-element-is-scrollable)
-* [Set CSS style for an element](/set-css-style-for-an-element)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'check-if-an-element-is-scrollable',
+        'get-the-default-value-of-a-css-property',
+        'set-css-style-for-an-element',
+    ]}
+/>
+</>
     );
 };

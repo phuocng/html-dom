@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 Add the \`ele\` element to the beginning of the \`target\` element:
@@ -11,12 +13,14 @@ Add the \`ele\` element to the beginning of the \`target\` element:
 ~~~ javascript
 target.insertBefore(ele, target.firstChild);
 ~~~
-
-## Might be useful
-
-* [Append to an element](/append-to-an-element)
-* [Insert an element after or before other element](/insert-an-element-after-or-before-other-element)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'append-to-an-element',
+        'insert-an-element-after-or-before-other-element',
+    ]}
+/>
+</>
     );
 };

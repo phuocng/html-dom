@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 ## Load a JavaScript file
@@ -92,11 +94,13 @@ loadScriptsInOrder([
     // Do something
 })
 ~~~
-
-## Might be useful
-
-* [Load a CSS file dynamically](/load-a-css-file-dynamically)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'load-a-css-file-dynamically',
+    ]}
+/>
+</>
     );
 };

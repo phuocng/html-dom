@@ -89,6 +89,10 @@ const PostList: Post[] = [
         level: 'Basic',
     },
     {
+        slug: 'get-the-default-value-of-a-css-property',
+        level: 'Intermediate',
+    },
+    {
         slug: 'get-the-document-height-and-width',
         level: 'Basic',
     },

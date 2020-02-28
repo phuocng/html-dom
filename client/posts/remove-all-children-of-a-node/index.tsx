@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 ## 1. Empty the inner HTML (not recommended)
@@ -24,12 +26,14 @@ while (node.firstChild) {
     node.removeChild(node.firstChild);
 }
 ~~~
-
-## Might be useful
-
-* [Remove an element](/remove-an-element)
-* [Unwrap an element](/unwrap-an-element)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'remove-an-element',
+        'unwrap-an-element',
+    ]}
+/>
+</>
     );
 };

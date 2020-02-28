@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 ## 1. Use the download attribute
@@ -59,14 +61,16 @@ const url = window.URL.createObjectURL(blob);
 // Free the URL created above
 window.URL.revokeObjectURL(url);
 ~~~
-
-## Might be useful
-
-* [Append to an element](/append-to-an-element)
-* [Create an element](/create-an-element)
-* [Remove an element](/remove-an-element)
-* [Trigger an event](/trigger-an-event)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'append-to-an-element',
+        'create-an-element',
+        'remove-an-element',
+        'trigger-an-event',
+    ]}
+/>
+</>
     );
 };

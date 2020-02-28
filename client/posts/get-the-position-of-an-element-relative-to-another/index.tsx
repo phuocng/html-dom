@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 Assume that we're going to measure the top and left positions of the \`ele\` element relative to the \`target\` element.
@@ -17,11 +19,13 @@ const targetRect = ele.getBoundingClientRect();
 const top = eleRect.top - targetRect.top;
 const left = eleRect.left - targetRect.left;
 ~~~
-
-## Might be useful
-
-* [Get the position of an element relative to the document](get-the-position-of-an-element-relative-to-the-document)
 `}
 />
+<RelatedPosts
+    slugs={[
+        'get-the-position-of-an-element-relative-to-the-document',
+    ]}
+/>
+</>
     );
 };
