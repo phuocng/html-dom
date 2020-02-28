@@ -37,7 +37,7 @@ toggleEle.addEventListener('click', function() {
 ~~~
 `}
 />
-<Demo src='toggle-password-visibility' />
+<Demo />
 <RelatedPosts
     slugs={[
         'attach-or-detach-an-event-handler',

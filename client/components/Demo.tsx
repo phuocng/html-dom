@@ -1,10 +1,18 @@
 import React from 'react';
 
 interface DemoProps {
-    src: string;
+    src?: string;
 }
 
 const Demo: React.FC<DemoProps> = ({ src }) => {
+    const iframeRef = React.useRef<HTMLIFrameElement | null>(null);
+
+    React.useEffect(() => {
+        const iframe = iframeRef.current;
+        const path = window.location.pathname.substr(1);
+        iframe.src = src || `demo/${path}`;
+    }, []);
+
     const onLoad = (e: React.SyntheticEvent) => {
         const iframe = e.target as HTMLFrameElement;
         const body = iframe.contentDocument.body;
@@ -25,7 +33,7 @@ const Demo: React.FC<DemoProps> = ({ src }) => {
                 </a>)
             </div>
             <div className='border border-gray-400'>
-                <iframe className='border-none w-full' src={`demo/${src}`} onLoad={onLoad} />
+                <iframe ref={iframeRef} className='border-none w-full' onLoad={onLoad} />
             </div>
         </div>
     );
