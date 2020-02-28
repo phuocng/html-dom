@@ -8,23 +8,20 @@ export default () => {
 <>
 <Markdown
     content={`
-## Show an element
+To toggle the element, we update the \`display\` property:
 
 ~~~ javascript
-ele.style.display = '';
-~~~
-
-## Hide an element
-
-~~~ javascript
-ele.style.display = 'none';
+const toggle = function(ele) {
+    const display = ele.style.display;
+    ele.style.display = display === 'none' ? 'block' : 'none';
+};
 ~~~
 `}
 />
 <RelatedPosts
     slugs={[
         'set-css-style-for-an-element',
-        'toggle-an-element',
+        'show-or-hide-an-element',
     ]}
 />
 </>

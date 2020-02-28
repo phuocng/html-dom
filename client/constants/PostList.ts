@@ -201,6 +201,10 @@ const PostList: Post[] = [
         level: 'Basic',
     },
     {
+        slug: 'toggle-an-element',
+        level: 'Basic',
+    },
+    {
         slug: 'trigger-an-event',
         level: 'Basic',
     },
