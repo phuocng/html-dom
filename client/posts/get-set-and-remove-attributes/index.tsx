@@ -34,6 +34,7 @@ ele.removeAttribute('title');
 <RelatedPosts
     slugs={[
         'get-set-and-remove-data-attributes',
+        'toggle-password-visibility',
     ]}
 />
 </>

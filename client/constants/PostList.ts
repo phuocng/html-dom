@@ -205,6 +205,10 @@ const PostList: Post[] = [
         level: 'Basic',
     },
     {
+        slug: 'toggle-password-visibility',
+        level: 'Basic',
+    },
+    {
         slug: 'trigger-an-event',
         level: 'Basic',
     },
