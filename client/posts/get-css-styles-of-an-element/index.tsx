@@ -37,6 +37,7 @@ const bgColor = styles.getPropertyValue('backgroundColor');
 ## Might be useful
 
 * [Check if an element is scrollable](/check-if-an-element-is-scrollable)
+* [Get the default value of a css property](/get-the-default-value-of-a-css-property)
 * [Set CSS style for an element](/set-css-style-for-an-element)
 `}
 />
