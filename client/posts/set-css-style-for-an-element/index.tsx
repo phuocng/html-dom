@@ -30,6 +30,7 @@ el.style.cssText = 'background-color: red; color: white';
 <RelatedPosts
     slugs={[
         'get-css-styles-of-an-element',
+        'measure-the-width-of-given-text-of-given-font',
         'show-or-hide-an-element',
         'toggle-an-element',
     ]}

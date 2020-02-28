@@ -25,6 +25,7 @@ const ele = document.createTextNode('Hello World!');
     slugs={[
         'copy-text-to-the-clipboard',
         'download-a-file',
+        'measure-the-width-of-given-text-of-given-font',
     ]}
 />
 </>
