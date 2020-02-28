@@ -149,6 +149,10 @@ const PostList: Post[] = [
         level: 'Intermediate',
     },
     {
+        slug: 'put-cursor-at-the-end-of-an-input',
+        level: 'Basic',
+    },
+    {
         slug: 'redirect-to-another-page',
         level: 'Basic',
     },
