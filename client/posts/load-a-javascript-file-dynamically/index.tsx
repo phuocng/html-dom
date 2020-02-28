@@ -98,6 +98,7 @@ loadScriptsInOrder([
 />
 <RelatedPosts
     slugs={[
+        'change-the-website-favicon',
         'load-a-css-file-dynamically',
     ]}
 />
