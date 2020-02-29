@@ -26,6 +26,7 @@ const ele = document.createTextNode('Hello World!');
         'copy-text-to-the-clipboard',
         'download-a-file',
         'measure-the-width-of-given-text-of-given-font',
+        'resize-the-width-of-a-text-box-to-fit-its-content-automatically',
     ]}
 />
 </>
