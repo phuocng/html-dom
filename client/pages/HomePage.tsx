@@ -41,7 +41,7 @@ const HomePage = () => {
                             <li key={post.slug} className='mb-4'>
                                 <Link
                                     to={`/${post.slug}`}
-                                    className='font-light text-xl sm:text-2xl bg-gray-200 px-2 py-1 flex items-center justify-between'
+                                    className='bg-gray-200 px-2 py-1 flex items-center justify-between'
                                 >
                                     <span>{idx} — {unslugify(post.slug)}</span>
                                     <span

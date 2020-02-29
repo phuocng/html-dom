@@ -189,6 +189,10 @@ const PostList: Post[] = [
         level: 'Basic',
     },
     {
+        slug: 'resize-the-width-of-a-text-box-to-fit-its-content-automatically',
+        level: 'Intermediate',
+    },
+    {
         slug: 'scroll-to-top-of-the-page',
         level: 'Basic',
     },
