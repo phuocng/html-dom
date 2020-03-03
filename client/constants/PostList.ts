@@ -61,6 +61,10 @@ const PostList: Post[] = [
         level: 'Basic',
     },
     {
+        slug: 'detect-if-the-caps-lock-is-on',
+        level: 'Intermediate',
+    },
+    {
         slug: 'determine-the-height-and-width-of-an-element',
         level: 'Basic',
     },

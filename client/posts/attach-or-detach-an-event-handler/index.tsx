@@ -47,6 +47,7 @@ If you want the handler to be invoke once, then look at the [Create one time eve
 />
 <RelatedPosts
     slugs={[
+        'detect-if-the-caps-lock-is-on',
         'get-the-size-of-an-image',
         'review-an-image-before-uploading-it',
         'replace-broken-images',
