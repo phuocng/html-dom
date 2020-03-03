@@ -23,6 +23,7 @@ const ele = document.createTextNode('Hello World!');
 />
 <RelatedPosts
     slugs={[
+        'calculate-the-size-of-scrollbar',
         'copy-text-to-the-clipboard',
         'download-a-file',
         'measure-the-width-of-given-text-of-given-font',
