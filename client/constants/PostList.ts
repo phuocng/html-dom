@@ -157,6 +157,10 @@ const PostList: Post[] = [
         level: 'Basic',
     },
     {
+        slug: 'make-a-draggable-element',
+        level: 'Advanced',
+    },
+    {
         slug: 'measure-the-width-of-given-text-of-given-font',
         level: 'Intermediate',
     },
