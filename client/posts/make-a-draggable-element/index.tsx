@@ -34,7 +34,7 @@ In order to make it draggable, we need to handle three events:
 
 * \`mousedown\` on the element: Track the current position of mouse
 * \`mousemove\` on \`document\`: Calculate how far the mouse has been moved, and determine the position of element
-* \`mouseup\` on \`document\`: Remove the handlers of two events above
+* \`mouseup\` on \`document\`: Remove the event handlers of \`document\`
 
 ~~~ javascript
 // The current position of mouse
@@ -84,6 +84,7 @@ ele.addEventListener('mousedown', mouseDownHandler);
 <RelatedPosts
     slugs={[
         'attach-or-detach-an-event-handler',
+        'make-a-resizable-element',
         'set-css-style-for-an-element',
     ]}
 />

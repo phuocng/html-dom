@@ -50,6 +50,7 @@ elements.forEach(function(ele) {
 />
 <RelatedPosts
     slugs={[
+        'make-a-resizable-element',
         'replace-broken-images',
         'select-an-element-or-list-of-elements',
         'select-the-children-of-an-element',
