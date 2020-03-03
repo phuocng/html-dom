@@ -17,7 +17,7 @@ Assume that we want to turn the following element to draggable element:
 
 The element needs to have the following styles:
 
-~~~ html
+~~~ css
 .draggable {
     /* Indicate the element draggable */
     cursor: move;
