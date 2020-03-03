@@ -56,6 +56,7 @@ This method doesn't work on macOS if the _Show scroll bars_ option is set as _Au
     slugs={[
         'append-to-an-element',
         'create-an-element',
+        'determine-the-height-and-width-of-an-element',
         'remove-an-element',
     ]}
 />

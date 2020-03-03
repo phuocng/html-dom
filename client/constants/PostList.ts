@@ -61,6 +61,10 @@ const PostList: Post[] = [
         level: 'Basic',
     },
     {
+        slug: 'determine-the-height-and-width-of-an-element',
+        level: 'Basic',
+    },
+    {
         slug: 'download-a-file',
         level: 'Intermediate',
     },
