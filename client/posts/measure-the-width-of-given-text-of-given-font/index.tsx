@@ -8,7 +8,7 @@ export default () => {
 <>
 <Markdown
     content={`
-## 1. Use the canvas's measureText() method
+## 1. Use the canvas' measureText() method
 
 ~~~ javascript
 const measureWidth = function(text, font) {
