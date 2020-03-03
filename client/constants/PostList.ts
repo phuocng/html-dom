@@ -161,6 +161,10 @@ const PostList: Post[] = [
         level: 'Advanced',
     },
     {
+        slug: 'make-a-resizable-element',
+        level: 'Advanced',
+    },
+    {
         slug: 'measure-the-width-of-given-text-of-given-font',
         level: 'Intermediate',
     },

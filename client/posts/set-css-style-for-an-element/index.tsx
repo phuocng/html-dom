@@ -31,6 +31,7 @@ el.style.cssText = 'background-color: red; color: white';
     slugs={[
         'get-css-styles-of-an-element',
         'make-a-draggable-element',
+        'make-a-resizable-element',
         'measure-the-width-of-given-text-of-given-font',
         'resize-the-width-of-a-text-box-to-fit-its-content-automatically',
         'show-or-hide-an-element',
