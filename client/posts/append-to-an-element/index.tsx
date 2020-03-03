@@ -17,6 +17,7 @@ target.appendChild(ele);
 />
 <RelatedPosts
     slugs={[
+        'calculate-the-size-of-scrollbar',
         'copy-text-to-the-clipboard',
         'download-a-file',
         'prepend-to-an-element',

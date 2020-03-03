@@ -17,6 +17,10 @@ const PostList: Post[] = [
         level: 'Basic',
     },
     {
+        slug: 'calculate-the-size-of-scrollbar',
+        level: 'Intermediate',
+    },
+    {
         slug: 'change-the-website-favicon',
         level: 'Intermediate',
     },
