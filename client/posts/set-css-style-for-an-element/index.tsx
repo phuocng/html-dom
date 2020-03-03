@@ -30,6 +30,7 @@ el.style.cssText = 'background-color: red; color: white';
 <RelatedPosts
     slugs={[
         'get-css-styles-of-an-element',
+        'make-a-draggable-element',
         'measure-the-width-of-given-text-of-given-font',
         'resize-the-width-of-a-text-box-to-fit-its-content-automatically',
         'show-or-hide-an-element',
