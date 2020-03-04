@@ -34,6 +34,7 @@ ele.removeAttribute('title');
 <RelatedPosts
     slugs={[
         'get-set-and-remove-data-attributes',
+        'placeholder-for-a-contenteditable-element',
         'toggle-password-visibility',
     ]}
 />

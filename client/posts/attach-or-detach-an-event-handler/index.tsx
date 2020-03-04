@@ -51,6 +51,7 @@ If you want the handler to be invoke once, then look at the [Create one time eve
         'get-the-size-of-an-image',
         'make-a-draggable-element',
         'make-a-resizable-element',
+        'placeholder-for-a-contenteditable-element',
         'review-an-image-before-uploading-it',
         'replace-broken-images',
         'resize-an-iframe-to-fit-its-content',

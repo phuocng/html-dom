@@ -27,6 +27,7 @@ ele.innerHTML = '<h1>Hello World!</h1>';
     slugs={[
         'detect-if-the-caps-lock-is-on',
         'get-the-text-content-of-an-element',
+        'placeholder-for-a-contenteditable-element',
     ]}
 />
 </>
