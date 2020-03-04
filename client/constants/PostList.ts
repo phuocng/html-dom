@@ -169,6 +169,10 @@ const PostList: Post[] = [
         level: 'Intermediate',
     },
     {
+        slug: 'placeholder-for-a-contenteditable-element',
+        level: 'Intermediate',
+    },
+    {
         slug: 'prepend-to-an-element',
         level: 'Basic',
     },
