@@ -85,6 +85,7 @@ ele.addEventListener('mousedown', mouseDownHandler);
     slugs={[
         'attach-or-detach-an-event-handler',
         'make-a-resizable-element',
+        'resize-columns-of-a-table',
         'set-css-style-for-an-element',
     ]}
 />

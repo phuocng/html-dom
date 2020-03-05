@@ -42,6 +42,7 @@ const bgColor = styles.getPropertyValue('backgroundColor');
         'check-if-an-element-is-scrollable',
         'get-the-default-value-of-a-css-property',
         'measure-the-width-of-given-text-of-given-font',
+        'resize-columns-of-a-table',
         'resize-the-width-of-a-text-box-to-fit-its-content-automatically',
         'set-css-style-for-an-element',
     ]}

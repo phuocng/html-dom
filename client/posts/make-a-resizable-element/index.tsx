@@ -127,6 +127,7 @@ const resizers = ele.querySelectorAll('.resizer');
         'attach-or-detach-an-event-handler',
         'loop-over-a-nodelist',
         'make-a-draggable-element',
+        'resize-columns-of-a-table',
         'set-css-style-for-an-element',
     ]}
 />

@@ -30,6 +30,7 @@ ele.classList.toggle('class-name');
 <RelatedPosts
     slugs={[
         'check-if-an-element-has-given-class',
+        'resize-columns-of-a-table',
     ]}
 />
 </>

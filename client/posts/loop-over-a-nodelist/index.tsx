@@ -52,6 +52,7 @@ elements.forEach(function(ele) {
     slugs={[
         'make-a-resizable-element',
         'replace-broken-images',
+        'resize-columns-of-a-table',
         'select-an-element-or-list-of-elements',
         'select-the-children-of-an-element',
     ]}
