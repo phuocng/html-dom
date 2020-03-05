@@ -21,6 +21,7 @@ target.appendChild(ele);
         'copy-text-to-the-clipboard',
         'download-a-file',
         'prepend-to-an-element',
+        'resize-columns-of-a-table',
     ]}
 />
 </>

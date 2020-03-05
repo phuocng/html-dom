@@ -55,6 +55,7 @@ If you want the handler to be invoke once, then look at the [Create one time eve
         'review-an-image-before-uploading-it',
         'replace-broken-images',
         'resize-an-iframe-to-fit-its-content',
+        'resize-columns-of-a-table',
         'resize-the-width-of-a-text-box-to-fit-its-content-automatically',
         'select-the-text-of-a-textarea-automatically',
     ]}

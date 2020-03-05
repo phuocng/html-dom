@@ -213,6 +213,10 @@ const PostList: Post[] = [
         level: 'Basic',
     },
     {
+        slug: 'resize-columns-of-a-table',
+        level: 'Advanced',
+    },
+    {
         slug: 'resize-the-width-of-a-text-box-to-fit-its-content-automatically',
         level: 'Intermediate',
     },
