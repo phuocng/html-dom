@@ -21,7 +21,7 @@ const handler = function(e) {
 ele.addEventListener('event-name', handler, { once: true });
 ~~~
 
-Note that this option isn't support in IE.
+Note that this option isn't supported in IE.
 
 ## 2. Self-remove the handler
 
