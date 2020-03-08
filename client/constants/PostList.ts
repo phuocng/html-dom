@@ -45,6 +45,10 @@ const PostList: Post[] = [
         level: 'Basic',
     },
     {
+        slug: 'communication-between-an-iframe-and-its-parent-window',
+        level: 'Intermediate',
+    },
+    {
         slug: 'copy-text-to-the-clipboard',
         level: 'Intermediate',
     },
