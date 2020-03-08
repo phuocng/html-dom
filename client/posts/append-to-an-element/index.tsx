@@ -22,6 +22,7 @@ target.appendChild(ele);
         'download-a-file',
         'prepend-to-an-element',
         'resize-columns-of-a-table',
+        'sort-a-table-by-clicking-its-headers',
     ]}
 />
 </>

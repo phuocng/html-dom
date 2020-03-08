@@ -245,6 +245,10 @@ const PostList: Post[] = [
         level: 'Basic',
     },
     {
+        slug: 'sort-a-table-by-clicking-its-headers',
+        level: 'Advanced',
+    },
+    {
         slug: 'toggle-an-element',
         level: 'Basic',
     },

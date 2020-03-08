@@ -44,6 +44,7 @@ ele.querySelectorAll('div.hello');
 <RelatedPosts
     slugs={[
         'loop-over-a-nodelist',
+        'sort-a-table-by-clicking-its-headers',
     ]}
 />
 </>

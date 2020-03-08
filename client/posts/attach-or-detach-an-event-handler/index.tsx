@@ -58,6 +58,7 @@ If you want the handler to be invoke once, then look at the [Create one time eve
         'resize-columns-of-a-table',
         'resize-the-width-of-a-text-box-to-fit-its-content-automatically',
         'select-the-text-of-a-textarea-automatically',
+        'sort-a-table-by-clicking-its-headers',
     ]}
 />
 </>

@@ -42,6 +42,7 @@ Note that calling \`delete ele.dataset\` doesn't remove all data attributes.
 <RelatedPosts
     slugs={[
         'get-set-and-remove-attributes',
+        'sort-a-table-by-clicking-its-headers',
     ]}
 />
 </>
