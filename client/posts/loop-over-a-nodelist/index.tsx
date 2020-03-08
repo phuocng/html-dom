@@ -55,6 +55,7 @@ elements.forEach(function(ele) {
         'resize-columns-of-a-table',
         'select-an-element-or-list-of-elements',
         'select-the-children-of-an-element',
+        'sort-a-table-by-clicking-its-headers',
     ]}
 />
 </>
