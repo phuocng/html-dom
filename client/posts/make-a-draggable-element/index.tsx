@@ -80,7 +80,7 @@ ele.addEventListener('mousedown', mouseDownHandler);
 ~~~
 `}
 />
-<Demo />
+<Demo src='demo/make-a-draggable-element' />
 <RelatedPosts
     slugs={[
         'attach-or-detach-an-event-handler',
