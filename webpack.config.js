@@ -50,6 +50,7 @@ module.exports = {
                             ident: 'postcss',
                             plugins: [
                                 require('tailwindcss'),
+                                require('cssnano'),
                             ],
                         },
                     },
