@@ -6,12 +6,6 @@ interface DemoProps {
 
 const Demo: React.FC<DemoProps> = ({ src }) => {
     const iframeRef = React.useRef<HTMLIFrameElement | null>(null);
-    const [source, setSource] = React.useState(src);
-
-    React.useEffect(() => {
-        const path = window.location.pathname.substr(1);
-        setSource(src || `demo/${path}`);
-    }, []);
 
     const onLoad = (e: React.SyntheticEvent) => {
         const iframe = e.target as HTMLFrameElement;
@@ -26,14 +20,14 @@ const Demo: React.FC<DemoProps> = ({ src }) => {
                 <div className='mr-2'>Demo</div>
                 (<a
                     className='underline'
-                    href={`https://github.com/phuoc-ng/html-dom/blob/master/${source}/index.html`}
+                    href={`https://github.com/phuoc-ng/html-dom/blob/master/${src}/index.html`}
                     target='_blank'
                 >
                     source
                 </a>)
             </div>
             <div className='border border-gray-400'>
-                <iframe ref={iframeRef} className='border-none w-full' src={source} onLoad={onLoad} />
+                <iframe ref={iframeRef} className='border-none w-full' src={src} onLoad={onLoad} />
             </div>
         </div>
     );
