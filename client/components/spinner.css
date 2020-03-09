@@ -1,12 +1,12 @@
 .spinner {
     animation-duration: 750ms;
-    animation-name: viewer-spinner-transform;
+    animation-name: spinner-transform;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     transition-property: transform;
 }
 
-@keyframes viewer-spinner-transform {
+@keyframes spinner-transform {
     from {
         transform: rotate(0deg);
     }
