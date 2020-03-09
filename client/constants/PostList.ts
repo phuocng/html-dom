@@ -40,6 +40,7 @@ const PostList: Post[] = [
     { slug: 'get-the-size-of-an-image', level: 'Basic' },
     { slug: 'get-the-text-content-of-an-element', level: 'Basic' },
     { slug: 'go-back-to-the-previous-page', level: 'Basic' },
+    { slug: 'highlight-an-element-when-dragging-a-file-over-it', level: 'Intermediate' },
     { slug: 'insert-an-element-after-or-before-other-element', level: 'Basic' },
     { slug: 'load-a-css-file-dynamically', level: 'Intermediate' },
     { slug: 'load-a-javascript-file-dynamically', level: 'Intermediate' },
