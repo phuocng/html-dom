@@ -71,6 +71,7 @@ const PostList: Post[] = [
     { slug: 'set-css-style-for-an-element', level: 'Basic' },
     { slug: 'show-or-hide-an-element', level: 'Basic' },
     { slug: 'sort-a-table-by-clicking-its-headers', level: 'Advanced' },
+    { slug: 'strip-html-from-a-given-text', level: 'Basic' },
     { slug: 'toggle-an-element', level: 'Basic' },
     { slug: 'toggle-password-visibility', level: 'Basic' },
     { slug: 'trigger-an-event', level: 'Basic' },

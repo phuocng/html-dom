@@ -30,6 +30,7 @@ ele.innerHTML = '<h1>Hello World!</h1>';
         'get-the-text-content-of-an-element',
         'placeholder-for-a-contenteditable-element',
         'sort-a-table-by-clicking-its-headers',
+        'strip-html-from-a-given-text',
     ]}
 />
 </>

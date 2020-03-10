@@ -30,6 +30,7 @@ const ele = document.createTextNode('Hello World!');
         'measure-the-width-of-given-text-of-given-font',
         'resize-columns-of-a-table',
         'resize-the-width-of-a-text-box-to-fit-its-content-automatically',
+        'strip-html-from-a-given-text',
     ]}
 />
 </>
