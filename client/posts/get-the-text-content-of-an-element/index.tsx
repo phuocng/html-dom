@@ -19,6 +19,7 @@ const text = ele.textContent;
 <RelatedPosts
     slugs={[
         'get-or-set-the-html-of-an-element',
+        'strip-html-from-a-given-text',
     ]}
 />
 </>
