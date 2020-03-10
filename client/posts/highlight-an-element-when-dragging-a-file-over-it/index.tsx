@@ -41,6 +41,10 @@ ele.addEventListener('dragenter', function(e) {
 In similar events, the class is removed from the element when user moves the file out of the element, or drops it:
 
 ~~~ javascript
+ele.addEventListener('dragover', function(e) {
+    e.preventDefault();
+});
+
 ele.addEventListener('dragleave', function(e) {
     e.preventDefault();
     e.target.classList.remove('dragging');
@@ -51,6 +55,9 @@ ele.addEventListener('drop', function(e) {
     e.target.classList.remove('dragging');
 });
 ~~~
+
+The last thing, \`e.preventDefault()\` is used in the handlers to [prevent](/prevent-the-default-action-of-an-event) the browser from
+executing the default action.
 `}
 />
 <Demo src='demo/highlight-an-element-when-dragging-a-file-over-it' />
@@ -58,6 +65,7 @@ ele.addEventListener('drop', function(e) {
     slugs={[
         'add-or-remove-class-from-an-element',
         'attach-or-detach-an-event-handler',
+        'prevent-the-default-action-of-an-event',
     ]}
 />
 </>
