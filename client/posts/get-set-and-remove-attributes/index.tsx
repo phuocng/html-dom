@@ -33,6 +33,7 @@ ele.removeAttribute('title');
 />
 <RelatedPosts
     slugs={[
+        'check-if-the-native-date-input-is-supported',
         'get-set-and-remove-data-attributes',
         'placeholder-for-a-contenteditable-element',
         'toggle-password-visibility',
