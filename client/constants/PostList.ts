@@ -31,6 +31,7 @@ const PostList: Post[] = [
     { slug: 'get-set-and-remove-attributes', level: 'Basic' },
     { slug: 'get-set-and-remove-data-attributes', level: 'Basic' },
     { slug: 'get-siblings-of-an-element', level: 'Basic', },
+    { slug: 'get-size-of-the-selected-file', level: 'Basic', },
     { slug: 'get-the-closest-element-by-given-selector', level: 'Basic' },
     { slug: 'get-the-default-value-of-a-css-property', level: 'Intermediate' },
     { slug: 'get-the-document-height-and-width', level: 'Basic' },

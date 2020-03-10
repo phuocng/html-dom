@@ -26,6 +26,7 @@ ele.innerHTML = '<h1>Hello World!</h1>';
 <RelatedPosts
     slugs={[
         'detect-if-the-caps-lock-is-on',
+        'get-size-of-the-selected-file',
         'get-the-text-content-of-an-element',
         'placeholder-for-a-contenteditable-element',
         'sort-a-table-by-clicking-its-headers',

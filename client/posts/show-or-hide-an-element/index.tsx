@@ -24,6 +24,7 @@ ele.style.display = 'none';
 <RelatedPosts
     slugs={[
         'detect-if-the-caps-lock-is-on',
+        'get-size-of-the-selected-file',
         'set-css-style-for-an-element',
         'toggle-an-element',
     ]}
