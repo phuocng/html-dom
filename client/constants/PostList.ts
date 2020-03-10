@@ -13,6 +13,7 @@ const PostList: Post[] = [
     { slug: 'check-if-an-element-has-given-class', level: 'Basic' },
     { slug: 'check-if-an-element-is-a-descendant-of-another', level: 'Basic' },
     { slug: 'check-if-an-element-is-scrollable', level: 'Intermediate' },
+    { slug: 'check-if-the-native-date-input-is-supported', level: 'Basic' },
     { slug: 'clone-an-element', level: 'Basic' },
     { slug: 'communication-between-an-iframe-and-its-parent-window', level: 'Intermediate' },
     { slug: 'copy-text-to-the-clipboard', level: 'Intermediate' },
