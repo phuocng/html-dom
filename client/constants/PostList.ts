@@ -50,6 +50,7 @@ const PostList: Post[] = [
     { slug: 'measure-the-width-of-given-text-of-given-font', level: 'Intermediate' },
     { slug: 'placeholder-for-a-contenteditable-element', level: 'Intermediate' },
     { slug: 'prepend-to-an-element', level: 'Basic' },
+    { slug: 'prevent-the-default-action-of-an-event', level: 'Basic' },
     { slug: 'preview-an-image-before-uploading-it', level: 'Intermediate' },
     { slug: 'put-cursor-at-the-end-of-an-input', level: 'Basic' },
     { slug: 'redirect-to-another-page', level: 'Basic' },
