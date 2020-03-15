@@ -72,9 +72,7 @@ textboxEle.addEventListener('keypress', function(e) {
 />
 <RelatedPosts
     slugs={[
-        'attach-or-detach-an-event-handler',
-        'get-or-set-the-html-of-an-element',
-        'show-or-hide-an-element',
+        'detect-mac-os-browser',
     ]}
 />
 </>
