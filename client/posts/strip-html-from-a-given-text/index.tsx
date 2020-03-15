@@ -26,6 +26,16 @@ const stripHtml = function(html) {
 This approach isn't recommended because it can cause a security issue if the input \`html\` consists of special tags, such as 
 \`<script>\`.
 
+However, we can prevent the html from being executed by replacing the \`div\` tag with \`textarea\`:
+
+~~~ javascript
+const stripHtml = function(html) {
+    const ele = document.createElement('textarea');
+    ele.innerHTML = html;
+    return ele.textContent || "";
+};
+~~~
+
 ## 2. Use DOMParser
 
 ~~~ javascript

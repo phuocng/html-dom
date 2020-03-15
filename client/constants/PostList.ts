@@ -22,6 +22,7 @@ const PostList: Post[] = [
     { slug: 'detect-clicks-outside-of-an-element', level: 'Basic' },
     { slug: 'detect-if-an-element-is-focused', level: 'Basic' },
     { slug: 'detect-if-the-caps-lock-is-on', level: 'Intermediate' },
+    { slug: 'detect-mac-os-browser', level: 'Basic' },
     { slug: 'determine-the-height-and-width-of-an-element', level: 'Basic' },
     { slug: 'download-a-file', level: 'Intermediate' },
     { slug: 'execute-code-when-the-document-is-ready', level: 'Basic' },

@@ -19,6 +19,7 @@ const PostLayout: React.FC<PostLayoutProps> = ({ children, slug }) => {
         <Layout>
             <Helmet>
                 <title>HTML DOM - {title}</title>
+                <meta name='description' content={title} />
             </Helmet>
 
             <div className='mt-32 text-center'>
