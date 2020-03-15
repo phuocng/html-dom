@@ -63,6 +63,7 @@ const PostList: Post[] = [
     { slug: 'replace-an-element', level: 'Basic' },
     { slug: 'replace-broken-images', level: 'Basic' },
     { slug: 'resize-an-iframe-to-fit-its-content', level: 'Basic' },
+    { slug: 'resize-an-image', level: 'Intermediate' },
     { slug: 'resize-columns-of-a-table', level: 'Advanced' },
     { slug: 'resize-the-width-of-a-text-box-to-fit-its-content-automatically', level: 'Intermediate' },
     { slug: 'scroll-to-top-of-the-page', level: 'Basic' },
