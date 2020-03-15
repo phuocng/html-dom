@@ -60,6 +60,7 @@ fileEle.addEventListener('change', function(e) {
     slugs={[
         'attach-or-detach-an-event-handler',
         'get-the-size-of-an-image',
+        'resize-an-image',
     ]}
 />
 </>
