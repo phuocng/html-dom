@@ -19,6 +19,7 @@ target.insertBefore(ele, target.firstChild);
     slugs={[
         'append-to-an-element',
         'insert-an-element-after-or-before-other-element',
+        'insert-given-html-after-or-before-an-element',
     ]}
 />
 </>
