@@ -39,6 +39,7 @@ const widthWithMargin = ele.offsetWidth + parseFloat(styles.marginLeft)
 <RelatedPosts
     slugs={[
         'calculate-the-size-of-scrollbar',
+        'scale-a-text-to-fit-inside-of-an-element',
     ]}
 />
 </>

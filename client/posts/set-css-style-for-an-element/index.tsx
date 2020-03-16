@@ -35,6 +35,7 @@ el.style.cssText = 'background-color: red; color: white';
         'measure-the-width-of-given-text-of-given-font',
         'resize-columns-of-a-table',
         'resize-the-width-of-a-text-box-to-fit-its-content-automatically',
+        'scale-a-text-to-fit-inside-of-an-element',
         'show-or-hide-an-element',
         'toggle-an-element',
     ]}

@@ -66,6 +66,7 @@ const measureWidth = function(text, font) {
         'get-css-styles-of-an-element',
         'remove-an-element',
         'resize-the-width-of-a-text-box-to-fit-its-content-automatically',
+        'scale-a-text-to-fit-inside-of-an-element',
         'set-css-style-for-an-element',
     ]}
 />

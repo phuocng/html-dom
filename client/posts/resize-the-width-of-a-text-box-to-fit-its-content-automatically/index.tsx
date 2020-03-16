@@ -88,6 +88,7 @@ textboxEle.addEventListener('input', function(e) {
         'get-css-styles-of-an-element',
         'measure-the-width-of-given-text-of-given-font',
         'remove-an-element',
+        'scale-a-text-to-fit-inside-of-an-element',
         'set-css-style-for-an-element',
     ]}
 />
