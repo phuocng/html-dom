@@ -44,6 +44,7 @@ const bgColor = styles.getPropertyValue('backgroundColor');
         'measure-the-width-of-given-text-of-given-font',
         'resize-columns-of-a-table',
         'resize-the-width-of-a-text-box-to-fit-its-content-automatically',
+        'scale-a-text-to-fit-inside-of-an-element',
         'set-css-style-for-an-element',
     ]}
 />
