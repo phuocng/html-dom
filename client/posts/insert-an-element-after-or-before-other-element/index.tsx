@@ -37,6 +37,8 @@ refEle.insertAdjacentElement('beforebegin', ele);
 />
 <RelatedPosts
     slugs={[
+        'append-to-an-element',
+        'insert-given-html-after-or-before-an-element',
         'prepend-to-an-element',
     ]}
 />

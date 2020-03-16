@@ -20,6 +20,8 @@ target.appendChild(ele);
         'calculate-the-size-of-scrollbar',
         'copy-text-to-the-clipboard',
         'download-a-file',
+        'insert-an-element-after-or-before-other-element',
+        'insert-given-html-after-or-before-an-element',
         'prepend-to-an-element',
         'resize-columns-of-a-table',
         'sort-a-table-by-clicking-its-headers',
