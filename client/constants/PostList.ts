@@ -26,6 +26,7 @@ const PostList: Post[] = [
     { slug: 'determine-the-height-and-width-of-an-element', level: 'Basic' },
     { slug: 'download-a-file', level: 'Intermediate' },
     { slug: 'execute-code-when-the-document-is-ready', level: 'Basic' },
+    { slug: 'export-a-table-to-csv', level: 'Intermediate' },
     { slug: 'get-css-styles-of-an-element', level: 'Basic' },
     { slug: 'get-or-set-the-document-title', level: 'Basic' },
     { slug: 'get-or-set-the-html-of-an-element', level: 'Basic' },

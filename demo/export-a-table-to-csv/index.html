@@ -1,0 +1,131 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>HTML DOM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="/demo/styles.css" rel="stylesheet">
+    <style>
+    .table {
+        border-collapse: collapse;
+    }
+    .table, .table th, .table td {
+        border: 1px solid #ccc;
+    }
+    .table th, .table td {
+        padding: 0.5rem;
+    }
+    </style>
+</head>
+<body class="font-sans w-full">
+    <div class="p-4">
+        <table id="exportMe" class="table">
+            <thead>
+                <tr>
+                    <th data-type="number">No.</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Andrea</td>
+                    <td>Ross</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Penelope</td>
+                    <td>Mills</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Sarah</td>
+                    <td>Grant</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Vanessa</td>
+                    <td>Roberts</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Oliver</td>
+                    <td>Alsop</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Jennifer</td>
+                    <td>Forsyth</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Michelle</td>
+                    <td>King</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Steven</td>
+                    <td>Kelly</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Julian</td>
+                    <td>Ferguson</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Chloe</td>
+                    <td>Ince</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button class="border-none bg-blue-400 text-white px-3 py-2 mt-4" id="export">Export</button>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const table = document.getElementById('exportMe');
+    const exportBtn = document.getElementById('export');
+
+    const toCsv = function(table) {
+        // Query all rows
+        const rows = table.querySelectorAll('tr');
+
+        return [].slice.call(rows)
+            .map(function(row) {
+                // Query all cells
+                const cells = row.querySelectorAll('th,td');
+                return [].slice.call(cells)
+                    .map(function(cell) {
+                        return cell.textContent;
+                    })
+                    .join(',');
+            })
+            .join('\n');
+    };
+
+    const download = function(text, fileName) {
+        const link = document.createElement('a');
+        link.setAttribute('href', `data:text/csv;charset=utf-8,${encodeURIComponent(text)}`);
+        link.setAttribute('download', fileName);
+
+        link.style.display = 'none';
+        document.body.appendChild(link);
+
+        link.click();
+
+        document.body.removeChild(link);
+    };
+
+    exportBtn.addEventListener('click', function() {
+        // Export to csv
+        const csv = toCsv(table);
+
+        // Download it
+        download(csv, 'download.csv');
+    });
+});
+</script>
+</body>
+</html>
