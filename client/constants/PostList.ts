@@ -82,6 +82,7 @@ const PostList: Post[] = [
     { slug: 'toggle-password-visibility', level: 'Basic' },
     { slug: 'trigger-an-event', level: 'Basic' },
     { slug: 'unwrap-an-element', level: 'Basic' },
+    { slug: 'upload-files-with-ajax', level: 'Basic' },
     { slug: 'wrap-an-element-around-a-given-element', level: 'Basic' },
 ];
 
