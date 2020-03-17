@@ -16,7 +16,7 @@ const elements = document.querySelectorAll(...);
 
 You can loop over \`elements\` by using one of the approach below:
 
-## 1. Use the spread operator
+## 1. Use the ES6 spread operator
 
 ~~~ javascript
 [...elements].forEach(function(ele) {
@@ -27,6 +27,7 @@ You can loop over \`elements\` by using one of the approach below:
 ## 2. Use the Array methods
 
 ~~~ javascript
+// \`Array.from\` is not supported on IE
 Array.from(elements).forEach(function(ele) {
     ...
 });
@@ -35,6 +36,11 @@ Array.from(elements).forEach(function(ele) {
 [].forEach.call(elements, function(ele) {
     ...
 })
+
+// Or
+[].slice.call(elements, 0).forEach(function(ele) {
+    ...
+});
 ~~~
 
 ## 3. Use the forEach method
@@ -55,6 +61,7 @@ elements.forEach(function(ele) {
         'resize-columns-of-a-table',
         'select-an-element-or-list-of-elements',
         'select-the-children-of-an-element',
+        'serialize-form-data-into-a-query-string',
         'sort-a-table-by-clicking-its-headers',
     ]}
 />

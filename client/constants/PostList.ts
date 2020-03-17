@@ -72,6 +72,7 @@ const PostList: Post[] = [
     { slug: 'select-an-element-or-list-of-elements', level: 'Basic' },
     { slug: 'select-the-children-of-an-element', level: 'Basic' },
     { slug: 'select-the-text-of-a-textarea-automatically', level: 'Basic' },
+    { slug: 'serialize-form-data-into-a-query-string', level: 'Basic' },
     { slug: 'set-css-style-for-an-element', level: 'Basic' },
     { slug: 'show-or-hide-an-element', level: 'Basic' },
     { slug: 'sort-a-table-by-clicking-its-headers', level: 'Advanced' },
