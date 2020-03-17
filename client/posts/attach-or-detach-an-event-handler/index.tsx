@@ -49,6 +49,7 @@ If you want the handler to be invoke once, then look at the [Create one time eve
     slugs={[
         'communication-between-an-iframe-and-its-parent-window',
         'detect-if-the-caps-lock-is-on',
+        'export-a-table-to-csv',
         'get-size-of-the-selected-file',
         'get-the-size-of-an-image',
         'highlight-an-element-when-dragging-a-file-over-it',

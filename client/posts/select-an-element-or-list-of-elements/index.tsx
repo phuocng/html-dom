@@ -43,6 +43,7 @@ ele.querySelectorAll('div.hello');
 />
 <RelatedPosts
     slugs={[
+        'export-a-table-to-csv',
         'loop-over-a-nodelist',
         'sort-a-table-by-clicking-its-headers',
     ]}

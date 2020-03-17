@@ -56,6 +56,7 @@ elements.forEach(function(ele) {
 />
 <RelatedPosts
     slugs={[
+        'export-a-table-to-csv',
         'make-a-resizable-element',
         'replace-broken-images',
         'resize-columns-of-a-table',
