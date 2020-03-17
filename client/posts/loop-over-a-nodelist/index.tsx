@@ -35,7 +35,7 @@ Array.from(elements).forEach(function(ele) {
 // Or
 [].forEach.call(elements, function(ele) {
     ...
-})
+});
 
 // Or
 [].slice.call(elements, 0).forEach(function(ele) {
@@ -63,6 +63,7 @@ elements.forEach(function(ele) {
         'select-the-children-of-an-element',
         'serialize-form-data-into-a-query-string',
         'sort-a-table-by-clicking-its-headers',
+        'upload-files-with-ajax',
     ]}
 />
 </>

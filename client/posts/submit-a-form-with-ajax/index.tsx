@@ -62,6 +62,7 @@ submit(formEle).then(function(response) {
 <RelatedPosts
     slugs={[
         'serialize-form-data-into-a-query-string',
+        'upload-files-with-ajax',
     ]}
 />
 </>
