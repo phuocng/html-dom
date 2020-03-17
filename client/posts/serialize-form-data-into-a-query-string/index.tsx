@@ -70,6 +70,7 @@ const fields = [].slice.call(formEle.elements, 0)
 <RelatedPosts
     slugs={[
         'loop-over-a-nodelist',
+        'submit-a-form-with-ajax',
     ]}
 />
 </>
