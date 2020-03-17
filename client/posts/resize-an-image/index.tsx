@@ -27,7 +27,7 @@ The following function scales an \`image\` file to \`ratio\` of percentages:
 
 ~~~ javascript
 const resize = function(image, ratio) {
-    return new Promise(function(response, reject) {
+    return new Promise(function(resolve, reject) {
         const reader = new FileReader();
         
         // Read the file
@@ -50,9 +50,9 @@ const resize = function(image, ratio) {
                 // Get the data of resized image
                 ('toBlob' in canvas)
                     ? canvas.toBlob(function(blob) {
-                        response(blob);
+                        resolve(blob);
                     })
-                    : response(dataUrlToBlob(canvas.toDataURL()));
+                    : resolve(dataUrlToBlob(canvas.toDataURL()));
             });
 
             // Set the source
