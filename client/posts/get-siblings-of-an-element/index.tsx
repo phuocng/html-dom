@@ -1,9 +1,15 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
+<Helmet>
+    <meta name='keywords' content='all siblings, next sibling, nextSibling, parentNode, previous sibling, previousSibling' />
+</Helmet>
 <Markdown
     content={`
 ## Get the previous sibling
@@ -25,11 +31,17 @@ const next = ele.nextSibling;
 const parent = ele.parentNode;
 
 // Filter the children, exclude the element
-const siblings = Array.from(parent.children).filter(function(child) {
+const siblings = [].slice.call(parent.children).filter(function(child) {
     return child !== ele;
 });
 ~~~
 `}
 />
+<RelatedPosts
+    slugs={[
+        'swap-two-nodes',
+    ]}
+/>
+</>
     );
 };
