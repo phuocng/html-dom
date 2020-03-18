@@ -8,7 +8,7 @@ export default () => {
     return (
 <>
 <Helmet>
-    <meta name='keywords' content='insertAdjacentElement, insertBefore' />
+    <meta name='keywords' content='insert after, insert before, insertAdjacentElement, insertBefore, nextSibling' />
 </Helmet>
 <Markdown
     content={`
@@ -40,6 +40,7 @@ refEle.insertAdjacentElement('beforebegin', ele);
         'append-to-an-element',
         'insert-given-html-after-or-before-an-element',
         'prepend-to-an-element',
+        'swap-two-nodes',
     ]}
 />
 </>
