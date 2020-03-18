@@ -17,6 +17,7 @@ const PostList: Post[] = [
     { slug: 'clone-an-element', level: 'Basic' },
     { slug: 'communication-between-an-iframe-and-its-parent-window', level: 'Intermediate' },
     { slug: 'copy-text-to-the-clipboard', level: 'Intermediate' },
+    { slug: 'count-the-number-of-characters-of-a-textarea', level: 'Basic' },
     { slug: 'create-an-element', level: 'Basic' },
     { slug: 'create-one-time-event-handler', level: 'Basic' },
     { slug: 'detect-clicks-outside-of-an-element', level: 'Basic' },

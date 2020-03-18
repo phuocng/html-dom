@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 import Markdown from '../../components/Markdown';
 import RelatedPosts from '../../components/RelatedPosts';
@@ -6,6 +7,9 @@ import RelatedPosts from '../../components/RelatedPosts';
 export default () => {
     return (
 <>
+<Helmet>
+    <meta name='keywords' content='addEventListener, attach event handler, detach event handler, removeEventListener' />
+</Helmet>
 <Markdown
     content={`
 ## Use the on attribute (not recommended)
@@ -48,6 +52,7 @@ If you want the handler to be invoke once, then look at the [Create one time eve
 <RelatedPosts
     slugs={[
         'communication-between-an-iframe-and-its-parent-window',
+        'count-the-number-of-characters-of-a-textarea',
         'detect-if-the-caps-lock-is-on',
         'export-a-table-to-csv',
         'get-size-of-the-selected-file',
