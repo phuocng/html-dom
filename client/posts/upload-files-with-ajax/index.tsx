@@ -73,6 +73,7 @@ upload(fileEle, '/path/to/back-end').then(function(response) {
 <RelatedPosts
     slugs={[
         'loop-over-a-nodelist',
+        'paste-an-image-from-the-clipboard',
         'submit-a-form-with-ajax',
     ]}
 />

@@ -53,6 +53,7 @@ const PostList: Post[] = [
     { slug: 'make-a-draggable-element', level: 'Advanced' },
     { slug: 'make-a-resizable-element', level: 'Advanced' },
     { slug: 'measure-the-width-of-given-text-of-given-font', level: 'Intermediate' },
+    { slug: 'paste-an-image-from-the-clipboard', level: 'Intermediate' },
     { slug: 'placeholder-for-a-contenteditable-element', level: 'Intermediate' },
     { slug: 'prepend-to-an-element', level: 'Basic' },
     { slug: 'prevent-the-default-action-of-an-event', level: 'Basic' },
