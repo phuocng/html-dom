@@ -1,9 +1,12 @@
 import React from 'react';
 
+import SubscribeForm from '../components/SubscribeForm';
+
 const Footer: React.FC<{}> = () => {
     return (
-        <div className='border-t pt-4 border-gray-400'>
-            <div className='ml-auto mr-auto max-w-3xl mb-16 px-2 lg:px-0'>
+        <div className='border-t pt-6 pb-16 border-gray-400'>
+            <div className='ml-auto mr-auto max-w-3xl px-2 lg:px-0'>
+                <SubscribeForm />
                 <div>
                     <h3 className='text-xl sm:text-2xl font-semibold mb-2'>Products</h3>
                     <ul className='flex flex-wrap -ml-1 -mr-1'>
