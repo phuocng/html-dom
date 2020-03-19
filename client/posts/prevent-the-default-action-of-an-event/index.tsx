@@ -66,6 +66,7 @@ ele.addEventListener('click', function(e) {
 <RelatedPosts
     slugs={[
         'attach-or-detach-an-event-handler',
+        'paste-as-plain-text',
     ]}
 />
 </>
