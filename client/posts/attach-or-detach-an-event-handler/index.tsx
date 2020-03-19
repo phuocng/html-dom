@@ -60,6 +60,7 @@ If you want the handler to be invoke once, then look at the [Create one time eve
         'highlight-an-element-when-dragging-a-file-over-it',
         'make-a-draggable-element',
         'make-a-resizable-element',
+        'paste-as-plain-text',
         'placeholder-for-a-contenteditable-element',
         'prevent-the-default-action-of-an-event',
         'review-an-image-before-uploading-it',
