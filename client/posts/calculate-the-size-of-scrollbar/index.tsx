@@ -28,8 +28,7 @@ const calculateScrollbarWidth = function() {
     const outer = document.createElement('div');
     outer.style.visibility = 'hidden';
     outer.style.overflow = 'scroll';
-    document.body.appendChild(outer);
-
+    
     // Append it to \`body\`
     document.body.appendChild(outer);
 
