@@ -23,7 +23,7 @@ ele.classList.add('another', 'class', 'name');
 ele.classList.remove('class-name');
 
 // Remove multiple classes
-ele.classList.add('another', 'class', 'name');
+ele.classList.remove('another', 'class', 'name');
 ~~~
 
 ## Toggle a class
