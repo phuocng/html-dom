@@ -1,9 +1,21 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
+<Helmet>
+    <meta
+        name='keywords'
+        content={`
+            clientHeight, clientWidth, document height, document width, offsetHeight,
+            offsetWidth, scrollHeight, scrollWidth
+        `}
+    />
+</Helmet>
 <Markdown
     content={`
 ## Get the document height
@@ -29,5 +41,11 @@ const fullWidth = Math.max(
 ~~~
 `}
 />
+<RelatedPosts
+    slugs={[
+        'check-if-an-element-is-in-the-viewport',
+    ]}
+/>
+</>
     );
 };
