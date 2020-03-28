@@ -12,12 +12,18 @@ export default () => {
 
 ~~~ javascript
 ele.classList.add('class-name');
+
+// Add multiple classes
+ele.classList.add('another', 'class', 'name');
 ~~~
 
 ## Remove a class from an element
 
 ~~~ javascript
 ele.classList.remove('class-name');
+
+// Remove multiple classes
+ele.classList.add('another', 'class', 'name');
 ~~~
 
 ## Toggle a class
