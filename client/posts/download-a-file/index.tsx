@@ -25,7 +25,7 @@ The idea comes from creating a link, and trigger its \`click\` event.
 // Create a new link
 const link = document.createElement('a');
 link.download = 'file name';
-link.download = '/path/to/file';
+link.href = '/path/to/file';
 
 // Append to the document
 document.body.appendChild(link);
