@@ -5,6 +5,7 @@ interface Post {
 
 const PostList: Post[] = [
     { slug: 'add-or-remove-class-from-an-element', level: 'Basic' },
+    { slug: 'allow-to-enter-particular-characters-only', level: 'Intermediate' },
     { slug: 'append-to-an-element', level: 'Basic', },
     { slug: 'attach-or-detach-an-event-handler', level: 'Basic' },
     { slug: 'calculate-the-size-of-scrollbar', level: 'Intermediate' },

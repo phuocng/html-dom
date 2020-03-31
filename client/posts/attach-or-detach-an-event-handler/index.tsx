@@ -51,6 +51,7 @@ If you want the handler to be invoke once, then look at the [Create one time eve
 />
 <RelatedPosts
     slugs={[
+        'allow-to-enter-particular-characters-only',
         'communication-between-an-iframe-and-its-parent-window',
         'count-the-number-of-characters-of-a-textarea',
         'detect-if-the-caps-lock-is-on',
