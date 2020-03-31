@@ -24,6 +24,7 @@ target.appendChild(ele);
         'insert-given-html-after-or-before-an-element',
         'prepend-to-an-element',
         'resize-columns-of-a-table',
+        'show-a-ghost-element-when-dragging-an-element',
         'sort-a-table-by-clicking-its-headers',
     ]}
 />
