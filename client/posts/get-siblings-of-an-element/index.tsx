@@ -15,7 +15,7 @@ export default () => {
 ## Get the previous sibling
 
 ~~~ javascript
-const next = ele.previousSibling;
+const prev = ele.previousSibling;
 ~~~
 
 ## Get the next sibling
