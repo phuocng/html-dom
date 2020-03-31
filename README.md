@@ -70,5 +70,5 @@ You might be interesting in my products:
 | [CSS Layout](https://csslayout.io)                | A collection of popular layouts and patterns made with CSS        |
 | [Fake Numbers](https://fakenumbers.io)            | Generate fake and valid numbers                                   |
 | [Form Validation](https://formvalidation.io)      | The best validation library for JavaScript                        |
-| [HTML DOM](https://htmldom.dev)                   | How to manage HTML DOM with native API only                       |
+| [HTML DOM](https://htmldom.dev)                   | How to manage HTML DOM with vanilla JavaScript                    |
 | [React PDF Viewer](https://react-pdf-viewer.dev)  | A React component to view a PDF document                          |
