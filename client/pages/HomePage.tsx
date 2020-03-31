@@ -28,7 +28,7 @@ const HomePage = () => {
                     style={{ textDecoration: 'none' }}
                     target="_blank"
                 >
-                    Github
+                    GitHub
                 </a>
             </div>
 

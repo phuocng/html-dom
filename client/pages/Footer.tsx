@@ -117,7 +117,7 @@ const Footer: React.FC<{}> = () => {
                                 style={{ textDecoration: 'none' }}
                                 target="_blank"
                             >
-                                <div className='font-semibold'>Github</div>
+                                <div className='font-semibold'>GitHub</div>
                                 <span className='text-gray-600'>@phuoc-ng</span>
                             </a>
                         </li>
