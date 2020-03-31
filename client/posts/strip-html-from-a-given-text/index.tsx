@@ -47,7 +47,8 @@ const stripHtml = function(html) {
 
 ## 3. Use template
 
-The [\`<template>\`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template) holds a HTML content that is not to be rendered immediately. However, this is not supported on older browser such as IE11.
+The [\`<template>\`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template) tag holds a HTML content that is not to be rendered immediately.
+However, this is not supported on older browser such as IE 11.
 
 ~~~ javascript
 const stripHtml = function(html) {

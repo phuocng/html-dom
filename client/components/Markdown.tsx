@@ -45,10 +45,10 @@ const Markdown: React.FC<MarkdownProps> = ({ content }) => {
         return <p className="mb-2">{p.children}</p>;
     };
     const renderTable = (p: any) => {
-        return <table className="border mb-8 text-white">{p.children}</table>;
+        return <table className="border border-gray-400 mb-8">{p.children}</table>;
     };
     const renderTableRow = (p: any) => {
-        return <tr className={`border-t ${p.isHeader ? "" : ""}`}>{p.children}</tr>;
+        return <tr className={`border-t border-gray-400 ${p.isHeader ? 'bg-gray-100' : ''}`}>{p.children}</tr>;
     };
     const renderTableCell = (p: any) => {
         return <td className="p-3">{p.children}</td>;

@@ -65,6 +65,7 @@ ele.addEventListener('click', function(e) {
 />
 <RelatedPosts
     slugs={[
+        'allow-to-enter-particular-characters-only',
         'attach-or-detach-an-event-handler',
         'paste-as-plain-text',
     ]}

@@ -67,7 +67,7 @@ const Footer: React.FC<{}> = () => {
                                 title="HTML DOM - Common tasks of managing HTML DOM with native API"
                             >
                                 <div className='font-semibold'>HTML DOM</div>
-                                <span className='text-gray-600'>common tasks of managing HTML DOM with native API</span>
+                                <span className='text-gray-600'>common tasks of managing HTML DOM with vanilla JavaScript</span>
                             </a>
                         </li>
                         <li className='w-1/2 sm:w-1/3 px-1 mb-6'>
