@@ -27,6 +27,7 @@ const PostList: Post[] = [
     { slug: 'detect-if-the-caps-lock-is-on', level: 'Intermediate' },
     { slug: 'detect-mac-os-browser', level: 'Basic' },
     { slug: 'determine-the-height-and-width-of-an-element', level: 'Basic' },
+    { slug: 'distinguish-between-left-and-right-mouse-clicks', level: 'Basic' },
     { slug: 'download-a-file', level: 'Intermediate' },
     { slug: 'drag-and-drop-element-in-a-list', level: 'Advanced' },
     { slug: 'execute-code-when-the-document-is-ready', level: 'Basic' },
