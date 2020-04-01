@@ -81,7 +81,7 @@ exportBtn.addEventListener('click', function() {
 ~~~
 `}
 />
-<Demo src='demo/export-a-table-to-csv' />
+<Demo src='/demo/export-a-table-to-csv' />
 <RelatedPosts
     slugs={[
         'attach-or-detach-an-event-handler',

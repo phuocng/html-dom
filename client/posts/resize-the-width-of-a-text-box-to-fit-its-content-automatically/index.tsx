@@ -80,7 +80,7 @@ textboxEle.addEventListener('input', function(e) {
 ~~~
 `}
 />
-<Demo src='demo/resize-the-width-of-a-text-box-to-fit-its-content-automatically' />
+<Demo src='/demo/resize-the-width-of-a-text-box-to-fit-its-content-automatically' />
 <RelatedPosts
     slugs={[
         'attach-or-detach-an-event-handler',
