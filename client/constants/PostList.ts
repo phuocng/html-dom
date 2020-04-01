@@ -80,6 +80,7 @@ const PostList: Post[] = [
     { slug: 'select-the-text-of-a-textarea-automatically', level: 'Basic' },
     { slug: 'serialize-form-data-into-a-query-string', level: 'Basic' },
     { slug: 'set-css-style-for-an-element', level: 'Basic' },
+    { slug: 'show-a-ghost-element-when-dragging-an-element', level: 'Intermediate' },
     { slug: 'show-or-hide-an-element', level: 'Basic' },
     { slug: 'sort-a-table-by-clicking-its-headers', level: 'Advanced' },
     { slug: 'strip-html-from-a-given-text', level: 'Basic' },

@@ -87,6 +87,7 @@ ele.addEventListener('mousedown', mouseDownHandler);
         'make-a-resizable-element',
         'resize-columns-of-a-table',
         'set-css-style-for-an-element',
+        'show-a-ghost-element-when-dragging-an-element',
     ]}
 />
 </>

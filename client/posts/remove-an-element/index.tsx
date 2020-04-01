@@ -32,6 +32,7 @@ if (ele.parentNode) {
         'download-a-file',
         'measure-the-width-of-given-text-of-given-font',
         'remove-all-children-of-a-node',
+        'show-a-ghost-element-when-dragging-an-element',
         'sort-a-table-by-clicking-its-headers',
     ]}
 />
