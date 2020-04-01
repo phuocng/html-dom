@@ -27,6 +27,7 @@ const ele = document.createTextNode('Hello World!');
         'check-if-the-native-date-input-is-supported',
         'copy-text-to-the-clipboard',
         'download-a-file',
+        'drag-and-drop-element-in-a-list',
         'measure-the-width-of-given-text-of-given-font',
         'paste-as-plain-text',
         'resize-an-image',

@@ -29,6 +29,7 @@ el.style.cssText = 'background-color: red; color: white';
 />
 <RelatedPosts
     slugs={[
+        'drag-and-drop-element-in-a-list',
         'get-css-styles-of-an-element',
         'make-a-draggable-element',
         'make-a-resizable-element',

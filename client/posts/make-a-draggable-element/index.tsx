@@ -84,6 +84,7 @@ ele.addEventListener('mousedown', mouseDownHandler);
 <RelatedPosts
     slugs={[
         'attach-or-detach-an-event-handler',
+        'drag-and-drop-element-in-a-list',
         'make-a-resizable-element',
         'resize-columns-of-a-table',
         'set-css-style-for-an-element',

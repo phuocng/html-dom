@@ -28,6 +28,7 @@ const PostList: Post[] = [
     { slug: 'detect-mac-os-browser', level: 'Basic' },
     { slug: 'determine-the-height-and-width-of-an-element', level: 'Basic' },
     { slug: 'download-a-file', level: 'Intermediate' },
+    { slug: 'drag-and-drop-element-in-a-list', level: 'Advanced' },
     { slug: 'execute-code-when-the-document-is-ready', level: 'Basic' },
     { slug: 'export-a-table-to-csv', level: 'Intermediate' },
     { slug: 'get-css-styles-of-an-element', level: 'Basic' },
