@@ -140,7 +140,7 @@ const mouseUpHandler = function() {
 ~~~
 `}
 />
-<Demo src='demo/resize-columns-of-a-table' />
+<Demo src='/demo/resize-columns-of-a-table' />
 <RelatedPosts
     slugs={[
         'add-or-remove-class-from-an-element',
