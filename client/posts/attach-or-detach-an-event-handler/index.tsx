@@ -63,6 +63,7 @@ If you want the handler to be invoke once, then look at the [Create one time eve
         'make-a-resizable-element',
         'paste-as-plain-text',
         'placeholder-for-a-contenteditable-element',
+        'press-shift-and-enter-for-a-new-line',
         'prevent-the-default-action-of-an-event',
         'review-an-image-before-uploading-it',
         'replace-broken-images',
