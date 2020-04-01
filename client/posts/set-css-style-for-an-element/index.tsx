@@ -8,6 +8,8 @@ export default () => {
 <>
 <Markdown
     content={`
+## Set a CSS style
+
 Setting the style via the \`style\` property:
 
 ~~~ javascript
@@ -24,6 +26,15 @@ el.style.cssText += 'background-color: red; color: white';
 
 // Ignore previous styles
 el.style.cssText = 'background-color: red; color: white';
+~~~
+
+## Remove a CSS style
+
+~~~ javascript
+ele.style.removeProperty('background-color');
+
+// Does NOT work
+ele.style.removeProperty('backgroundColor');
 ~~~
 `}
 />
