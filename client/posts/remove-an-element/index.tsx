@@ -30,6 +30,7 @@ if (ele.parentNode) {
         'calculate-the-size-of-scrollbar',
         'copy-text-to-the-clipboard',
         'download-a-file',
+        'drag-and-drop-element-in-a-list',
         'measure-the-width-of-given-text-of-given-font',
         'remove-all-children-of-a-node',
         'show-a-ghost-element-when-dragging-an-element',

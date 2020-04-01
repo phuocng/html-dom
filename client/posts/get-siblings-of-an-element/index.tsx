@@ -39,6 +39,7 @@ const siblings = [].slice.call(parent.children).filter(function(child) {
 />
 <RelatedPosts
     slugs={[
+        'drag-and-drop-element-in-a-list',
         'swap-two-nodes',
     ]}
 />
