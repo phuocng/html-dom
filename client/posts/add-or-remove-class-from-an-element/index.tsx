@@ -41,6 +41,7 @@ ele.classList.toggle('class-name');
     slugs={[
         'check-if-an-element-has-given-class',
         'drag-and-drop-element-in-a-list',
+        'drag-and-drop-table-row',
         'highlight-an-element-when-dragging-a-file-over-it',
         'resize-columns-of-a-table',
     ]}

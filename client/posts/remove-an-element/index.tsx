@@ -31,6 +31,7 @@ if (ele.parentNode) {
         'copy-text-to-the-clipboard',
         'download-a-file',
         'drag-and-drop-element-in-a-list',
+        'drag-and-drop-table-row',
         'measure-the-width-of-given-text-of-given-font',
         'remove-all-children-of-a-node',
         'show-a-ghost-element-when-dragging-an-element',

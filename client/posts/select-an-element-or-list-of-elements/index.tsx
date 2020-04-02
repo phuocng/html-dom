@@ -44,6 +44,7 @@ ele.querySelectorAll('div.hello');
 <RelatedPosts
     slugs={[
         'drag-and-drop-element-in-a-list',
+        'drag-and-drop-table-row',
         'export-a-table-to-csv',
         'loop-over-a-nodelist',
         'sort-a-table-by-clicking-its-headers',
