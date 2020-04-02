@@ -265,6 +265,7 @@ Following is the final demo. Try to drag and drop any item!
     slugs={[
         'add-or-remove-class-from-an-element',
         'attach-or-detach-an-event-handler',
+        'calculate-the-mouse-position-relative-to-an-element',
         'create-an-element',
         'get-siblings-of-an-element',
         'insert-an-element-after-or-before-other-element',

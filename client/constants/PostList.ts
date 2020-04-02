@@ -8,6 +8,7 @@ const PostList: Post[] = [
     { slug: 'allow-to-enter-particular-characters-only', level: 'Intermediate' },
     { slug: 'append-to-an-element', level: 'Basic', },
     { slug: 'attach-or-detach-an-event-handler', level: 'Basic' },
+    { slug: 'calculate-the-mouse-position-relative-to-an-element', level: 'Basic' },
     { slug: 'calculate-the-size-of-scrollbar', level: 'Intermediate' },
     { slug: 'change-the-website-favicon', level: 'Intermediate' },
     { slug: 'check-an-element-against-a-selector', level: 'Basic' },
