@@ -60,7 +60,7 @@ const Footer: React.FC<{}> = () => {
                         </li>
                         <li className='w-1/2 sm:w-1/3 px-1 mb-6'>
                             <a
-                                href="https://htmldom.dev"
+                                href="https://www.htmldom.cn"
                                 rel="noopener noreferrer"
                                 style={{ textDecoration: 'none' }}
                                 target="_blank"

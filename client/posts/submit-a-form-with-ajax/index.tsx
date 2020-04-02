@@ -18,7 +18,7 @@ The following function submits the data of \`formEle\` to the back-end using an 
 const submit = function(formEle) {
     return new Promise(function(resolve, reject) {
         // Serialize form data
-        // See https://htmldom.dev/serialize-form-data-into-a-query-string
+        // See https://www.htmldom.cn/serialize-form-data-into-a-query-string
         const params = serialize(formEle);
 
         // Create new Ajax request
