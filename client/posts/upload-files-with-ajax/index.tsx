@@ -12,7 +12,7 @@ export default () => {
 </Helmet>
 <Markdown
     content={`
-The function below sends a selected files from a \`fileEle\` element to a back-end:
+The function below sends selected files from a \`fileEle\` element to a back-end:
 
 ~~~ javascript
 const upload = function(fileEle, backendUrl) {
