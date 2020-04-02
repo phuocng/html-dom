@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
 <Markdown
     content={`
 ~~~ javascript
@@ -20,5 +22,11 @@ const cloned = ele.cloneNode(false);
 ~~~
 `}
 />
+<RelatedPosts
+    slugs={[
+        'drag-and-drop-table-row',
+    ]}
+/>
+</>
     );
 };

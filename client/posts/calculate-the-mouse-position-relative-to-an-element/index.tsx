@@ -33,6 +33,7 @@ ele.addEventListener('mousedown', function(e) {
     slugs={[
         'attach-or-detach-an-event-handler',
         'drag-and-drop-element-in-a-list',
+        'drag-and-drop-table-row',
         'get-the-position-of-an-element-relative-to-another',
         'get-the-position-of-an-element-relative-to-the-document',
         'make-a-draggable-element',

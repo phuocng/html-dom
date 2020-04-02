@@ -58,6 +58,7 @@ If you want the handler to be invoke once, then look at the [Create one time eve
         'detect-if-the-caps-lock-is-on',
         'distinguish-between-left-and-right-mouse-clicks',
         'drag-and-drop-element-in-a-list',
+        'drag-and-drop-table-row',
         'export-a-table-to-csv',
         'get-size-of-the-selected-file',
         'get-the-size-of-an-image',
