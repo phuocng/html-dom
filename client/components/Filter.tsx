@@ -13,11 +13,10 @@ const Filter: React.FC<{}> = () => {
     const onChangeSearchBox = (e: React.ChangeEvent<HTMLInputElement>) => setKeyword(e.target.value);
     const onClickTask = () => setKeyword('');
 
-    const allPosts = PostList.map((s) => unslugify(s.slug));
-
+    const allPosts = PostList.map((s) => ({ slug: unslugify(s.slug), zh: s.zh }));
     const posts = keyword
-                ? allPosts.filter((v) => v.toLowerCase().includes(keyword.toLowerCase()))
-                : [];
+        ? allPosts.filter((v) => v.slug.toLowerCase().includes(keyword.toLowerCase()))
+        : [];
 
     return (
         <div className='w-full relative'>
@@ -44,25 +43,26 @@ const Filter: React.FC<{}> = () => {
                     style={{ maxHeight: '300px' }}
                 >
                     <ul>
-                    {
-                        posts.map((title, index) => {
-                            const slug = slugify(title);
-                            return (
-                                <li
-                                    key={slug}
-                                    className={`border-gray-400 hover:bg-gray-200 p-2 truncate ${index === 0 ? '' : 'border-t'}`}
-                                >
-                                    <Link
-                                        onClick={onClickTask}
-                                        to={`/${slug}`}
-                                        title={title}
+                        {
+                            posts.map((post, index) => {
+                                const { slug, zh } = post;
+                                const title = slugify(slug);
+                                return (
+                                    <li
+                                        key={slug}
+                                        className={`border-gray-400 hover:bg-gray-200 p-2 truncate ${index === 0 ? '' : 'border-t'}`}
                                     >
-                                        {title}
-                                    </Link>
-                                </li>
-                            );
-                        })
-                    }
+                                        <Link
+                                            onClick={onClickTask}
+                                            to={`/${title}`}
+                                            title={zh || slug}
+                                        >
+                                            {zh || slug}
+                                        </Link>
+                                    </li>
+                                );
+                            })
+                        }
                     </ul>
                 </div>
             )}

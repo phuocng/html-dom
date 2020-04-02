@@ -8,7 +8,7 @@ const Footer: React.FC<{}> = () => {
             <div className='ml-auto mr-auto max-w-3xl px-2 lg:px-0'>
                 <SubscribeForm />
                 <div>
-                    <h3 className='text-xl sm:text-2xl font-semibold mb-2'>Products</h3>
+                    <h3 className='text-xl sm:text-2xl font-semibold mb-2'>其他项目</h3>
                     <ul className='flex flex-wrap -ml-1 -mr-1'>
                         <li className='w-1/2 sm:w-1/3 px-1 mb-6'>
                             <a
@@ -16,10 +16,10 @@ const Footer: React.FC<{}> = () => {
                                 rel="noopener noreferrer"
                                 style={{ textDecoration: 'none' }}
                                 target="_blank"
-                                title="BlurPage - a browser extension to hide sensitive element on page"
+                                title="BlurPage - 一个浏览器扩展用来隐藏页面上的敏感元素"
                             >
                                 <div className='font-semibold'>Blur Page</div>
-                                <span className='text-gray-600'>a browser extension to hide sensitive element on page</span>
+                                <span className='text-gray-600'>一个浏览器扩展用来隐藏页面上的敏感元素</span>
                             </a>
                         </li>
                         <li className='w-1/2 sm:w-1/3 px-1 mb-6'>
@@ -28,10 +28,10 @@ const Footer: React.FC<{}> = () => {
                                 rel="noopener noreferrer"
                                 style={{ textDecoration: 'none' }}
                                 target="_blank"
-                                title="CSS Layout - a collection of popular layouts and patterns made with CSS"
+                                title="CSS Layout - 一个用CSS制作的流行布局和模式的集合"
                             >
                                 <div className='font-semibold'>CSS Layout</div>
-                                <span className='text-gray-600'>a collection of popular layouts and patterns made with CSS</span>
+                                <span className='text-gray-600'>一个用CSS制作的流行布局和模式的集合</span>
                             </a>
                         </li>
                         <li className='w-1/2 sm:w-1/3 px-1 mb-6'>
@@ -40,10 +40,10 @@ const Footer: React.FC<{}> = () => {
                                 rel="noopener noreferrer"
                                 style={{ textDecoration: 'none' }}
                                 target="_blank"
-                                title="Fake Numbers - a JavaScript library to fake a number"
+                                title="Fake Numbers - 一个用来模拟一些数值的JavaScript库"
                             >
                                 <div className='font-semibold'>Fake Numbers</div>
-                                <span className='text-gray-600'>a JavaScript library to fake a number</span>
+                                <span className='text-gray-600'>一个用来模拟一些数值的JavaScript库</span>
                             </a>
                         </li>
                         <li className='w-1/2 sm:w-1/3 px-1 mb-6'>
@@ -52,10 +52,10 @@ const Footer: React.FC<{}> = () => {
                                 rel="noopener noreferrer"
                                 style={{ textDecoration: 'none' }}
                                 target="_blank"
-                                title="FormValidation - the best validation library for JavaScript"
+                                title="FormValidation - JavaScript的最佳验证库"
                             >
                                 <div className='font-semibold'>Form Validation</div>
-                                <span className='text-gray-600'>the best validation library for JavaScript</span>
+                                <span className='text-gray-600'>JavaScript的最佳验证库</span>
                             </a>
                         </li>
                         <li className='w-1/2 sm:w-1/3 px-1 mb-6'>
@@ -64,10 +64,10 @@ const Footer: React.FC<{}> = () => {
                                 rel="noopener noreferrer"
                                 style={{ textDecoration: 'none' }}
                                 target="_blank"
-                                title="HTML DOM - Common tasks of managing HTML DOM with native API"
+                                title="HTML DOM - 使用原生 JavaScript 管理常见的 HTML DOM 操作"
                             >
                                 <div className='font-semibold'>HTML DOM</div>
-                                <span className='text-gray-600'>common tasks of managing HTML DOM with vanilla JavaScript</span>
+                                <span className='text-gray-600'>使用原生 JavaScript 管理常见的 HTML DOM 操作</span>
                             </a>
                         </li>
                         <li className='w-1/2 sm:w-1/3 px-1 mb-6'>
@@ -76,17 +76,17 @@ const Footer: React.FC<{}> = () => {
                                 rel="noopener noreferrer"
                                 style={{ textDecoration: 'none' }}
                                 target="_blank"
-                                title="React PDF Viewer - a PDF viewer made for React"
+                                title="React PDF Viewer - 一个使用 React 制作的 PDF 查看器"
                             >
                                 <div className='font-semibold'>React PDF Viewer</div>
-                                <span className='text-gray-600'>a PDF viewer made for React</span>
+                                <span className='text-gray-600'>一个使用 React 制作的 PDF 查看器</span>
                             </a>
                         </li>
                     </ul>
                 </div>
 
                 <div className='mt-6'>
-                    <h3 className='text-xl sm:text-2xl font-semibold mb-2'>Follow me <span className='font-light text-gray-600 ml-2'>I love building products!</span></h3>
+                    <h3 className='text-xl sm:text-2xl font-semibold mb-2'>订阅我 <span className='font-light text-gray-600 ml-2'>我喜欢构建项目!</span></h3>
                     <ul className='flex'>
                         <li className='flex-1'>
                             <a

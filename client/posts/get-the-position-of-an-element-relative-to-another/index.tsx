@@ -23,6 +23,7 @@ const left = eleRect.left - targetRect.left;
 />
 <RelatedPosts
     slugs={[
+        'calculate-the-mouse-position-relative-to-an-element',
         'get-the-position-of-an-element-relative-to-the-document',
     ]}
 />

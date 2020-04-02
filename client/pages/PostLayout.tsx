@@ -14,18 +14,22 @@ const PostLayout: React.FC<PostLayoutProps> = ({ children, slug }) => {
     const numTasks = PostList.length;
     const index = PostList.findIndex((post) => post.slug === slug);
     const title = unslugify(slug);
-
+    const zhTitle = PostList.find((item) => {
+        if (item.zh && item.slug === slug) {
+            return item;
+        }
+    });
     return (
         <Layout>
             <Helmet>
-                <title>HTML DOM - {title}</title>
-                <meta name='description' content={title} />
+                <title>HTML DOM - {zhTitle.zh || title}</title>
+                <meta name='description' content={zhTitle.zh || title} />
             </Helmet>
 
             <div className='mt-32 text-center'>
                 <span className='bg-black text-white text-3xl px-3 py-2 rounded'>{index + 1}/{numTasks}</span>
             </div>
-            <h1 className='font-bold mt-4 mb-4 text-center text-3xl lg:text-4xl px-1'>{title}</h1>
+            <h1 className='font-bold mt-4 mb-4 text-center text-3xl lg:text-4xl px-1'>{zhTitle.zh || title}</h1>
 
             <div className="mb-12 text-center">
                 <a
@@ -35,7 +39,7 @@ const PostLayout: React.FC<PostLayoutProps> = ({ children, slug }) => {
                     style={{ textDecoration: 'none' }}
                     target="_blank"
                 >
-                    Edit this page
+                    编辑页面内容
                 </a>
             </div>
 
@@ -49,7 +53,7 @@ const PostLayout: React.FC<PostLayoutProps> = ({ children, slug }) => {
                         to={`/${slugify(PostList[index - 1].slug)}`}
                         title={unslugify(PostList[index - 1].slug)}
                     >
-                        ← {unslugify(PostList[index - 1].slug)}
+                        ← {PostList[index - 1].zh || unslugify(PostList[index - 1].slug)}
                     </Link>
                 </div>
             )}
@@ -58,14 +62,16 @@ const PostLayout: React.FC<PostLayoutProps> = ({ children, slug }) => {
                     <Link
                         className='text-xl sm:text-2xl'
                         to={`/${slugify(PostList[index + 1].slug)}`}
-                        title={unslugify(PostList[index + 1].slug)}
+                        title={PostList[index + 1].zh || unslugify(PostList[index + 1].slug)}
                     >
-                        {unslugify(PostList[index + 1].slug)} →
+                        {PostList[index + 1].zh || unslugify(PostList[index + 1].slug)} →
                     </Link>
                 </div>
             )}
         </Layout>
     );
 };
+
+
 
 export default PostLayout;

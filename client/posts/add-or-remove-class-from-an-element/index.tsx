@@ -8,7 +8,7 @@ export default () => {
 <>
 <Markdown
     content={`
-## Add a class to an element
+## 向一个元素添加 class 属性
 
 Note that multiple parameters for the \`add()\` [isn't supported](https://caniuse.com/#feat=classlist) in IE 11.
 
