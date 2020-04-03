@@ -44,7 +44,7 @@ const HomePage = () => {
                                         to={`/${post.slug}`}
                                         className='bg-gray-200 px-2 py-1 flex items-center justify-between'
                                     >
-                                        <span className='mr-2'>{idx} — {post.zh || post.slug}</span>
+                                        <span className='mr-2'>{idx} — {post.zh || unslugify(post.slug)}</span>
                                         <span
                                             className={`
                                             p-1 text-sm text-white rounded

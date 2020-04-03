@@ -15,10 +15,11 @@ const PostLayout: React.FC<PostLayoutProps> = ({ children, slug }) => {
     const index = PostList.findIndex((post) => post.slug === slug);
     const title = unslugify(slug);
     const zhTitle = PostList.find((item) => {
-        if (item.zh && item.slug === slug) {
+        if ((item.zh || item.slug) && item.slug === slug) {
             return item;
         }
     });
+    console.log(zhTitle);
     return (
         <Layout>
             <Helmet>

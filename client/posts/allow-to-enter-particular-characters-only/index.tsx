@@ -9,7 +9,7 @@ export default () => {
     return (
 <>
 <Helmet>
-    <meta name='keywords' content='addEventListener, input event, keypress event, preventDefault, selectionEnd, selectionStart, setSelectionRange' />
+    <meta name='keywords' content='addEventListener, 事件绑定, input event, 表单事件, keypress event, preventDefault, selectionEnd, selectionStart, setSelectionRange' />
 </Helmet>
 <Markdown
     content={`
