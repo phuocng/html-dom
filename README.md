@@ -1,4 +1,5 @@
-# [英文版](htmldom.dev)  [中文版](www.htmldom.cn)
+# HTML DOM
+[英文版](htmldom.dev)  [中文版](www.htmldom.cn)
 
 ## 故事
 
