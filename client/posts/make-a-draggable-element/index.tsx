@@ -86,6 +86,7 @@ ele.addEventListener('mousedown', mouseDownHandler);
         'attach-or-detach-an-event-handler',
         'calculate-the-mouse-position-relative-to-an-element',
         'drag-and-drop-element-in-a-list',
+        'drag-and-drop-table-column',
         'drag-and-drop-table-row',
         'make-a-resizable-element',
         'resize-columns-of-a-table',

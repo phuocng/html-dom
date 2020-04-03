@@ -28,6 +28,7 @@ const ele = document.createTextNode('Hello World!');
         'copy-text-to-the-clipboard',
         'download-a-file',
         'drag-and-drop-element-in-a-list',
+        'drag-and-drop-table-column',
         'drag-and-drop-table-row',
         'measure-the-width-of-given-text-of-given-font',
         'paste-as-plain-text',

@@ -39,6 +39,7 @@ refEle.insertAdjacentElement('beforebegin', ele);
     slugs={[
         'append-to-an-element',
         'drag-and-drop-element-in-a-list',
+        'drag-and-drop-table-column',
         'drag-and-drop-table-row',
         'insert-given-html-after-or-before-an-element',
         'prepend-to-an-element',

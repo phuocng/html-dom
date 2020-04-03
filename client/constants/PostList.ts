@@ -31,6 +31,7 @@ const PostList: Post[] = [
     { slug: 'distinguish-between-left-and-right-mouse-clicks', level: 'Basic' },
     { slug: 'download-a-file', level: 'Intermediate' },
     { slug: 'drag-and-drop-element-in-a-list', level: 'Advanced' },
+    { slug: 'drag-and-drop-table-column', level: 'Advanced' },
     { slug: 'drag-and-drop-table-row', level: 'Advanced' },
     { slug: 'execute-code-when-the-document-is-ready', level: 'Basic' },
     { slug: 'export-a-table-to-csv', level: 'Intermediate' },

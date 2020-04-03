@@ -24,6 +24,7 @@ const cloned = ele.cloneNode(false);
 />
 <RelatedPosts
     slugs={[
+        'drag-and-drop-table-column',
         'drag-and-drop-table-row',
     ]}
 />
