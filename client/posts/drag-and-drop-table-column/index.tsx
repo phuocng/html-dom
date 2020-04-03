@@ -23,13 +23,12 @@ export default () => {
 Before taking a look at this example, it's recommended to visit this [post](/drag-and-drop-element-in-a-list) to know
 how we can drag and drop element in a list.
 
-Now we can use the same technique to apply to the table rows. The basic idea is
+The same technique can be applied to the table columns. The basic idea is
 
-* When user starts moving the table row, we create a list of items. Each item is cloned from each row of table.
+* When user starts moving a table column, we create a list of items. Each item is cloned from each column of table.
 * We show the list at the same position as table, and hide the table.
-* At this step, moving row around is actually moving the list item.
-* When user drags an item, we determine the index of target item within the list. And move the original dragged row to before or after the
-row associated with the end index.
+* At this step, moving column around is actually moving the list item.
+* When user drags an item, we determine the index of target item within the list. And swap the columns associated with the dragging and end indexes.
 
 Let's get started with the basic markup of table:
 
@@ -43,10 +42,10 @@ Let's get started with the basic markup of table:
 
 As mentioned in the [Drag and drop element in a list](/drag-and-drop-element-in-a-list) example, we need handle three events:
 
-* \`mousedown\` for the first cell of any row, so user can click and drag the first cell in each row
-* \`mousemove\` for \`document\`: This event triggers when user moves the row around, and we will create and insert a placeholder row
-depending on the direction (up or down)
-* \`mouseup\` for \`document\`: This event occurs when user drags the row.
+* \`mousedown\` for the all header cells, so user can click and drag the first cell in each column
+* \`mousemove\` for \`document\`: This event triggers when user moves the column around, and we will create and insert a placeholder column
+depending on the direction (left or right)
+* \`mouseup\` for \`document\`: This event occurs when user drags the column.
 
 Here is the skeleton of these event handlers:
 
@@ -73,24 +72,14 @@ const mouseUpHandler = function() {
     document.removeEventListener('mouseup', mouseUpHandler);
 };
 
-// Query all rows
-table.querySelectorAll('tr').forEach(function(row, index) {
-    // Ignore the header
-    // We don't want user to change the order of header
-    if (index === 0) {
-        return;
-    }
-
-    // Get the first cell of row
-    const firstCell = row.firstElementChild;
-    firstCell.classList.add('draggable');
-
+// Query all header cells
+table.querySelectorAll('th').forEach(function(headerCell) {
     // Attach event handler
-    firstCell.addEventListener('mousedown', mouseDownHandler);
+    headerCell.addEventListener('mousedown', mouseDownHandler);
 });
 ~~~
 
-## Clone the table when user is moving a row
+## Clone the table when user is moving a column
 
 Since this task is performed once, we need a flag to track if it's executed:
 
@@ -116,9 +105,6 @@ const cloneTable = function() {
     // Get the bounding rectangle of table
     const rect = table.getBoundingClientRect();
 
-    // Get the width of table
-    const width = parseInt(window.getComputedStyle(table).width);
-
     // Create new element
     list = document.createElement('div');
     
@@ -135,29 +121,45 @@ const cloneTable = function() {
 };
 ~~~
 
-Imagine that \`list\` consists of items which are cloned from the table rows:
+Imagine that \`list\` consists of items which are cloned from the table columns:
 
 ~~~ javascript
 const cloneTable = function() {
     ...
 
-    // Loop over the rows
-    table.querySelectorAll('tr').forEach(function(row) {
+    // Get all cells
+    const originalCells = [].slice.call(table.querySelectorAll('tbody td'));
+
+    const originalHeaderCells = [].slice.call(table.querySelectorAll('th'));
+    const numColumns = originalHeaderCells.length;
+
+    // Loop through the header cells
+    originalHeaderCells.forEach(function(headerCell, headerIndex) {
+        const width = parseInt(window.getComputedStyle(headerCell).width);
+
+        // Create a new table from given row
         const item = document.createElement('div');
+        item.classList.add('draggable');
 
         const newTable = document.createElement('table');
-        const newRow = document.createElement('tr');
 
-        // Query the cells of row
-        const cells = [].slice.call(row.children);
+        // Header
+        const th = headerCell.cloneNode(true);
+        let newRow = document.createElement('tr');
+        newRow.appendChild(th);
+        newTable.appendChild(newRow);
+
+        const cells = originalCells.filter(function(c, idx) {
+            return (idx - headerIndex) % numColumns === 0;
+        });
         cells.forEach(function(cell) {
             const newCell = cell.cloneNode(true);
+            newRow = document.createElement('tr');
             newRow.appendChild(newCell);
+            newTable.appendChild(newRow);
         });
 
-        newTable.appendChild(newRow);
         item.appendChild(newTable);
-
         list.appendChild(item);
     });
 };
@@ -171,16 +173,20 @@ After this step, we have the following \`list\`:
     <!-- First item -->
     <div>
         <table>
-            <!-- The first row of original table -->
+            <!-- The first column of original table -->
             <tr>...</tr>
+            <tr>...</tr>
+            ...
         </table>
     </div>
 
     <!-- Second item -->
     <div>
         <table>
-            <!-- The second row of original table -->
+            <!-- The second column of original table -->
             <tr>...</tr>
+            <tr>...</tr>
+            ...
         </table>
     </div>
 
@@ -194,27 +200,32 @@ After this step, we have the following \`list\`:
 ~~~
 
 It's worth noting that when cloning cells in each item, we have to set the cell width same as the original cell.
-So the item looks like the original row completely:
+So the item looks like the original column completely:
 
 ~~~ javascript
-cells.forEach(function(cell) {
-    const newCell = cell.cloneNode(true);
-    // Set the width as the original cell
-    newCell.style.width = \`\${parseInt(window.getComputedStyle(cell).width)}px\`;
-    newRow.appendChild(newCell);
+originalHeaderCells.forEach(function(headerCell, headerIndex) {
+    // Get the width of original cell
+    const width = parseInt(window.getComputedStyle(headerCell).width);
+
+    newTable.style.width = \`\${width}px\`;
+
+    cells.forEach(function(cell) {
+        const newCell = cell.cloneNode(true);
+        newCell.style.width = \`\${width}px\`;
+        ...
+    });
 });
 ~~~
 
-## Determine the indexes of dragging and target rows
+## Determine the indexes of dragging and target columns
 
 ~~~ javascript
 let draggingEle;        // The dragging element
-let draggingRowIndex;   // The index of dragging row
+let draggingRowIndex;   // The index of dragging column
 
 const mouseDownHandler = function(e) {
-    // Get the original row
-    const originalRow = e.target.parentNode;
-    draggingRowIndex = [].slice.call(table.querySelectorAll('tr')).indexOf(originalRow);
+    // Get the index of dragging column
+    draggingColumnIndex = [].slice.call(table.querySelectorAll('th')).indexOf(e.target);
 };
 
 const mouseMoveHandler = function(e) {
@@ -222,35 +233,35 @@ const mouseMoveHandler = function(e) {
         cloneTable();
 
         // Query the dragging element
-        draggingEle = [].slice.call(list.children)[draggingRowIndex];
+        draggingEle = [].slice.call(list.children)[draggingColumnIndex];
     }
 };
 
 const mouseUpHandler = function() {
     // Get the end index
-    const endRowIndex = [].slice.call(list.children).indexOf(draggingEle);
+    const endColumnIndex = [].slice.call(list.children).indexOf(draggingEle);
 };
 ~~~
 
-As we have \`draggingRowIndex\` and \`endRowIndex\`, it's now easy to check if user drops to the top or bottom of table.
-And we can decide how to move the target row [before or after the dragging row](/insert-an-element-after-or-before-other-element):
+As we have \`draggingColumnIndex\` and \`endColumnIndex\`, it's now easy to check if user drops to the left or right of table.
+And we can decide how to move the target column [before or after the dragging column](/insert-an-element-after-or-before-other-element):
 
 ~~~ javascript
 const mouseUpHandler = function() {
-    // Move the dragged row to \`endRowIndex\`
-    let rows = [].slice.call(table.querySelectorAll('tr'));
-    draggingRowIndex > endRowIndex
-        // User drops to the top
-        ? rows[endRowIndex].parentNode.insertBefore(rows[draggingRowIndex], rows[endRowIndex])
-        // User drops to the bottom
-        : rows[endRowIndex].parentNode.insertBefore(rows[draggingRowIndex], rows[endRowIndex].nextSibling);
+    // Move the dragged column to \`endColumnIndex\`
+    table.querySelectorAll('tr').forEach(function(row) {
+        const cells = [].slice.call(row.querySelectorAll('th, td'));
+        draggingColumnIndex > endColumnIndex
+            ? cells[endColumnIndex].parentNode.insertBefore(cells[draggingColumnIndex], cells[endColumnIndex])
+            : cells[endColumnIndex].parentNode.insertBefore(cells[draggingColumnIndex], cells[endColumnIndex].nextSibling);
+    });
 };
 ~~~
 
-Following is the final demo. Try to drag and drop the first cell of any row.
+Following is the final demo. Try to drag and drop the first cell of any column.
 `}
 />
-<Demo src='/demo/drag-and-drop-table-row' />
+<Demo src='/demo/drag-and-drop-table-column' />
 <RelatedPosts
     slugs={[
         'add-or-remove-class-from-an-element',
@@ -259,7 +270,6 @@ Following is the final demo. Try to drag and drop the first cell of any row.
         'clone-an-element',
         'create-an-element',
         'drag-and-drop-element-in-a-list',
-        'drag-and-drop-table-column',
         'get-siblings-of-an-element',
         'insert-an-element-after-or-before-other-element',
         'loop-over-a-nodelist',
