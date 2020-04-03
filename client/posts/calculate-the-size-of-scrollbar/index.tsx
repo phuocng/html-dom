@@ -20,7 +20,7 @@ const scrollbarWidth = document.body.offsetWidth - document.body.clientWidth;
 
 ## 2. Use a fake element
 
-We create two fake \`div\` elements, one of them is the childr of the other. Then calculate the difference between their widths.
+We create two fake \`div\` elements, one of them is the child of the other. Then calculate the difference between their widths.
 
 ~~~ javascript
 const calculateScrollbarWidth = function() {
