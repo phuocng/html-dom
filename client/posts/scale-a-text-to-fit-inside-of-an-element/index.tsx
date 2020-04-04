@@ -51,7 +51,7 @@ ele.style.fontSize = \`\${scaleFontSize}px\`;
 ~~~
 `}
 />
-<Demo src='/demo/scale-a-text-to-fit-inside-of-an-element' />
+<Demo src='/demo/scale-a-text-to-fit-inside-of-an-element/index.html' />
 <RelatedPosts
     slugs={[
         'determine-the-height-and-width-of-an-element',

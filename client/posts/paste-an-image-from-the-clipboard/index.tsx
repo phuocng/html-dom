@@ -70,7 +70,7 @@ req.send(formData);
 ~~~
 `}
 />
-<Demo src='/demo/paste-an-image-from-the-clipboard' />
+<Demo src='/demo/paste-an-image-from-the-clipboard/index.html' />
 <RelatedPosts
     slugs={[
         'attach-or-detach-an-event-handler',

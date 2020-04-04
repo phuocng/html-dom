@@ -72,7 +72,7 @@ ele.addEventListener('dragstart', function(e) {
 ~~~
 `}
 />
-<Demo src='/demo/show-a-ghost-element-when-dragging-an-element' />
+<Demo src='/demo/show-a-ghost-element-when-dragging-an-element/index.html' />
 <RelatedPosts
     slugs={[
         'attach-or-detach-an-event-handler',

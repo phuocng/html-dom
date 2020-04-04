@@ -64,7 +64,7 @@ editorEle.addEventListener('paste', function(e) {
 Try to paste some rich text in the following \`contenteditable\` element:
 `}
 />
-<Demo src='/demo/paste-as-plain-text' />
+<Demo src='/demo/paste-as-plain-text/index.html' />
 <RelatedPosts
     slugs={[
         'attach-or-detach-an-event-handler',

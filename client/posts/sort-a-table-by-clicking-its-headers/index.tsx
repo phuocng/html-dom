@@ -200,7 +200,7 @@ const sortColumn = function(index) {
 ~~~
 `}
 />
-<Demo src='/demo/sort-a-table-by-clicking-its-headers' />
+<Demo src='/demo/sort-a-table-by-clicking-its-headers/index.html' />
 <RelatedPosts
     slugs={[
         'append-to-an-element',

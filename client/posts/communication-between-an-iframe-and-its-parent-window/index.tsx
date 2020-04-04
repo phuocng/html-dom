@@ -79,7 +79,7 @@ a [page](https://github.com/phuoc-ng/html-dom/blob/master/demo/communication-bet
 and [a child iframe](https://github.com/phuoc-ng/html-dom/blob/master/demo/communication-between-an-iframe-and-its-parent-window/iframe.html):
 `}
 />
-<Demo src='/demo/communication-between-an-iframe-and-its-parent-window' />
+<Demo src='/demo/communication-between-an-iframe-and-its-parent-window/index.html' />
 <RelatedPosts
     slugs={[
         'attach-or-detach-an-event-handler',

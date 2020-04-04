@@ -121,7 +121,7 @@ const resizers = ele.querySelectorAll('.resizer');
 ~~~
 `}
 />
-<Demo src='/demo/make-a-resizable-element' />
+<Demo src='/demo/make-a-resizable-element/index.html' />
 <RelatedPosts
     slugs={[
         'attach-or-detach-an-event-handler',

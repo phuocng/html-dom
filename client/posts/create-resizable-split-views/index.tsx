@@ -173,7 +173,7 @@ const mouseUpHandler = function() {
 Below is the demo that you can play with.
 `}
 />
-<Demo src='/demo/create-resizable-split-views' />
+<Demo src='/demo/create-resizable-split-views/index.html' />
 <Markdown
     content={`
 ## Support vertical direction

@@ -250,7 +250,7 @@ const mouseUpHandler = function() {
 Following is the final demo. Try to drag and drop the first cell of any row.
 `}
 />
-<Demo src='/demo/drag-and-drop-table-row' />
+<Demo src='/demo/drag-and-drop-table-row/index.html' />
 <RelatedPosts
     slugs={[
         'add-or-remove-class-from-an-element',

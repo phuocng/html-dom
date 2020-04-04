@@ -56,7 +56,7 @@ messageEle.addEventListener('input', function(e) {
 > * User right-clicks in the textarea and chooses _Paste_ from the context menu
 `}
 />
-<Demo src='/demo/count-the-number-of-characters-of-a-textarea' />
+<Demo src='/demo/count-the-number-of-characters-of-a-textarea/index.html' />
 <RelatedPosts
     slugs={[
         'attach-or-detach-an-event-handler',
