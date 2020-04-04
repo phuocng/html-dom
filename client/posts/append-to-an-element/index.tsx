@@ -15,6 +15,18 @@ target.appendChild(ele);
 ~~~
 `}
 />
+    
+<Markdown
+    content={`
+Append a new \`li\` to the end of a \`ul\`:
+
+~~~ javascript
+let newLi = document.createElement('li');
+newLi.appendChild(document.createTextNode('text node inside li'));
+document.querySelector('#myList').appendChild(newLi);
+~~~
+`}
+/>
 <RelatedPosts
     slugs={[
         'calculate-the-size-of-scrollbar',
