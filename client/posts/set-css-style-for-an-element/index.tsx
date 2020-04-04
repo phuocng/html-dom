@@ -40,6 +40,7 @@ ele.style.removeProperty('backgroundColor');
 />
 <RelatedPosts
     slugs={[
+        'create-resizable-split-views',
         'drag-and-drop-element-in-a-list',
         'drag-and-drop-table-column',
         'drag-and-drop-table-row',
