@@ -80,11 +80,12 @@ ele.addEventListener('mousedown', mouseDownHandler);
 ~~~
 `}
 />
-<Demo src='/demo/make-a-draggable-element' />
+<Demo src='/demo/make-a-draggable-element/index.html' />
 <RelatedPosts
     slugs={[
         'attach-or-detach-an-event-handler',
         'calculate-the-mouse-position-relative-to-an-element',
+        'create-resizable-split-views',
         'drag-and-drop-element-in-a-list',
         'drag-and-drop-table-column',
         'drag-and-drop-table-row',

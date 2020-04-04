@@ -60,7 +60,7 @@ The last thing, \`e.preventDefault()\` is used in the handlers to [prevent](/pre
 executing the default action.
 `}
 />
-<Demo src='/demo/highlight-an-element-when-dragging-a-file-over-it' />
+<Demo src='/demo/highlight-an-element-when-dragging-a-file-over-it/index.html' />
 <RelatedPosts
     slugs={[
         'add-or-remove-class-from-an-element',

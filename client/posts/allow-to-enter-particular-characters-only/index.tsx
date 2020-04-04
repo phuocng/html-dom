@@ -124,7 +124,7 @@ There are more built-in types that you can explore [here](https://developer.mozi
 In our specific example, \`<input type="number" />\` doesn't help because it doesn't allow to enter a space.
 `}
 />
-<Demo src='/demo/allow-to-enter-particular-characters-only' />
+<Demo src='/demo/allow-to-enter-particular-characters-only/index.html' />
 <RelatedPosts
     slugs={[
         'attach-or-detach-an-event-handler',

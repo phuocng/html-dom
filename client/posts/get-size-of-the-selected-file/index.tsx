@@ -67,7 +67,7 @@ sizeEle.innerHTML = formatFileSize(files[0].size);
 * Validate the file size before uploading to the server.
 `}
 />
-<Demo src='/demo/get-size-of-the-selected-file' />
+<Demo src='/demo/get-size-of-the-selected-file/index.html' />
 <RelatedPosts
     slugs={[
         'attach-or-detach-an-event-handler',

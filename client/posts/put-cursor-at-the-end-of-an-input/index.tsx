@@ -36,7 +36,7 @@ editEle.addEventListener('click', function(e) {
 ~~~
 `}
 />
-<Demo src='/demo/put-cursor-at-the-end-of-an-input' />
+<Demo src='/demo/put-cursor-at-the-end-of-an-input/index.html' />
 <RelatedPosts
     slugs={[
         'attach-or-detach-an-event-handler',

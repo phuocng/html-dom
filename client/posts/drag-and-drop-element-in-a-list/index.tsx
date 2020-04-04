@@ -260,7 +260,7 @@ const swap = function(nodeA, nodeB) {
 Following is the final demo. Try to drag and drop any item!
 `}
 />
-<Demo src='/demo/drag-and-drop-element-in-a-list' />
+<Demo src='/demo/drag-and-drop-element-in-a-list/index.html' />
 <RelatedPosts
     slugs={[
         'add-or-remove-class-from-an-element',

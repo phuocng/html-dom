@@ -63,7 +63,7 @@ ele.addEventListener('blur', function(e) {
 ~~~
 `}
 />
-<Demo src='/demo/placeholder-for-a-contenteditable-element' />
+<Demo src='/demo/placeholder-for-a-contenteditable-element/index.html' />
 <RelatedPosts
     slugs={[
         'attach-or-detach-an-event-handler',

@@ -47,7 +47,7 @@ ele.addEventListener('keydown', function(e) {
 In the demo below, pressing \`Enter\` will do nothing:
 `}
 />
-<Demo src='/demo/press-shift-and-enter-for-a-new-line' />
+<Demo src='/demo/press-shift-and-enter-for-a-new-line/index.html' />
 <RelatedPosts
     slugs={[
         'attach-or-detach-an-event-handler',

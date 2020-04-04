@@ -23,6 +23,7 @@ const PostList: Post[] = [
     { slug: 'count-the-number-of-characters-of-a-textarea', level: 'Basic' },
     { slug: 'create-an-element', level: 'Basic' },
     { slug: 'create-one-time-event-handler', level: 'Basic' },
+    { slug: 'create-resizable-split-views', level: 'Advanced' },
     { slug: 'detect-clicks-outside-of-an-element', level: 'Basic' },
     { slug: 'detect-if-an-element-is-focused', level: 'Basic' },
     { slug: 'detect-if-the-caps-lock-is-on', level: 'Intermediate' },
