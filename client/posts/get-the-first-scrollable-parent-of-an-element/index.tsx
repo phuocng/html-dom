@@ -22,7 +22,7 @@ const isScrollable = function(ele) {
 };
 
 const getScrollableParent = function(ele) {
-    return (!ele || ele === document.body) {
+    return (!ele || ele === document.body)
         ? document.body
         : (isScrollable(ele) ? ele : getScrollableParent(ele.parentNode));
 };
