@@ -39,13 +39,13 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const mouseMoveHandler = function(e) {
-        // How far the mouse has been moved
-        const dx = e.clientX - x;
-        const dy = e.clientY - y;
-
-        // Set the position of element
-        ele.style.top = `${ele.offsetTop + dy}px`; 
-        ele.style.left = `${ele.offsetLeft + dx}px`;
+        // Define target positions :
+        const dx = e.clientX - ele.offsetLeft - ele.offsetWidth / 2;
+        const dy = e.clientY - ele.offsetTop - ele.offsetHeight / 2
+        
+        // Translate element using target positions
+        let translateValue = `translate(${dx}px, ${dy}px)`
+        ele.style.transform = translateValue
 
         // Reassign the position of mouse
         x = e.clientX;
