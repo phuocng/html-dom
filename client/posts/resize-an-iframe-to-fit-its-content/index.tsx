@@ -24,6 +24,7 @@ frame.addEventListener('load', function() {
 <RelatedPosts
     slugs={[
         'attach-or-detach-an-event-handler',
+        'show-a-loading-indicator-when-an-iframe-is-being-loaded',
     ]}
 />
 </>
