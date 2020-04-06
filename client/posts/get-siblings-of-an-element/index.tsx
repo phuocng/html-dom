@@ -39,6 +39,7 @@ const siblings = [].slice.call(parent.children).filter(function(child) {
 />
 <RelatedPosts
     slugs={[
+        'create-an-image-comparison-slider',
         'create-resizable-split-views',
         'drag-and-drop-element-in-a-list',
         'drag-and-drop-table-column',
