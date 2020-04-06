@@ -85,6 +85,7 @@ ele.addEventListener('mousedown', mouseDownHandler);
     slugs={[
         'attach-or-detach-an-event-handler',
         'calculate-the-mouse-position-relative-to-an-element',
+        'create-an-image-comparison-slider',
         'create-resizable-split-views',
         'drag-and-drop-element-in-a-list',
         'drag-and-drop-table-column',

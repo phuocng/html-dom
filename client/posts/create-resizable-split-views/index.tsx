@@ -263,9 +263,17 @@ Enjoy the demo!
 `}
 />
 <Demo src='/demo/create-resizable-split-views/direction.html' />
+<Markdown
+    content={`
+## Usage
+
+We can use the technique in this post to [create an image comparison slider](/create-an-image-comparison-slider).
+`}
+/>
 <RelatedPosts
     slugs={[
         'attach-or-detach-an-event-handler',
+        'create-an-image-comparison-slider',
         'get-set-and-remove-data-attributes',
         'get-siblings-of-an-element',
         'loop-over-a-nodelist',
