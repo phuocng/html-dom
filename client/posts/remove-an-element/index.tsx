@@ -36,6 +36,7 @@ if (ele.parentNode) {
         'measure-the-width-of-given-text-of-given-font',
         'remove-all-children-of-a-node',
         'show-a-ghost-element-when-dragging-an-element',
+        'show-a-loading-indicator-when-an-iframe-is-being-loaded',
         'sort-a-table-by-clicking-its-headers',
     ]}
 />

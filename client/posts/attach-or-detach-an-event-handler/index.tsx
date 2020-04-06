@@ -79,6 +79,7 @@ If you want the handler to be invoke once, then look at the [Create one time eve
         'resize-the-width-of-a-text-box-to-fit-its-content-automatically',
         'select-the-text-of-a-textarea-automatically',
         'show-a-ghost-element-when-dragging-an-element',
+        'show-a-loading-indicator-when-an-iframe-is-being-loaded',
         'sort-a-table-by-clicking-its-headers',
     ]}
 />

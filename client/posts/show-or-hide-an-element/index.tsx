@@ -26,6 +26,7 @@ ele.style.display = 'none';
         'detect-if-the-caps-lock-is-on',
         'get-size-of-the-selected-file',
         'set-css-style-for-an-element',
+        'show-a-loading-indicator-when-an-iframe-is-being-loaded',
         'toggle-an-element',
     ]}
 />

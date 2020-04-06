@@ -51,6 +51,7 @@ ele.style.removeProperty('backgroundColor');
         'resize-columns-of-a-table',
         'resize-the-width-of-a-text-box-to-fit-its-content-automatically',
         'scale-a-text-to-fit-inside-of-an-element',
+        'show-a-loading-indicator-when-an-iframe-is-being-loaded',
         'show-or-hide-an-element',
         'toggle-an-element',
     ]}
