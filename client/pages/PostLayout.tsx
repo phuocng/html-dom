@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
+import Ad from '../components/Ad';
 import PostList from '../constants/PostList';
 import { slugify, unslugify } from '../helpers/slugify';
 import Layout from './Layout';
@@ -38,6 +39,8 @@ const PostLayout: React.FC<PostLayoutProps> = ({ children, slug }) => {
                     Edit this page
                 </a>
             </div>
+
+            <Ad />
 
             <div className='mb-4'>
                 {children}

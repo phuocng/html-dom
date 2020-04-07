@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
+import Ad from '../components/Ad';
 import PostList from '../constants/PostList';
 import { unslugify } from '../helpers/slugify';
 import Layout from './Layout';
@@ -18,7 +19,7 @@ const HomePage = () => {
             <h3 className='font-light mb-1 text-2xl sm:text-3xl text-center'>
                 with <span className='bg-blue-200 p-1'>vanilla JavaScript</span> only?
             </h3>
-            <h4 className='font-light mb-16 text-xl text-center italic'>for modern browsers and IE 11+</h4>
+            <h4 className='font-light mb-12 text-xl text-center italic'>for modern browsers and IE 11+</h4>
 
             <div className="mb-12 text-center">
                 <a
@@ -28,9 +29,11 @@ const HomePage = () => {
                     style={{ textDecoration: 'none' }}
                     target="_blank"
                 >
-                    GitHub ∙ 1.1k ★
+                    GitHub ∙ 1.2k ★
                 </a>
             </div>
+
+            <Ad />
 
             <div className='ml-auto mr-auto max-w-4xl'>
                 <ul>
