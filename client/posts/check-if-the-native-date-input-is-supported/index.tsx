@@ -33,11 +33,12 @@ const isDateInputSupported = function() {
 };
 ~~~
 
-This approach can be used to check other HTML 5 input types such as \`email\`, \`url\`, etc.
+This approach can be used to check other HTML 5 input types such as \`email\`, [\`range\`](/create-a-range-slider), \`url\`, etc.
 `}
 />
 <RelatedPosts
     slugs={[
+        'create-a-range-slider',
         'create-an-element',
         'get-set-and-remove-attributes',
     ]}
