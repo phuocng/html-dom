@@ -55,7 +55,7 @@ let x = 0;
 let y = 0;
 
 const mouseDownHandler = function(e) {
-    const draggingEle = e.target;
+    draggingEle = e.target;
 
     // Calculate the mouse position
     const rect = draggingEle.getBoundingClientRect();
