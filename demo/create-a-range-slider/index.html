@@ -1,0 +1,117 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>HTML DOM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="/demo/styles.css" rel="stylesheet">
+    <style>
+    .container {
+        /* Content is centered horizontally */
+        align-items: center;
+        display: flex;
+
+        /* Size */
+        height: 1.5rem;
+    }
+    .left {
+        /* Width based on the current value */
+        height: 2px;
+        width: 20%;
+
+        /* Colors */
+        background-color: rgba(0, 0, 0, .3);
+    }
+    .knob {
+        /* Size */
+        height: 1.5rem;
+        width: 1.5rem;
+
+        /* Rounded border */
+        border-radius: 9999px;
+
+        /* Colors */
+        background-color: rgba(0, 0, 0, .3);
+        cursor: pointer;
+    }
+    .right {
+        /* Take the remaining width */
+        flex: 1;
+        height: 2px;
+
+        /* Colors */
+        background-color: rgba(0, 0, 0, .3);
+    }
+    </style>
+</head>
+<body class="font-sans w-full">
+    <div class="p-16 flex justify-center">
+        <div class="w-64 container">
+            <div class="left"></div>
+            <div class="knob" id="knob"></div>
+            <div class="right"></div>
+        </div>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Query the element
+    const knob = document.getElementById('knob');
+    const leftSide = knob.previousElementSibling;
+    const rightSide = knob.nextElementSibling;
+
+    // The current position of mouse
+    let x = 0;
+    let y = 0;
+    let leftWidth = 0;
+
+    // Handle the mousedown event
+    // that's triggered when user drags the knob
+    const mouseDownHandler = function(e) {
+        // Get the current mouse position
+        x = e.clientX;
+        y = e.clientY;
+        leftWidth = leftSide.getBoundingClientRect().width;
+
+        // Attach the listeners to `document`
+        document.addEventListener('mousemove', mouseMoveHandler);
+        document.addEventListener('mouseup', mouseUpHandler);
+    };
+
+    const mouseMoveHandler = function(e) {
+        // How far the mouse has been moved
+        const dx = e.clientX - x;
+        const dy = e.clientY - y;
+
+        const containerWidth = knob.parentNode.getBoundingClientRect().width;
+        let newLeftWidth = (leftWidth + dx) * 100 / containerWidth;
+        newLeftWidth = Math.max(newLeftWidth, 0);
+        newLeftWidth = Math.min(newLeftWidth, 100);
+
+        leftSide.style.width = `${newLeftWidth}%`;
+
+        leftSide.style.userSelect = 'none';
+        leftSide.style.pointerEvents = 'none';
+
+        rightSide.style.userSelect = 'none';
+        rightSide.style.pointerEvents = 'none';
+    };
+
+    // Triggered when user drops the knob
+    const mouseUpHandler = function() {
+        leftSide.style.removeProperty('user-select');
+        leftSide.style.removeProperty('pointer-events');
+
+        rightSide.style.removeProperty('user-select');
+        rightSide.style.removeProperty('pointer-events');
+
+        // Remove the handlers of `mousemove` and `mouseup`
+        document.removeEventListener('mousemove', mouseMoveHandler);
+        document.removeEventListener('mouseup', mouseUpHandler);
+    };
+
+    // Attach the handler
+    knob.addEventListener('mousedown', mouseDownHandler);
+});
+</script>
+</body>
+</html>

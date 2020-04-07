@@ -170,6 +170,7 @@ _Photo by [frank mckenna](https://unsplash.com/@frankiefoto) on [Unsplash](https
 <RelatedPosts
     slugs={[
         'attach-or-detach-an-event-handler',
+        'create-a-range-slider',
         'create-resizable-split-views',
         'get-siblings-of-an-element',
         'make-a-draggable-element',

@@ -41,6 +41,7 @@ ele.style.removeProperty('backgroundColor');
 <RelatedPosts
     slugs={[
         'create-an-image-comparison-slider',
+        'create-a-range-slider',
         'create-resizable-split-views',
         'drag-and-drop-element-in-a-list',
         'drag-and-drop-table-column',
