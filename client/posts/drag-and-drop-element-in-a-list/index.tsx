@@ -158,6 +158,8 @@ The placeholder will be [removed](/remove-an-element) as soon as the users drop 
 const mouseUpHandler = function() {
     // Remove the placeholder
     placeholder && placeholder.parentNode.removeChild(placeholder);
+    // Reset the flag
+    isDraggingStarted = false;
     
     ...
 };
