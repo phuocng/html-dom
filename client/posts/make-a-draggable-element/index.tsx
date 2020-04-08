@@ -79,12 +79,17 @@ const mouseUpHandler = function() {
 ele.addEventListener('mousedown', mouseDownHandler);
 ~~~
 
-## Usage
+## Use cases
 
 We can use the technique in this post to 
-* [Create a range slider](/create-a-range-slider)
-* [Create an image comparison slider](/create-an-image-comparison-slider)
-* [Create resizable split views](/create-resizable-split-views)
+
+1. [Create a range slider](/create-a-range-slider)
+
+2. [Create an image comparison slider](/create-an-image-comparison-slider)
+
+3. [Create resizable split views](/create-resizable-split-views)
+
+4. [Resize columns of a table](/resize-columns-of-a-table)
 `}
 />
 <Demo src='/demo/make-a-draggable-element/index.html' />

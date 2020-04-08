@@ -1,9 +1,18 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
+<>
+<Helmet>
+    <meta
+        name='keywords'
+        content='scrollTo, scroll to top'
+    />
+</Helmet>
 <Markdown
     content={`
 In general, you can scroll to a point whose coordinates indicates the distance from it to the top and left side of document:
@@ -45,5 +54,11 @@ export default ({ children }) => {
 ~~~
 `}
 />
+<RelatedPosts
+    slugs={[
+        'scroll-to-an-element',
+    ]}
+/>
+</>
     );
 };
