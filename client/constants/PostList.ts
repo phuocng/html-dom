@@ -71,6 +71,7 @@ const PostList: Post[] = [
     { slug: 'press-shift-and-enter-for-a-new-line', level: 'Basic' },
     { slug: 'prevent-the-default-action-of-an-event', level: 'Basic' },
     { slug: 'preview-an-image-before-uploading-it', level: 'Intermediate' },
+    { slug: 'print-an-image', level: 'Intermediate' },
     { slug: 'put-cursor-at-the-end-of-an-input', level: 'Basic' },
     { slug: 'redirect-to-another-page', level: 'Basic' },
     { slug: 'reload-the-current-page', level: 'Basic' },

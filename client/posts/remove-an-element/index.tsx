@@ -34,6 +34,7 @@ if (ele.parentNode) {
         'drag-and-drop-table-column',
         'drag-and-drop-table-row',
         'measure-the-width-of-given-text-of-given-font',
+        'print-an-image',
         'remove-all-children-of-a-node',
         'show-a-ghost-element-when-dragging-an-element',
         'show-a-loading-indicator-when-an-iframe-is-being-loaded',

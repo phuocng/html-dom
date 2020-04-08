@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>HTML DOM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="/demo/styles.css" rel="stylesheet">
+</head>
+<body class="font-sans w-full">
+    <div class="p-16 flex flex-col justify-center">
+        <img id="image" src="/assets/village.jpg" />
+        <div class="mt-4 text-center">
+            <button class="bg-blue-400 border-none px-4 py-2 text-white" id="print">Print</button>
+        </div>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Query the element
+    const printBtn = document.getElementById('print');
+
+    printBtn.addEventListener('click', function() {
+        // Create a fake iframe
+        const iframe = document.createElement('iframe');
+
+        // Make it hidden
+        iframe.style.height = 0;
+        iframe.style.visibility = 'hidden';
+        iframe.style.width = 0;
+
+        // Set the iframe's source
+        iframe.setAttribute('srcdoc', '<html><body></body></html>');
+
+        document.body.appendChild(iframe);
+
+        iframe.contentWindow.addEventListener('afterprint', function() {
+            iframe.parentNode.removeChild(iframe);
+        });
+
+        iframe.addEventListener('load', function() {
+            // Clone the image
+            const image = document.getElementById('image').cloneNode();
+            image.style.maxWidth = '100%';
+
+            // Append the image to the iframe's body
+            const body = iframe.contentDocument.body;
+            body.style.textAlign = 'center';
+            body.appendChild(image);
+
+            image.addEventListener('load', function() {
+                // Invoke the print when the image is ready
+                iframe.contentWindow.print();
+            });
+        });
+    });
+});
+</script>
+</body>
+</html>
