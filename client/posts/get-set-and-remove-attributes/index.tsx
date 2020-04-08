@@ -41,6 +41,7 @@ ele.removeAttribute('title');
         'count-the-number-of-characters-of-a-textarea',
         'get-set-and-remove-data-attributes',
         'placeholder-for-a-contenteditable-element',
+        'print-an-image',
         'toggle-password-visibility',
     ]}
 />

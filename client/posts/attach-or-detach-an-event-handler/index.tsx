@@ -73,6 +73,7 @@ If you want the handler to be invoke once, then look at the [Create one time eve
         'placeholder-for-a-contenteditable-element',
         'press-shift-and-enter-for-a-new-line',
         'prevent-the-default-action-of-an-event',
+        'print-an-image',
         'review-an-image-before-uploading-it',
         'replace-broken-images',
         'resize-an-iframe-to-fit-its-content',

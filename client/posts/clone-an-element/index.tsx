@@ -26,6 +26,7 @@ const cloned = ele.cloneNode(false);
     slugs={[
         'drag-and-drop-table-column',
         'drag-and-drop-table-row',
+        'print-an-image',
     ]}
 />
 </>
