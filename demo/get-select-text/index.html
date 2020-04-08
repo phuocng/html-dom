@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>HTML DOM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="/demo/styles.css" rel="stylesheet">
+    <style>
+        .result-wrapper {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            box-sizing: border-box;
+            text-align: left;
+            background: #ddebf0;
+        }
+    </style>
+</head>
+<body class="font-sans w-full">
+    <div class="flex flex-col items-center justify-center p-8">
+        <p>Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less. - Marie Skłodowska-Curie</p>
+        <div class="result-wrapper">
+            Current select: <span id="result"></span>
+        </div>
+    </div>
+
+<script>
+  function handleSelectedEvent() {
+      const selection = window.getSelection();
+      const resultDom = document.getElementById('result');
+
+      if (selection) {
+        resultDom.innerHTML = selection.toString();
+      }
+  }
+  document.addEventListener('mouseup', handleSelectedEvent);
+</script>
+</body>
+</html>
