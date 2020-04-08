@@ -17,7 +17,7 @@ export default () => {
 Insert the \`ele\` element after the \`refEle\` element:
 
 ~~~ javascript
-refEle.parentNode.insertBefore(ele, refEle.nextSibling);
+refEle.parentNode.insertAfter(ele, refEle.nextSibling);
 
 // Or
 refEle.insertAdjacentElement('afterend', ele);
