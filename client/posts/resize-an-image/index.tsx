@@ -45,6 +45,8 @@ const resize = function(image, ratio) {
                 const context = canvas.getContext('2d');
                 const w = ele.width * ratio;
                 const h = ele.height * ratio;
+                canvas.width = w;
+                canvas.height = h;
                 context.drawImage(ele, 0, 0, w, h);
                 
                 // Get the data of resized image
