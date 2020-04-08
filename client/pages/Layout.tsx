@@ -5,10 +5,20 @@ import Filter from '../components/Filter';
 import Footer from './Footer';
 
 const Layout: React.FC<{}> = ({ children }) => {
+    let oldYOffsetValue = 0;
     const { pathname } = useLocation();
 
     useEffect(() => {
-        window.scrollTo(0, 0);
+        // save last known vertical scroll position
+        oldYOffsetValue = window.pageYOffset;
+        if (pathname === '/') {
+            // scroll to last saved vertical scroll location
+            // when user navigates to home
+            window.scrollTo(0, oldYOffsetValue)
+        } else {
+            // scroll to top when user navigates to any post
+            window.scrollTo(0, 0);
+        }
     }, [pathname]);
 
     return (
