@@ -11,24 +11,20 @@ const Layout: React.FC<{}> = ({ children }) => {
     const { pathname } = useLocation();
 
     useEffect(() => {
+        window.scrollTo(0, oldYOffsetValue);
+        // attach scroll event listener only when at home page
         if (pathname === '/') {
-            // scroll to last saved vertical scroll location
-            // when user navigates to home
-            window.scrollTo(0, oldYOffsetValue);
-        } else {
-            // scroll to top when user navigates to any post
-            window.scrollTo(0, 0);
-        }
-        const scrollEvent = throttle(() => {
-            if (pathname === '/') {
+            const scrollEvent = throttle(() => {
                 // save last known vertical scroll position
                 oldYOffsetValue = window.scrollY || window.pageYOffset;
-            }
-        });
-        window.addEventListener('scroll', scrollEvent);
-        return function () {
-            window.removeEventListener('scroll', scrollEvent);
-        };
+            });
+            window.addEventListener('scroll', scrollEvent);
+            return function () {
+                // detach scroll listener
+                oldYOffsetValue = 0;
+                window.removeEventListener('scroll', scrollEvent);
+            };
+        }
     }, [pathname]);
 
     return (
