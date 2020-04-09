@@ -7,13 +7,13 @@ export default () => {
 <Markdown
     content={`
 ~~~ javascript
-const ready = function(cb) {
-    // Check if the \`document\` is loaded completely
-    (document.readyState === 'loading')
-        ? document.addEventListener('DOMContentLoaded', function(e) {
-            cb();
-        });
-        : cb()
+const ready = function (cb) {
+  // Check if the \`document\` is loaded completely
+  document.readyState === "loading"
+    ? document.addEventListener("DOMContentLoaded", function (e) {
+        cb();
+      })
+    : cb();
 };
 
 // Usage
