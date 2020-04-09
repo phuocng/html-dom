@@ -3,22 +3,32 @@ import { Link, useLocation } from 'react-router-dom';
 
 import Filter from '../components/Filter';
 import Footer from './Footer';
+import throttle from '../helpers/throttle';
+
+let oldYOffsetValue = 0;
 
 const Layout: React.FC<{}> = ({ children }) => {
-    let oldYOffsetValue = 0;
     const { pathname } = useLocation();
 
     useEffect(() => {
-        // save last known vertical scroll position
-        oldYOffsetValue = window.pageYOffset;
         if (pathname === '/') {
             // scroll to last saved vertical scroll location
             // when user navigates to home
-            window.scrollTo(0, oldYOffsetValue)
+            window.scrollTo(0, oldYOffsetValue);
         } else {
             // scroll to top when user navigates to any post
             window.scrollTo(0, 0);
         }
+        const scrollEvent = throttle(() => {
+            if (pathname === '/') {
+                // save last known vertical scroll position
+                oldYOffsetValue = window.scrollY || window.pageYOffset;
+            }
+        });
+        window.addEventListener('scroll', scrollEvent);
+        return function () {
+            window.removeEventListener('scroll', scrollEvent);
+        };
     }, [pathname]);
 
     return (
