@@ -71,7 +71,7 @@ We have to persist the cursor's position.
 
 ~~~ javascript
 // Track the current cursor's position
-const selection = {};
+let selection = {};
 
 ele.addEventListener('keydown', function(e) {
     const target = e.target;
