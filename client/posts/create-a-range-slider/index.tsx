@@ -30,10 +30,10 @@ HTML provides a built-in \`range\` input:
 <input type="range" />
 ~~~
 
-It's supported in mordern browsers, IE 10 and later. But there're some limitations such as:
+It's supported in modern browsers, IE 10 and later. But there're some limitations such as:
 * You can't customize the knob
 * At the time of writing this, the vertical-oriented slider [isn't supported](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#Browser_compatibility) 
-in all mordern browsers
+in all modern browsers
 
 Jump to the next section if you want to have a customizable slider.
 
