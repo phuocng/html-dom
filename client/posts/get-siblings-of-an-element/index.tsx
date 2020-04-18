@@ -46,6 +46,7 @@ const siblings = [].slice.call(parent.children).filter(function(child) {
         'drag-and-drop-table-column',
         'drag-and-drop-table-row',
         'swap-two-nodes',
+        'zoom-an-image',
     ]}
 />
 </>

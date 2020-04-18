@@ -104,6 +104,7 @@ const PostList: Post[] = [
     { slug: 'unwrap-an-element', level: 'Basic' },
     { slug: 'upload-files-with-ajax', level: 'Basic' },
     { slug: 'wrap-an-element-around-a-given-element', level: 'Basic' },
+    { slug: 'zoom-an-image', level: 'Advanced' },
 ];
 
 export default PostList;

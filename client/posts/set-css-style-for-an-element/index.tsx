@@ -57,6 +57,7 @@ ele.style.removeProperty('backgroundColor');
         'show-a-loading-indicator-when-an-iframe-is-being-loaded',
         'show-or-hide-an-element',
         'toggle-an-element',
+        'zoom-an-image',
     ]}
 />
 </>

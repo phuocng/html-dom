@@ -107,6 +107,7 @@ We can use the technique in this post to
         'resize-columns-of-a-table',
         'set-css-style-for-an-element',
         'show-a-ghost-element-when-dragging-an-element',
+        'zoom-an-image',
     ]}
 />
 </>

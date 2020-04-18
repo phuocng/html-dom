@@ -273,6 +273,7 @@ Enjoy the demo!
         'loop-over-a-nodelist',
         'make-a-draggable-element',
         'set-css-style-for-an-element',
+        'zoom-an-image',
     ]}
 />
 </>
