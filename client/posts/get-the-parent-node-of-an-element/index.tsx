@@ -25,6 +25,7 @@ const parent = ele.parentNode;
         'get-the-first-scrollable-parent-of-an-element',
         'select-the-children-of-an-element',
         'swap-two-nodes',
+        'zoom-an-image',
     ]}
 />
 </>

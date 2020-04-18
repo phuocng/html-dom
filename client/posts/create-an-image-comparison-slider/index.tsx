@@ -175,6 +175,7 @@ _Photo by [frank mckenna](https://unsplash.com/@frankiefoto) on [Unsplash](https
         'get-siblings-of-an-element',
         'make-a-draggable-element',
         'set-css-style-for-an-element',
+        'zoom-an-image',
     ]}
 />
 </>

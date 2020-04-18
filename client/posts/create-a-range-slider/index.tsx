@@ -151,6 +151,10 @@ const mouseUpHandler = function() {
 };
 ~~~
 
+## Use cases
+
+* [Zoom an image](/zoom-an-image)
+
 Enjoy the demo!
 `}
 />
@@ -163,6 +167,7 @@ Enjoy the demo!
         'get-siblings-of-an-element',
         'make-a-draggable-element',
         'set-css-style-for-an-element',
+        'zoom-an-image',
     ]}
 />
 </>
