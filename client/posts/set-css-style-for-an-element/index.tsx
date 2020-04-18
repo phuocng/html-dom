@@ -50,6 +50,7 @@ ele.style.removeProperty('backgroundColor');
         'make-a-draggable-element',
         'make-a-resizable-element',
         'measure-the-width-of-given-text-of-given-font',
+        'prevent-body-from-scrolling-when-opening-a-modal',
         'print-an-image',
         'resize-columns-of-a-table',
         'resize-the-width-of-a-text-box-to-fit-its-content-automatically',
