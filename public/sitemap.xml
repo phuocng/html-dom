@@ -85,6 +85,7 @@
     <url><loc>https://htmldom.dev/scroll-to-top-of-the-page</loc></url>
     <url><loc>https://htmldom.dev/select-an-element-or-list-of-elements</loc></url>
     <url><loc>https://htmldom.dev/select-the-children-of-an-element</loc></url>
+    <url><loc>https://htmldom.dev/select-the-text-content-of-an-element</loc></url>
     <url><loc>https://htmldom.dev/select-the-text-of-a-textarea-automatically</loc></url>
     <url><loc>https://htmldom.dev/serialize-form-data-into-a-query-string</loc></url>
     <url><loc>https://htmldom.dev/set-css-style-for-an-element</loc></url>
