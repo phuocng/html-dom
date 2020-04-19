@@ -10,20 +10,27 @@ export default () => {
 <Helmet>
     <meta
         name='keywords'
-        content='get selected text, window getSelection'
+        content='createRange, getSelection, removeAllRanges, select text content, selectNodeContents'
     />
 </Helmet>
 <Markdown
     content={`
+The following function selects the text content of the \`ele\` element:
+
 ~~~ javascript
-const selectedText = window.getSelection().toString();
+const selectText = function(ele) {
+    const selection = window.getSelection();
+    const range = document.createRange();
+    range.selectNodeContents(node);
+    selection.removeAllRanges();
+};
 ~~~
 `}
 />
 <RelatedPosts
     slugs={[
+        'get-the-selected-text',
         'paste-as-plain-text',
-        'select-the-text-content-of-an-element',
     ]}
 />
 </>

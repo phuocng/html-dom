@@ -70,7 +70,9 @@ Try to paste some rich text in the following \`contenteditable\` element:
         'attach-or-detach-an-event-handler',
         'copy-text-to-the-clipboard',
         'create-an-element',
+        'get-the-selected-text',
         'prevent-the-default-action-of-an-event',
+        'select-the-text-content-of-an-element',
     ]}
 />
 </>
