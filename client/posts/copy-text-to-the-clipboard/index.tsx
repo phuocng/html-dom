@@ -52,6 +52,7 @@ try {
 <RelatedPosts
     slugs={[
         'append-to-an-element',
+        'copy-highlighted-code-to-the-clipboard',
         'paste-as-plain-text',
         'remove-an-element',
     ]}

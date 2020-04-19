@@ -23,12 +23,14 @@ const selectText = function(ele) {
     const range = document.createRange();
     range.selectNodeContents(node);
     selection.removeAllRanges();
+    selection.addRange(range);
 };
 ~~~
 `}
 />
 <RelatedPosts
     slugs={[
+        'copy-highlighted-code-to-the-clipboard',
         'get-the-selected-text',
         'paste-as-plain-text',
         'save-and-restore-the-text-selection',

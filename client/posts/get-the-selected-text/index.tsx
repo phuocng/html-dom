@@ -22,6 +22,7 @@ const selectedText = window.getSelection().toString();
 />
 <RelatedPosts
     slugs={[
+        'copy-highlighted-code-to-the-clipboard',
         'paste-as-plain-text',
         'save-and-restore-the-text-selection',
         'select-the-text-content-of-an-element',
