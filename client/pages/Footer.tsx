@@ -14,7 +14,6 @@ const Footer: React.FC<{}> = () => {
                             <a
                                 href="https://blur.page"
                                 rel="noopener noreferrer"
-                                style={{ textDecoration: 'none' }}
                                 target="_blank"
                                 title="BlurPage - a browser extension to hide sensitive element on page"
                             >
@@ -24,9 +23,22 @@ const Footer: React.FC<{}> = () => {
                         </li>
                         <li className='w-1/2 sm:w-1/3 px-1 mb-6'>
                             <a
+                                href="https://1loc.dev"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                                title="1 LOC - favorite JavaScript utilities in single line of code"
+                            >
+                                <div className='font-semibold flex items-center'>
+                                    1 LOC 
+                                    <span className='bg-green-600 font-normal ml-1 p-1 rounded text-sm text-white'>new</span>
+                                </div>
+                                <span className='text-gray-600'>favorite JavaScript utilities in single line of code</span>
+                            </a>
+                        </li>
+                        <li className='w-1/2 sm:w-1/3 px-1 mb-6'>
+                            <a
                                 href="https://csslayout.io"
                                 rel="noopener noreferrer"
-                                style={{ textDecoration: 'none' }}
                                 target="_blank"
                                 title="CSS Layout - a collection of popular layouts and patterns made with CSS"
                             >
@@ -38,7 +50,6 @@ const Footer: React.FC<{}> = () => {
                             <a
                                 href="https://fakenumbers.io"
                                 rel="noopener noreferrer"
-                                style={{ textDecoration: 'none' }}
                                 target="_blank"
                                 title="Fake Numbers - a JavaScript library to fake a number"
                             >
@@ -50,7 +61,6 @@ const Footer: React.FC<{}> = () => {
                             <a
                                 href="https://formvalidation.io"
                                 rel="noopener noreferrer"
-                                style={{ textDecoration: 'none' }}
                                 target="_blank"
                                 title="FormValidation - the best validation library for JavaScript"
                             >
@@ -62,7 +72,6 @@ const Footer: React.FC<{}> = () => {
                             <a
                                 href="https://htmldom.dev"
                                 rel="noopener noreferrer"
-                                style={{ textDecoration: 'none' }}
                                 target="_blank"
                                 title="HTML DOM - Common tasks of managing HTML DOM with native API"
                             >
@@ -74,7 +83,6 @@ const Footer: React.FC<{}> = () => {
                             <a
                                 href="https://react-pdf-viewer.dev"
                                 rel="noopener noreferrer"
-                                style={{ textDecoration: 'none' }}
                                 target="_blank"
                                 title="React PDF Viewer - a PDF viewer made for React"
                             >
@@ -92,7 +100,6 @@ const Footer: React.FC<{}> = () => {
                             <a
                                 href="https://twitter.com/nghuuphuoc"
                                 rel="noopener noreferrer"
-                                style={{ textDecoration: 'none' }}
                                 target="_blank"
                             >
                                 <div className='font-semibold'>Twitter</div>
@@ -103,7 +110,6 @@ const Footer: React.FC<{}> = () => {
                             <a
                                 href="https://dev.to/phuocng"
                                 rel="noopener noreferrer"
-                                style={{ textDecoration: 'none' }}
                                 target="_blank"
                             >
                                 <div className='font-semibold'>dev.to</div>
@@ -114,7 +120,6 @@ const Footer: React.FC<{}> = () => {
                             <a
                                 href="https://github.com/phuoc-ng"
                                 rel="noopener noreferrer"
-                                style={{ textDecoration: 'none' }}
                                 target="_blank"
                             >
                                 <div className='font-semibold'>GitHub</div>

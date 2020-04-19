@@ -29,7 +29,7 @@ const HomePage = () => {
                     style={{ textDecoration: 'none' }}
                     target="_blank"
                 >
-                    GitHub ∙ 1.7k ★
+                    GitHub ∙ 1.8k ★
                 </a>
             </div>
 
