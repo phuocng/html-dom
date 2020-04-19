@@ -52,6 +52,7 @@ const PostList: Post[] = [
     { slug: 'get-the-parent-node-of-an-element', level: 'Basic' },
     { slug: 'get-the-position-of-an-element-relative-to-another', level: 'Basic' },
     { slug: 'get-the-position-of-an-element-relative-to-the-document', level: 'Basic' },
+    { slug: 'get-the-selected-text', level: 'Basic' },
     { slug: 'get-the-size-of-an-image', level: 'Basic' },
     { slug: 'get-the-text-content-of-an-element', level: 'Basic' },
     { slug: 'go-back-to-the-previous-page', level: 'Basic' },
