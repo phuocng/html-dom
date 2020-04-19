@@ -30,6 +30,7 @@ const selectText = function(ele) {
 />
 <RelatedPosts
     slugs={[
+        'copy-highlighted-code-to-the-clipboard',
         'get-the-selected-text',
         'paste-as-plain-text',
         'save-and-restore-the-text-selection',

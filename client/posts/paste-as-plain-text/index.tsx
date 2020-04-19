@@ -68,6 +68,7 @@ Try to paste some rich text in the following \`contenteditable\` element:
 <RelatedPosts
     slugs={[
         'attach-or-detach-an-event-handler',
+        'copy-highlighted-code-to-the-clipboard',
         'copy-text-to-the-clipboard',
         'create-an-element',
         'get-the-selected-text',

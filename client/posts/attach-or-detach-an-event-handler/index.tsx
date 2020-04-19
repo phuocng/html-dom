@@ -54,6 +54,7 @@ If you want the handler to be invoke once, then look at the [Create one time eve
         'allow-to-enter-particular-characters-only',
         'calculate-the-mouse-position-relative-to-an-element',
         'communication-between-an-iframe-and-its-parent-window',
+        'copy-highlighted-code-to-the-clipboard',
         'count-the-number-of-characters-of-a-textarea',
         'create-a-range-slider',
         'create-an-image-comparison-slider',

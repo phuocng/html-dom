@@ -12,17 +12,6 @@ const Footer: React.FC<{}> = () => {
                     <ul className='flex flex-wrap -ml-1 -mr-1'>
                         <li className='w-1/2 sm:w-1/3 px-1 mb-6'>
                             <a
-                                href="https://blur.page"
-                                rel="noopener noreferrer"
-                                target="_blank"
-                                title="BlurPage - a browser extension to hide sensitive element on page"
-                            >
-                                <div className='font-semibold'>Blur Page</div>
-                                <span className='text-gray-600'>a browser extension to hide sensitive element on page</span>
-                            </a>
-                        </li>
-                        <li className='w-1/2 sm:w-1/3 px-1 mb-6'>
-                            <a
                                 href="https://1loc.dev"
                                 rel="noopener noreferrer"
                                 target="_blank"
@@ -33,6 +22,17 @@ const Footer: React.FC<{}> = () => {
                                     <span className='bg-green-600 font-normal ml-1 p-1 rounded text-sm text-white'>new</span>
                                 </div>
                                 <span className='text-gray-600'>favorite JavaScript utilities in single line of code</span>
+                            </a>
+                        </li>
+                        <li className='w-1/2 sm:w-1/3 px-1 mb-6'>
+                            <a
+                                href="https://blur.page"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                                title="BlurPage - a browser extension to hide sensitive element on page"
+                            >
+                                <div className='font-semibold'>Blur Page</div>
+                                <span className='text-gray-600'>a browser extension to hide sensitive element on page</span>
                             </a>
                         </li>
                         <li className='w-1/2 sm:w-1/3 px-1 mb-6'>
