@@ -31,6 +31,7 @@ const selectText = function(ele) {
     slugs={[
         'get-the-selected-text',
         'paste-as-plain-text',
+        'save-and-restore-the-text-selection',
     ]}
 />
 </>
