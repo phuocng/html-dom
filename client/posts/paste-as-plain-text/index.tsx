@@ -72,6 +72,7 @@ Try to paste some rich text in the following \`contenteditable\` element:
         'create-an-element',
         'get-the-selected-text',
         'prevent-the-default-action-of-an-event',
+        'save-and-restore-the-text-selection',
         'select-the-text-content-of-an-element',
     ]}
 />

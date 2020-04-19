@@ -23,6 +23,7 @@ const selectedText = window.getSelection().toString();
 <RelatedPosts
     slugs={[
         'paste-as-plain-text',
+        'save-and-restore-the-text-selection',
         'select-the-text-content-of-an-element',
     ]}
 />
