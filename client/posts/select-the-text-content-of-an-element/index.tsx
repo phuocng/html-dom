@@ -23,6 +23,7 @@ const selectText = function(ele) {
     const range = document.createRange();
     range.selectNodeContents(node);
     selection.removeAllRanges();
+    selection.addRange(range);
 };
 ~~~
 `}
