@@ -89,7 +89,9 @@ We can use the technique in this post to
 
 3. [Create resizable split views](/create-resizable-split-views)
 
-4. [Resize columns of a table](/resize-columns-of-a-table)
+4. [Drag to scroll](/drag-to-scroll)
+
+5. [Resize columns of a table](/resize-columns-of-a-table)
 `}
 />
 <Demo src='/demo/make-a-draggable-element/index.html' />
@@ -103,6 +105,7 @@ We can use the technique in this post to
         'drag-and-drop-element-in-a-list',
         'drag-and-drop-table-column',
         'drag-and-drop-table-row',
+        'drag-to-scroll',
         'make-a-resizable-element',
         'resize-columns-of-a-table',
         'set-css-style-for-an-element',

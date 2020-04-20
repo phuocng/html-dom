@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>HTML DOM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="/demo/styles.css" rel="stylesheet">
+</head>
+<body class="font-sans w-full">
+    <div id="container" class="px-8 overflow-scroll" style="height: 32rem;">
+        <div class="bg-gray-100 border border-gray-400 flex items-center justify-center text-4xl w-full h-48 my-8">1</div>
+        <div class="bg-gray-100 border border-gray-400 flex items-center justify-center text-4xl w-full h-48 my-8">2</div>
+        <div class="bg-gray-100 border border-gray-400 flex items-center justify-center text-4xl w-full h-48 my-8">3</div>
+        <div class="bg-gray-100 border border-gray-400 flex items-center justify-center text-4xl w-full h-48 my-8">4</div>
+        <div class="bg-gray-100 border border-gray-400 flex items-center justify-center text-4xl w-full h-48 my-8">5</div>
+        <div class="bg-gray-100 border border-gray-400 flex items-center justify-center text-4xl w-full h-48 my-8">6</div>
+        <div class="bg-gray-100 border border-gray-400 flex items-center justify-center text-4xl w-full h-48 my-8">7</div>
+        <div class="bg-gray-100 border border-gray-400 flex items-center justify-center text-4xl w-full h-48 my-8">8</div>
+        <div class="bg-gray-100 border border-gray-400 flex items-center justify-center text-4xl w-full h-48 my-8">9</div>
+        <div class="bg-gray-100 border border-gray-400 flex items-center justify-center text-4xl w-full h-48 my-8">10</div>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const ele = document.getElementById('container');
+    ele.style.cursor = 'grab';
+
+    let pos = { top: 0, left: 0, x: 0, y: 0 };
+
+    const mouseDownHandler = function(e) {
+        ele.style.cursor = 'grabbing';
+        ele.style.userSelect = 'none';
+
+        pos = {
+            left: ele.scrollLeft,
+            top: ele.scrollTop,
+            // Get the current mouse position
+            x: e.clientX,
+            y: e.clientY,
+        };
+
+        document.addEventListener('mousemove', mouseMoveHandler);
+        document.addEventListener('mouseup', mouseUpHandler);
+    };
+
+    const mouseMoveHandler = function(e) {
+        // How far the mouse has been moved
+        const dx = e.clientX - pos.x;
+        const dy = e.clientY - pos.y;
+
+        // Scroll the element
+        ele.scrollTop = pos.top - dy;
+        ele.scrollLeft = pos.left - dx;
+    };
+
+    const mouseUpHandler = function() {
+        ele.style.cursor = 'grab';
+        ele.style.removeProperty('user-select');
+
+        document.removeEventListener('mousemove', mouseMoveHandler);
+        document.removeEventListener('mouseup', mouseUpHandler);
+    };
+
+    // Attach the handler
+    ele.addEventListener('mousedown', mouseDownHandler);
+});
+</script>
+</body>
+</html>

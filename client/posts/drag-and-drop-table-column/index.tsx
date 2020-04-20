@@ -270,6 +270,7 @@ Following is the final demo. Try to drag and drop the first cell of any column.
         'clone-an-element',
         'create-an-element',
         'drag-and-drop-element-in-a-list',
+        'drag-to-scroll',
         'get-siblings-of-an-element',
         'insert-an-element-after-or-before-other-element',
         'loop-over-a-nodelist',

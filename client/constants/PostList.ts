@@ -37,6 +37,7 @@ const PostList: Post[] = [
     { slug: 'drag-and-drop-element-in-a-list', level: 'Advanced' },
     { slug: 'drag-and-drop-table-column', level: 'Advanced' },
     { slug: 'drag-and-drop-table-row', level: 'Advanced' },
+    { slug: 'drag-to-scroll', level: 'Advanced' },
     { slug: 'execute-code-when-the-document-is-ready', level: 'Basic' },
     { slug: 'export-a-table-to-csv', level: 'Intermediate' },
     { slug: 'get-css-styles-of-an-element', level: 'Basic' },

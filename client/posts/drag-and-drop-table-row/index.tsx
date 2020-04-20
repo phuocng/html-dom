@@ -260,6 +260,7 @@ Following is the final demo. Try to drag and drop the first cell of any row.
         'create-an-element',
         'drag-and-drop-element-in-a-list',
         'drag-and-drop-table-column',
+        'drag-to-scroll',
         'get-siblings-of-an-element',
         'insert-an-element-after-or-before-other-element',
         'loop-over-a-nodelist',

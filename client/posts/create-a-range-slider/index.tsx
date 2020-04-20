@@ -164,6 +164,7 @@ Enjoy the demo!
         'attach-or-detach-an-event-handler',
         'create-an-image-comparison-slider',
         'create-resizable-split-views',
+        'drag-to-scroll',
         'get-siblings-of-an-element',
         'make-a-draggable-element',
         'set-css-style-for-an-element',

@@ -10,7 +10,7 @@ interface MarkdownProps {
 
 const Markdown: React.FC<MarkdownProps> = ({ content }) => {
     const renderBlockquote = (p: any) => {
-        return <blockquote className='border-l-4 sm:border-l-8 pl-2 sm:pl-4'>{p.children}</blockquote>;
+        return <blockquote className='border-l-4 sm:border-l-8 pl-2 sm:pl-4 mb-8'>{p.children}</blockquote>;
     };
     const renderCode = (p: any) => {
         return <SampleCode code={p.value} lang={p.language} />;
