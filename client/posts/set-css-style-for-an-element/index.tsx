@@ -46,6 +46,7 @@ ele.style.removeProperty('backgroundColor');
         'drag-and-drop-element-in-a-list',
         'drag-and-drop-table-column',
         'drag-and-drop-table-row',
+        'drag-to-scroll',
         'get-css-styles-of-an-element',
         'make-a-draggable-element',
         'make-a-resizable-element',

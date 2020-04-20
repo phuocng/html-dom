@@ -26,7 +26,7 @@ const Demo: React.FC<DemoProps> = ({ src }) => {
                 <div className='mr-2'>Demo</div>
                 (<a
                     className='underline'
-                    href={`https://github.com/phuoc-ng/html-dom/blob/master/${src}`}
+                    href={`https://github.com/phuoc-ng/html-dom/blob/master${src}`}
                     target='_blank'
                 >
                     source

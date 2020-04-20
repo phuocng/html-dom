@@ -35,6 +35,7 @@ ele.addEventListener('mousedown', function(e) {
         'drag-and-drop-element-in-a-list',
         'drag-and-drop-table-column',
         'drag-and-drop-table-row',
+        'drag-to-scroll',
         'get-the-position-of-an-element-relative-to-another',
         'get-the-position-of-an-element-relative-to-the-document',
         'make-a-draggable-element',

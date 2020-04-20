@@ -174,6 +174,7 @@ _Photo by [Pedro Lastra](https://unsplash.com/@peterlaster) on [Unsplash](https:
         'create-a-range-slider',
         'create-an-image-comparison-slider',
         'create-resizable-split-views',
+        'drag-to-scroll',
         'get-siblings-of-an-element',
         'get-the-parent-node-of-an-element',
         'make-a-draggable-element',

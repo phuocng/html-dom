@@ -271,6 +271,7 @@ Following is the final demo. Try to drag and drop any item!
         'create-an-element',
         'drag-and-drop-table-column',
         'drag-and-drop-table-row',
+        'drag-to-scroll',
         'get-siblings-of-an-element',
         'insert-an-element-after-or-before-other-element',
         'loop-over-a-nodelist',

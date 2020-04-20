@@ -172,6 +172,7 @@ _Photo by [frank mckenna](https://unsplash.com/@frankiefoto) on [Unsplash](https
         'attach-or-detach-an-event-handler',
         'create-a-range-slider',
         'create-resizable-split-views',
+        'drag-to-scroll',
         'get-siblings-of-an-element',
         'make-a-draggable-element',
         'set-css-style-for-an-element',

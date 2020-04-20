@@ -147,6 +147,7 @@ const mouseUpHandler = function() {
         'append-to-an-element',
         'attach-or-detach-an-event-handler',
         'create-an-element',
+        'drag-to-scroll',
         'get-css-styles-of-an-element',
         'loop-over-a-nodelist',
         'make-a-draggable-element',

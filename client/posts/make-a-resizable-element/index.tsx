@@ -125,6 +125,7 @@ const resizers = ele.querySelectorAll('.resizer');
 <RelatedPosts
     slugs={[
         'attach-or-detach-an-event-handler',
+        'drag-to-scroll',
         'loop-over-a-nodelist',
         'make-a-draggable-element',
         'resize-columns-of-a-table',
