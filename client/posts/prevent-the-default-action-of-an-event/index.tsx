@@ -60,7 +60,7 @@ ele.addEventListener('click', function(e) {
 1. Don't follow a link when clicking it. We often use this when creating tabs.
 2. Don't submit the form when clicking its submit button. For example, we want to validate the form first.
 3. Don't open a file or download the file when dragging and [dropping a file](/highlight-an-element-when-dragging-a-file-over-it) to a given area.
-4. Show a custom context menu when right-clicking an element.
+4. [Show a custom context menu](/show-a-custom-context-menu-at-clicked-position) when right-clicking an element.
 `}
 />
 <RelatedPosts
@@ -69,6 +69,7 @@ ele.addEventListener('click', function(e) {
         'attach-or-detach-an-event-handler',
         'paste-as-plain-text',
         'press-shift-and-enter-for-a-new-line',
+        'show-a-custom-context-menu-at-clicked-position',
     ]}
 />
 </>

@@ -45,6 +45,7 @@ ele.classList.toggle('class-name');
         'drag-and-drop-table-row',
         'highlight-an-element-when-dragging-a-file-over-it',
         'resize-columns-of-a-table',
+        'show-a-custom-context-menu-at-clicked-position',
     ]}
 />
 </>
