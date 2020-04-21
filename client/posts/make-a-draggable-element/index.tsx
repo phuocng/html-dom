@@ -84,13 +84,9 @@ ele.addEventListener('mousedown', mouseDownHandler);
 We can use the technique in this post to 
 
 1. [Create a range slider](/create-a-range-slider)
-
 2. [Create an image comparison slider](/create-an-image-comparison-slider)
-
 3. [Create resizable split views](/create-resizable-split-views)
-
 4. [Drag to scroll](/drag-to-scroll)
-
 5. [Resize columns of a table](/resize-columns-of-a-table)
 `}
 />

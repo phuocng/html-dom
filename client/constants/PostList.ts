@@ -97,6 +97,7 @@ const PostList: Post[] = [
     { slug: 'select-the-text-of-a-textarea-automatically', level: 'Basic' },
     { slug: 'serialize-form-data-into-a-query-string', level: 'Basic' },
     { slug: 'set-css-style-for-an-element', level: 'Basic' },
+    { slug: 'show-a-custom-context-menu-at-clicked-position', level: 'Intermediate' },
     { slug: 'show-a-ghost-element-when-dragging-an-element', level: 'Intermediate' },
     { slug: 'show-a-loading-indicator-when-an-iframe-is-being-loaded', level: 'Intermediate' },
     { slug: 'show-or-hide-an-element', level: 'Basic' },

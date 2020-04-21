@@ -27,6 +27,10 @@ ele.addEventListener('mousedown', function(e) {
     const y = e.clientY - rect.top;
 });
 ~~~
+
+## Use case
+
+* [Show a custom context menu at clicked position](/show-a-custom-context-menu-at-clicked-position)
 `}
 />
 <RelatedPosts
@@ -39,6 +43,7 @@ ele.addEventListener('mousedown', function(e) {
         'get-the-position-of-an-element-relative-to-another',
         'get-the-position-of-an-element-relative-to-the-document',
         'make-a-draggable-element',
+        'show-a-custom-context-menu-at-clicked-position',
     ]}
 />
 </>
