@@ -70,6 +70,7 @@ ele.addEventListener('click', function(e) {
         'paste-as-plain-text',
         'press-shift-and-enter-for-a-new-line',
         'show-a-custom-context-menu-at-clicked-position',
+        'show-or-hide-table-columns',
     ]}
 />
 </>

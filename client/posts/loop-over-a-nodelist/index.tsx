@@ -67,6 +67,7 @@ elements.forEach(function(ele) {
         'select-an-element-or-list-of-elements',
         'select-the-children-of-an-element',
         'serialize-form-data-into-a-query-string',
+        'show-or-hide-table-columns',
         'sort-a-table-by-clicking-its-headers',
         'upload-files-with-ajax',
     ]}

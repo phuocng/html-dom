@@ -86,6 +86,7 @@ If you want the handler to be invoke once, then look at the [Create one time eve
         'show-a-custom-context-menu-at-clicked-position',
         'show-a-ghost-element-when-dragging-an-element',
         'show-a-loading-indicator-when-an-iframe-is-being-loaded',
+        'show-or-hide-table-columns',
         'sort-a-table-by-clicking-its-headers',
         'zoom-an-image',
     ]}
