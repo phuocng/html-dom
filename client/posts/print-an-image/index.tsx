@@ -91,6 +91,10 @@ iframe.addEventListener('load', function() {
 });
 ~~~
 
+> ## Tip
+>
+> This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+
 ## Remove the iframe
 
 The dynamic iframe will be [removed](/remove-an-element) when user starts printing the image or closes the print window:

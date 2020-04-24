@@ -114,6 +114,10 @@ const createResizableColumn = function(col, resizer) {
 };
 ~~~
 
+> ## Tip
+>
+> This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+
 ## Highlight the resizer
 
 We can improve the user experience a little bit. When user hovers or clicks on the resizer, it can be hightlighted.

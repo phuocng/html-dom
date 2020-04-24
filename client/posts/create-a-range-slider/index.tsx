@@ -151,6 +151,10 @@ const mouseUpHandler = function() {
 };
 ~~~
 
+> ## Tip
+>
+> This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+
 ## Use cases
 
 * [Zoom an image](/zoom-an-image)

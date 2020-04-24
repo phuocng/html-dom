@@ -79,6 +79,10 @@ const mouseUpHandler = function() {
 ele.addEventListener('mousedown', mouseDownHandler);
 ~~~
 
+> ## Tip
+>
+> This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+
 ## Use cases
 
 We can use the technique in this post to 
@@ -93,6 +97,7 @@ We can use the technique in this post to
 <Demo src='/demo/make-a-draggable-element/index.html' />
 <RelatedPosts
     slugs={[
+        'attach-event-handlers-inside-other-handlers',
         'attach-or-detach-an-event-handler',
         'calculate-the-mouse-position-relative-to-an-element',
         'create-a-range-slider',

@@ -161,6 +161,10 @@ const mouseMoveHandler = function(e) {
 };
 ~~~
 
+> ## Tip
+>
+> This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+
 Below is the demo that you can play with.
 
 _Photo by [frank mckenna](https://unsplash.com/@frankiefoto) on [Unsplash](https://unsplash.com/photos/OD9EOzfSOh0)_

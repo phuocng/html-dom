@@ -3,7 +3,8 @@ import Post from './Post';
 const PostList: Post[] = [
     { slug: 'add-or-remove-class-from-an-element', category: 'Basic' },
     { slug: 'allow-to-enter-particular-characters-only', category: 'Intermediate' },
-    { slug: 'append-to-an-element', category: 'Basic', },
+    { slug: 'append-to-an-element', category: 'Basic' },
+    { slug: 'attach-event-handlers-inside-other-handlers', category: 'Tip' },
     { slug: 'attach-or-detach-an-event-handler', category: 'Basic' },
     { slug: 'calculate-the-mouse-position-relative-to-an-element', category: 'Basic' },
     { slug: 'calculate-the-size-of-scrollbar', category: 'Intermediate' },

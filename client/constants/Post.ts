@@ -1,5 +1,5 @@
 interface Post {
-    category: 'Basic' | 'Intermediate' |  'Advanced';
+    category: 'Basic' | 'Intermediate' |  'Advanced' | 'Tip';
     slug: string;
 }
 
