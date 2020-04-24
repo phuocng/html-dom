@@ -28,6 +28,7 @@ const PostList: Post[] = [
     { slug: 'detect-clicks-outside-of-an-element', category: 'Basic' },
     { slug: 'detect-if-an-element-is-focused', category: 'Basic' },
     { slug: 'detect-if-the-caps-lock-is-on', category: 'Intermediate' },
+    { slug: 'detect-internet-explorer-browser', category: 'Basic' },
     { slug: 'detect-mac-os-browser', category: 'Basic' },
     { slug: 'determine-the-height-and-width-of-an-element', category: 'Basic' },
     { slug: 'distinguish-between-left-and-right-mouse-clicks', category: 'Basic' },
