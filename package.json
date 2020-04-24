@@ -29,7 +29,7 @@
         "dev-server": "npm run copy && webpack-dev-server",
         "build": "npm run copy && webpack --mode production && npm run export",
         "export": "react-snap",
-        "deploy": "npm run build && netlify deploy --dir=dist --prod"
+        "deploy": "npm run build && cp -rf demo dist && netlify deploy --dir=dist --prod"
     },
     "dependencies": {
         "@loadable/component": "^5.12.0",
