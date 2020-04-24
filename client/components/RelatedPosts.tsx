@@ -26,12 +26,12 @@ const RelatedPosts: React.FC<RelatedPostsProps> = ({ slugs }) => {
                             <span
                                 className={`
                                     p-1 text-white rounded
-                                    ${post.level === 'Basic' ? 'bg-gray-600' : ''}
-                                    ${post.level === 'Intermediate' ? 'bg-blue-600' : ''}
-                                    ${post.level === 'Advanced' ? 'bg-red-600' : ''}
+                                    ${post.category === 'Basic' ? 'bg-gray-600' : ''}
+                                    ${post.category === 'Intermediate' ? 'bg-blue-600' : ''}
+                                    ${post.category === 'Advanced' ? 'bg-red-600' : ''}
                                 `}
                             >
-                                {post.level.toLowerCase()}
+                                {post.category.toLowerCase()}
                             </span>
                         </Link>
                     </li>
