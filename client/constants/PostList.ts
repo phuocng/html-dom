@@ -47,6 +47,7 @@ const PostList: Post[] = [
     { slug: 'get-size-of-the-selected-file', category: 'Basic', },
     { slug: 'get-the-closest-element-by-given-selector', category: 'Basic' },
     { slug: 'get-the-default-value-of-a-css-property', category: 'Intermediate' },
+    { slug: 'get-the-direction-of-the-text-selection', category: 'Intermediate' },
     { slug: 'get-the-document-height-and-width', category: 'Basic' },
     { slug: 'get-the-first-scrollable-parent-of-an-element', category: 'Intermediate' },
     { slug: 'get-the-parent-node-of-an-element', category: 'Basic' },

@@ -38,6 +38,7 @@ const restore = function(range) {
 <RelatedPosts
     slugs={[
         'copy-highlighted-code-to-the-clipboard',
+        'get-the-direction-of-the-text-selection',
         'get-the-selected-text',
         'paste-as-plain-text',
         'select-the-text-content-of-an-element',
