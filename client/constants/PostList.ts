@@ -1,7 +1,4 @@
-interface Post {
-    category: 'Basic' | 'Intermediate' |  'Advanced';
-    slug: string;
-}
+import Post from './Post';
 
 const PostList: Post[] = [
     { slug: 'add-or-remove-class-from-an-element', category: 'Basic' },

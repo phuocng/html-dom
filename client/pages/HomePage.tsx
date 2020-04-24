@@ -1,10 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
 
 import Ad from '../components/Ad';
+import PostItem from '../components/PostItem';
 import PostList from '../constants/PostList';
-import { unslugify } from '../helpers/slugify';
 import Layout from './Layout';
 
 const HomePage = () => {
@@ -29,7 +28,7 @@ const HomePage = () => {
                     style={{ textDecoration: 'none' }}
                     target="_blank"
                 >
-                    GitHub ∙ 1.8k ★
+                    GitHub ∙ 1.9k ★
                 </a>
             </div>
 
@@ -41,24 +40,11 @@ const HomePage = () => {
                     PostList.map((post, index) => {
                         const idx = (index < 9) ? `0${index + 1}` : `${index + 1}`;
                         return (
-                            <li key={post.slug} className='mb-4'>
-                                <Link
-                                    to={`/${post.slug}`}
-                                    className='bg-gray-200 px-2 py-1 flex items-center justify-between'
-                                >
-                                    <span className='mr-2'>{idx} — {unslugify(post.slug)}</span>
-                                    <span
-                                        className={`
-                                            p-1 text-sm text-white rounded
-                                            ${post.category === 'Basic' ? 'bg-gray-600' : ''}
-                                            ${post.category === 'Intermediate' ? 'bg-blue-600' : ''}
-                                            ${post.category === 'Advanced' ? 'bg-red-600' : ''}
-                                        `}
-                                    >
-                                        {post.category.toLowerCase()}
-                                    </span>
-                                </Link>
-                            </li>
+                            <PostItem
+                                key={post.slug}
+                                post={post}
+                                renderTitle={(title) => `${idx} — ${title}`}
+                            />
                         );
                     })
                 }
