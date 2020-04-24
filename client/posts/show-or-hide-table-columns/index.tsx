@@ -120,6 +120,10 @@ const documentClickHandler = function(e) {
 };
 ~~~
 
+> ## Tip
+>
+> This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+
 ## Toggle table columns
 
 When clicking a menu item, we will toggle the column determined by given index.

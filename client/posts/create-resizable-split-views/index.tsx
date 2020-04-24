@@ -257,6 +257,10 @@ const mouseMoveHandler = function(e) {
 
 > ## Tip
 >
+> This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+
+> ## Tip
+>
 > Using custom \`data-\` attribute is a good way to manage variables associated with the element.
 
 Enjoy the demo!

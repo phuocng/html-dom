@@ -78,6 +78,10 @@ const mouseDownHandler = function(e) {
 };
 ~~~
 
+> ## Tip
+>
+> This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+
 \`pos\` stores the current scroll and mouse positions. When user moves the mouse, we calculate how far it has been moved,
 and then scroll to the element to the same position:
 

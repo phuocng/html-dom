@@ -71,6 +71,10 @@ The \`relative\`, \`absolute\` and \`hidden\` classes are defined as following:
 }
 ~~~
 
+> ## Resource
+>
+> This post doesn't tell how to build the menu. It's up to you but [CSS Layout](https://csslayout.io/patterns/menu) is a nice resource to look at.
+
 It's the time to set the position for the menu. It can be calculated based on [the mouse position](/calculate-the-mouse-position-relative-to-an-element):
 
 ~~~ javascript
@@ -116,9 +120,9 @@ The menu is hidden by [adding](/add-or-remove-class-from-an-element) the \`hidde
 More importantly, the \`click\` event handler is also removed from \`document\` as we don't need to handle that when the menu is hidden.
 This technique is mentioned in the [Create one time event handler](/create-one-time-event-handler) post.
 
-> ## Resource
+> ## Tip
 >
-> This post doesn't tell how to build the menu. It's up to you but [CSS Layout](https://csslayout.io/patterns/menu) is a nice resource to look at.
+> This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
 
 ## Use case
 
@@ -131,6 +135,7 @@ Finally, following is the demo you can play with!
 <RelatedPosts
     slugs={[
         'add-or-remove-class-from-an-element',
+        'attach-event-handlers-inside-other-handlers',
         'attach-or-detach-an-event-handler',
         'calculate-the-mouse-position-relative-to-an-element',
         'create-one-time-event-handler',
