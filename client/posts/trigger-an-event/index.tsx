@@ -28,7 +28,7 @@ ele.click();
 ## Trigger a native event
 
 ~~~ javascript
-const trigger = (ele, eventName) {
+const trigger = function(ele, eventName) {
     const e = document.createEvent('HTMLEvents');
     e.initEvent(eventName, true, false);
     ele.dispatchEvent(e);
