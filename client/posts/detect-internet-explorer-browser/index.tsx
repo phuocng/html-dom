@@ -8,21 +8,23 @@ export default () => {
     return (
 <>
 <Helmet>
-    <meta name='keywords' content='navigator.platform, check mac browser' />
+    <meta name='keywords' content='navigator userAgent, check internet explorer browser' />
 </Helmet>
 <Markdown
     content={`
-Check if the current browser runs on Mac:
+Check if the current browser is Internet Explorer:
 
 ~~~ javascript
-const isMacBrowser = /Mac|iPod|iPhone|iPad/.test(navigator.platform);
+const isIe = function() {
+    const ua = window.navigator.userAgent;
+    return ua.indexOf('MSIE') > -1 || ua.indexOf('Trident') > -1;
+};
 ~~~
 `}
 />
 <RelatedPosts
     slugs={[
-        'detect-if-the-caps-lock-is-on',
-        'detect-internet-explorer-browser',
+        'detect-mac-os-browser',
     ]}
 />
 </>
