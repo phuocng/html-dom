@@ -1,0 +1,217 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>HTML DOM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="/demo/styles.css" rel="stylesheet">
+    <style>
+    .table {
+        border-collapse: collapse;
+    }
+    .table, .table th, .table td {
+        border: 1px solid #ccc;
+    }
+    .table th, .table td {
+        padding: 0.5rem;
+    }
+    .table th {
+        user-select: none;
+    }
+    </style>
+</head>
+<body class="font-sans w-full">
+    <div class="p-4 relative">
+        <table id="table" class="table">
+            <thead>
+                <tr>
+                    <th data-type="number">No.</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Date of birth</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Andrea</td>
+                    <td>Ross</td>
+                    <td>1985-12-24</td>
+                    <td>95945 Rodrick Crossroad</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Penelope</td>
+                    <td>Mills</td>
+                    <td>1978-8-11</td>
+                    <td>81328 Eleazar Fork</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Sarah</td>
+                    <td>Grant</td>
+                    <td>1981-5-9</td>
+                    <td>5050 Boyer Forks</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Vanessa</td>
+                    <td>Roberts</td>
+                    <td>1980-9-27</td>
+                    <td>765 Daryl Street</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Oliver</td>
+                    <td>Alsop</td>
+                    <td>1986-10-30</td>
+                    <td>11424 Ritchie Garden</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Jennifer</td>
+                    <td>Forsyth</td>
+                    <td>1983-3-13</td>
+                    <td>04640 Nader Ramp</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Michelle</td>
+                    <td>King</td>
+                    <td>1980-8-29</td>
+                    <td>272 Alysa Fall</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Steven</td>
+                    <td>Kelly</td>
+                    <td>1989-8-6</td>
+                    <td>5749 Foster Pike</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Julian</td>
+                    <td>Ferguson</td>
+                    <td>1981-9-17</td>
+                    <td>6196 Wilkinson Parkways</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Chloe</td>
+                    <td>Ince</td>
+                    <td>1983-10-28</td>
+                    <td>9069 Daniel Shoals</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <ul id="menu" class="absolute bg-gray-100 border border-gray-400 shadow-xl rounded p-2 hidden">
+        </ul>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const menu = document.getElementById('menu');
+    const table = document.getElementById('table');
+    const headers = [].slice.call(table.querySelectorAll('th'));
+    const cells = [].slice.call(table.querySelectorAll('th, td'));
+    const numColumns = headers.length;
+
+    const thead = table.querySelector('thead');
+    thead.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+
+        const rect = thead.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        menu.style.top = `${y}px`;
+        menu.style.left = `${x}px`;
+        menu.classList.toggle('hidden');
+
+        document.addEventListener('click', documentClickHandler);
+    });
+
+    // Hide the menu when clicking outside of it
+    const documentClickHandler = function(e) {
+        const isClickedOutside = !menu.contains(e.target);
+        if (isClickedOutside) {
+            menu.classList.add('hidden');
+            document.removeEventListener('click', documentClickHandler);
+        }
+    };
+
+    const showColumn = function(index) {
+        cells
+            .filter(function(cell) {
+                return cell.getAttribute('data-column-index') === `${index}`;
+            })
+            .forEach(function(cell) {
+                cell.style.display = '';
+                cell.setAttribute('data-shown', 'true');
+            });
+
+        menu.querySelectorAll(`[type="checkbox"][disabled]`).forEach(function(checkbox) {
+            checkbox.removeAttribute('disabled');
+        });
+    };
+
+    const hideColumn = function(index) {
+        cells
+            .filter(function(cell) {
+                return cell.getAttribute('data-column-index') === `${index}`;
+            })
+            .forEach(function(cell) {
+                cell.style.display = 'none';
+                cell.setAttribute('data-shown', 'false');
+            });
+        // How many columns are hidden
+        const numHiddenCols = headers
+            .filter(function(th) {
+                return th.getAttribute('data-shown') === 'false';
+            })
+            .length;
+        if (numHiddenCols === numColumns - 1) {
+            // There's only one column which isn't hidden yet
+            // We don't allow user to hide it
+            const shownColumnIndex = thead.querySelector('[data-shown="true"]').getAttribute('data-column-index');
+
+            const checkbox = menu.querySelector(`[type="checkbox"][data-column-index="${shownColumnIndex}"]`);
+            checkbox.setAttribute('disabled', 'true');
+        }
+    };
+
+    cells.forEach(function(cell, index) {
+        cell.setAttribute('data-column-index', index % numColumns);
+        cell.setAttribute('data-shown', 'true');
+    });
+
+    headers.forEach(function(th, index) {
+        // Build the menu item
+        const li = document.createElement('li');
+        const label = document.createElement('label');
+        const checkbox = document.createElement('input');
+        checkbox.setAttribute('type', 'checkbox');
+        checkbox.setAttribute('checked', 'true');
+        checkbox.setAttribute('data-column-index', index);
+        checkbox.style.marginRight = '.25rem';
+
+        const text = document.createTextNode(th.textContent);
+
+        label.appendChild(checkbox);
+        label.appendChild(text);
+        label.style.display = 'flex';
+        label.style.alignItems = 'center';
+        li.appendChild(label);
+        menu.appendChild(li);
+
+        // Handle the event
+        checkbox.addEventListener('change', function(e) {
+            e.target.checked ? showColumn(index) : hideColumn(index);
+            menu.classList.add('hidden');
+        });
+    });
+});
+</script>
+</body>
+</html>

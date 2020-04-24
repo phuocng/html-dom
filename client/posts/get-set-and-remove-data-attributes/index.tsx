@@ -43,6 +43,7 @@ Note that calling \`delete ele.dataset\` doesn't remove all data attributes.
     slugs={[
         'create-resizable-split-views',
         'get-set-and-remove-attributes',
+        'show-or-hide-table-columns',
         'sort-a-table-by-clicking-its-headers',
     ]}
 />

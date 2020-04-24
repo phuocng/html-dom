@@ -101,6 +101,7 @@ const PostList: Post[] = [
     { slug: 'show-a-ghost-element-when-dragging-an-element', level: 'Intermediate' },
     { slug: 'show-a-loading-indicator-when-an-iframe-is-being-loaded', level: 'Intermediate' },
     { slug: 'show-or-hide-an-element', level: 'Basic' },
+    { slug: 'show-or-hide-table-columns', level: 'Advanced' },
     { slug: 'sort-a-table-by-clicking-its-headers', level: 'Advanced' },
     { slug: 'strip-html-from-a-given-text', level: 'Basic' },
     { slug: 'submit-a-form-with-ajax', level: 'Basic' },

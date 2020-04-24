@@ -120,6 +120,10 @@ This technique is mentioned in the [Create one time event handler](/create-one-t
 >
 > This post doesn't tell how to build the menu. It's up to you but [CSS Layout](https://csslayout.io/patterns/menu) is a nice resource to look at.
 
+## Use case
+
+* [Show or hide table columns](/show-or-hide-table-columns)
+
 Finally, following is the demo you can play with!
 `}
 />
@@ -132,6 +136,7 @@ Finally, following is the demo you can play with!
         'create-one-time-event-handler',
         'prevent-the-default-action-of-an-event',
         'set-css-style-for-an-element',
+        'show-or-hide-table-columns',
     ]}
 />
 </>

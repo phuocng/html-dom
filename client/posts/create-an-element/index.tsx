@@ -37,6 +37,7 @@ const ele = document.createTextNode('Hello World!');
         'resize-columns-of-a-table',
         'resize-the-width-of-a-text-box-to-fit-its-content-automatically',
         'show-a-ghost-element-when-dragging-an-element',
+        'show-or-hide-table-columns',
         'strip-html-from-a-given-text',
     ]}
 />

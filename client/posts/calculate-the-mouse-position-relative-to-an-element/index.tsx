@@ -44,6 +44,7 @@ ele.addEventListener('mousedown', function(e) {
         'get-the-position-of-an-element-relative-to-the-document',
         'make-a-draggable-element',
         'show-a-custom-context-menu-at-clicked-position',
+        'show-or-hide-table-columns',
     ]}
 />
 </>
