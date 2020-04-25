@@ -15,6 +15,7 @@ const PostList: Post[] = [
     { slug: 'check-if-an-element-is-in-the-viewport', category: 'Basic' },
     { slug: 'check-if-an-element-is-scrollable', category: 'Intermediate' },
     { slug: 'check-if-the-native-date-input-is-supported', category: 'Basic' },
+    { slug: 'check-if-the-touch-events-are-supported', category: 'Basic' },
     { slug: 'clone-an-element', category: 'Basic' },
     { slug: 'communication-between-an-iframe-and-its-parent-window', category: 'Intermediate' },
     { slug: 'copy-highlighted-code-to-the-clipboard', category: 'Advanced' },

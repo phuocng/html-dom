@@ -38,12 +38,11 @@ const HomePage = () => {
                 <ul>
                 {
                     PostList.map((post, index) => {
-                        const idx = (index < 9) ? `0${index + 1}` : `${index + 1}`;
                         return (
                             <PostItem
                                 key={post.slug}
                                 post={post}
-                                renderTitle={(title) => `${idx} — ${title}`}
+                                renderTitle={(title) => `${index + 1} — ${title}`}
                             />
                         );
                     })
