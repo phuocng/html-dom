@@ -25,6 +25,7 @@ const isIe = function() {
 <RelatedPosts
     slugs={[
         'detect-mac-os-browser',
+        'detect-mobile-browsers',
     ]}
 />
 </>

@@ -23,6 +23,7 @@ const isMacBrowser = /Mac|iPod|iPhone|iPad/.test(navigator.platform);
     slugs={[
         'detect-if-the-caps-lock-is-on',
         'detect-internet-explorer-browser',
+        'detect-mobile-browsers',
     ]}
 />
 </>
