@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 
 import Markdown from '../../components/Markdown';
+import RelatedPosts from '../../components/RelatedPosts';
 
 export default () => {
     return (
@@ -18,6 +19,11 @@ const touchSupported = 'ontouchstart' in window ||
     (window.DocumentTouch && document instanceof DocumentTouch);
 ~~~
 `}
+/>
+<RelatedPosts
+    slugs={[
+        'detect-mobile-browsers',
+    ]}
 />
 </>
     );
