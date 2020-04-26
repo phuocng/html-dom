@@ -28,7 +28,7 @@
         "dev": "npm run copy && webpack --mode development",
         "dev-server": "npm run copy && webpack-dev-server",
         "build": "npm run copy && webpack --mode production && npm run export",
-        "sitemap": "ts-node bin/generateSitemap.ts",
+        "sitemap": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node bin/generateSitemap.ts",
         "export": "react-snap",
         "deploy": "npm run build && cp -rf demo dist && npm run sitemap && netlify deploy --dir=dist --prod"
     },
