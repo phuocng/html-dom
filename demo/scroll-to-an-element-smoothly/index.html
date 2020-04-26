@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>HTML DOM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="/demo/styles.css" rel="stylesheet">
+    <style>
+    .section {
+        height: 32rem;
+    }
+    </style>
+</head>
+<body class="font-sans w-full overflow-auto" style="max-height: 32rem">
+    <!-- Navigation -->
+    <div class="fixed left-0 flex flex-col justify-center p-4" style="top: 50%; transform: translate(0px, -50%);">
+        <a href="#section-1" class="border border-gray-400 h-3 w-3 rounded-full my-1 trigger bg-gray-400"></a>
+        <a href="#section-2" class="border border-gray-400 h-3 w-3 rounded-full my-1 trigger"></a>
+        <a href="#section-3" class="border border-gray-400 h-3 w-3 rounded-full my-1 trigger"></a>
+        <a href="#section-4" class="border border-gray-400 h-3 w-3 rounded-full my-1 trigger"></a>
+    </div>
+
+    <div id="section-1" class="border-b border-gray-400 flex items-center justify-center text-4xl w-full section">1</div>
+    <div id="section-2" class="border-b border-gray-400 flex items-center justify-center text-4xl w-full section">2</div>
+    <div id="section-3" class="border-b border-gray-400 flex items-center justify-center text-4xl w-full section">3</div>
+    <div id="section-4" class="flex items-center justify-center text-4xl w-full section">4</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const duration = 800;
+
+    const scrollToTarget = function(target) {
+        const top = target.getBoundingClientRect().top;
+        const startPos = window.pageYOffset;
+        const diff = top;
+
+        let startTime = null;
+        let requestId;
+        
+        const loop = function(currentTime) {
+            if (!startTime) {
+                startTime = currentTime;
+            }
+
+            // Elapsed time in miliseconds
+            const time = currentTime - startTime;
+
+            const percent = Math.min(time / duration, 1);
+            const easeInQuad = function(t) {
+                return t * t;
+            };
+            window.scrollTo(0, startPos + diff * percent);
+            
+            if (time < duration) {
+                // Continue moving
+                requestId = window.requestAnimationFrame(loop);
+            } else {
+                window.cancelAnimationFrame(requestId);
+            }
+        };
+        requestId = window.requestAnimationFrame(loop);
+    };
+
+    const triggers = [].slice.call(document.querySelectorAll('.trigger'));
+    let activeTriggerEle = triggers.length === 0 ? null : triggers[0];
+
+    const clickHandler = function(e) {
+        // Prevent the default action
+        e.preventDefault();
+
+        // Get the `href` attribute
+        const href = e.target.getAttribute('href');
+        const id = href.substr(1);
+        const target = document.getElementById(id);
+
+        activeTriggerEle && activeTriggerEle.classList.remove('bg-gray-400');
+        activeTriggerEle = e.target;
+        activeTriggerEle.classList.add('bg-gray-400');
+
+        scrollToTarget(target);
+    };
+
+    triggers.forEach(function(ele) {
+        ele.addEventListener('click', clickHandler);
+    });
+});
+</script>
+</body>
+</html>
