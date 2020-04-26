@@ -15,8 +15,10 @@ const Demo: React.FC<DemoProps> = ({ src }) => {
 
         const iframe = e.target as HTMLFrameElement;
         const body = iframe.contentDocument.body;
+        const maxHeightStyle = iframe.contentWindow.getComputedStyle(body).maxHeight;
+        const maxHeight = maxHeightStyle && maxHeightStyle !== 'none' ? maxHeightStyle : '';
         iframe.classList.remove('opacity-0');
-        iframe.style.height = `${body.scrollHeight}px`;
+        iframe.style.height = maxHeight || `${body.scrollHeight}px`;
         body.style.width = `${iframe.scrollWidth}px`;
     };
 
