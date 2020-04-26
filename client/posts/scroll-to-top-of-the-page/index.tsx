@@ -57,6 +57,7 @@ export default ({ children }) => {
 <RelatedPosts
     slugs={[
         'scroll-to-an-element',
+        'scroll-to-an-element-smoothly',
     ]}
 />
 </>
