@@ -117,4 +117,4 @@ const PostList: Post[] = [
     { slug: 'zoom-an-image', category: 'Advanced' },
 ];
 
-export default PostList;
+module.exports = PostList;
