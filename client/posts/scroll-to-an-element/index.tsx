@@ -23,15 +23,26 @@ ele.scrollIntoView();
 
 ## Smoothly scroll
 
-The \`behavior\` option [isn't supported](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView#Browser_compatibility) in IE.
+The \`behavior\` option [isn't supported](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView#Browser_compatibility) in IE and Safari.
 
 ~~~ javascript
 ele.scrollIntoView({ behavior: 'smooth' });
 ~~~
+
+> ## Good to know
+>
+> The similar CSS property which provides the same functionality is
+>
+> ~~~ css
+> scroll-behavior: smooth;
+> ~~~
+>
+> It [isn't supported](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior#Browser_compatibility) in IE and Safari.
 `}
 />
 <RelatedPosts
     slugs={[
+        'scroll-to-an-element-smoothly',
         'scroll-to-top-of-the-page',
     ]}
 />
