@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const PostList = require('../client/constants/PostList');
+import PostList from '../client/constants/PostList';
 
 const output = 
     ['<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">']

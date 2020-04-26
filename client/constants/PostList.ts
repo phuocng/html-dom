@@ -92,6 +92,7 @@ const PostList: Post[] = [
     { slug: 'save-and-restore-the-text-selection', category: 'Intermediate' },
     { slug: 'scale-a-text-to-fit-inside-of-an-element', category: 'Intermediate' },
     { slug: 'scroll-to-an-element', category: 'Basic' },
+    { slug: 'scroll-to-an-element-smoothly', category: 'Advanced' },
     { slug: 'scroll-to-top-of-the-page', category: 'Basic' },
     { slug: 'select-an-element-or-list-of-elements', category: 'Basic' },
     { slug: 'select-the-children-of-an-element', category: 'Basic' },
@@ -117,4 +118,4 @@ const PostList: Post[] = [
     { slug: 'zoom-an-image', category: 'Advanced' },
 ];
 
-module.exports = PostList;
+export default PostList;
