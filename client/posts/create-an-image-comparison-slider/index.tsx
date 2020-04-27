@@ -70,7 +70,7 @@ The modified element uses more styles for showing the background image at desire
 
 ~~~ css
 .modified-image {
-    background-position: top;
+    background-position: top left;
     background-repeat: no-repeat;
     background-size: auto 100%;
     ...
