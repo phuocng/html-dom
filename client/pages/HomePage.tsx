@@ -27,7 +27,7 @@ const HomePage = () => {
                     rel="noopener noreferrer"
                     target="_blank"
                 >
-                    GitHub ∙ 2.1k ★
+                    GitHub ∙ 2.3k ★
                 </a>
             </div>
 
