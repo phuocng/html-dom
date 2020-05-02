@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>HTML DOM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="/demo/styles.css" rel="stylesheet">
+    <style>
+    .arrow {
+        background-color: rgb(255, 255, 255);
+        border-left: 1px solid #cbd5e0;
+        border-top: 1px solid #cbd5e0;
+        height: .75rem;
+        left: 50%;
+        position: absolute;
+        top: 0;
+        transform: translate(-50%, -50%) rotate(45deg);
+        width: .75rem;
+    }
+    </style>
+</head>
+<body class="flex font-sans justify-center p-8 relative h-64">
+    <div id="target" class="border border-gray-400 flex items-center justify-center h-32 w-64">
+        Target
+    </div>
+
+    <div id="popover" class="absolute border border-gray-400 p-2">
+        <div class="arrow"></div>
+        Popover
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const target = document.getElementById('target');
+    const popover = document.getElementById('popover');
+
+    const targetRect = target.getBoundingClientRect();
+    const popoverRect = popover.getBoundingClientRect();
+
+    const top = targetRect.top + targetRect.height;
+    const left = targetRect.left + targetRect.width / 2 - popoverRect.width / 2;
+
+    popover.style.top = `${top + 8}px`;
+    popover.style.left = `${left}px`;
+});
+</script>
+</body>
+</html>

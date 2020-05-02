@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>HTML DOM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="/demo/styles.css" rel="stylesheet">
+    <style>
+    .target {
+        position: relative;
+    }
+    .popover {
+        left: 50%;
+        position: absolute;
+        top: 100%;
+        transform: translate(-50%, .75rem);
+    }
+    .arrow {
+        background-color: rgb(255, 255, 255);
+        border-left: 1px solid #cbd5e0;
+        border-top: 1px solid #cbd5e0;
+        height: .75rem;
+        left: 50%;
+        position: absolute;
+        top: 0;
+        transform: translate(-50%, -50%) rotate(45deg);
+        width: .75rem;
+    }
+    </style>
+</head>
+<body class="flex font-sans h-64 justify-center p-4">
+    <div>
+        <div class="text-center mb-2">
+            <button type="button" class="bg-blue-600 px-2 py-1 text-white white" id="toggleButton">Toggle overflow:hidden</button>
+        </div>
+
+        <div id="target" class="target border border-gray-400 flex h-32 items-center justify-center w-64">
+            Target
+
+            <div id="popover" class="border border-gray-400 p-2 popover">
+                <div class="arrow"></div>
+                Popover
+            </div>
+        </div>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const target = document.getElementById('target');
+    const toggleButton = document.getElementById('toggleButton');
+    
+    toggleButton.addEventListener('click', function() {
+        target.style.overflow = target.style.overflow !== 'hidden' ? 'hidden' : '';
+    });
+});
+</script>
+</body>
+</html>
