@@ -72,6 +72,7 @@ const PostList: Post[] = [
     { slug: 'paste-an-image-from-the-clipboard', category: 'Intermediate' },
     { slug: 'paste-as-plain-text', category: 'Intermediate' },
     { slug: 'placeholder-for-a-contenteditable-element', category: 'Intermediate' },
+    { slug: 'position-an-element-absolutely-to-another-element', category: 'Intermediate' },
     { slug: 'prepend-to-an-element', category: 'Basic' },
     { slug: 'press-shift-and-enter-for-a-new-line', category: 'Basic' },
     { slug: 'prevent-body-from-scrolling-when-opening-a-modal', category: 'Basic' },
