@@ -52,6 +52,7 @@ const isVisible = function(ele, container) {
 <RelatedPosts
     slugs={[
         'check-if-an-element-is-in-the-viewport',
+        'scroll-an-element-to-ensure-it-is-visible-in-a-scrollable-container',
     ]}
 />
 </>

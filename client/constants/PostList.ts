@@ -93,6 +93,7 @@ const PostList: Post[] = [
     { slug: 'resize-the-width-of-a-text-box-to-fit-its-content-automatically', category: 'Intermediate' },
     { slug: 'save-and-restore-the-text-selection', category: 'Intermediate' },
     { slug: 'scale-a-text-to-fit-inside-of-an-element', category: 'Intermediate' },
+    { slug: 'scroll-an-element-to-ensure-it-is-visible-in-a-scrollable-container', category: 'Intermediate' },
     { slug: 'scroll-to-an-element', category: 'Basic' },
     { slug: 'scroll-to-an-element-smoothly', category: 'Advanced' },
     { slug: 'scroll-to-top-of-the-page', category: 'Basic' },
