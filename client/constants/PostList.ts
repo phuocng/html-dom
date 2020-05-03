@@ -23,6 +23,7 @@ const PostList: Post[] = [
     { slug: 'copy-highlighted-code-to-the-clipboard', category: 'Advanced' },
     { slug: 'copy-text-to-the-clipboard', category: 'Intermediate' },
     { slug: 'count-the-number-of-characters-of-a-textarea', category: 'Basic' },
+    { slug: 'create-a-custom-scrollbar', category: 'Advanced' },
     { slug: 'create-a-range-slider', category: 'Advanced' },
     { slug: 'create-an-element', category: 'Basic' },
     { slug: 'create-an-image-comparison-slider', category: 'Advanced' },
