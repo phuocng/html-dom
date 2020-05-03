@@ -74,6 +74,7 @@ No flag at all! The code is more readable and easier to understand.
 
 You can see the tip used in another posts:
 
+* [Create a custom scrollbar](/create-a-custom-scrollbar)
 * [Create a range slider](/create-a-range-slider)
 * [Create an image comparison slider](/create-an-image-comparison-slider)
 * [Create resizable split views](/create-resizable-split-views)

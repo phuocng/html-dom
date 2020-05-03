@@ -148,6 +148,10 @@ const left = targetRect.left + targetRect.width / 2 - popoverRect.width / 2;
 popover.style.top = \`\${top - anchorRect.top + 8}px\`;
 popover.style.left = \`\${left - anchorRect.left}px\`;
 ~~~
+
+## Use cases
+
+* [Create a custom scrollbar](/create-a-custom-scrollbar)
 `}
 />
 <Demo src='/demo/position-an-element-absolutely-to-another-element/anchor.html' />

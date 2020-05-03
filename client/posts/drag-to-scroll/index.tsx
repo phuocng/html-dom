@@ -122,6 +122,10 @@ const mouseUpHandler = function() {
 };
 ~~~
 
+## Use cases
+
+* [Create a custom scrollbar](/create-a-custom-scrollbar)
+
 Hopefully you love the following demo!
 `}
 />
