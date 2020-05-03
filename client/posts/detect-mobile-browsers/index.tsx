@@ -44,6 +44,7 @@ We can't rely on the screen size because the mobile devices are getting bigger.
         'check-if-the-touch-events-are-supported',
         'detect-internet-explorer-browser',
         'detect-mac-os-browser',
+        'detect-the-dark-mode',
     ]}
 />
 </>

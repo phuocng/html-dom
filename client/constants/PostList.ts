@@ -34,6 +34,7 @@ const PostList: Post[] = [
     { slug: 'detect-internet-explorer-browser', category: 'Basic' },
     { slug: 'detect-mac-os-browser', category: 'Basic' },
     { slug: 'detect-mobile-browsers', category: 'Basic' },
+    { slug: 'detect-the-dark-mode', category: 'Basic' },
     { slug: 'determine-the-height-and-width-of-an-element', category: 'Basic' },
     { slug: 'distinguish-between-left-and-right-mouse-clicks', category: 'Basic' },
     { slug: 'download-a-file', category: 'Intermediate' },
