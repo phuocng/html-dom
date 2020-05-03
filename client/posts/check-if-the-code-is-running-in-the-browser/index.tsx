@@ -8,23 +8,20 @@ export default () => {
     return (
 <>
 <Helmet>
-    <meta name='keywords' content='navigator userAgent, check internet explorer browser' />
+    <meta name='keywords' content='check code run browser, detect browser' />
 </Helmet>
 <Markdown
     content={`
-Check if the current browser is Internet Explorer:
+We can detect if the current code is running in the browser by checking the existence of \`window\` and \`document\` objects:
 
 ~~~ javascript
-const isIe = function() {
-    const ua = window.navigator.userAgent;
-    return ua.indexOf('MSIE') > -1 || ua.indexOf('Trident') > -1;
-};
+const isBrowser = typeof window === 'object' && typeof document === 'object';
 ~~~
 `}
 />
 <RelatedPosts
     slugs={[
-        'check-if-the-code-is-running-in-the-browser',
+        'detect-internet-explorer-browser',
         'detect-mac-os-browser',
         'detect-mobile-browsers',
     ]}

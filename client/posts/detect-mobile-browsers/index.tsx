@@ -40,6 +40,7 @@ We can't rely on the screen size because the mobile devices are getting bigger.
 />
 <RelatedPosts
     slugs={[
+        'check-if-the-code-is-running-in-the-browser',
         'check-if-the-touch-events-are-supported',
         'detect-internet-explorer-browser',
         'detect-mac-os-browser',
