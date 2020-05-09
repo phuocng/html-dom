@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 
 import Ad from '../components/Ad';
@@ -7,6 +7,15 @@ import PostList from '../constants/PostList';
 import Layout from './Layout';
 
 const HomePage = () => {
+    const [totalStars, setTotalStars] = useState(0);
+
+    useEffect(() => {
+        fetch('https://api.github.com/repos/phuoc-ng/html-dom')
+            .then(res => res.json())
+            .then(data => setTotalStars(data.stargazers_count))
+            .catch(console.log);
+    });
+
     return (
         <Layout>
             <Helmet>
@@ -27,7 +36,7 @@ const HomePage = () => {
                     rel="noopener noreferrer"
                     target="_blank"
                 >
-                    GitHub ∙ 2.3k ★
+                    GitHub ∙ {totalStars} ★
                 </a>
             </div>
 
