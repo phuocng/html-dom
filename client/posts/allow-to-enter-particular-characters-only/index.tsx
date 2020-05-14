@@ -88,7 +88,7 @@ When user changes the input value, we will restore both the value and selection 
 ele.addEventListener('input', function(e) {
     const target = e.target;
 
-    if (/^[0-9\s]*$/.test(target.value)) {
+    if (/^[0-9\\s]*$/.test(target.value)) {
         currentValue = target.value;
     } else {
         // Users enter the not supported characters
