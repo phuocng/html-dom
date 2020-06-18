@@ -36,7 +36,7 @@ const handler = function() {
     ...
 };
 
-// Atatch handler to the \`click\` event
+// Attach handler to the \`click\` event
 ele.addEventListener('click', handler);
 
 // Detach the handler from the \`click\` event
