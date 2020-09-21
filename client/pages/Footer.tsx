@@ -37,6 +37,17 @@ const Footer: React.FC<{}> = () => {
                         </li>
                         <li className='w-1/2 sm:w-1/3 px-1 mb-6'>
                             <a
+                                href="https://checkbrowsers.support"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                                title="Check Browsers Support - a browser extension to check browser compatibility without leaving your tab"
+                            >
+                                <div className='font-semibold'>Check Browsers Support</div>
+                                <span className='text-gray-600'>a browser extension to check browser compatibility without leaving your tab</span>
+                            </a>
+                        </li>
+                        <li className='w-1/2 sm:w-1/3 px-1 mb-6'>
+                            <a
                                 href="https://csslayout.io"
                                 rel="noopener noreferrer"
                                 target="_blank"
@@ -88,6 +99,17 @@ const Footer: React.FC<{}> = () => {
                             >
                                 <div className='font-semibold'>React PDF Viewer</div>
                                 <span className='text-gray-600'>a PDF viewer made for React</span>
+                            </a>
+                        </li>
+                        <li className='w-1/2 sm:w-1/3 px-1 mb-6'>
+                            <a
+                                href="https://thisthat.dev"
+                                rel="noopener noreferrer"
+                                target="_blank"
+                                title="this VS that - the differences between ___ and ___ in the front-end development"
+                            >
+                                <div className='font-semibold'>this VS that</div>
+                                <span className='text-gray-600'>the differences between ___ and ___ in the front-end development</span>
                             </a>
                         </li>
                     </ul>
