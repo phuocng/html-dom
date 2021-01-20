@@ -26,13 +26,15 @@
         "watch": "eleventy --watch",
         "serve": "eleventy --serve",
         "start": "eleventy --serve",
-        "debug": "DEBUG=* eleventy"
+        "debug": "DEBUG=* eleventy",
+        "sass": "sass --style=compressed css/index.scss dist/index.css"
     },
     "devDependencies": {
         "@11ty/eleventy": "^0.11.1",
         "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.6",
         "luxon": "^1.25.0",
         "markdown-it": "^12.0.4",
-        "markdown-it-anchor": "^7.0.0"
+        "markdown-it-anchor": "^7.0.0",
+        "sass": "^1.32.5"
     }
 }

@@ -1,0 +1,13 @@
+:root {
+    --darkgray: #333;
+    --white: #fff;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    color: var(--darkgray);
+    background-color: var(--white);
+}
