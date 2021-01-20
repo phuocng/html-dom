@@ -1,0 +1,10 @@
+---
+layout: layouts/home.njk
+---
+
+{% set postslist = collections.posts %}
+<ul>
+{% for post in postslist | reverse %}
+    <li><a href="{{ post.url | url }}">{{ post.data.title }}</a>
+{% endfor %}
+</ul>
