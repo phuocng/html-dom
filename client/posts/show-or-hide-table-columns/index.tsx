@@ -19,7 +19,7 @@ export default () => {
 </Helmet>
 <Markdown
     content={`
-This post shows how to show or hiden any columns of a table by righ-clicking its header.
+This post shows how to show or hide any columns of a table by righ-clicking its header.
 
 The markup consists of the table and a menu that allows user to toggle columns:
 
