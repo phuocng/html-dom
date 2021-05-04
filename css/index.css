@@ -1,0 +1,64 @@
+@import './prism.css';
+
+body {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    margin: 0;
+}
+* {
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+code {
+    background-color: #FDE68A;
+    font-size: 1rem;
+}
+
+:root {
+    --theme-color: #414293;
+}
+
+/* Layout */
+.container {
+    margin: 0 auto;
+    max-width: 64rem;
+    padding: 0 1rem;
+}
+
+/* Footer */
+.footer {
+    color: #FFF;
+    overflow: hidden;
+    margin-top: 4rem;
+    padding: 6rem 0;
+    position: relative;
+}
+.footer__copyright {
+    align-items: center;
+    border-bottom: 1px solid #D1D5DB;
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+    padding: 0.5rem 0;
+}
+.footer__links {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.footer__link,
+.footer__link--dot {
+    color: #FFF;
+    margin: 0.125rem 0;
+    text-decoration: none;
+}
+.footer__link--dot:not(:last-child):after {
+    color: #9CA3AF;
+    display: inline-flex;
+    content: " • ";
+    margin: 0 0.5rem;
+}
