@@ -28,7 +28,6 @@ code {
 
 /* Footer */
 .footer {
-    color: #FFF;
     overflow: hidden;
     margin-top: 4rem;
     padding: 6rem 0;
@@ -52,7 +51,6 @@ code {
 }
 .footer__link,
 .footer__link--dot {
-    color: #FFF;
     margin: 0.125rem 0;
     text-decoration: none;
 }

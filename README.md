@@ -1,4 +1,4 @@
-# htmldom.dev
+# HTML DOM
 
 ## Story
 
@@ -28,28 +28,24 @@ A website introducing the APIs, well-known problems, most popular questions coul
 
 1. Clone the project:
 
-~~~ console
+```shell
 $ git clone https://github.com/phuoc-ng/html-dom
-~~~
+```
 
 2. Install the dependencies:
 
-~~~ console
+```console
 $ cd html-dom
 $ npm install
-~~~
+```
 
 3. Run it on the local:
 
-~~~ console
-$ npm run dev-server
-~~~
+```console
+$ npm run serve
+```
 
-Open http://localhost:1234 in your browser to see it in action.
-
-## Contributing
-
-Pull requests are welcomed. If you see any problem with the example on your browser, please let me know by creating an issue or submit a pull request.
+Look at the console to see the _Local URL_. Open it in your browser to see it in action.
 
 ## About
 
@@ -64,52 +60,18 @@ Be my friend on
 
 You might be interested in my products:
 
-<table>
-    <tbody>
-        <tr valign="top">
-            <td width="25%" align="center">
-                <h3>1 LOC (3.3k★)</h3>
-                <a href="https://1loc.dev">Favorite JavaScript utilities in single line of code</a>
-            </td>
-            <td width="25%" align="center">
-                <h3>Blur Page</h3>
-                <a href="https://blur.page">A browser extension to hide sensitive information on a web page</a>
-            </td>
-            <td width="25%" align="center">
-                <h3>Check Browsers Support</h3>
-                <a href="https://checkbrowsers.support">A browser extension to check browser compatibility without leaving your tab</a>
-            </td>
-            <td width="25%" align="center">
-                <h3>CSS Layout (2.7k★)</h3>
-                <a href="https://csslayout.io">A collection of popular layouts and patterns made with CSS</a>
-            </td>
-        </tr>
-        <tr valign="top">
-            <td width="25%" align="center">
-                <h3>Fake Numbers</h3>
-                <a href="https://fakenumbers.io">Generate fake and valid numbers</a>
-            </td>
-            <td width="25%" align="center">
-                <h3>Form Validation</h3>
-                <a href="https://formvalidation.io">The best validation library for JavaScript</a>
-            </td>
-            <td width="25%" align="center">
-                <h3>HTML DOM (3.1k★)</h3>
-                <a href="https://htmldom.dev">How to manage HTML DOM with vanilla JavaScript</a>
-            </td>
-            <td width="25%" align="center">
-                <h3>React PDF Viewer</h3>
-                <a href="https://react-pdf-viewer.dev">A React component to view a PDF document</a>
-            </td>
-        </tr>
-        <tr valign="top">
-            <td width="25%" align="center">
-                <h3>this VS that</h3>
-                <a href="https://thisthat.dev">The differences between ___ and ___ in the front-end development</a>
-            </td>
-            <td width="25%" align="center"></td>
-            <td width="25%" align="center"></td>
-            <td width="25%" align="center"></td>
-        </tr>
-    </tbody>
-</table>
+_Products_
+* [Blur Page - A browser extension to hide sensitive information on a web page](https://blur.page)
+* [Check Browsers Support - A browser extension to check browser compatibility without leaving your tab](https://checkbrowsers.support)
+* [Fake Numbers - Generate fake and valid numbers](https://fakenumbers.io)
+* [Form Validation - The best validation library for JavaScript](https://formvalidation.io)
+* [IntersectionObserver Examples - Practical, real world examples of IntersectionObserver](https://intersectionobserver.io)
+* [React PDF Viewer - A React component to view a PDF document](https://react-pdf-viewer.dev)
+
+_Resources_
+* [1LOC - Favorite JavaScript utilities in single line of code](https://1loc.dev)
+* [CSS Layout - A collection of popular layouts and patterns made with CSS](https://csslayout.io)
+* [HTML DOM - How to manage HTML DOM with vanilla JavaScript](https://htmldom.dev)
+* [Responsive Design Patterns - A collection of patterns to create a responsive web page](https://responsive.page)
+* [Super tiny, quick tips, tricks and best practices of front-end development](https://getfrontend.tips)
+* [this VS that - The differences between ___ and ___ in the front-end development](https://thisthat.dev)
