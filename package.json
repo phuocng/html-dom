@@ -22,59 +22,17 @@
     },
     "license": "MIT",
     "scripts": {
-        "copy": "npm run copy:public && npm run copy:demo",
-        "copy:public": "rimraf dist && mkdir dist && cp -rf public/* dist",
-        "copy:demo": "cp -rf demo dist && cp vendors/highlight.js@9.12.0/theme.min.css dist/demo/highlight.min.css && postcss vendors/tailwind@1.1.4/tailwind.css -o dist/demo/styles.css",
-        "dev": "npm run copy && webpack --mode development",
-        "dev-server": "npm run copy && webpack-dev-server",
-        "build": "npm run copy && webpack --mode production && npm run export",
-        "sitemap": "TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ts-node bin/generateSitemap.ts",
-        "export": "react-snap",
-        "deploy": "npm run build && cp -rf demo dist && npm run sitemap && netlify deploy --dir=dist --prod"
-    },
-    "dependencies": {
-        "@loadable/component": "^5.12.0",
-        "highlight.js": "^10.4.1",
-        "react": "^16.12.0",
-        "react-dom": "^16.12.0",
-        "react-helmet": "^5.2.1",
-        "react-markdown": "^4.3.1",
-        "react-router-dom": "^5.1.2"
+        "build": "eleventy",
+        "serve": "eleventy --serve",
+        "deploy": "rm -rf _site && npm run build && netlify deploy --dir=_site --prod"
     },
     "devDependencies": {
-        "@babel/core": "^7.8.3",
-        "@babel/preset-env": "^7.8.3",
-        "@babel/preset-react": "^7.7.4",
-        "@loadable/babel-plugin": "^5.12.0",
-        "@types/loadable__component": "^5.10.0",
-        "@types/react": "^16.9.17",
-        "@types/react-dom": "^16.9.4",
-        "@types/react-helmet": "^5.0.15",
-        "@types/react-router-dom": "^5.1.3",
-        "babel-loader": "^8.0.6",
-        "css-loader": "^3.4.2",
-        "cssnano": "^4.1.10",
-        "html-webpack-plugin": "^3.2.0",
-        "mini-css-extract-plugin": "^0.9.0",
-        "postcss-cli": "^7.1.0",
-        "postcss-loader": "^3.0.0",
-        "react-snap": "^1.23.0",
-        "rimraf": "^3.0.0",
-        "source-map-loader": "^0.2.4",
-        "style-loader": "^1.1.3",
-        "tailwindcss": "^1.1.4",
-        "ts-loader": "^6.2.1",
-        "ts-node": "^8.9.0",
-        "typescript": "^3.7.5",
-        "webpack": "^4.41.5",
-        "webpack-cli": "^3.3.10",
-        "webpack-dev-server": "^3.10.1"
-    },
-    "reactSnap": {
-        "source": "dist",
-        "minifyHtml": {
-            "collapseWhitespace": false,
-            "removeComments": false
-        }
+        "@11ty/eleventy": "^0.11.1",
+        "@11ty/eleventy-navigation": "^0.1.6",
+        "@11ty/eleventy-plugin-rss": "^1.1.0",
+        "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.6",
+        "html-minifier": "^4.0.0",
+        "markdown-it": "^12.0.4",
+        "node-fetch": "^2.6.1"
     }
 }
