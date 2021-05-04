@@ -60,3 +60,88 @@ code {
     content: " • ";
     margin: 0 0.5rem;
 }
+
+/* Sidebar */
+.sidebar {
+    display: none;
+}
+.sidebar__inner {
+    position: sticky;
+    top: 1rem;
+}
+.sidebar__card {
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+    overflow: hidden;
+    padding: 1rem;
+}
+.sidebar__card a {
+    color: #FFF;
+    text-decoration: none;
+}
+.sidebar__card-logo {
+    display: flex;
+    height: auto;
+    margin: 0 auto;
+    width: 6rem;
+}
+.sidebar__card-title {
+    font-size: 1.25rem;
+    margin: 0.5rem;    
+    padding: 0;
+    text-align: center;
+}
+.sidebar__card-desc {
+    padding: 0.5rem;
+    text-align: center;
+}
+
+/* Post */
+.post {
+    display: flex;
+}
+.post__content {
+    flex: 1;
+    overflow: auto;
+}
+
+/* Markdown content */
+.post__content h2 {
+    font-size: 2rem;
+}
+.post__content img {
+    height: auto;
+    max-width: 100%;
+}
+.post__content ol,
+.post__content ul {
+    margin: 0;
+    padding: 0 0 0 1.25rem;
+}
+.post__content table,
+.post__content th,
+.post__content td {
+    border: 1px solid rgba(0, 0, 0, .3);
+    border-collapse: collapse;
+    padding: 0.5rem;
+}
+
+/* Responsive */
+@media (min-width: 640px) {
+    .sidebar {
+        display: block;
+        flex: 0 0 10rem;
+        margin-left: 0.5rem;
+    }
+}
+@media (min-width: 768px) {
+    .sidebar {
+        flex-basis: 12rem;
+    }
+}
+@media (min-width: 1024px) {
+    .sidebar {
+        flex-basis: 16rem;
+        margin-left: 1rem;
+    }
+}
