@@ -1,17 +1,15 @@
-import React from 'react';
+---
+title: Detect if an element is focused
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
+Assume that `ele` represents the element that you want to check if it has the focus currently:
 
-export default () => {
-    return (
-<Markdown
-    content={`
-Assume that \`ele\` represents the element that you want to check if it has the focus currently:
-
-~~~ javascript
+```js
 const hasFocus = ele === document.activeElement;
-~~~
-`}
-/>
-    );
-};
+```

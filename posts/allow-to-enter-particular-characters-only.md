@@ -1,32 +1,27 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+---
+title: Allow to enter particular characters only
+category: Intermediate
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords: addEventListener, input event, keypress event, preventDefault, selectionEnd, selectionStart, setSelectionRange
+---
 
-import Demo from '../../components/Demo';
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Helmet>
-    <meta name='keywords' content='addEventListener, input event, keypress event, preventDefault, selectionEnd, selectionStart, setSelectionRange' />
-</Helmet>
-<Markdown
-    content={`
 In this example, we will force users to enter characters from given set only. Specifically, the supported characters
 in this demonstration include the digits and space. Of course, you can apply the idea for other characters as well.
 
 Here is our input element:
 
-~~~ html
+```html
 <input type="text" id="input" />
-~~~
+```
 
 ## 1. Handle the events
 
-By handling the \`keypress\` event, we can prevent user from entering characters except digits and space:
+By handling the `keypress` event, we can prevent user from entering characters except digits and space:
 
-~~~ javascript
+```js
 const ele = document.getElementById('input');
 
 ele.addEventListener('keypress', function(e) {
@@ -40,12 +35,12 @@ ele.addEventListener('keypress', function(e) {
         e.preventDefault();
     }
 });
-~~~
+```
 
 It looks good but isn't enough since user is still able to paste or drag unsupported characters to the input.
-These cases can be handled by the \`input\` event:
+These cases can be handled by the `input` event:
 
-~~~ javascript
+```js
 // Track the current value
 let currentValue = ele.value || '';
 
@@ -57,19 +52,19 @@ ele.addEventListener('input', function(e) {
         // Backup the current value
         ? currentValue = target.value
         // Otherwise, restore the value
-        // Note that in this case, \`e.preventDefault()\` doesn't help
+        // Note that in this case, `e.preventDefault()` doesn't help
         : target.value = currentValue;
 });
-~~~
+```
 
-Here we check if the value matches the regular expression \`/^[0-9\\s]*$/\` that covers the digit and space characters.
+Here we check if the value matches the regular expression `/^[0-9\\s]*$/` that covers the digit and space characters.
 
-It fixes the cases where users paste from the keyboard (\`Ctrl + V\`), context menu or drop text to the input.
+It fixes the cases where users paste from the keyboard (`Ctrl + V`), context menu or drop text to the input.
 
-But there's another issue. Calling \`target.value = currentValue\` will put the cursor at the end of input.
+But there's another issue. Calling `target.value = currentValue` will put the cursor at the end of input.
 We have to persist the cursor's position.
 
-~~~ javascript
+```js
 // Track the current cursor's position
 const selection = {};
 
@@ -80,11 +75,11 @@ ele.addEventListener('keydown', function(e) {
         selectionEnd: target.selectionEnd,
     };
 });
-~~~
+```
 
 When user changes the input value, we will restore both the value and selection positions if the value isn't supported:
 
-~~~ javascript
+```js
 ele.addEventListener('input', function(e) {
     const target = e.target;
 
@@ -100,37 +95,34 @@ ele.addEventListener('input', function(e) {
         );
     }
 });
-~~~
+```
 
-We can combine the tracked properties (\`value\`, \`selectionStart\` and \`selectionEnd\`) to a single variable as you
+We can combine the tracked properties (`value`, `selectionStart` and `selectionEnd`) to a single variable as you
 see in the demo at the end.
 
 ## 2. Use the special input
 
 We can use a special HTML 5 input to serve particular use cases:
 
-| \`input\`                     | Description                       |
+| `input`                       | Description                       |
 |-------------------------------|-----------------------------------|
-| \`<input type="color" />\`    | Let user specify a color          |
-| \`<input type="date" />\`     | Let user enter a date             |
-| \`<input type="email" />\`    | Let user enter an email address   |
-| \`<input type="number" />\`   | Let user enter numbers only       |
-| \`<input type="tel" />\`      | Let user enter a telephone number |
-| \`<input type="time" />\`     | Let user enter a time             |
-| \`<input type="url" />\`      | Let user enter a URL              |
+| `<input type="color" />`      | Let user specify a color          |
+| `<input type="date" />`       | Let user enter a date             |
+| `<input type="email" />`      | Let user enter an email address   |
+| `<input type="number" />`     | Let user enter numbers only       |
+| `<input type="tel" />`        | Let user enter a telephone number |
+| `<input type="time" />`       | Let user enter a time             |
+| `<input type="url" />`        | Let user enter a URL              |
 
 There are more built-in types that you can explore [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#%3Cinput%3E_types).
 
-In our specific example, \`<input type="number" />\` doesn't help because it doesn't allow to enter a space.
-`}
-/>
-<Demo src='/demo/allow-to-enter-particular-characters-only/index.html' />
-<RelatedPosts
-    slugs={[
-        'attach-or-detach-an-event-handler',
-        'prevent-the-default-action-of-an-event',
-    ]}
-/>
-</>
-    );
-};
+In our specific example, `<input type="number" />` doesn't help because it doesn't allow to enter a space.
+
+## Demo
+
+<iframe src='/demo/allow-to-enter-particular-characters-only/index.html' />
+
+## More
+
+* [Attach or detach an event handler](/attach-or-detach-an-event-handler)
+* [Prevent the default action of an event](/prevent-the-default-action-of-an-event)

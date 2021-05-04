@@ -1,29 +1,23 @@
-import React from 'react';
+---
+title: Wrap an element around a given element
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
+Wrap the `wrapper` element around the `ele` element:
 
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
-Wrap the \`wrapper\` element around the \`ele\` element:
-
-~~~ javascript
-// First, insert \`wrapper\` before \`ele\` in its parent node
+```js
+// First, insert `wrapper` before `ele` in its parent node
 ele.parentNode.insertBefore(wrapper, ele);
 
-// And then, turn \`ele\` into a children of \`wrapper\`
+// And then, turn `ele` into a children of `wrapper`
 wrapper.appendChild(ele);
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'unwrap-an-element',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Unwrap an element](/unwrap-an-element)

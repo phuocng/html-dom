@@ -1,31 +1,25 @@
-import React from 'react';
+---
+title: Reload the current page
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
 ## Reload and keep the POST data
 
-~~~ javascript
+```js
 location.reload();
-~~~
+```
 
 ## Reload and ignore the POST data
 
-~~~ javascript
+```js
 location.href = location.href;
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'redirect-to-another-page',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Redirect to another page](/redirect-to-another-page)

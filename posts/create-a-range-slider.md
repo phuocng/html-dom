@@ -1,34 +1,22 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+---
+title: Create a range slider
+category: Advanced
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords: addEventListener, getBoundingClientRect, mousedown event, mousemove event, mouseup event, previous sibling, previousElementSibling, next sibling, nextElementSibling, range input, range slider, set css style, set element width
+---
 
-import Demo from '../../components/Demo';
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Helmet>
-    <meta
-        name='keywords'
-        content={`
-            addEventListener, getBoundingClientRect, mousedown event, mousemove event, mouseup event, 
-            previous sibling, previousElementSibling, next sibling, nextElementSibling, range input,
-            range slider, set css style, set element width
-        `}
-    />
-</Helmet>
-<Markdown
-    content={`
 This post introduces two popular ways to create a range slider.
 
-## 1. Use a \`range\` input
+## 1. Use a `range` input
 
-HTML provides a built-in \`range\` input:
+HTML provides a built-in `range` input:
 
-~~~ html
+```html
 <input type="range" />
-~~~
+```
 
 It's supported in modern browsers, IE 10 and later. But there're some limitations such as:
 * You can't customize the knob
@@ -39,35 +27,35 @@ Jump to the next section if you want to have a customizable slider.
 
 > ## Tip
 > 
-> Using the similar technique mentioned in this [post](/check-if-the-native-date-input-is-supported), we can check if the \`range\` input
+> Using the similar technique mentioned in this [post](/check-if-the-native-date-input-is-supported), we can check if the `range` input
 > is supported or not:
 >
-> ~~~ javascript
+> ```js
 > const isRangeInputSupported = function() {
 >     const ele = document.createElement('input');
 >     ele.setAttribute('type', 'range');
->     // If the browser doesn't support the \`range\` input,
->     // the \`type\` attribute will be reverted back to \`text\`
+>     // If the browser doesn't support the `range` input,
+>     // the `type` attribute will be reverted back to `text`
 >     return ele.type !== 'text';
 > };
-> ~~~
+> ```
 
 ## 2. Create a customizable range slider
 
 A slider is a combination of three parts: a knob, and two sides located at the left and right of the knob.
 
-~~~ html
+```html
 <div class="container">
     <div class="left"></div>
     <div class="knob" id="knob"></div>
     <div class="right"></div>
 </div>
-~~~
+```
 
 These parts are placed in the same row. The right element takes the available width. So, we can use the following styles
 to build the layout:
 
-~~~ css
+```css
 .container {
     /* Content is centered horizontally */
     align-items: center;
@@ -81,7 +69,7 @@ to build the layout:
     flex: 1;
     height: 2px;
 }
-~~~
+```
 
 You can take a look at the demo to see the full styles of elements.
 
@@ -93,9 +81,9 @@ You can take a look at the demo to see the full styles of elements.
 
 The idea of making the knob [draggable](/make-a-draggable-element) is quite simple:
 
-* Handle the knob's \`mousedown\` event. The handler stores the mouse position:
+* Handle the knob's `mousedown` event. The handler stores the mouse position:
 
-~~~ javascript
+```js
 // Query the element
 const knob = document.getElementById('knob');
 const leftSide = knob.previousElementSibling;
@@ -113,16 +101,16 @@ const mouseDownHandler = function(e) {
     y = e.clientY;
     leftWidth = leftSide.getBoundingClientRect().width;
 
-    // Attach the listeners to \`document\`
+    // Attach the listeners to `document`
     document.addEventListener('mousemove', mouseMoveHandler);
     document.addEventListener('mouseup', mouseUpHandler);
 };
-~~~
+```
 
 * When the knob is moving, based on the current and original mouse position, we know how far the mouse has been moved.
 We then set the width for the left side:
 
-~~~ javascript
+```js
 const mouseMoveHandler = function(e) {
     // How far the mouse has been moved
     const dx = e.clientX - x;
@@ -133,23 +121,23 @@ const mouseMoveHandler = function(e) {
     newLeftWidth = Math.max(newLeftWidth, 0);
     newLeftWidth = Math.min(newLeftWidth, 100);
 
-    leftSide.style.width = \`\${newLeftWidth}%\`;
+    leftSide.style.width = `\${newLeftWidth}%`;
 };
-~~~
+```
 
 There're more small things that aren't listed in this post since you can see them in the demo's source.
 But I always recommend to cleanup everything when the handlers aren't used:
 
-~~~ javascript
+```js
 // Triggered when user drops the knob
 const mouseUpHandler = function() {
     ...
 
-    // Remove the handlers of \`mousemove\` and \`mouseup\`
+    // Remove the handlers of `mousemove` and `mouseup`
     document.removeEventListener('mousemove', mouseMoveHandler);
     document.removeEventListener('mouseup', mouseUpHandler);
 };
-~~~
+```
 
 > ## Tip
 >
@@ -160,21 +148,18 @@ const mouseUpHandler = function() {
 * [Zoom an image](/zoom-an-image)
 
 Enjoy the demo!
-`}
-/>
-<Demo src='/demo/create-a-range-slider/index.html' />
-<RelatedPosts
-    slugs={[
-        'attach-or-detach-an-event-handler',
-        'create-an-image-comparison-slider',
-        'create-resizable-split-views',
-        'drag-to-scroll',
-        'get-siblings-of-an-element',
-        'make-a-draggable-element',
-        'set-css-style-for-an-element',
-        'zoom-an-image',
-    ]}
-/>
-</>
-    );
-};
+
+## Demo
+
+<iframe src='/demo/create-a-range-slider/index.html' />
+
+## More
+
+* [Attach or detach an event handler](/attach-or-detach-an-event-handler)
+* [Create an image comparison slider](/create-an-image-comparison-slider)
+* [Create resizable split views](/create-resizable-split-views)
+* [Drag to scroll](/drag-to-scroll)
+* [Get siblings of an element](/get-siblings-of-an-element)
+* [Make a draggable element](/make-a-draggable-element)
+* [Set css style for an element](/set-css-style-for-an-element)
+* [Zoom an image](/zoom-an-image)

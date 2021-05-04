@@ -1,14 +1,14 @@
-import React from 'react';
+---
+title: Get the position of an element relative to the document
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
-~~~ javascript
+```js
 // Get the top, left coordinates of the element
 const rect = ele.getBoundingClientRect();
 
@@ -16,15 +16,9 @@ const rect = ele.getBoundingClientRect();
 // to the top, left sides of the document
 const top = rect.top + document.body.scrollTop;
 const left = rect.left + document.body.scrollLeft;
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'calculate-the-mouse-position-relative-to-an-element',
-        'get-the-position-of-an-element-relative-to-another',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Calculate the mouse position relative to an element](/calculate-the-mouse-position-relative-to-an-element)
+* [Get the position of an element relative to another](/get-the-position-of-an-element-relative-to-another)

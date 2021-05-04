@@ -1,16 +1,16 @@
-import React from 'react';
+---
+title: Check if the native date input is supported
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
+The following function returns `true` if the current browser supports the native date input `<input type="date" />`:
 
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
-The following function returns \`true\` if the current browser supports the native date input \`<input type="date" />\`:
-
-~~~ javascript
+```js
 const isDateInputSupported = function() {
     // Create new input element
     const ele = document.createElement('input');
@@ -24,25 +24,19 @@ const isDateInputSupported = function() {
     ele.setAttribute('value', invalidValue);
 
     // If the browser supports the date input,
-    // it won't have effect on the \`value\` attribute
-    // \`ele.value\` will be an empty string
+    // it won't have effect on the `value` attribute
+    // `ele.value` will be an empty string
     // 
     // In the other case, the input is treated as normal text input
-    // and \`ele.value\` returns the original value
+    // and `ele.value` returns the original value
     return ele.value !== invalidValue;
 };
-~~~
+```
 
-This approach can be used to check other HTML 5 input types such as \`email\`, [\`range\`](/create-a-range-slider), \`url\`, etc.
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'create-a-range-slider',
-        'create-an-element',
-        'get-set-and-remove-attributes',
-    ]}
-/>
-</>
-    );
-};
+This approach can be used to check other HTML 5 input types such as `email`, [`range`](/create-a-range-slider), `url`, etc.
+
+## More
+
+* [Create a range slider](/create-a-range-slider)
+* [Create an element](/create-an-element)
+* [Get set and remove attributes](/get-set-and-remove-attributes)

@@ -1,26 +1,17 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+---
+title: Scroll an element to ensure it is visible in a scrollable container
+category: Intermediate
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords: check element visible container, clientHeight, offsetTop, scrollTop
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Helmet>
-    <meta
-        name='keywords'
-        content={`
-            check element visible container, clientHeight, offsetTop, scrollTop
-        `}
-    />
-</Helmet>
-<Markdown
-    content={`
-The following functions scrolls the \`ele\` element if it's not [visible](/check-if-an-element-is-visible-in-a-scrollable-container)
+The following functions scrolls the `ele` element if it's not [visible](/check-if-an-element-is-visible-in-a-scrollable-container)
 in its scrollable container:
 
-~~~ javascript
+```js
 const scrollToBeVisible = function(ele, container) {
     const eleTop = ele.offsetTop;
     const eleBottom = eleTop + ele.clientHeight;
@@ -36,15 +27,9 @@ const scrollToBeVisible = function(ele, container) {
         container.scrollTop += (eleBottom - containerBottom);
     }
 };
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'check-if-an-element-is-in-the-viewport',
-        'check-if-an-element-is-visible-in-a-scrollable-container',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Check if an element is in the viewport](/check-if-an-element-is-in-the-viewport)
+* [Check if an element is visible in a scrollable container](/check-if-an-element-is-visible-in-a-scrollable-container)

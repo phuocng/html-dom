@@ -1,29 +1,23 @@
-import React from 'react';
+---
+title: Select the text of a textarea automatically
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
+Assume that `ele` represents a textarea element.
 
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
-Assume that \`ele\` represents a textarea element.
-
-~~~ javascript
+```js
 ele.addEventListener('focus', function(e) {
     // Select the text
     e.target.select();
 });
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'attach-or-detach-an-event-handler',
-        'trigger-an-event',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Attach or detach an event handler](/attach-or-detach-an-event-handler)
+* [Trigger an event](/trigger-an-event)

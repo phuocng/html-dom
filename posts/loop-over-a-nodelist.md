@@ -1,33 +1,33 @@
-import React from 'react';
+---
+title: Loop over a nodelist
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
+Assume that `elements` is a NodeList that matches given selector:
 
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
-Assume that \`elements\` is a NodeList that matches given selector:
-
-~~~ javascript
+```js
 const elements = document.querySelectorAll(...);
-~~~
+```
 
-You can loop over \`elements\` by using one of the approach below:
+You can loop over `elements` by using one of the approach below:
 
 ## 1. Use the ES6 spread operator
 
-~~~ javascript
+```js
 [...elements].forEach(function(ele) {
     ...
 });
-~~~
+```
 
 ## 2. Use the Array methods
 
-~~~ javascript
-// \`Array.from\` is not supported on IE
+```js
+// `Array.from` is not supported on IE
 Array.from(elements).forEach(function(ele) {
     ...
 });
@@ -41,37 +41,31 @@ Array.from(elements).forEach(function(ele) {
 [].slice.call(elements, 0).forEach(function(ele) {
     ...
 });
-~~~
+```
 
 ## 3. Use the forEach method
 
-If you don't have to support Internet Explorer, then use the [\`forEach\`](https://developer.mozilla.org/en-US/docs/Web/API/NodeList/forEach) method:
+If you don't have to support Internet Explorer, then use the [`forEach`](https://developer.mozilla.org/en-US/docs/Web/API/NodeList/forEach) method:
 
-~~~ javascript
+```js
 elements.forEach(function(ele) {
     ...
 });
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'create-resizable-split-views',
-        'drag-and-drop-element-in-a-list',
-        'drag-and-drop-table-column',
-        'drag-and-drop-table-row',
-        'export-a-table-to-csv',
-        'make-a-resizable-element',
-        'replace-broken-images',
-        'resize-columns-of-a-table',
-        'select-an-element-or-list-of-elements',
-        'select-the-children-of-an-element',
-        'serialize-form-data-into-a-query-string',
-        'show-or-hide-table-columns',
-        'sort-a-table-by-clicking-its-headers',
-        'upload-files-with-ajax',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Create resizable split views](/create-resizable-split-views)
+* [Drag and drop element in a list](/drag-and-drop-element-in-a-list)
+* [Drag and drop table column](/drag-and-drop-table-column)
+* [Drag and drop table row](/drag-and-drop-table-row)
+* [Export a table to csv](/export-a-table-to-csv)
+* [Make a resizable element](/make-a-resizable-element)
+* [Replace broken images](/replace-broken-images)
+* [Resize columns of a table](/resize-columns-of-a-table)
+* [Select an element or list of elements](/select-an-element-or-list-of-elements)
+* [Select the children of an element](/select-the-children-of-an-element)
+* [Serialize form data into a query string](/serialize-form-data-into-a-query-string)
+* [Show or hide table columns](/show-or-hide-table-columns)
+* [Sort a table by clicking its headers](/sort-a-table-by-clicking-its-headers)
+* [Upload files with ajax](/upload-files-with-ajax)

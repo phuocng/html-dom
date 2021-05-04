@@ -1,29 +1,23 @@
-import React from 'react';
+---
+title: Get the text content of an element
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
-Returns the raw text content of the \`ele\` element and its children.
+Returns the raw text content of the `ele` element and its children.
 All the HTML tags are excluded.
 
-~~~ javascript
+```js
 const text = ele.textContent;
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'export-a-table-to-csv',
-        'get-or-set-the-html-of-an-element',
-        'scale-a-text-to-fit-inside-of-an-element',
-        'strip-html-from-a-given-text',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Export a table to csv](/export-a-table-to-csv)
+* [Get or set the html of an element](/get-or-set-the-html-of-an-element)
+* [Scale a text to fit inside of an element](/scale-a-text-to-fit-inside-of-an-element)
+* [Strip html from a given text](/strip-html-from-a-given-text)

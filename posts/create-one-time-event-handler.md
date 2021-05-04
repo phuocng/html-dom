@@ -1,31 +1,31 @@
-import React from 'react';
+---
+title: Create one time event handler
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
 ## 1. Use the once option
 
-When attach a handler to given event, you can pass \`{ once: true }\` to the last parameter of the
-\`addEventListener\` method:
+When attach a handler to given event, you can pass `{ once: true }` to the last parameter of the
+`addEventListener` method:
 
-~~~ javascript
+```js
 const handler = function(e) {
     // The event handler
 };
 
 ele.addEventListener('event-name', handler, { once: true });
-~~~
+```
 
 Note that this option isn't supported in IE.
 
 ## 2. Self-remove the handler
 
-~~~ javascript
+```js
 const handler = function(e) {
     // The event handler
     // Do something ...
@@ -35,20 +35,14 @@ const handler = function(e) {
 };
 
 ele.addEventListener('event-name', handler);
-~~~
+```
 
 ## Use case
 
 * [Show a custom context menu at clicked position](/show-a-custom-context-menu-at-clicked-position)
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'attach-event-handlers-inside-other-handlers',
-        'attach-or-detach-an-event-handler',
-        'show-a-custom-context-menu-at-clicked-position',
-    ]}
-/>
-</>
-    );
-};
+
+## More
+
+* [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers)
+* [Attach or detach an event handler](/attach-or-detach-an-event-handler)
+* [Show a custom context menu at clicked position](/show-a-custom-context-menu-at-clicked-position)

@@ -1,24 +1,24 @@
-import React from 'react';
+---
+title: Get the closest element by given selector
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
 ## 1. Use the native closest() method
 
-~~~ javascript
+```js
 const result = ele.closest(selector);
-~~~
+```
 
 Note that the [closest](https://developer.mozilla.org/en-US/docs/Web/API/Element/closest) method isn't supported in IE.
 
 ## 2. Traverse up until find the matching element
 
-~~~ javascript
+```js
 const matches = function(ele, selector) {
     return (
         ele.matches || 
@@ -30,7 +30,7 @@ const matches = function(ele, selector) {
     ).call(ele, selector);
 };
 
-// Find the closest element to \`ele\` and matches the \`selector\`
+// Find the closest element to `ele` and matches the `selector`
 const closest = function(ele, selector) {
     let e = ele;
     while (e) {
@@ -41,14 +41,8 @@ const closest = function(ele, selector) {
     }
     return e;
 };
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'check-an-element-against-a-selector',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Check an element against a selector](/check-an-element-against-a-selector)

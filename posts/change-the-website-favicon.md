@@ -1,16 +1,16 @@
-import React from 'react';
+---
+title: Change the website favicon
+category: Intermediate
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
+The following function changes the favicon to `url`:
 
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
-The following function changes the favicon to \`url\`:
-
-~~~ javascript
+```js
 const setFavicon = function(url) {
     // Find the current favicon element
     const favicon = document.querySelector('link[rel="icon"]');
@@ -18,30 +18,30 @@ const setFavicon = function(url) {
         // Update the new link
         favicon.href = url;
     } else {
-        // Create new \`link\`
+        // Create new `link`
         const link = document.createElement('link');
         link.rel = 'icon';
         link.href = url;
     
-        // Append to the \`head\` element
+        // Append to the `head` element
         document.head.appendChild(link);
     }
 };
-~~~
+```
 
 When you want to update the favicon dynamically, for example, to user's icon in a social website:
 
-~~~ javascript
+```js
 setFavicon('/path/to/user/profile/icon.ico');
-~~~
+```
 
 ## Use an emoji as the favicon
 
-Note that the \`setFavicon()\` function above accepts the favicon's URL. We can have some cool thing by passing a custom URL.
+Note that the `setFavicon()` function above accepts the favicon's URL. We can have some cool thing by passing a custom URL.
 
-In the code below, we create a \`canvas\` element, fill it with a particular emoji and get the custom URL:
+In the code below, we create a `canvas` element, fill it with a particular emoji and get the custom URL:
 
-~~~ javascript
+```js
 const emojiFavicon = function(emoji) {
     // Create a canvas element
     const canvas = document.createElement('canvas');
@@ -62,15 +62,9 @@ const emojiFavicon = function(emoji) {
 
 // Usage
 emojiFavicon('🎉');
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'load-a-css-file-dynamically',
-        'load-a-javascript-file-dynamically',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Load a css file dynamically](/load-a-css-file-dynamically)
+* [Load a javascript file dynamically](/load-a-javascript-file-dynamically)

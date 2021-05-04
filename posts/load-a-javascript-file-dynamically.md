@@ -1,27 +1,27 @@
-import React from 'react';
+---
+title: Load a javascript file dynamically
+category: Intermediate
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
 ## Load a JavaScript file
 
-~~~ javascript
+```js
 // Create new script element
 const script = document.createElement('script');
 script.src = '/path/to/js/file.js';
 
-// Append to the \`head\` element
+// Append to the `head` element
 document.head.appendChild(script);
-~~~
+```
 
 ## Execute code when the JavaScript file is loaded
 
-~~~ javascript
+```js
 // Create new script element
 ...
 script.addEventListener('load', function() {
@@ -29,19 +29,19 @@ script.addEventListener('load', function() {
     // Do something
 });
 
-// Append to the \`head\` element
+// Append to the `head` element
 ...
-~~~
+```
 
 ## Load multiple JavaScript files in order
 
-Assume that you want to load an array of JavaScript files, \`arrayOfJs\`, in order.
+Assume that you want to load an array of JavaScript files, `arrayOfJs`, in order.
 
 To do that, we have to load the first script, and load the second script when the first one is loaded completely.
 And continue doing so until all scripts are loaded.
 
-~~~ javascript
-// Load a script from given \`url\`
+```js
+// Load a script from given `url`
 const loadScript = function(url) {
     return new Promise(function(resolve, reject) {
         const script = document.createElement('script');
@@ -60,9 +60,9 @@ const loadScript = function(url) {
 const waterfall = function(promises) {
     return promises.reduce(
         function(p, c) {
-            // Waiting for \`p\` completed
+            // Waiting for `p` completed
             return p.then(function() {
-                // and then \`c\`
+                // and then `c`
                 return c().then(function(result) {
                     return true;
                 });
@@ -80,11 +80,11 @@ const loadScriptsInOrder = function(arrayOfJs) {
     });
     return waterfall(promises);
 };
-~~~
+```
 
-The \`loadScriptsInOrder\` function returns a \`Promise\` indicates whether all scripts are loaded successfully:
+The `loadScriptsInOrder` function returns a `Promise` indicates whether all scripts are loaded successfully:
 
-~~~ javascript
+```js
 loadScriptsInOrder([
     '/path/to/file.js',
     '/path/to/another-file.js',
@@ -93,15 +93,9 @@ loadScriptsInOrder([
     // All scripts are loaded completely
     // Do something
 })
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'change-the-website-favicon',
-        'load-a-css-file-dynamically',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Change the website favicon](/change-the-website-favicon)
+* [Load a css file dynamically](/load-a-css-file-dynamically)

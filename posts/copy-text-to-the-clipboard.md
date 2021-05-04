@@ -1,18 +1,18 @@
-import React from 'react';
+---
+title: Copy text to the clipboard
+category: Intermediate
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
+Assume that we want to copy a given text, `text`, to the clipboard.
 
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
-Assume that we want to copy a given text, \`text\`, to the clipboard.
+In order to do that, we [create](/create-an-element) a fake `textarea` element with value as `text`. Next, we [select](/trigger-an-event) the content and execute the "Copy" command. 
 
-In order to do that, we [create](/create-an-element) a fake \`textarea\` element with value as \`text\`. Next, we [select](/trigger-an-event) the content and execute the "Copy" command. 
-
-~~~ javascript
+```js
 // Create a fake textarea
 const textAreaEle = document.createElement('textarea');
 
@@ -25,7 +25,7 @@ textAreaEle.style.margin = '0';
 // User won't see the element
 textAreaEle.style.position = 'absolute';
 textAreaEle.style.left = '-9999px';
-textAreaEle.style.top = \`${document.documentElement.scrollTop}px\`;
+textAreaEle.style.top = `${document.documentElement.scrollTop}px`;
 
 // Set the value
 textAreaEle.value = text;
@@ -46,17 +46,11 @@ try {
     // Remove the textarea
     document.body.removeChild(textAreaEle);
 }
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'append-to-an-element',
-        'copy-highlighted-code-to-the-clipboard',
-        'paste-as-plain-text',
-        'remove-an-element',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Append to an element](/append-to-an-element)
+* [Copy highlighted code to the clipboard](/copy-highlighted-code-to-the-clipboard)
+* [Paste as plain text](/paste-as-plain-text)
+* [Remove an element](/remove-an-element)

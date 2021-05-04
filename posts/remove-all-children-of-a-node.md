@@ -1,18 +1,18 @@
-import React from 'react';
+---
+title: Remove all children of a node
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
 ## 1. Empty the inner HTML (not recommended)
 
-~~~ javascript
+```js
 ele.innerHTML = '';
-~~~
+```
 
 This method isn't recommended because it doesn't remove event handlers of child node. Hence, it might cause a memory leak if you
 are managing a big list of elements.
@@ -21,19 +21,13 @@ are managing a big list of elements.
 
 Remove its child node until it doesn't have any children.
 
-~~~ javascript
+```js
 while (node.firstChild) {
     node.removeChild(node.firstChild);
 }
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'remove-an-element',
-        'unwrap-an-element',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Remove an element](/remove-an-element)
+* [Unwrap an element](/unwrap-an-element)

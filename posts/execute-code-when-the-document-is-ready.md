@@ -1,14 +1,16 @@
-import React from 'react';
+---
+title: Execute code when the document is ready
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-
-export default () => {
-    return (
-<Markdown
-    content={`
-~~~ javascript
+```js
 const ready = function (cb) {
-  // Check if the \`document\` is loaded completely
+  // Check if the `document` is loaded completely
   document.readyState === "loading"
     ? document.addEventListener("DOMContentLoaded", function (e) {
         cb();
@@ -21,8 +23,4 @@ ready(function() {
     // Do something when the document is ready
     ...
 });
-~~~
-`}
-/>
-    );
-};
+```

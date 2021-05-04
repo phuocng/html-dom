@@ -1,52 +1,46 @@
-import React from 'react';
+---
+title: Get set and remove data attributes
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
 ## Get the data attribute's value
 
-~~~ javascript
-// Get the \`data-message\` attribute of the \`ele\` element
+```js
+// Get the `data-message` attribute of the `ele` element
 const message = ele.getAttribute('data-message');
 
 // Or
 const message = ele.dataset.message;
-~~~
+```
 
 ## Set the data attribute's value
 
-~~~ javascript
+```js
 ele.setAttribute('data-message', 'Hello World');
 
 // Or
 ele.dataset.message = 'Hello World';
-~~~
+```
 
 ## Remove the data attribute
 
-~~~ javascript
+```js
 ele.removeAttribute('data-message');
 
 // Or
 delete ele.dataset.message;
-~~~
+```
 
-Note that calling \`delete ele.dataset\` doesn't remove all data attributes.
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'create-resizable-split-views',
-        'get-set-and-remove-attributes',
-        'show-or-hide-table-columns',
-        'sort-a-table-by-clicking-its-headers',
-    ]}
-/>
-</>
-    );
-};
+Note that calling `delete ele.dataset` doesn't remove all data attributes.
+
+## More
+
+* [Create resizable split views](/create-resizable-split-views)
+* [Get set and remove attributes](/get-set-and-remove-attributes)
+* [Show or hide table columns](/show-or-hide-table-columns)
+* [Sort a table by clicking its headers](/sort-a-table-by-clicking-its-headers)

@@ -1,34 +1,33 @@
-import React from 'react';
+---
+title: Make a resizable element
+category: Advanced
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Demo from '../../components/Demo';
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
 Assume that we want to turn the following element to draggable element:
 
-~~~ html
+```html
 <div id="resizeMe" class="resizable">Resize me</div>
-~~~
+```
 
 First, we need to prepare some elements that indicate the element is resizable. They are placed absolutely at the four sides of the original element.
 To make the demo simply, I only prepare two of them which are placed at the right and bottom sides:
 
-~~~ html
+```html
 <div id="resizeMe" class="resizable">
     Resize me
     <div class="resizer resizer-r"></div>
     <div class="resizer resizer-b"></div>
 </div>
-~~~
+```
 
 Here is the basic styles for the layout:
 
-~~~ css
+```css
 .resizable {
     position: relative;
 }
@@ -54,15 +53,15 @@ Here is the basic styles for the layout:
     left: 0;
     width: 100%;
 }
-~~~
+```
 
 To make the element resizable, we are going to handle three events:
 
-* \`mousedown\` on the resizers: Track the current position of mouse and dimension of the original element
-* \`mousemove\` on \`document\`: Calculate how far the mouse has been moved, and adjust the dimension of the element
-* \`mouseup\` on \`document\`: Remove the event handlers of \`document\`
+* `mousedown` on the resizers: Track the current position of mouse and dimension of the original element
+* `mousemove` on `document`: Calculate how far the mouse has been moved, and adjust the dimension of the element
+* `mouseup` on `document`: Remove the event handlers of `document`
 
-~~~ javascript
+```js
 // Query the element
 const ele = document.getElementById('resizeMe');
 
@@ -86,7 +85,7 @@ const mouseDownHandler = function(e) {
     w = parseInt(styles.width, 10);
     h = parseInt(styles.height, 10);
 
-    // Attach the listeners to \`document\`
+    // Attach the listeners to `document`
     document.addEventListener('mousemove', mouseMoveHandler);
     document.addEventListener('mouseup', mouseUpHandler);
 };
@@ -97,24 +96,24 @@ const mouseMoveHandler = function(e) {
     const dy = e.clientY - y;
 
     // Adjust the dimension of element
-    ele.style.width = \`\${w + dx}px\`;
-    ele.style.height = \`\${h + dy}px\`;
+    ele.style.width = `\${w + dx}px`;
+    ele.style.height = `\${h + dy}px`;
 };
 
 const mouseUpHandler = function() {
-    // Remove the handlers of \`mousemove\` and \`mouseup\`
+    // Remove the handlers of `mousemove` and `mouseup`
     document.removeEventListener('mousemove', mouseMoveHandler);
     document.removeEventListener('mouseup', mouseUpHandler);
 };
-~~~
+```
 
 > ## Tip
 >
 > This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
 
-All the event handlers are ready. Finally, we attach the \`mousedown\` event handler to all the resizers:
+All the event handlers are ready. Finally, we attach the `mousedown` event handler to all the resizers:
 
-~~~ javascript
+```js
 // Query all resizers
 const resizers = ele.querySelectorAll('.resizer');
 
@@ -122,20 +121,16 @@ const resizers = ele.querySelectorAll('.resizer');
 [].forEach.call(resizers, function(resizer) {
 	resizer.addEventListener('mousedown', mouseDownHandler);	
 });
-~~~
-`}
-/>
-<Demo src='/demo/make-a-resizable-element/index.html' />
-<RelatedPosts
-    slugs={[
-        'attach-or-detach-an-event-handler',
-        'drag-to-scroll',
-        'loop-over-a-nodelist',
-        'make-a-draggable-element',
-        'resize-columns-of-a-table',
-        'set-css-style-for-an-element',
-    ]}
-/>
-</>
-    );
-};
+```
+## Demo
+
+<iframe src='/demo/make-a-resizable-element/index.html' />
+
+## More
+
+* [Attach or detach an event handler](/attach-or-detach-an-event-handler)
+* [Drag to scroll](/drag-to-scroll)
+* [Loop over a nodelist](/loop-over-a-nodelist)
+* [Make a draggable element](/make-a-draggable-element)
+* [Resize columns of a table](/resize-columns-of-a-table)
+* [Set css style for an element](/set-css-style-for-an-element)

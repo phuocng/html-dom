@@ -1,41 +1,31 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+---
+title: Insert given html after or before an element
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords: insertAdjacentHTML
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Helmet>
-    <meta name='keywords' content='insertAdjacentHTML' />
-</Helmet>
-<Markdown
-    content={`
 ## Insert after
 
-Insert \`html\` after the \`ele\` element:
+Insert `html` after the `ele` element:
 
-~~~ javascript
+```js
 ele.insertAdjacentHTML('afterend', html);
-~~~
+```
 
 ## Insert before
 
-Insert \`html\` before the \`ele\` element:
+Insert `html` before the `ele` element:
 
-~~~ javascript
+```js
 ele.insertAdjacentHTML('beforebegin', html);
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'append-to-an-element',
-        'insert-an-element-after-or-before-other-element',
-        'prepend-to-an-element',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Append to an element](/append-to-an-element)
+* [Insert an element after or before other element](/insert-an-element-after-or-before-other-element)
+* [Prepend to an element](/prepend-to-an-element)

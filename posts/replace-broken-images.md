@@ -1,16 +1,16 @@
-import React from 'react';
+---
+title: Replace broken images
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
 Replace the broken images with an image telling visitors that they are not found:
 
-~~~ javascript
+```js
 // Assume that I want to replace all images on the page
 const images = document.querySelectorAll('img');
 
@@ -20,15 +20,9 @@ const images = document.querySelectorAll('img');
         e.target.src = '/path/to/404/image.png';
     });
 });
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'attach-or-detach-an-event-handler',
-        'loop-over-a-nodelist',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Attach or detach an event handler](/attach-or-detach-an-event-handler)
+* [Loop over a nodelist](/loop-over-a-nodelist)

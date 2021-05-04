@@ -1,20 +1,16 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+---
+title: Upload files with ajax
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords: ajax file upload, FormData, XMLHttpRequest
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
+The function below sends selected files from a `fileEle` element to a back-end:
 
-export default () => {
-    return (
-<>
-<Helmet>
-    <meta name='keywords' content='ajax file upload, FormData, XMLHttpRequest' />
-</Helmet>
-<Markdown
-    content={`
-The function below sends selected files from a \`fileEle\` element to a back-end:
-
-~~~ javascript
+```js
 const upload = function(fileEle, backendUrl) {
     return new Promise(function(resolve, reject) {
         // Get the list of selected files
@@ -46,37 +42,31 @@ const upload = function(fileEle, backendUrl) {
         req.send(formData);
     });
 };
-~~~
+```
 
 ## Usage
 
-Assume that we have a \`file\` input that allows user to choose multiple files:
+Assume that we have a `file` input that allows user to choose multiple files:
 
-~~~ html
+```html
 <input type="file" id="upload" multiple />
-~~~
+```
 
-We can use the following code inside a \`click\` event handler of a button which performs the uploading:
+We can use the following code inside a `click` event handler of a button which performs the uploading:
 
-~~~ javascript
+```js
 const fileEle = document.getElementById('upload');
 
 upload(fileEle, '/path/to/back-end').then(function(response) {
-    // \`response\` is what we got from the back-end
+    // `response` is what we got from the back-end
     // We can parse it if the server returns a JSON
     const data = JSON.parse(response);
     ...
 });
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'loop-over-a-nodelist',
-        'paste-an-image-from-the-clipboard',
-        'submit-a-form-with-ajax',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Loop over a nodelist](/loop-over-a-nodelist)
+* [Paste an image from the clipboard](/paste-an-image-from-the-clipboard)
+* [Submit a form with ajax](/submit-a-form-with-ajax)

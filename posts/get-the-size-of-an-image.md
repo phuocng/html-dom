@@ -1,16 +1,16 @@
-import React from 'react';
+---
+title: Get the size of an image
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
 ## Image is already loaded
 
-~~~ javascript
+```js
 const image = document.querySelector(...);
 
 // Get the original size
@@ -20,13 +20,13 @@ const naturalHeight = image.naturalHeight;
 // Get the scaled size
 const width = image.width;
 const height = image.height;
-~~~
+```
 
 ## Image is not loaded yet
 
-Listen on the \`load\` event to calculate the size of image which can be loaded via a given URL:
+Listen on the `load` event to calculate the size of image which can be loaded via a given URL:
 
-~~~ javascript
+```js
 const image = document.createElement('img');
 image.addEventListener('load', function(e) {
     // Get the size
@@ -36,11 +36,11 @@ image.addEventListener('load', function(e) {
 
 // Set the source
 image.src = '/path/to/image.png';
-~~~
+```
 
-We can use a \`Promise\` to turn the snippet to a reusable function:
+We can use a `Promise` to turn the snippet to a reusable function:
 
-~~~ javascript
+```js
 const calculateSize = function(url) {
     return new Promise(function(resolve, reject) {
         const image = document.createElement('img');
@@ -63,22 +63,22 @@ calculateSize('/path/to/image.png').then(function(data) {
     const width = data.width;
     const height = data.height;
 });
-~~~
+```
 
 ## Use case
 
 Assume that you want to show the size of avatar which can be uploaded via a file input:
 
-~~~ html
+```html
 <input type="file" id="avatar" />
 
 <!-- Display the size -->
 <div id="size" />
-~~~
+```
 
-First, we need to get the selected file, and then load it via \`FileReader\`:
+First, we need to get the selected file, and then load it via `FileReader`:
 
-~~~ javascript
+```js
 const avatarEle = document.getElementById('avatar');
 const sizeEle = document.getElementById('size');
 
@@ -95,19 +95,13 @@ avatarEle.addEventListener('change', function(e) {
             const width = data.width;
             const height = data.height;
 
-            sizeEle.innerHTML = \`\${width} x \${height}\`;
+            sizeEle.innerHTML = `\${width} x \${height}`;
         });
     });
 });
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'attach-or-detach-an-event-handler',
-        'preview-an-image-before-uploading-it',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Attach or detach an event handler](/attach-or-detach-an-event-handler)
+* [Preview an image before uploading it](/preview-an-image-before-uploading-it)

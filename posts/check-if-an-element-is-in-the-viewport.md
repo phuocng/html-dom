@@ -1,26 +1,16 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+---
+title: Check if an element is in the viewport
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords: check element visible viewport, clientHeight, clientWidth, documentElement, getBoundingClientRect, innerHeight, innerWidth
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
+The following functions return `true` if the `ele` element is visible in the viewport:
 
-export default () => {
-    return (
-<>
-<Helmet>
-    <meta
-        name='keywords'
-        content={`
-            check element visible viewport, clientHeight, clientWidth, documentElement, getBoundingClientRect,
-            innerHeight, innerWidth
-        `}
-    />
-</Helmet>
-<Markdown
-    content={`
-The following functions return \`true\` if the \`ele\` element is visible in the viewport:
-
-~~~ javascript
+```js
 const isInViewport = function(ele) {
     const rect = ele.getBoundingClientRect();
     return (
@@ -30,16 +20,10 @@ const isInViewport = function(ele) {
         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
 };
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'check-if-an-element-is-visible-in-a-scrollable-container',
-        'get-the-document-height-and-width',
-        'scroll-an-element-to-ensure-it-is-visible-in-a-scrollable-container',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Check if an element is visible in a scrollable container](/check-if-an-element-is-visible-in-a-scrollable-container)
+* [Get the document height and width](/get-the-document-height-and-width)
+* [Scroll an element to ensure it is visible in a scrollable container](/scroll-an-element-to-ensure-it-is-visible-in-a-scrollable-container)

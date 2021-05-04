@@ -1,32 +1,22 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+---
+title: Detect mac os browser
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords: navigator.platform, check mac browser
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Helmet>
-    <meta name='keywords' content='navigator.platform, check mac browser' />
-</Helmet>
-<Markdown
-    content={`
 Check if the current browser runs on Mac:
 
-~~~ javascript
+```js
 const isMacBrowser = /Mac|iPod|iPhone|iPad/.test(navigator.platform);
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'check-if-the-code-is-running-in-the-browser',
-        'detect-if-the-caps-lock-is-on',
-        'detect-internet-explorer-browser',
-        'detect-mobile-browsers',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Check if the code is running in the browser](/check-if-the-code-is-running-in-the-browser)
+* [Detect if the caps lock is on](/detect-if-the-caps-lock-is-on)
+* [Detect internet explorer browser](/detect-internet-explorer-browser)
+* [Detect mobile browsers](/detect-mobile-browsers)

@@ -1,17 +1,15 @@
-import React from 'react';
+---
+title: Replace an element
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
+The `ele` will be removed from the DOM tree, and is replaced with `newEle`:
 
-export default () => {
-    return (
-<Markdown
-    content={`
-The \`ele\` will be removed from the DOM tree, and is replaced with \`newEle\`:
-
-~~~ javascript
+```js
 ele.parentNode.replaceChild(newEle, ele);
-~~~
-`}
-/>
-    );
-};
+```

@@ -1,28 +1,16 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+---
+title: Drag and drop element in a list
+category: Advanced
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords: addEventListener, drag drop list, getBoundingClientRect, insert node before, insertBefore, mousedown event, mousemove event, mouseup event, next sibling, nextElementSibling, previous sibling, previousElementSibling, sortable list, swap nodes
+---
 
-import Demo from '../../components/Demo';
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Helmet>
-    <meta
-        name='keywords'
-        content={`
-            addEventListener, drag drop list, getBoundingClientRect, insert node before, insertBefore,
-            mousedown event, mousemove event, mouseup event, next sibling, nextElementSibling,
-            previous sibling, previousElementSibling, sortable list, swap nodes
-        `}
-    />
-</Helmet>
-<Markdown
-    content={`
 In this example, we will create a sortable list whose items can be dragged and dropped inside it:
 
-~~~ html
+```html
 <div id="list">
     <div class="draggable">A</div>
     <div class="draggable">B</div>
@@ -30,23 +18,23 @@ In this example, we will create a sortable list whose items can be dragged and d
     <div class="draggable">D</div>
     <div class="draggable">E</div>
 </div>
-~~~
+```
 
-Each item has class of \`draggable\` indicating that user can drag it:
+Each item has class of `draggable` indicating that user can drag it:
 
-~~~ css
+```css
 .draggable {
     cursor: move;
     user-select: none;
 }
-~~~
+```
 
 ## Make items draggable
 
 By using the similar approach mentioned in the [_Make a draggable element_](/make-a-draggable-element) post,
 we can turn each item into a draggable element:
 
-~~~ javascript
+```js
 // The current dragging item
 let draggingEle;
 
@@ -62,7 +50,7 @@ const mouseDownHandler = function(e) {
     x = e.pageX - rect.left;
     y = e.pageY - rect.top;
 
-    // Attach the listeners to \`document\`
+    // Attach the listeners to `document`
     document.addEventListener('mousemove', mouseMoveHandler);
     document.addEventListener('mouseup', mouseUpHandler);
 };
@@ -70,14 +58,14 @@ const mouseDownHandler = function(e) {
 const mouseMoveHandler = function(e) {
     // Set position for dragging element
     draggingEle.style.position = 'absolute';
-    draggingEle.style.top = \`\${e.pageY - y}px\`; 
-    draggingEle.style.left = \`\${e.pageX - x}px\`;
+    draggingEle.style.top = `\${e.pageY - y}px`; 
+    draggingEle.style.left = `\${e.pageX - x}px`;
 };
-~~~
+```
 
-The \`mouseup\` event handler will remove the position styles of dragging item and cleans up the event handlers:
+The `mouseup` event handler will remove the position styles of dragging item and cleans up the event handlers:
 
-~~~ javascript
+```js
 const mouseUpHandler = function() {
     // Remove the position styles
     draggingEle.style.removeProperty('top');
@@ -88,15 +76,15 @@ const mouseUpHandler = function() {
     y = null;
     draggingEle = null;
 
-    // Remove the handlers of \`mousemove\` and \`mouseup\`
+    // Remove the handlers of `mousemove` and `mouseup`
     document.removeEventListener('mousemove', mouseMoveHandler);
     document.removeEventListener('mouseup', mouseUpHandler);
 };
-~~~
+```
 
-Now we can attach the \`mousedown\` event to each item by [looping over](/loop-over-a-nodelist) the list of items:
+Now we can attach the `mousedown` event to each item by [looping over](/loop-over-a-nodelist) the list of items:
 
-~~~ javascript
+```js
 // Query the list element
 const list = document.getElementById('list');
 
@@ -104,27 +92,27 @@ const list = document.getElementById('list');
 [].slice.call(list.querySelectorAll('.draggable')).forEach(function(item) {
     item.addEventListener('mousedown', mouseDownHandler);
 });
-~~~
+```
 
 ## Add a placeholder
 
 Let's take a look at the list of items again:
 
-~~~ html
+```html
 A
 B
 C
 D
 E
-~~~
+```
 
-When we drag an item, \`C\` for example, the next item (\`D\`) will move up to the top and takes the area of the dragging element (\`C\`).
+When we drag an item, `C` for example, the next item (`D`) will move up to the top and takes the area of the dragging element (`C`).
 To fix that, we create a dynamic placeholder element and [insert it](/insert-an-element-after-or-before-other-element) right before the dragging element.
 The height of placeholder must be the same as dragging element.
 
-The placeholder is created once during the mouse moving, so we add a new flag \`isDraggingStarted\` to track it:
+The placeholder is created once during the mouse moving, so we add a new flag `isDraggingStarted` to track it:
 
-~~~ javascript
+```js
 let placeholder;
 let isDraggingStarted = false;
 
@@ -145,16 +133,16 @@ const mouseMoveHandler = function(e) {
         );
 
         // Set the placeholder's height
-        placeholder.style.height = \`\${draggingRect.height}px\`;
+        placeholder.style.height = `\${draggingRect.height}px`;
     }
     
     ...
 }
-~~~
+```
 
 The placeholder will be [removed](/remove-an-element) as soon as the users drop the item:
 
-~~~ javascript
+```js
 const mouseUpHandler = function() {
     // Remove the placeholder
     placeholder && placeholder.parentNode.removeChild(placeholder);
@@ -163,27 +151,27 @@ const mouseUpHandler = function() {
     
     ...
 };
-~~~
+```
 
 Here is the order of element when user drags and moves an item around:
 
-~~~ html
+```html
 A
 B
 placeholder   <- The dynamic placeholder
 C             <- The dragging item
 D
 E
-~~~
+```
 
 ## Determine if user moves item up or down
 
 First of all, we need a helper function to check if an item is above or below another one.
 
-A \`nodeA\` is treated as above of \`nodeB\` if the horizontal center point of \`nodeA\` is less than \`nodeB\`.
+A `nodeA` is treated as above of `nodeB` if the horizontal center point of `nodeA` is less than `nodeB`.
 The center point of a node can be calculated by taking the sum of its top and half of its height:
 
-~~~ javascript
+```js
 const isAbove = function(nodeA, nodeB) {
     // Get the bounding rectangle of nodes
     const rectA = nodeA.getBoundingClientRect();
@@ -191,11 +179,11 @@ const isAbove = function(nodeA, nodeB) {
 
     return (rectA.top + rectA.height / 2 < rectB.top + rectB.height / 2);
 };
-~~~
+```
 
 As user moves the item around, we define the previous and next [sibling items](/get-siblings-of-an-element):
 
-~~~ javascript
+```js
 const mouseMoveHandler = function(e) {
     // The current order:
     // prevEle
@@ -205,11 +193,11 @@ const mouseMoveHandler = function(e) {
     const prevEle = draggingEle.previousElementSibling;
     const nextEle = placeholder.nextElementSibling;    
 };
-~~~
+```
 
 If user moves the item to the top, we will swap the placeholder and the previous item:
 
-~~~ javascript
+```js
 const mouseMoveHandler = function(e) {
     ...
 
@@ -224,11 +212,11 @@ const mouseMoveHandler = function(e) {
         return;
     }
 };
-~~~
+```
 
 Similarly, we will swap the next and dragging item if we detect that user moves item down to the bottom:
 
-~~~ javascript
+```js
 const mouseMoveHandler = function(e) {
     ...
 
@@ -242,45 +230,42 @@ const mouseMoveHandler = function(e) {
         swap(nextEle, draggingEle);
     }
 };
-~~~
+```
 
-Here, \`swap\` is a small function for [swapping two nodes](/swap-two-nodes):
+Here, `swap` is a small function for [swapping two nodes](/swap-two-nodes):
 
-~~~ javascript
+```js
 const swap = function(nodeA, nodeB) {
     const parentA = nodeA.parentNode;
     const siblingA = nodeA.nextSibling === nodeB ? nodeA : nodeA.nextSibling;
 
-    // Move \`nodeA\` to before the \`nodeB\`
+    // Move `nodeA` to before the `nodeB`
     nodeB.parentNode.insertBefore(nodeA, nodeB);
 
-    // Move \`nodeB\` to before the sibling of \`nodeA\`
+    // Move `nodeB` to before the sibling of `nodeA`
     parentA.insertBefore(nodeB, siblingA);
 };
-~~~
+```
 
 Following is the final demo. Try to drag and drop any item!
-`}
-/>
-<Demo src='/demo/drag-and-drop-element-in-a-list/index.html' />
-<RelatedPosts
-    slugs={[
-        'add-or-remove-class-from-an-element',
-        'attach-or-detach-an-event-handler',
-        'calculate-the-mouse-position-relative-to-an-element',
-        'create-an-element',
-        'drag-and-drop-table-column',
-        'drag-and-drop-table-row',
-        'drag-to-scroll',
-        'get-siblings-of-an-element',
-        'insert-an-element-after-or-before-other-element',
-        'loop-over-a-nodelist',
-        'make-a-draggable-element',
-        'remove-an-element',
-        'select-an-element-or-list-of-elements',
-        'set-css-style-for-an-element',
-    ]}
-/>
-</>
-    );
-};
+
+## Demo
+
+<iframe src='/demo/drag-and-drop-element-in-a-list/index.html' />
+
+## More
+
+* [Add or remove class from an element](/add-or-remove-class-from-an-element)
+* [Attach or detach an event handler](/attach-or-detach-an-event-handler)
+* [Calculate the mouse position relative to an element](/calculate-the-mouse-position-relative-to-an-element)
+* [Create an element](/create-an-element)
+* [Drag and drop table column](/drag-and-drop-table-column)
+* [Drag and drop table row](/drag-and-drop-table-row)
+* [Drag to scroll](/drag-to-scroll)
+* [Get siblings of an element](/get-siblings-of-an-element)
+* [Insert an element after or before other element](/insert-an-element-after-or-before-other-element)
+* [Loop over a nodelist](/loop-over-a-nodelist)
+* [Make a draggable element](/make-a-draggable-element)
+* [Remove an element](/remove-an-element)
+* [Select an element or list of elements](/select-an-element-or-list-of-elements)
+* [Set css style for an element](/set-css-style-for-an-element)

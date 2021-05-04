@@ -1,20 +1,16 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+---
+title: Calculate the mouse position relative to an element
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords: addEventListener, clientX, clientY, getBoundingClientRect, mouse position
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Helmet>
-    <meta name='keywords' content='addEventListener, clientX, clientY, getBoundingClientRect, mouse position' />
-</Helmet>
-<Markdown
-    content={`
 The following code calculates the mouse position relative to the clicked element:
 
-~~~ javascript
+```js
 ele.addEventListener('mousedown', function(e) {
     // Get the target
     const target = e.target;
@@ -26,27 +22,21 @@ ele.addEventListener('mousedown', function(e) {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 });
-~~~
+```
 
 ## Use case
 
 * [Show a custom context menu at clicked position](/show-a-custom-context-menu-at-clicked-position)
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'attach-or-detach-an-event-handler',
-        'drag-and-drop-element-in-a-list',
-        'drag-and-drop-table-column',
-        'drag-and-drop-table-row',
-        'drag-to-scroll',
-        'get-the-position-of-an-element-relative-to-another',
-        'get-the-position-of-an-element-relative-to-the-document',
-        'make-a-draggable-element',
-        'show-a-custom-context-menu-at-clicked-position',
-        'show-or-hide-table-columns',
-    ]}
-/>
-</>
-    );
-};
+
+## More
+
+* [Attach or detach an event handler](/attach-or-detach-an-event-handler)
+* [Drag and drop element in a list](/drag-and-drop-element-in-a-list)
+* [Drag and drop table column](/drag-and-drop-table-column)
+* [Drag and drop table row](/drag-and-drop-table-row)
+* [Drag to scroll](/drag-to-scroll)
+* [Get the position of an element relative to another](/get-the-position-of-an-element-relative-to-another)
+* [Get the position of an element relative to the document](/get-the-position-of-an-element-relative-to-the-document)
+* [Make a draggable element](/make-a-draggable-element)
+* [Show a custom context menu at clicked position](/show-a-custom-context-menu-at-clicked-position)
+* [Show or hide table columns](/show-or-hide-table-columns)

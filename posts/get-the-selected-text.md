@@ -1,34 +1,21 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+---
+title: Get the selected text
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords: get selected text, window getSelection
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Helmet>
-    <meta
-        name='keywords'
-        content='get selected text, window getSelection'
-    />
-</Helmet>
-<Markdown
-    content={`
-~~~ javascript
+```js
 const selectedText = window.getSelection().toString();
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'copy-highlighted-code-to-the-clipboard',
-        'get-the-direction-of-the-text-selection',
-        'paste-as-plain-text',
-        'save-and-restore-the-text-selection',
-        'select-the-text-content-of-an-element',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Copy highlighted code to the clipboard](/copy-highlighted-code-to-the-clipboard)
+* [Get the direction of the text selection](/get-the-direction-of-the-text-selection)
+* [Paste as plain text](/paste-as-plain-text)
+* [Save and restore the text selection](/save-and-restore-the-text-selection)
+* [Select the text content of an element](/select-the-text-content-of-an-element)

@@ -1,18 +1,18 @@
-import React from 'react';
+---
+title: Measure the width of given text of given font
+category: Intermediate
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
 ## 1. Use the canvas' measureText() method
 
-~~~ javascript
+```js
 const measureWidth = function(text, font) {
-    // Create new \`canvas\` element
+    // Create new `canvas` element
     const canvas = document.createElement('canvas');
     
     // Get the context
@@ -27,11 +27,11 @@ const measureWidth = function(text, font) {
     // Return the width in pixels
     return metrics.width;
 };
-~~~
+```
 
 ## 2. Use a fake element
 
-~~~ javascript
+```js
 const measureWidth = function(text, font) {
     // Create an element
     const ele = document.createElement('div');
@@ -57,19 +57,13 @@ const measureWidth = function(text, font) {
 
     return width;
 };
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'create-an-element',
-        'get-css-styles-of-an-element',
-        'remove-an-element',
-        'resize-the-width-of-a-text-box-to-fit-its-content-automatically',
-        'scale-a-text-to-fit-inside-of-an-element',
-        'set-css-style-for-an-element',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Create an element](/create-an-element)
+* [Get css styles of an element](/get-css-styles-of-an-element)
+* [Remove an element](/remove-an-element)
+* [Resize the width of a text box to fit its content automatically](/resize-the-width-of-a-text-box-to-fit-its-content-automatically)
+* [Scale a text to fit inside of an element](/scale-a-text-to-fit-inside-of-an-element)
+* [Set css style for an element](/set-css-style-for-an-element)

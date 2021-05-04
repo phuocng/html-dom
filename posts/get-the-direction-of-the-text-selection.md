@@ -1,24 +1,17 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+---
+title: Get the direction of the text selection
+category: Intermediate
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords: anchorNode, anchorOffset, createRange, focusNode, focusOffset, get selected text, range collapsed, setEnd, setStart, window getSelection
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
+The following function returns `forward` if user selected text from the left to right.
+It returns `backward` in the other case.
 
-export default () => {
-    return (
-<>
-<Helmet>
-    <meta
-        name='keywords'
-        content='anchorNode, anchorOffset, createRange, focusNode, focusOffset, get selected text, range collapsed, setEnd, setStart, window getSelection'
-    />
-</Helmet>
-<Markdown
-    content={`
-The following function returns \`forward\` if user selected text from the left to right.
-It returns \`backward\` in the other case.
-
-~~~ javascript
+```js
 const getDirection = function() {
     const selection = window.getSelection();
     const range = document.createRange();
@@ -27,15 +20,9 @@ const getDirection = function() {
 
     return range.collapsed ? 'backward' : 'forward';
 };
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'get-the-selected-text',
-        'save-and-restore-the-text-selection',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Get the selected text](/get-the-selected-text)
+* [Save and restore the text selection](/save-and-restore-the-text-selection)

@@ -1,20 +1,16 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+---
+title: Serialize form data into a query string
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords: encodeURIComponent, serialize form data
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Helmet>
-    <meta name='keywords' content='encodeURIComponent, serialize form data' />
-</Helmet>
-<Markdown
-    content={`
 The following function serializes the form data which consists of names and values of its fields:
 
-~~~ javascript
+```js
 const serialize = function(formEle) {
     // Get all fields
     const fields = [].slice.call(formEle.elements, 0);
@@ -27,7 +23,7 @@ const serialize = function(formEle) {
             // We ignore
             // - field that doesn't have a name
             // - disabled field
-            // - \`file\` input
+            // - `file` input
             // - unselected checkbox/radio
             if (!name ||
                 ele.disabled ||
@@ -42,7 +38,7 @@ const serialize = function(formEle) {
                 return ele.options
                     .map(function(opt) {
                         return opt.selected
-                            ? \`\${encodeURIComponent(name)}=\${encodeURIComponent(opt.value)}\`
+                            ? `\${encodeURIComponent(name)}=\${encodeURIComponent(opt.value)}`
                             : '';
                     })
                     .filter(function(item) {
@@ -51,28 +47,22 @@ const serialize = function(formEle) {
                     .join('&');
             }
 
-            return \`\${encodeURIComponent(name)}=\${encodeURIComponent(ele.value)}\`;
+            return `\${encodeURIComponent(name)}=\${encodeURIComponent(ele.value)}`;
         })
         .filter(function(item) {
             return item;
         })
         .join('&');
 };
-~~~
+```
 
 Note that we [convert](/loop-over-a-nodelist) the collection of form elements to array by
 
-~~~ javascript
+```js
 const fields = [].slice.call(formEle.elements, 0)
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'loop-over-a-nodelist',
-        'submit-a-form-with-ajax',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Loop over a nodelist](/loop-over-a-nodelist)
+* [Submit a form with ajax](/submit-a-form-with-ajax)

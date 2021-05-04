@@ -1,37 +1,25 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+---
+title: Paste as plain text
+category: Intermediate
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords: addRange, clipboardData, createTextNode, deleteContents, execCommand, getRangeAt, getSelection, get text from clipboard, insertNode, insert text current position, paste plain text, queryCommandSupported removeAllRanges, selectNodeContents
+---
 
-import Demo from '../../components/Demo';
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
+Assume that we have a `contenteditable` element as below:
 
-export default () => {
-    return (
-<>
-<Helmet>
-    <meta
-        name='keywords'
-        content={`
-            addRange, clipboardData, createTextNode, deleteContents, execCommand,
-            getRangeAt, getSelection, get text from clipboard, insertNode, insert text current position,
-            paste plain text, queryCommandSupported, removeAllRanges, selectNodeContents
-         `}
-    />
-</Helmet>
-<Markdown
-    content={`
-Assume that we have a \`contenteditable\` element as below:
-
-~~~ html
+```html
 <div contenteditable id="editor"></div>
-~~~
+```
 
-In order to paste the plain text only in the element, we have to handle the \`paste\` event:
+In order to paste the plain text only in the element, we have to handle the `paste` event:
 
-~~~ javascript
+```js
 const editorEle = document.getElementById('editor');
 
-// Handle the \`paste\` event
+// Handle the `paste` event
 editorEle.addEventListener('paste', function(e) {
     // Prevent the default action
     e.preventDefault();
@@ -59,24 +47,21 @@ editorEle.addEventListener('paste', function(e) {
         selection.addRange(range);
     }
 });
-~~~
+```
 
-Try to paste some rich text in the following \`contenteditable\` element:
-`}
-/>
-<Demo src='/demo/paste-as-plain-text/index.html' />
-<RelatedPosts
-    slugs={[
-        'attach-or-detach-an-event-handler',
-        'copy-highlighted-code-to-the-clipboard',
-        'copy-text-to-the-clipboard',
-        'create-an-element',
-        'get-the-selected-text',
-        'prevent-the-default-action-of-an-event',
-        'save-and-restore-the-text-selection',
-        'select-the-text-content-of-an-element',
-    ]}
-/>
-</>
-    );
-};
+Try to paste some rich text in the following `contenteditable` element:
+
+## Demo
+
+<iframe src='/demo/paste-as-plain-text/index.html' />
+
+## More
+
+* [Attach or detach an event handler](/attach-or-detach-an-event-handler)
+* [Copy highlighted code to the clipboard](/copy-highlighted-code-to-the-clipboard)
+* [Copy text to the clipboard](/copy-text-to-the-clipboard)
+* [Create an element](/create-an-element)
+* [Get the selected text](/get-the-selected-text)
+* [Prevent the default action of an event](/prevent-the-default-action-of-an-event)
+* [Save and restore the text selection](/save-and-restore-the-text-selection)
+* [Select the text content of an element](/select-the-text-content-of-an-element)

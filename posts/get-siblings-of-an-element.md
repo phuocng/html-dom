@@ -1,32 +1,28 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+---
+title: Get siblings of an element
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords: all siblings, next sibling, nextSibling, parentNode, previous sibling, previousSibling
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Helmet>
-    <meta name='keywords' content='all siblings, next sibling, nextSibling, parentNode, previous sibling, previousSibling' />
-</Helmet>
-<Markdown
-    content={`
 ## Get the previous sibling
 
-~~~ javascript
+```js
 const prev = ele.previousSibling;
-~~~
+```
 
 ## Get the next sibling
 
-~~~ javascript
+```js
 const next = ele.nextSibling;
-~~~
+```
 
 ## Get all siblings
 
-~~~ javascript
+```js
 // Get the parent node
 const parent = ele.parentNode;
 
@@ -34,21 +30,15 @@ const parent = ele.parentNode;
 const siblings = [].slice.call(parent.children).filter(function(child) {
     return child !== ele;
 });
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'create-a-range-slider',
-        'create-an-image-comparison-slider',
-        'create-resizable-split-views',
-        'drag-and-drop-element-in-a-list',
-        'drag-and-drop-table-column',
-        'drag-and-drop-table-row',
-        'swap-two-nodes',
-        'zoom-an-image',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Create a range slider](/create-a-range-slider)
+* [Create an image comparison slider](/create-an-image-comparison-slider)
+* [Create resizable split views](/create-resizable-split-views)
+* [Drag and drop element in a list](/drag-and-drop-element-in-a-list)
+* [Drag and drop table column](/drag-and-drop-table-column)
+* [Drag and drop table row](/drag-and-drop-table-row)
+* [Swap two nodes](/swap-two-nodes)
+* [Zoom an image](/zoom-an-image)

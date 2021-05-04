@@ -1,16 +1,16 @@
-import React from 'react';
+---
+title: Get the default value of a css property
+category: Intermediate
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
+The function below returns the default value of CSS `property` for given `tagName`:
 
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
-The function below returns the default value of CSS \`property\` for given \`tagName\`:
-
-~~~ javascript
+```js
 const getDefaultProperty = function(tagName, property) {
     // Create new element
     const ele = document.createElement(tagName);
@@ -30,7 +30,7 @@ const getDefaultProperty = function(tagName, property) {
     // Return the value of property
     return value;
 };
-~~~
+```
 
 > ## Good to know
 >
@@ -41,7 +41,7 @@ const getDefaultProperty = function(tagName, property) {
 > That's why we need to get the value of property before removing the element.
 > The following code doesn't return the correct value:
 >
-> ~~~ javascript
+> ```js
 > ...
 > const styles = window.getComputedStyle(ele);
 > document.body.removeChild(ele);
@@ -49,23 +49,17 @@ const getDefaultProperty = function(tagName, property) {
 > // Always return "" because the element is already 
 > // removed from the document
 > return styles.getPropertyValue(property);
-> ~~~
+> ```
 
-We can use it, for example, to get the default font size of \`div\` tag:
+We can use it, for example, to get the default font size of `div` tag:
 
-~~~ javascript
+```js
 getDefaultProperty('div', 'font-size');
 
 // Or
 getDefaultProperty('div', 'fontSize');
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'get-css-styles-of-an-element',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Get css styles of an element](/get-css-styles-of-an-element)

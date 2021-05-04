@@ -1,31 +1,24 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+---
+title: Scroll to top of the page
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords: scrollTo, scroll to top
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Helmet>
-    <meta
-        name='keywords'
-        content='scrollTo, scroll to top'
-    />
-</Helmet>
-<Markdown
-    content={`
 In general, you can scroll to a point whose coordinates indicates the distance from it to the top and left side of document:
 
-~~~ javascript
+```js
 window.scrollTo(pageX, pageY);
-~~~
+```
 
 So, the following code scrolls to top of the page:
 
-~~~ javascript
+```js
 window.scrollTo(0, 0);
-~~~
+```
 
 ## Use cases
 
@@ -37,7 +30,7 @@ when navigating to other page.
 The browser keeps the current scroll position. We have to scroll to the top when users change page. The following sample code
 is used in the layout of a React application using the [React Router](https://github.com/ReactTraining/react-router):
 
-~~~ javascript
+```js
 import { useLocation } from 'react-router-dom';
 
 export default ({ children }) => {
@@ -51,15 +44,9 @@ export default ({ children }) => {
         ...
     );
 };
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'scroll-to-an-element',
-        'scroll-to-an-element-smoothly',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Scroll to an element](/scroll-to-an-element)
+* [Scroll to an element smoothly](/scroll-to-an-element-smoothly)

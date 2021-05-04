@@ -1,32 +1,26 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+---
+title: Press shift and enter for a new line
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords: addEventListener, keydown event, keyCode, preventDefault, shift enter, shiftKey
+---
 
-import Demo from '../../components/Demo';
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
+By default, pressing `Enter` or `Shift` and `Enter` will generate a new line for a textarea element.
 
-export default () => {
-    return (
-<>
-<Helmet>
-    <meta name='keywords' content='addEventListener, keydown event, keyCode, preventDefault, shift enter, shiftKey' />
-</Helmet>
-<Markdown
-    content={`
-By default, pressing \`Enter\` or \`Shift\` and \`Enter\` will generate a new line for a textarea element.
-
-In some cases such as an inline editable element, or a messaging application, you would like
-to submit the data when user presses \`Enter\`. The only way to generate a new line is to press \`Shift\` and \`Enter\`.
+In some cases such as an inline editable element, or a messaging application, you would like to submit the data when user presses `Enter`. The only way to generate a new line is to press `Shift` and `Enter`.
 
 Assume that we have the following textarea element:
 
-~~~ html
+```html
 <textarea id="message"></textarea>
-~~~
+```
 
-To prevent the default behavior of pressing the \`Enter\` key, we can handle the \`keydown\` event:
+To prevent the default behavior of pressing the `Enter` key, we can handle the `keydown` event:
 
-~~~ javascript
+```js
 const ele = document.getElementById('message');
 
 ele.addEventListener('keydown', function(e) {
@@ -42,18 +36,15 @@ ele.addEventListener('keydown', function(e) {
         // ...
     }
 });
-~~~
+```
 
-In the demo below, pressing \`Enter\` will do nothing:
-`}
-/>
-<Demo src='/demo/press-shift-and-enter-for-a-new-line/index.html' />
-<RelatedPosts
-    slugs={[
-        'attach-or-detach-an-event-handler',
-        'prevent-the-default-action-of-an-event',
-    ]}
-/>
-</>
-    );
-};
+In the demo below, pressing `Enter` will do nothing:
+
+## Demo
+
+<iframe src='/demo/press-shift-and-enter-for-a-new-line/index.html' />
+
+## More
+
+* [Attach or detach an event handler](/attach-or-detach-an-event-handler)
+* [Prevent the default action of an event](/prevent-the-default-action-of-an-event)

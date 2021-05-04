@@ -1,16 +1,16 @@
-import React from 'react';
+---
+title: Determine the height and width of an element
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
+Assume that `ele` represents the DOM of element you want to calculate the size.
 
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
-Assume that \`ele\` represents the DOM of element you want to calculate the size.
-
-~~~ javascript
+```js
 // Get the styles
 const styles = window.getComputedStyle(ele);
 
@@ -33,16 +33,10 @@ const heightWithMargin = ele.offsetHeight + parseFloat(styles.marginTop)
                                           + parseFloat(styles.marginBottom);
 const widthWithMargin = ele.offsetWidth + parseFloat(styles.marginLeft)
                                         + parseFloat(styles.marginRight);
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'calculate-the-size-of-scrollbar',
-        'create-a-custom-scrollbar',
-        'scale-a-text-to-fit-inside-of-an-element',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Calculate the size of scrollbar](/calculate-the-size-of-scrollbar)
+* [Create a custom scrollbar](/create-a-custom-scrollbar)
+* [Scale a text to fit inside of an element](/scale-a-text-to-fit-inside-of-an-element)

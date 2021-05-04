@@ -1,24 +1,23 @@
-import React from 'react';
+---
+title: Scale a text to fit inside of an element
+category: Intermediate
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Demo from '../../components/Demo';
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
 Let's say that we want to scale a text inside a headline:
 
-~~~ html
+```html
 <div id="headline">Hello World</div>
-~~~
+```
 
 First of all, we need to measure the width of element with its current font size and [text content](/get-the-text-content-of-an-element).
 For more information, you can take a look at this [post](/measure-the-width-of-given-text-of-given-font).
 
-~~~ javascript
+```js
 const measureWidth = function(text, font) {
     // Measure the width of given text for given font
     ...
@@ -35,33 +34,30 @@ const font = styles.font;
 const fontSize = parseInt(styles.fontSize);
 
 const measured = measureWidth(ele.textContent, font);
-~~~
+```
 
 Now we can calculate how much the element is scaled by comparing the measured width and the [full width](/determine-the-height-and-width-of-an-element):
 
-~~~ javascript
+```js
 const scale = ele.clientWidth / parseFloat(measured);
-~~~
+```
 
 Finally, we set the font size as the element scales up to full width:
 
-~~~ javascript
+```js
 const scaleFontSize = Math.floor(scale * fontSize);
-ele.style.fontSize = \`\${scaleFontSize}px\`;
-~~~
-`}
-/>
-<Demo src='/demo/scale-a-text-to-fit-inside-of-an-element/index.html' />
-<RelatedPosts
-    slugs={[
-        'determine-the-height-and-width-of-an-element',
-        'get-css-styles-of-an-element',
-        'get-the-text-content-of-an-element',
-        'measure-the-width-of-given-text-of-given-font',
-        'resize-the-width-of-a-text-box-to-fit-its-content-automatically',
-        'set-css-style-for-an-element',
-    ]}
-/>
-</>
-    );
-};
+ele.style.fontSize = `\${scaleFontSize}px`;
+```
+
+## Demo
+
+<iframe src='/demo/scale-a-text-to-fit-inside-of-an-element/index.html' />
+
+## More
+
+* [Determine the height and width of an element](/determine-the-height-and-width-of-an-element)
+* [Get css styles of an element](/get-css-styles-of-an-element)
+* [Get the text content of an element](/get-the-text-content-of-an-element)
+* [Measure the width of given text of given font](/measure-the-width-of-given-text-of-given-font)
+* [Resize the width of a text box to fit its content automatically](/resize-the-width-of-a-text-box-to-fit-its-content-automatically)
+* [Set css style for an element](/set-css-style-for-an-element)

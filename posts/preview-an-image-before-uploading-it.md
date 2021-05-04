@@ -1,31 +1,31 @@
-import React from 'react';
+---
+title: Preview an image before uploading it
+category: Intermediate
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
+We prepare the markup for a file input which allows to choose an image, and an `img` element for previewing the selected file.
 
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
-We prepare the markup for a file input which allows to choose an image, and an \`img\` element for previewing the selected file.
-
-~~~ html
+```html
 <input type="file" id="fileInput" />
 
 <img id="preview" />
-~~~
+```
 
-Both elements can be taken by the \`getElementById()\` method:
+Both elements can be taken by the `getElementById()` method:
 
-~~~ javascript
+```js
 const fileEle = document.getElementById('fileInput');
 const previewEle = document.getElementById('preview');
-~~~
+```
 
 ## 1. Use the URL.createObjectURL() method
 
-~~~ javascript
+```js
 fileEle.addEventListener('change', function(e) {
     // Get the selected file
     const file = e.target.files[0];
@@ -36,11 +36,11 @@ fileEle.addEventListener('change', function(e) {
     // Set the source for preview element
     previewEle.src = url;
 });
-~~~
+```
 
 ## 2. Use the FileReader's readAsDataURL() method
 
-~~~ javascript
+```js
 fileEle.addEventListener('change', function(e) {
     // Get the selected file
     const file = e.target.files[0];
@@ -53,17 +53,11 @@ fileEle.addEventListener('change', function(e) {
 
     reader.readAsDataURL(file);
 });
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'attach-or-detach-an-event-handler',
-        'get-the-size-of-an-image',
-        'paste-an-image-from-the-clipboard',
-        'resize-an-image',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Attach or detach an event handler](/attach-or-detach-an-event-handler)
+* [Get the size of an image](/get-the-size-of-an-image)
+* [Paste an image from the clipboard](/paste-an-image-from-the-clipboard)
+* [Resize an image](/resize-an-image)

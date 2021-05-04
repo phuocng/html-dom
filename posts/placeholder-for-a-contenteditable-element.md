@@ -1,48 +1,47 @@
-import React from 'react';
+---
+title: Placeholder for a contenteditable element
+category: Intermediate
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Demo from '../../components/Demo';
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
+Assume that we want to have a placeholder for given `contenteditable` element:
 
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
-Assume that we want to have a placeholder for given \`contenteditable\` element:
-
-~~~ html
+```html
 <div contenteditable></div>
-~~~
+```
 
-## 1. Use the \`:empty\` selector
+## 1. Use the `:empty` selector
 
-We use a custom attribute, \`data-placeholder\`, to set the placeholder:
+We use a custom attribute, `data-placeholder`, to set the placeholder:
 
-~~~ html
+```html
 <div class="editable" contenteditable data-placeholder="Edit me"></div>
-~~~
+```
 
 The attribute will be shown when the element value is empty:
 
-~~~ css
+```css
 .editable:empty:before {
     content: attr(data-placeholder);
 }
-~~~
+```
 
 ## 2. Handle the events
 
-First, we add the \`id\` and \`data-placeholder\` attributes to the element as following:
+First, we add the `id` and `data-placeholder` attributes to the element as following:
 
-~~~ html
+```html
 <div contenteditable data-placeholder="Edit me" id="editMe"></div>
-~~~
+```
 
 When users focus on the element, we will reset its content if it's the same as the placeholder.
 Also, when the element loses its focus, its content will be set back to the placeholder if users don't enter anything.
 
-~~~ javascript
+```js
 const ele = document.getElementById('editMe');
 
 // Get the placeholder attribute
@@ -60,17 +59,14 @@ ele.addEventListener('blur', function(e) {
     const value = e.target.innerHTML;
     value === '' && (e.target.innerHTML = placeholder);
 });
-~~~
-`}
-/>
-<Demo src='/demo/placeholder-for-a-contenteditable-element/index.html' />
-<RelatedPosts
-    slugs={[
-        'attach-or-detach-an-event-handler',
-        'get-or-set-the-html-of-an-element',
-        'get-set-and-remove-attributes',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## Demo
+
+<iframe src='/demo/placeholder-for-a-contenteditable-element/index.html' />
+
+## More
+
+* [Attach or detach an event handler](/attach-or-detach-an-event-handler)
+* [Get or set the html of an element](/get-or-set-the-html-of-an-element)
+* [Get set and remove attributes](/get-set-and-remove-attributes)

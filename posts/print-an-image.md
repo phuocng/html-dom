@@ -1,52 +1,41 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+---
+title: Print an image
+category: Intermediate
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords: addEventListener, appendChild, clone node, iframe srcdoc, load event, print image, removeChild, set CSS style, setAttribute, window print
+---
 
-import Demo from '../../components/Demo';
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
+You can print a web page by clicking the _Print_ menu of browser or pressing the shortcut `Ctrl+P` (or `command+P` on macOS).
 
-export default () => {
-    return (
-<>
-<Helmet>
-    <meta
-        name='keywords'
-        content={`
-            addEventListener, appendChild, clone node, iframe srcdoc, load event,
-            print image, removeChild, set CSS style, setAttribute, window print
-        `}
-    />
-</Helmet>
-<Markdown
-    content={`
-You can print a web page by clicking the _Print_ menu of browser or pressing the shortcut \`Ctrl+P\` (or \`command+P\` on macOS).
+Calling the `window.print()` function provides the same result which prints the entire page.
 
-Calling the \`window.print()\` function provides the same result which prints the entire page.
-
-In order to print an image, we can insert the image element to a fake \`iframe\` element, and call the \`print()\` function
+In order to print an image, we can insert the image element to a fake `iframe` element, and call the `print()` function
 on the iframe's window.
 
 Assume that the page has an image element and a print button as below:
 
-~~~ html
+```html
 <img id="image" src="/path/to/image.jpg" />
 <button id="print">Print</button>
-~~~
+```
 
-The printing image could be handled inside the button's \`click\` event:
+The printing image could be handled inside the button's `click` event:
 
-~~~ javascript
+```js
 // Query the element
 const printBtn = document.getElementById('print');
 
 printBtn.addEventListener('click', function() {
     ...
 });
-~~~
+```
 
 ## Create a fake iframe
 
-~~~ javascript
+```js
 // Create a fake iframe
 const iframe = document.createElement('iframe');
 
@@ -59,14 +48,14 @@ iframe.style.width = 0;
 iframe.setAttribute('srcdoc', '<html><body></body></html>');
 
 document.body.appendChild(iframe);
-~~~
+```
 
 ## Insert the image when the iframe is ready
 
-Despite the fact that the iframe source is a simple HTML, not a remote path as defined by the \`src\` attribute,
+Despite the fact that the iframe source is a simple HTML, not a remote path as defined by the `src` attribute,
 we have to wait for the iframe to be loaded completely:
 
-~~~ javascript
+```js
 iframe.addEventListener('load', function() {
     // Clone the image
     const image = document.getElementById('image').cloneNode();
@@ -77,11 +66,11 @@ iframe.addEventListener('load', function() {
     body.style.textAlign = 'center';
     body.appendChild(image);
 });
-~~~
+```
 
-Invoke the \`print()\` function on the iframe's window as soon as the image is loaded:
+Invoke the `print()` function on the iframe's window as soon as the image is loaded:
 
-~~~ javascript
+```js
 iframe.addEventListener('load', function() {
     ...
     image.addEventListener('load', function() {
@@ -89,7 +78,7 @@ iframe.addEventListener('load', function() {
         iframe.contentWindow.print();
     });
 });
-~~~
+```
 
 > ## Tip
 >
@@ -99,29 +88,26 @@ iframe.addEventListener('load', function() {
 
 The dynamic iframe will be [removed](/remove-an-element) when user starts printing the image or closes the print window:
 
-~~~ javascript
+```js
 iframe.contentWindow.addEventListener('afterprint', function() {
     iframe.parentNode.removeChild(iframe);
 });
-~~~
+```
 
 Pressing the _Print_ button below to see it in action!
 
 _Photo by [Rod Long](https://unsplash.com/@rodlong) on [Unsplash](https://unsplash.com/photos/J-ygvQbilXU)_
-`}
-/>
-<Demo src='/demo/print-an-image/index.html' />
-<RelatedPosts
-    slugs={[
-        'append-to-an-element',
-        'attach-or-detach-an-event-handler',
-        'clone-an-element',
-        'create-an-element',
-        'get-set-and-remove-attributes',
-        'remove-an-element',
-        'set-css-style-for-an-element',
-    ]}
-/>
-</>
-    );
-};
+
+## Demo
+
+<iframe src='/demo/print-an-image/index.html' />
+
+## More
+
+* [Append to an element](/append-to-an-element)
+* [Attach or detach an event handler](/attach-or-detach-an-event-handler)
+* [Clone an element](/clone-an-element)
+* [Create an element](/create-an-element)
+* [Get set and remove attributes](/get-set-and-remove-attributes)
+* [Remove an element](/remove-an-element)
+* [Set css style for an element](/set-css-style-for-an-element)

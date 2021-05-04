@@ -1,16 +1,16 @@
-import React from 'react';
+---
+title: Unwrap an element
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
+Remove the `ele` element except its children:
 
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
-Remove the \`ele\` element except its children:
-
-~~~ javascript
+```js
 // Get the parent node
 const parent = ele.parentNode;
 
@@ -19,18 +19,12 @@ while (ele.firstChild) {
     parent.insertBefore(ele.firstChild, ele);
 }
 
-// \`ele\` becomes an empty element
+// `ele` becomes an empty element
 // Remove it from the parent
 parent.removeChild(ele);
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'remove-all-children-of-a-node',
-        'wrap-an-element-around-a-given-element',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Remove all children of a node](/remove-all-children-of-a-node)
+* [Wrap an element around a given element](/wrap-an-element-around-a-given-element)

@@ -1,20 +1,16 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+---
+title: Submit a form with ajax
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords: ajax form submit, XMLHttpRequest
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
+The following function submits the data of `formEle` to the back-end using an Ajax request:
 
-export default () => {
-    return (
-<>
-<Helmet>
-    <meta name='keywords' content='ajax form submit, XMLHttpRequest' />
-</Helmet>
-<Markdown
-    content={`
-The following function submits the data of \`formEle\` to the back-end using an Ajax request:
-
-~~~ javascript
+```js
 const submit = function(formEle) {
     return new Promise(function(resolve, reject) {
         // Serialize form data
@@ -40,31 +36,24 @@ const submit = function(formEle) {
         req.send(params);
     });
 };
-~~~
+```
 
-Where the \`serialize\` function serializes all the form data into a query string. You can see how it's implemented 
-in this [post](/serialize-form-data-into-a-query-string).
+Where the `serialize` function serializes all the form data into a query string. You can see how it's implemented in this [post](/serialize-form-data-into-a-query-string).
 
 ## Usage
 
-~~~ javascript
+```js
 const formEle = document.getElementById(...);
 
 submit(formEle).then(function(response) {
-    // \`response\` is what we got from the back-end
+    // `response` is what we got from the back-end
     // We can parse it if the server returns a JSON
     const data = JSON.parse(response);
     ...
 });
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'serialize-form-data-into-a-query-string',
-        'upload-files-with-ajax',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Serialize form data into a query string](/serialize-form-data-into-a-query-string)
+* [Upload files with ajax](/upload-files-with-ajax)

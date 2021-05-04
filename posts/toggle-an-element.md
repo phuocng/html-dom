@@ -1,29 +1,23 @@
-import React from 'react';
+---
+title: Toggle an element
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
+To toggle the element, we update the `display` property:
 
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
-To toggle the element, we update the \`display\` property:
-
-~~~ javascript
+```js
 const toggle = function(ele) {
     const display = ele.style.display;
     ele.style.display = display === 'none' ? 'block' : 'none';
 };
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'set-css-style-for-an-element',
-        'show-or-hide-an-element',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Set css style for an element](/set-css-style-for-an-element)
+* [Show or hide an element](/show-or-hide-an-element)

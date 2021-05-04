@@ -1,35 +1,29 @@
-import React from 'react';
+---
+title: Show or hide an element
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
 ## Show an element
 
-~~~ javascript
+```js
 ele.style.display = '';
-~~~
+```
 
 ## Hide an element
 
-~~~ javascript
+```js
 ele.style.display = 'none';
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'detect-if-the-caps-lock-is-on',
-        'get-size-of-the-selected-file',
-        'set-css-style-for-an-element',
-        'show-a-loading-indicator-when-an-iframe-is-being-loaded',
-        'toggle-an-element',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Detect if the caps lock is on](/detect-if-the-caps-lock-is-on)
+* [Get size of the selected file](/get-size-of-the-selected-file)
+* [Set css style for an element](/set-css-style-for-an-element)
+* [Show a loading indicator when an iframe is being loaded](/show-a-loading-indicator-when-an-iframe-is-being-loaded)
+* [Toggle an element](/toggle-an-element)

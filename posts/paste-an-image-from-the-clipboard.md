@@ -1,21 +1,15 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+---
+title: Paste an image from the clipboard
+category: Intermediate
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords: clipboardData, createObjectURL, FormData, getAsFile, paste event, paste image from clipboard, XMLHttpRequest
+---
 
-import Demo from '../../components/Demo';
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Helmet>
-    <meta name='keywords' content='clipboardData, createObjectURL, FormData, getAsFile, paste event, paste image from clipboard, XMLHttpRequest' />
-</Helmet>
-<Markdown
-    content={`
-
-~~~ javascript
-// Handle the \`paste\` event
+```js
+// Handle the `paste` event
 document.addEventListener('paste', function(evt) {
     // Get the data of clipboard
     const clipboardItems = evt.clipboardData.items;
@@ -33,21 +27,21 @@ document.addEventListener('paste', function(evt) {
     // Get the blob of image
     const blob = item.getAsFile();
 });
-~~~
+```
 
 From the image blob, we can preview it as you see in the live example below:
 
-~~~ javascript
-// Assume that we have an \`img\` element
+```js
+// Assume that we have an `img` element
 // <img id="preview" />
 
 const imageEle = document.getElementById('preview');
 imageEle.src = URL.createObjectURL(blob);
-~~~
+```
 
 or [upload](/upload-files-with-ajax) it to the server with an Ajax request:
 
-~~~ javascript
+```js
 // Create a new FormData
 const formData = new FormData();
 formData.append('image', blob, 'filename');
@@ -67,17 +61,14 @@ req.onload = function() {
 
 // Send it
 req.send(formData);
-~~~
-`}
-/>
-<Demo src='/demo/paste-an-image-from-the-clipboard/index.html' />
-<RelatedPosts
-    slugs={[
-        'attach-or-detach-an-event-handler',
-        'preview-an-image-before-uploading-it',
-        'upload-files-with-ajax',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## Demo
+
+<iframe src='/demo/paste-an-image-from-the-clipboard/index.html' />
+
+## More
+
+* [Attach or detach an event handler](/attach-or-detach-an-event-handler)
+* [Preview an image before uploading it](/preview-an-image-before-uploading-it)
+* [Upload files with ajax](/upload-files-with-ajax)

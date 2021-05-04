@@ -1,16 +1,16 @@
-import React from 'react';
+---
+title: Strip html from a given text
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
 ## 1. Get text content from a fake element (not recommended)
 
-~~~ javascript
+```js
 const stripHtml = function(html) {
     // Create new element
     const ele = document.createElement('div');
@@ -21,51 +21,45 @@ const stripHtml = function(html) {
     // Return the text only
     return ele.textContent || "";
 };
-~~~
+```
 
-This approach isn't recommended because it can cause a security issue if the input \`html\` consists of special tags, such as 
-\`<script>\`.
+This approach isn't recommended because it can cause a security issue if the input `html` consists of special tags, such as 
+`<script>`.
 
-However, we can prevent the html from being executed by replacing the \`div\` tag with \`textarea\`:
+However, we can prevent the html from being executed by replacing the `div` tag with `textarea`:
 
-~~~ javascript
+```js
 const stripHtml = function(html) {
     const ele = document.createElement('textarea');
     ele.innerHTML = html;
     return ele.textContent || "";
 };
-~~~
+```
 
 ## 2. Use DOMParser
 
-~~~ javascript
+```js
 const stripHtml = function(html) {
     const doc = new DOMParser().parseFromString(html, 'text/html');
     return doc.body.textContent || "";
 };
-~~~
+```
 
 ## 3. Use template
 
-The [\`<template>\`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template) tag holds a HTML content that is not to be rendered immediately.
+The [`<template>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template) tag holds a HTML content that is not to be rendered immediately.
 However, this is not supported on older browser such as IE 11.
 
-~~~ javascript
+```js
 const stripHtml = function(html) {
   const ele = document.createElement('template');
   ele.innerHTML = html;
   return ele.content.textContent || "";
 };
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'create-an-element',
-        'get-or-set-the-html-of-an-element',
-        'get-the-text-content-of-an-element',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Create an element](/create-an-element)
+* [Get or set the html of an element](/get-or-set-the-html-of-an-element)
+* [Get the text content of an element](/get-the-text-content-of-an-element)

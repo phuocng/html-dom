@@ -1,23 +1,16 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+---
+title: Select the text content of an element
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords: createRange, getSelection, removeAllRanges, select text content, selectNodeContents
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
+The following function selects the text content of the `ele` element:
 
-export default () => {
-    return (
-<>
-<Helmet>
-    <meta
-        name='keywords'
-        content='createRange, getSelection, removeAllRanges, select text content, selectNodeContents'
-    />
-</Helmet>
-<Markdown
-    content={`
-The following function selects the text content of the \`ele\` element:
-
-~~~ javascript
+```js
 const selectText = function(ele) {
     const selection = window.getSelection();
     const range = document.createRange();
@@ -25,17 +18,11 @@ const selectText = function(ele) {
     selection.removeAllRanges();
     selection.addRange(range);
 };
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'copy-highlighted-code-to-the-clipboard',
-        'get-the-selected-text',
-        'paste-as-plain-text',
-        'save-and-restore-the-text-selection',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Copy highlighted code to the clipboard](/copy-highlighted-code-to-the-clipboard)
+* [Get the selected text](/get-the-selected-text)
+* [Paste as plain text](/paste-as-plain-text)
+* [Save and restore the text selection](/save-and-restore-the-text-selection)

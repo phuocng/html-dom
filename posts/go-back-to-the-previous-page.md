@@ -1,18 +1,16 @@
-import React from 'react';
+---
+title: Go back to the previous page
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-
-export default () => {
-    return (
-<Markdown
-    content={`
-~~~ javascript
+```js
 history.back();
 
 // Or
 history.go(-1);
-~~~
-`}
-/>
-    );
-};
+```

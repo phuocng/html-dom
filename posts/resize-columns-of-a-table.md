@@ -1,28 +1,27 @@
-import React from 'react';
+---
+title: Resize columns of a table
+category: Advanced
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Demo from '../../components/Demo';
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
 Assume that we want to resize any column of the following table:
 
-~~~ html
+```html
 <table id="resizeMe" class="table">
     ...
 </table>
-~~~
+```
 
 ## Prepare the resizer
 
-For each column, we insert a \`div\` element indicating that the associated column can be resized.
+For each column, we insert a `div` element indicating that the associated column can be resized.
 The resizer element is positioned absolutely inside the column. The CSS styles for them would be as below:
 
-~~~ css
+```css
 .table th {
     position: relative;
 }
@@ -35,12 +34,12 @@ The resizer element is positioned absolutely inside the column. The CSS styles f
     cursor: col-resize;
     user-select: none;
 }
-~~~
+```
 
 To [create](/create-an-element) resizers and [append](/append-to-an-element) them to columns, we have to [query](/select-an-element-or-list-of-elements)
 and [loop over](/loop-over-a-nodelist) all columns:
 
-~~~ javascript
+```js
 // Query the table
 const table = document.getElementById('resizeMe');
 
@@ -54,7 +53,7 @@ const cols = table.querySelectorAll('th');
     resizer.classList.add('resizer');
 
     // Set the height
-    resizer.style.height = \`\${table.offsetHeight}px\`;
+    resizer.style.height = `\${table.offsetHeight}px`;
 
     // Add a resizer element to the column
     col.appendChild(resizer);
@@ -62,22 +61,22 @@ const cols = table.querySelectorAll('th');
     // Will be implemented in the next section
     createResizableColumn(col, resizer);
 });
-~~~
+```
 
 ## Handle the resizer's events
 
-We are going to implement a function, \`createResizableColumn\`,  which accepts two parameters:
+We are going to implement a function, `createResizableColumn`,  which accepts two parameters:
 
-* \`col\` that represents the table header
-* \`resizer\` that represents the resizer element within the column
+* `col` that represents the table header
+* `resizer` that represents the resizer element within the column
 
-In order to allow user to resize \`col\`, we have to handle three events:
+In order to allow user to resize `col`, we have to handle three events:
 
-* \`mousedown\` on the resizer: Track the current position of mouse
-* \`mousemove\` on \`document\`: Calculate how far the mouse has been moved, and adjust the width of the column
-* \`mouseup\` on \`document\`: Remove the event handlers of \`document\`
+* `mousedown` on the resizer: Track the current position of mouse
+* `mousemove` on `document`: Calculate how far the mouse has been moved, and adjust the width of the column
+* `mouseup` on `document`: Remove the event handlers of `document`
 
-~~~ javascript
+```js
 const createResizableColumn = function(col, resizer) {
     // Track the current position of mouse
     let x = 0;
@@ -101,7 +100,7 @@ const createResizableColumn = function(col, resizer) {
         const dx = e.clientX - x;
 
         // Update the width of column
-        col.style.width = \`\${w + dx}px\`;
+        col.style.width = `\${w + dx}px`;
     };
 
     // When user releases the mouse, remove the existing event listeners
@@ -112,7 +111,7 @@ const createResizableColumn = function(col, resizer) {
 
     resizer.addEventListener('mousedown', mouseDownHandler);
 };
-~~~
+```
 
 > ## Tip
 >
@@ -121,17 +120,17 @@ const createResizableColumn = function(col, resizer) {
 ## Highlight the resizer
 
 We can improve the user experience a little bit. When user hovers or clicks on the resizer, it can be hightlighted.
-To demonstrate the idea in the most simple way, we add a solid border to the \`:hover\` selector:
+To demonstrate the idea in the most simple way, we add a solid border to the `:hover` selector:
 
-~~~ css
+```css
 .resizer:hover, .resizing {
     border-right: 2px solid blue;
 }
-~~~
+```
 
-The \`resizing\` class is added to the resizer while user clicks and drags the resizer:
+The `resizing` class is added to the resizer while user clicks and drags the resizer:
 
-~~~ javascript
+```js
 const mouseDownHandler = function(e) {
     ...
     resizer.classList.add('resizing');
@@ -141,24 +140,21 @@ const mouseUpHandler = function() {
     ...
     resizer.classList.remove('resizing');
 };
-~~~
-`}
-/>
-<Demo src='/demo/resize-columns-of-a-table/index.html' />
-<RelatedPosts
-    slugs={[
-        'add-or-remove-class-from-an-element',
-        'append-to-an-element',
-        'attach-or-detach-an-event-handler',
-        'create-an-element',
-        'drag-to-scroll',
-        'get-css-styles-of-an-element',
-        'loop-over-a-nodelist',
-        'make-a-draggable-element',
-        'make-a-resizable-element',
-        'set-css-style-for-an-element',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## Demo
+
+<iframe src='/demo/resize-columns-of-a-table/index.html' />
+
+## More
+
+* [Add or remove class from an element](/add-or-remove-class-from-an-element)
+* [Append to an element](/append-to-an-element)
+* [Attach or detach an event handler](/attach-or-detach-an-event-handler)
+* [Create an element](/create-an-element)
+* [Drag to scroll](/drag-to-scroll)
+* [Get css styles of an element](/get-css-styles-of-an-element)
+* [Loop over a nodelist](/loop-over-a-nodelist)
+* [Make a draggable element](/make-a-draggable-element)
+* [Make a resizable element](/make-a-resizable-element)
+* [Set css style for an element](/set-css-style-for-an-element)

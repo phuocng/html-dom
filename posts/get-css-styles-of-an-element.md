@@ -1,53 +1,47 @@
-import React from 'react';
+---
+title: Get css styles of an element
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
+We can get all CSS styles via the `getComputedStyle` method:
 
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
-We can get all CSS styles via the \`getComputedStyle\` method:
-
-~~~ javascript
+```js
 const styles = window.getComputedStyle(ele, null);
-~~~
+```
 
 From there, it's easy to access the value of specific style:
 
-~~~ javascript
+```js
 // Get the background color
 const bgColor = styles.backgroundColor;
-~~~
+```
 
 For the style that has a vendor prefix which starts with a hyphen (-), we can get the style value by passing the style:
 
-~~~ javascript
+```js
 const textSizeAdjust = styles['-webkit-text-size-adjust'];
-~~~
+```
 
-The \`getPropertyValue\` method produces the same result:
+The `getPropertyValue` method produces the same result:
 
-~~~ javascript
+```js
 const bgColor = styles.getPropertyValue('background-color');
 
 // Or turn the parameter to camelCase format:
 const bgColor = styles.getPropertyValue('backgroundColor');
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'check-if-an-element-is-scrollable',
-        'get-the-default-value-of-a-css-property',
-        'measure-the-width-of-given-text-of-given-font',
-        'resize-columns-of-a-table',
-        'resize-the-width-of-a-text-box-to-fit-its-content-automatically',
-        'scale-a-text-to-fit-inside-of-an-element',
-        'set-css-style-for-an-element',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Check if an element is scrollable](/check-if-an-element-is-scrollable)
+* [Get the default value of a css property](/get-the-default-value-of-a-css-property)
+* [Measure the width of given text of given font](/measure-the-width-of-given-text-of-given-font)
+* [Resize columns of a table](/resize-columns-of-a-table)
+* [Resize the width of a text box to fit its content automatically](/resize-the-width-of-a-text-box-to-fit-its-content-automatically)
+* [Scale a text to fit inside of an element](/scale-a-text-to-fit-inside-of-an-element)
+* [Set css style for an element](/set-css-style-for-an-element)

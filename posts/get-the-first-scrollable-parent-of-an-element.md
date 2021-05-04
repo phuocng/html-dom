@@ -1,17 +1,17 @@
-import React from 'react';
+---
+title: Get the first scrollable parent of an element
+category: Intermediate
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
-Starting from the given \`ele\` element, we traverse all parents up to the root of document (\`document.body\`).
+Starting from the given `ele` element, we traverse all parents up to the root of document (`document.body`).
 For each parent node, we check if it is a [scrollable node](/check-if-an-element-is-scrollable).
 
-~~~ javascript
+```js
 const isScrollable = function(ele) {
     const hasScrollableContent = ele.scrollHeight > ele.clientHeight;
 
@@ -26,15 +26,9 @@ const getScrollableParent = function(ele) {
         ? document.body
         : (isScrollable(ele) ? ele : getScrollableParent(ele.parentNode));
 };
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'check-if-an-element-is-scrollable',
-        'get-the-parent-node-of-an-element',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Check if an element is scrollable](/check-if-an-element-is-scrollable)
+* [Get the parent node of an element](/get-the-parent-node-of-an-element)

@@ -1,15 +1,15 @@
-import React from 'react';
+---
+title: Check an element against a selector
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
-~~~ javascript
-// Return true if \`ele\` matches the CSS selector \`selector\`
+```js
+// Return true if `ele` matches the CSS selector `selector`
 const matches = function(ele, selector) {
     return (
         ele.matches || 
@@ -20,14 +20,8 @@ const matches = function(ele, selector) {
         ele.oMatchesSelector
     ).call(ele, selector);
 };
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'get-the-closest-element-by-given-selector',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Get the closest element by given selector](/get-the-closest-element-by-given-selector)

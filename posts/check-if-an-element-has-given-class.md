@@ -1,23 +1,17 @@
-import React from 'react';
+---
+title: Check if an element has given class
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
-~~~ javascript
+```js
 ele.classList.contains('class-name');
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'add-or-remove-class-from-an-element',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Add or remove class from an element](/add-or-remove-class-from-an-element)

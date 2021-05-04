@@ -1,23 +1,21 @@
-import React from 'react';
+---
+title: Get or set the document title
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-
-export default () => {
-    return (
-<Markdown
-    content={`
 ## Get the document title
 
-~~~ javascript
+```js
 const title = document.title;
-~~~
+```
 
 ## Set the document title
 
-~~~ javascript
+```js
 document.title = 'Hello World';
-~~~
-`}
-/>
-    );
-};
+```

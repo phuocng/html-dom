@@ -1,68 +1,62 @@
-import React from 'react';
+---
+title: Set css style for an element
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
 ## Set a CSS style
 
-Setting the style via the \`style\` property:
+Setting the style via the `style` property:
 
-~~~ javascript
+```js
 ele.style.backgroundColor = 'red';
 ele.style['backgroundColor'] = 'red';
 ele.style['background-color'] = 'red';
-~~~
+```
 
-Multiple styles can be set at the same time by overwriting or updating the \`cssText\` property:
+Multiple styles can be set at the same time by overwriting or updating the `cssText` property:
 
-~~~ javascript
+```js
 // Add new style
 el.style.cssText += 'background-color: red; color: white';
 
 // Ignore previous styles
 el.style.cssText = 'background-color: red; color: white';
-~~~
+```
 
 ## Remove a CSS style
 
-~~~ javascript
+```js
 ele.style.removeProperty('background-color');
 
 // Does NOT work
 ele.style.removeProperty('backgroundColor');
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'create-an-image-comparison-slider',
-        'create-a-range-slider',
-        'create-resizable-split-views',
-        'drag-and-drop-element-in-a-list',
-        'drag-and-drop-table-column',
-        'drag-and-drop-table-row',
-        'drag-to-scroll',
-        'get-css-styles-of-an-element',
-        'make-a-draggable-element',
-        'make-a-resizable-element',
-        'measure-the-width-of-given-text-of-given-font',
-        'prevent-body-from-scrolling-when-opening-a-modal',
-        'print-an-image',
-        'resize-columns-of-a-table',
-        'resize-the-width-of-a-text-box-to-fit-its-content-automatically',
-        'scale-a-text-to-fit-inside-of-an-element',
-        'show-a-custom-context-menu-at-clicked-position',
-        'show-a-loading-indicator-when-an-iframe-is-being-loaded',
-        'show-or-hide-an-element',
-        'toggle-an-element',
-        'zoom-an-image',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Create a range slider](/create-a-range-slider)
+* [Create an image comparison slider](/create-an-image-comparison-slider)
+* [Create resizable split views](/create-resizable-split-views)
+* [Drag and drop element in a list](/drag-and-drop-element-in-a-list)
+* [Drag and drop table column](/drag-and-drop-table-column)
+* [Drag and drop table row](/drag-and-drop-table-row)
+* [Drag to scroll](/drag-to-scroll)
+* [Get css styles of an element](/get-css-styles-of-an-element)
+* [Make a draggable element](/make-a-draggable-element)
+* [Make a resizable element](/make-a-resizable-element)
+* [Measure the width of given text of given font](/measure-the-width-of-given-text-of-given-font)
+* [Prevent body from scrolling when opening a modal](/prevent-body-from-scrolling-when-opening-a-modal)
+* [Print an image](/print-an-image)
+* [Resize columns of a table](/resize-columns-of-a-table)
+* [Resize the width of a text box to fit its content automatically](/resize-the-width-of-a-text-box-to-fit-its-content-automatically)
+* [Scale a text to fit inside of an element](/scale-a-text-to-fit-inside-of-an-element)
+* [Show a custom context menu at clicked position](/show-a-custom-context-menu-at-clicked-position)
+* [Show a loading indicator when an iframe is being loaded](/show-a-loading-indicator-when-an-iframe-is-being-loaded)
+* [Show or hide an element](/show-or-hide-an-element)
+* [Toggle an element](/toggle-an-element)
+* [Zoom an image](/zoom-an-image)

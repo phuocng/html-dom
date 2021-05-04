@@ -1,27 +1,21 @@
-import React from 'react';
+---
+title: Prepend to an element
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
+Add the `ele` element to the beginning of the `target` element:
 
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
-Add the \`ele\` element to the beginning of the \`target\` element:
-
-~~~ javascript
+```js
 target.insertBefore(ele, target.firstChild);
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'append-to-an-element',
-        'insert-an-element-after-or-before-other-element',
-        'insert-given-html-after-or-before-an-element',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Append to an element](/append-to-an-element)
+* [Insert an element after or before other element](/insert-an-element-after-or-before-other-element)
+* [Insert given html after or before an element](/insert-given-html-after-or-before-an-element)

@@ -1,24 +1,23 @@
-import React from 'react';
+---
+title: Resize the width of a text box to fit its content automatically
+category: Intermediate
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Demo from '../../components/Demo';
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
+Let's say that an input has the `id` of `textbox` as below:
 
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
-Let's say that an input has the \`id\` of \`textbox\` as below:
-
-~~~ html
+```html
 <input type="text" id="textbox" />
-~~~
+```
 
 To adjust its width based on its content dynamically, we create a fake element whose content is the same as the input value.
 And we set the input's width as the fake element's width.
 
-~~~ javascript
+```js
 // Create a div element
 const fakeEle = document.createElement('div');
 
@@ -50,13 +49,13 @@ fakeEle.style.borderRightWidth = styles.borderRightWidth;
 fakeEle.style.paddingLeft = styles.paddingLeft;
 fakeEle.style.paddingRight = styles.paddingRight;
 
-// Append the fake element to \`body\`
+// Append the fake element to `body`
 document.body.appendChild(fakeEle);
-~~~
+```
 
 The function below sets the HTML for the fake element, calculates its width and sets the result to the original input.
 
-~~~ javascript
+```js
 const setWidth = function() {
     const string = textboxEle.value ||
                    textboxEle.getAttribute('placeholder') || '';
@@ -65,33 +64,30 @@ const setWidth = function() {
     const fakeEleStyles = window.getComputedStyle(fakeEle);
     textboxEle.style.width = fakeEleStyles.width;
 };
-~~~
+```
 
 > This [post](/measure-the-width-of-given-text-of-given-font) introduces more ways to measure the width of given text in given font
 
-Finally, we invoke the \`setWidth\` function when users change the input value by listening on the \`input\` event:
+Finally, we invoke the `setWidth` function when users change the input value by listening on the `input` event:
 
-~~~ javascript
+```js
 setWidth();
     
 textboxEle.addEventListener('input', function(e) {
     setWidth();
 });
-~~~
-`}
-/>
-<Demo src='/demo/resize-the-width-of-a-text-box-to-fit-its-content-automatically/index.html' />
-<RelatedPosts
-    slugs={[
-        'attach-or-detach-an-event-handler',
-        'create-an-element',
-        'get-css-styles-of-an-element',
-        'measure-the-width-of-given-text-of-given-font',
-        'remove-an-element',
-        'scale-a-text-to-fit-inside-of-an-element',
-        'set-css-style-for-an-element',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## Demo
+
+<iframe src='/demo/resize-the-width-of-a-text-box-to-fit-its-content-automatically/index.html' />
+
+## More
+
+* [Attach or detach an event handler](/attach-or-detach-an-event-handler)
+* [Create an element](/create-an-element)
+* [Get css styles of an element](/get-css-styles-of-an-element)
+* [Measure the width of given text of given font](/measure-the-width-of-given-text-of-given-font)
+* [Remove an element](/remove-an-element)
+* [Scale a text to fit inside of an element](/scale-a-text-to-fit-inside-of-an-element)
+* [Set css style for an element](/set-css-style-for-an-element)

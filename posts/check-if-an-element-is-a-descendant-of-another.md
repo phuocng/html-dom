@@ -1,25 +1,25 @@
-import React from 'react';
+---
+title: Check if an element is a descendant of another
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
-Assume that we want to find out if the \`child\` element is a descendant of the \`parent\` element.
+Assume that we want to find out if the `child` element is a descendant of the `parent` element.
 
 ## 1. Use the contains method
 
-~~~ javascript
+```js
 const isDescendant = parent.contains(child);
-~~~
+```
 
 ## 2. Go up from the child until see the parent
 
-~~~ javascript
-// Check if \`child\` is a descendant of \`parent\`
+```js
+// Check if `child` is a descendant of `parent`
 const isDescendant = function(parent, child) {
     let node = child.parentNode;
     while (node) {
@@ -31,18 +31,12 @@ const isDescendant = function(parent, child) {
         node = node.parentNode;
     }
 
-    // Go up until the root but couldn't find the \`parent\`
+    // Go up until the root but couldn't find the `parent`
     return false;
 };
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'detect-clicks-outside-of-an-element',
-        'get-the-parent-node-of-an-element',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Detect clicks outside of an element](/detect-clicks-outside-of-an-element)
+* [Get the parent node of an element](/get-the-parent-node-of-an-element)

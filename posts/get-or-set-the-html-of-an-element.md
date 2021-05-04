@@ -1,43 +1,33 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+---
+title: Get or set the html of an element
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords: get element HTML, HTML of element, innerHTML, set element HTML
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
-
-export default () => {
-    return (
-<>
-<Helmet>
-    <meta name='keywords' content='get element HTML, HTML of element, innerHTML, set element HTML' />
-</Helmet>
-<Markdown
-    content={`
 ## Get the HTML
 
-~~~ javascript
+```js
 // Get the HTML
 const html = ele.innerHTML;
-~~~
+```
 
 ## Set the HTML
 
-~~~ javascript
+```js
 // Set the HTML
 ele.innerHTML = '<h1>Hello World!</h1>';
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'count-the-number-of-characters-of-a-textarea',
-        'detect-if-the-caps-lock-is-on',
-        'get-size-of-the-selected-file',
-        'get-the-text-content-of-an-element',
-        'placeholder-for-a-contenteditable-element',
-        'sort-a-table-by-clicking-its-headers',
-        'strip-html-from-a-given-text',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Count the number of characters of a textarea](/count-the-number-of-characters-of-a-textarea)
+* [Detect if the caps lock is on](/detect-if-the-caps-lock-is-on)
+* [Get size of the selected file](/get-size-of-the-selected-file)
+* [Get the text content of an element](/get-the-text-content-of-an-element)
+* [Placeholder for a contenteditable element](/placeholder-for-a-contenteditable-element)
+* [Sort a table by clicking its headers](/sort-a-table-by-clicking-its-headers)
+* [Strip html from a given text](/strip-html-from-a-given-text)

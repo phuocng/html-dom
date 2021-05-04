@@ -1,35 +1,29 @@
-import React from 'react';
+---
+title: Append to an element
+category: Basic
+tags:
+  - posts
+layout: layouts/post.njk
+metadata:
+  keywords:
+---
 
-import Markdown from '../../components/Markdown';
-import RelatedPosts from '../../components/RelatedPosts';
+Append the `ele` element to the end of the `target` element:
 
-export default () => {
-    return (
-<>
-<Markdown
-    content={`
-Append the \`ele\` element to the end of the \`target\` element:
-
-~~~ javascript
+```js
 target.appendChild(ele);
-~~~
-`}
-/>
-<RelatedPosts
-    slugs={[
-        'calculate-the-size-of-scrollbar',
-        'copy-text-to-the-clipboard',
-        'download-a-file',
-        'insert-an-element-after-or-before-other-element',
-        'insert-given-html-after-or-before-an-element',
-        'prepend-to-an-element',
-        'print-an-image',
-        'resize-columns-of-a-table',
-        'show-a-ghost-element-when-dragging-an-element',
-        'show-or-hide-table-columns',
-        'sort-a-table-by-clicking-its-headers',
-    ]}
-/>
-</>
-    );
-};
+```
+
+## More
+
+* [Calculate the size of scrollbar](/calculate-the-size-of-scrollbar)
+* [Copy text to the clipboard](/copy-text-to-the-clipboard)
+* [Download a file](/download-a-file)
+* [Insert an element after or before other element](/insert-an-element-after-or-before-other-element)
+* [Insert given html after or before an element](/insert-given-html-after-or-before-an-element)
+* [Prepend to an element](/prepend-to-an-element)
+* [Print an image](/print-an-image)
+* [Resize columns of a table](/resize-columns-of-a-table)
+* [Show a ghost element when dragging an element](/show-a-ghost-element-when-dragging-an-element)
+* [Show or hide table columns](/show-or-hide-table-columns)
+* [Sort a table by clicking its headers](/sort-a-table-by-clicking-its-headers)
