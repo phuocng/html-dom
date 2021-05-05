@@ -5,20 +5,9 @@ tags:
   - posts
 layout: layouts/post.njk
 metadata:
-  keywords:
+  keywords: addEventListener, data attribute, getBoundingClientRect, mousedown event, mousemove event, mouseup event, next sibling, nextElementSibling, previous sibling, previousElementSibling, set css style, split view
 ---
-<Helmet>
-    <meta
-        name='keywords'
-        content={`
-            addEventListener, data attribute, getBoundingClientRect, mousedown event, mousemove event,
-            mouseup event, next sibling, nextElementSibling, previous sibling, previousElementSibling,
-            set css style, split view
-        `}
-    />
-</Helmet>
-<Markdown
-    content={`
+
 In this post, we'll add an element to resize children of a given element.
 The original element could be organized as below:
 
@@ -170,11 +159,9 @@ const mouseUpHandler = function() {
 ```
 
 Below is the demo that you can play with.
-`}
-/>
+
 <iframe src='/demo/create-resizable-split-views/index.html' />
-<Markdown
-    content={`
+
 ## Support vertical direction
 
 It's easy to support splitting the side vertically. Instead of updating the width of left side, now we update the height of the top side:
