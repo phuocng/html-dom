@@ -25,23 +25,81 @@ layout: layouts/base.njk
 </header>
 
 <div class="container">
-    {% set chunkSize = (collections.posts.length / products.length) | round %}
-    {% set chunkPosts = collections.posts | chunk(chunkSize) %}
-    {% for posts in chunkPosts %}        
+    <!-- Why -->
+    <section class="home-section">
+        <h2 class="home-section__heading home-section__heading--even">Why</h2>
+
+        <p>Web development goes very fast. I still remember the moments when starting to use <a href="https://jquery.com">jQuery</a>, <a href="http://prototypejs.org">Prototype</a>, <a href="https://script.aculo.us">script.aculo.us</a>, <a href="https://zeptojs.com">Zepto</a> and many more.</p>
+        <p>Nowadays, even if our application is powered by mordern tools such as Angular, Vue, React, Svelte, .etc, we have to deal with DOM. The frameworks encapsulate and hide the DOM management directly, but still give us a door to work with DOM via ref, event handlers.</p>
+        <p>If you develop or use a web component in any framework, you have to work with DOM at a certain level.</p>
+        <p>Knowing the browser DOM APIs and how to use them play an important role in web development. A website introducing the APIs, well-known problems, most popular questions could be very useful.</p>
+    </section>
+
+    <!-- Features -->
+    <section class="home-section">
+        <h2 class="home-section__heading home-section__heading--odd">Covers</h2>
+
+        <div class="grid">
+            <div class="grid__item grid__item--3">
+                <div class="home-feature__inner">
+                    <svg viewBox="0 0 48 48" height="48" width="48" xmlns="http://www.w3.org/2000/svg"><g transform="matrix(2,0,0,2,0,0)"><path d="M9.000 9.500 A3 1.5 0 1 0 15.000 9.500 A3 1.5 0 1 0 9.000 9.500 Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9.000 3.500 A3 1.5 0 1 0 15.000 3.500 A3 1.5 0 1 0 9.000 3.500 Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16.000 6.500 A3 1.5 0 1 0 22.000 6.500 A3 1.5 0 1 0 16.000 6.500 Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.500 6.500 A3 1.5 0 1 0 8.500 6.500 A3 1.5 0 1 0 2.500 6.500 Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9.737 4.484L7.582 5.421" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16.694 5.541L14.261 4.483" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3.074,7.381,1.1,8.239a1,1,0,0,0-.6.917v6.7a1,1,0,0,0,.586.91L11.1,21.32a1,1,0,0,0,.8.013l10.983-4.577a1,1,0,0,0,.615-.923V9.156a1,1,0,0,0-.6-.917L21.2,7.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M11.5 13.5L11.5 21.408" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M23.315 8.577L11.5 13.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M11.5 13.5L0.681 8.582" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+                    <div class="home-feature__desc">No external library. Only native browsers' APIs</div>
+                </div>
+            </div>
+            <div class="grid__item grid__item--3">
+                <div class="home-feature__inner">
+                    <svg viewBox="0 0 48 48" height="48" width="48" xmlns="http://www.w3.org/2000/svg"><g transform="matrix(2,0,0,2,0,0)"><path d="M14.5,3.5h7a1,1,0,0,1,1,1v11H1.5V4.5a1,1,0,0,1,1-1h7" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M14.5,3.5a1,1,0,0,1-1,1h-3a1,1,0,0,1,0-2h3A1,1,0,0,1,14.5,3.5Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M22.5,15.5H1.5a1,1,0,0,0,0,2h21a1,1,0,0,0,0-2Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 17.499L12 23.499" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4 23.5L7 17.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 23.5L17 17.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 0.5L12 2.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+                    <div class="home-feature__desc">Small and easy to understand examples</div>
+                </div>
+            </div>
+            <div class="grid__item grid__item--3">
+                <div class="home-feature__inner">
+                    <svg viewBox="0 0 48 48" height="48" width="48" xmlns="http://www.w3.org/2000/svg"><g transform="matrix(2,0,0,2,0,0)"><path d="M0.500 11.999 A11.500 11.500 0 1 0 23.500 11.999 A11.500 11.500 0 1 0 0.500 11.999 Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9.224,16.137A.5.5,0,0,1,8.5,15.69V8.308a.5.5,0,0,1,.724-.447l7.382,3.691a.5.5,0,0,1,0,.894Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+                    <div class="home-feature__desc">Include live demos you can play and see in action</div>
+                </div>
+            </div>
+            <div class="grid__item grid__item--3">
+                <div class="home-feature__inner">
+                    <svg viewBox="0 0 48 48" height="48" width="48" xmlns="http://www.w3.org/2000/svg"><g transform="matrix(2,0,0,2,0,0)"><path d="M13.514 23.5L10.514 23.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M14.514 21.5L9.514 21.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12.014 0.5L12.014 3.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3.528 4.015L5.65 6.136" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20.499 4.015L18.378 6.136" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M0.514 12.5L3.514 12.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M23.514 12.5L20.514 12.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M18.014,12.5a6,6,0,1,0-9.429,4.917,1,1,0,0,1,.429.821V19a.5.5,0,0,0,.5.5h5a.5.5,0,0,0,.5-.5v-.763a1,1,0,0,1,.429-.821A5.98,5.98,0,0,0,18.014,12.5Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+                    <div class="home-feature__desc">Many tips and good practices included</div>
+                </div>
+            </div>
+            <div class="grid__item grid__item--3">
+                <div class="home-feature__inner">
+                    <svg viewBox="0 0 48 48" height="48" width="48" xmlns="http://www.w3.org/2000/svg"><g transform="matrix(2,0,0,2,0,0)"><path d="M2.500 8.500 L21.500 8.500 L21.500 23.500 L2.500 23.500 Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M7.5,6.419V5a4.5,4.5,0,0,1,9,0V6.419" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15.011 12.5L14.511 14.5 12.511 14.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M7.007 16.5L9.007 16.5 9.507 18.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M14.016 21.987L12.817 20.5 14.016 18.987" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15.661,17.029l1.061,2a1,1,0,0,1-.883,1.468H12.817" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M10.044,13.825l1.122-1.907a1,1,0,0,1,1.709-.025L14.511,14.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M10.007,20.5h-1.7a1,1,0,0,1-.847-1.531L9.007,16.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+                    <div class="home-feature__desc">Many real use cases that can be reused in your app</div>
+                </div>
+            </div>
+            <div class="grid__item grid__item--3">
+                <div class="home-feature__inner">
+                    <svg viewBox="0 0 48 48" height="48" width="48" xmlns="http://www.w3.org/2000/svg"><g transform="matrix(2,0,0,2,0,0)"><path d="M0.5 1.5L2.5 1.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M1.5 0.5L1.5 2.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M14.5 8.5L16.5 8.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15.5 7.5L15.5 9.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M10.5 2.5L12.5 2.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M11.5 1.5L11.5 3.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6 2.5L5 4.5 3 5.5 5 6.5 6 8.5 7 6.5 9 5.5 7 4.5 6 2.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15.5,20.833A2.43,2.43,0,0,1,13.42,23.5H5.58A2.428,2.428,0,0,1,3.5,20.833V11.5h12Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M0.5 11.5L18.5 11.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3.5 15.5L15.5 15.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path><path d="M23.5 0.5L12 6.5" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+                    <div class="home-feature__desc">Work with the modern browsers. <del>Try to support IE 11</del></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="home-section">
+        <h2 class="home-section__heading home-section__heading--even">Examples</h2>
+
+        {% set chunkSize = (collections.posts.length / products.length) | round %}
+        {% set chunkPosts = collections.posts | chunk(chunkSize) %}
+        {% for posts in chunkPosts %}        
         {% set product = products[(loop.index - 1)] %}
-        <div class="home-cards">
+        <div class="grid">
             {% for post in posts | reverse %}
-            <div class="home-card">
-                <div class="home-card__inner">
-                    <div class="home-card__category home-card__category--{{ post.data.category | lower }}">{{ post.data.category }}</div>
-                    <h2 class="home-card__link"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+            <div class="grid__item home-example">
+                <div class="home-example__inner">
+                    <div class="home-example__category home-example__category--{{ post.data.category | lower }}">{{ post.data.category }}</div>
+                    <h2 class="home-example__link"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
                 </div>
             </div>
             {% endfor %}
 
             {% if product.name %}
-            <div class="home-card">
-                <div class="home-card__inner" style="background-color: {{ product.themeColor }}">
+            <div class="grid__item home-example">
+                <div class="home-example__inner" style="background-color: {{ product.themeColor }}">
                     <a class="home-product" href="{{ product.url }}" style="color: #FFF" alt="{{ product.description }}">
                         <div class="home-product__head">
                             <img height="48" width="48" src="/assets/{{ product.name | slug }}.png" alt="{{ product.description }}" />
@@ -53,5 +111,6 @@ layout: layouts/base.njk
             </div>
             {% endif %}
         </div>
-    {% endfor %}
+        {% endfor %}
+    </section>
 </div>

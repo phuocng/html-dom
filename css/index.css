@@ -26,6 +26,17 @@ code {
     max-width: 64rem;
     padding: 0 1rem;
 }
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -1rem;
+    margin-right: -1rem;
+}
+.grid__item {
+    margin: 1.5rem 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
 
 /* Header */
 .header {    
@@ -136,19 +147,50 @@ code {
 }
 
 /* Home */
-.home-cards {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: -1rem;
-    margin-right: -1rem;
+.home-section {
+    margin: 3rem 0;
 }
-.home-card {
-    height: 8rem;
+.home-section__heading {
+    display: grid;    
+    grid-gap: 1rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+.home-section__heading--odd {
+    grid-template-columns: 1fr auto;
+}
+.home-section__heading--even {
+    grid-template-columns: auto 1fr;
+}
+.home-section__heading--odd::before,
+.home-section__heading--even::after {
+    align-self: center;
+    border-top: 1px solid var(--color-gray-300);
+    content: '';
+}
+
+.home-feature {
     margin: 1.5rem 0;
     padding-left: 1rem;
     padding-right: 1rem;
 }
-.home-card__inner {
+.home-feature__inner {
+    border: 1px solid var(--color-gray-300);
+    border-top-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    height: 8rem;
+    padding: 0.75rem;
+    text-align: center;
+}
+.home-feature__desc {
+    margin: 0.5rem 0;
+}
+
+.home-example {
+    height: 8rem;
+}
+.home-example__inner {
     /* Center */
     align-items: center;
     display: flex;
@@ -161,7 +203,7 @@ code {
     padding: 0.75rem;
     position: relative;
 }
-.home-card__category {
+.home-example__category {
     border-top-left-radius: 0.5rem;
     color: #fff;
     font-size: 0.75rem;
@@ -173,19 +215,19 @@ code {
     top: 0;
     transform: translate(-1px, -100%);
 }
-.home-card__category--advanced {
+.home-example__category--advanced {
     background-color: #e53e3e;
 }
-.home-card__category--basic {
+.home-example__category--basic {
     background-color: #718096;
 }
-.home-card__category--intermediate {
+.home-example__category--intermediate {
     background-color: #3182ce;
 }
-.home-card__category--tip {
+.home-example__category--tip {
     background-color: #9333EA;
 }
-.home-card__link {
+.home-example__link {
     font-size: 1.25rem;
     font-weight: 500;
 }
@@ -258,7 +300,10 @@ code {
         flex-basis: 16rem;
         margin-left: 1rem;
     }
-    .home-card {
+    .grid__item {
         width: 25%;
+    }
+    .grid__item--3 {
+        width: 33.33333%;
     }
 }
