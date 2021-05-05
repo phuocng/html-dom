@@ -39,23 +39,20 @@ permalink: "/{{ page.fileSlug }}/index.html"
         </div>
     </div>
 
-    <div class="post__nav">
-        <div class="post__prev">
+    <div class="post-nav">
+        
         {% if prevPost %}
-            <div class="card">
-                <div>←</div>
-                <a href="{{ prevPost.url }}">{{ prevPost.data.title }}</a>
-            </div>
-        {% endif %}
+        <div class="post-nav__item post-nav__item--prev">
+            <div class="post-nav__dir">Previous</div>
+            <a href="{{ prevPost.url }}">{{ prevPost.data.title }}</a>
         </div>
-
-        <div class="post__next">
-        {% if nextPost %}        
-            <div class="card">
-                <div>→</div>
-                <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>
-            </div>
         {% endif %}
+        
+        {% if nextPost %}
+        <div class="post-nav__item post-nav__item--next">
+            <div class="post-nav__dir">Next</div>    
+            <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>
         </div>
+        {% endif %}        
     </div>
 </div>
