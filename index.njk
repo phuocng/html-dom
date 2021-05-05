@@ -25,22 +25,33 @@ layout: layouts/base.njk
 </header>
 
 <div class="container">
-{% set chunkSize = (collections.posts.length / products.length) | round %}
-{% set chunkPosts = collections.posts | chunk(chunkSize) %}
-{% for posts in chunkPosts %}
-    {% set product = products[loop.index - 1] %}
-    {% for post in posts | reverse %}
-    <div class="home__post">
-        <a href="{{ post.url }}">{{ post.data.title }}</a>
-    </div>
-    {% endfor %}
+    {% set chunkSize = (collections.posts.length / products.length) | round %}
+    {% set chunkPosts = collections.posts | chunk(chunkSize) %}
+    {% for posts in chunkPosts %}        
+        {% set product = products[(loop.index - 1)] %}
+        <div class="home-cards">
+            {% for post in posts | reverse %}
+            <div class="home-card">
+                <div class="home-card__inner">
+                    <div class="home-card__category home-card__category--{{ post.data.category | lower }}">{{ post.data.category }}</div>
+                    <h2 class="home-card__link"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+                </div>
+            </div>
+            {% endfor %}
 
-    <div class="home__product" style="background-color: {{ product.themeColor }}">
-        <a href="{{ product.url }}" style="color: #FFF" alt="{{ product.description }}">
-            <img height="64" width="64" src="/assets/{{ product.name | slug }}.png" alt="{{ product.description }}" />
-            <h3 class="home__heading">{{ product.name }}</h3>
-            {{ product.description }}
-        </a>
-    </div>
-{% endfor %}
+            {% if product.name %}
+            <div class="home-card">
+                <div class="home-card__inner" style="background-color: {{ product.themeColor }}">
+                    <a class="home-product" href="{{ product.url }}" style="color: #FFF" alt="{{ product.description }}">
+                        <div class="home-product__head">
+                            <img height="48" width="48" src="/assets/{{ product.name | slug }}.png" alt="{{ product.description }}" />
+                            <h3 class="home-product__name">{{ product.name }}</h3>
+                        </div>
+                        <div class="home-product__desc">{{ product.description }}</div>
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    {% endfor %}
 </div>

@@ -2,7 +2,7 @@ module.exports = [
     {
         name: 'Intersection Observer Examples',
         url: 'https://intersectionobserver.io',
-        description: 'Practical, real world examples of Intersection Observer',
+        description: 'Practical, real world examples of IntersectionObserver',
         themeColor: '#024ca9',
     },
     {
@@ -14,7 +14,7 @@ module.exports = [
     {
         name: 'Check Browsers Support',
         url: 'https://checkbrowsers.support',
-        description: 'A browser extension to check browser compatibility without leaving your tab',
+        description: 'Check browser compatibility without leaving your tab',
         themeColor: '#f33446',
     },
     {
