@@ -94,7 +94,7 @@ We can use the technique in this post to
 
 ## Demo
 
-<iframe src='/demo/make-a-draggable-element/index.html' />
+<iframe src='/demo/make-a-draggable-element/index.html'></iframe>
 
 ## More
 

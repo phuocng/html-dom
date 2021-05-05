@@ -81,7 +81,7 @@ exportBtn.addEventListener('click', function() {
 
 ## Demo
 
-<iframe src='/demo/export-a-table-to-csv/index.html' />
+<iframe src='/demo/export-a-table-to-csv/index.html'></iframe>
 
 ## More
 

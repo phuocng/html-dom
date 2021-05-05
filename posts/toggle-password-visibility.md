@@ -37,7 +37,7 @@ toggleEle.addEventListener('click', function() {
 
 ## Demo
 
-<iframe src='/demo/toggle-password-visibility/index.html' />
+<iframe src='/demo/toggle-password-visibility/index.html'></iframe>
 
 ## More
 

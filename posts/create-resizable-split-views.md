@@ -160,7 +160,7 @@ const mouseUpHandler = function() {
 
 Below is the demo that you can play with.
 
-<iframe src='/demo/create-resizable-split-views/index.html' />
+<iframe src='/demo/create-resizable-split-views/index.html'></iframe>
 
 ## Support vertical direction
 
@@ -253,7 +253,7 @@ Enjoy the demo!
 
 ## Demo
 
-<iframe src='/demo/create-resizable-split-views/direction.html' />
+<iframe src='/demo/create-resizable-split-views/direction.html'></iframe>
 
 ## More
 

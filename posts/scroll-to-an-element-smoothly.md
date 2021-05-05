@@ -184,7 +184,7 @@ In the following demo, try to move between sections by clicking an circle on the
 
 ## Demo
 
-<iframe src='/demo/scroll-to-an-element-smoothly/index.html' />
+<iframe src='/demo/scroll-to-an-element-smoothly/index.html'></iframe>
 
 ## More
 

@@ -67,7 +67,7 @@ sizeEle.innerHTML = formatFileSize(files[0].size);
 
 ## Demo
 
-<iframe src='/demo/get-size-of-the-selected-file/index.html' />
+<iframe src='/demo/get-size-of-the-selected-file/index.html'></iframe>
 
 ## More
 

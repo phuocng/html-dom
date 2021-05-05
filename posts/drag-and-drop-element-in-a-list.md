@@ -251,7 +251,7 @@ Following is the final demo. Try to drag and drop any item!
 
 ## Demo
 
-<iframe src='/demo/drag-and-drop-element-in-a-list/index.html' />
+<iframe src='/demo/drag-and-drop-element-in-a-list/index.html'></iframe>
 
 ## More
 

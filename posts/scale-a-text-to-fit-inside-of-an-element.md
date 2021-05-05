@@ -51,7 +51,7 @@ ele.style.fontSize = `\${scaleFontSize}px`;
 
 ## Demo
 
-<iframe src='/demo/scale-a-text-to-fit-inside-of-an-element/index.html' />
+<iframe src='/demo/scale-a-text-to-fit-inside-of-an-element/index.html'></iframe>
 
 ## More
 

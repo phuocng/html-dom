@@ -249,7 +249,7 @@ Following is the final demo. Try to drag and drop the first cell of any column.
 
 ## Demo
 
-<iframe src='/demo/drag-and-drop-table-column/index.html' />
+<iframe src='/demo/drag-and-drop-table-column/index.html'></iframe>
 
 ## More
 

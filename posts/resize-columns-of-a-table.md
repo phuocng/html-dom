@@ -144,7 +144,7 @@ const mouseUpHandler = function() {
 
 ## Demo
 
-<iframe src='/demo/resize-columns-of-a-table/index.html' />
+<iframe src='/demo/resize-columns-of-a-table/index.html'></iframe>
 
 ## More
 

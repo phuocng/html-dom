@@ -159,7 +159,7 @@ _Photo by [frank mckenna](https://unsplash.com/@frankiefoto) on [Unsplash](https
 
 ## Demo
 
-<iframe src='/demo/create-an-image-comparison-slider/index.html' />
+<iframe src='/demo/create-an-image-comparison-slider/index.html'></iframe>
 
 ## More
 

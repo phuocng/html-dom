@@ -120,7 +120,7 @@ In our specific example, `<input type="number" />` doesn't help because it doesn
 
 ## Demo
 
-<iframe src='/demo/allow-to-enter-particular-characters-only/index.html' />
+<iframe src='/demo/allow-to-enter-particular-characters-only/index.html'></iframe>
 
 ## More
 

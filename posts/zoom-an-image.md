@@ -155,7 +155,7 @@ _Photo by [Pedro Lastra](https://unsplash.com/@peterlaster) on [Unsplash](https:
 
 ## Demo
 
-<iframe src='/demo/zoom-an-image/index.html' />
+<iframe src='/demo/zoom-an-image/index.html'></iframe>
 
 ## More
 

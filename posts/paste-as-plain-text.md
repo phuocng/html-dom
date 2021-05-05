@@ -53,7 +53,7 @@ Try to paste some rich text in the following `contenteditable` element:
 
 ## Demo
 
-<iframe src='/demo/paste-as-plain-text/index.html' />
+<iframe src='/demo/paste-as-plain-text/index.html'></iframe>
 
 ## More
 

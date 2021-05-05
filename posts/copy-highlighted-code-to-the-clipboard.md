@@ -29,7 +29,7 @@ You can see the code in the demo below. Enjoy!
 
 ## Demo
 
-<iframe src='/demo/copy-highlighted-code-to-the-clipboard/index.html' />
+<iframe src='/demo/copy-highlighted-code-to-the-clipboard/index.html'></iframe>
 
 ## More
 

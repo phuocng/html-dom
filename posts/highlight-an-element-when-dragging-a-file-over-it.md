@@ -60,7 +60,7 @@ executing the default action.
 
 ## Demo
 
-<iframe src='/demo/highlight-an-element-when-dragging-a-file-over-it/index.html' />
+<iframe src='/demo/highlight-an-element-when-dragging-a-file-over-it/index.html'></iframe>
 
 ## More
 

@@ -65,7 +65,7 @@ req.send(formData);
 
 ## Demo
 
-<iframe src='/demo/paste-an-image-from-the-clipboard/index.html' />
+<iframe src='/demo/paste-an-image-from-the-clipboard/index.html'></iframe>
 
 ## More
 

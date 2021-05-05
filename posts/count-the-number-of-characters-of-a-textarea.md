@@ -52,7 +52,7 @@ messageEle.addEventListener('input', function(e) {
 
 ## Demo
 
-<iframe src='/demo/count-the-number-of-characters-of-a-textarea/index.html' />
+<iframe src='/demo/count-the-number-of-characters-of-a-textarea/index.html'></iframe>
 
 ## More
 

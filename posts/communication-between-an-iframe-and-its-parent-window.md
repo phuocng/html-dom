@@ -79,7 +79,7 @@ and [a child iframe](https://github.com/phuoc-ng/html-dom/blob/master/demo/commu
 
 ## Demo
 
-<iframe src='/demo/communication-between-an-iframe-and-its-parent-window/index.html' />
+<iframe src='/demo/communication-between-an-iframe-and-its-parent-window/index.html'></iframe>
 
 ## More
 

@@ -42,7 +42,7 @@ In the demo below, pressing `Enter` will do nothing:
 
 ## Demo
 
-<iframe src='/demo/press-shift-and-enter-for-a-new-line/index.html' />
+<iframe src='/demo/press-shift-and-enter-for-a-new-line/index.html'></iframe>
 
 ## More
 

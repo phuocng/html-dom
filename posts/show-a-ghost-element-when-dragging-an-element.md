@@ -68,7 +68,7 @@ ele.addEventListener('dragstart', function(e) {
 
 ## Demo
 
-<iframe src='/demo/show-a-ghost-element-when-dragging-an-element/index.html' />
+<iframe src='/demo/show-a-ghost-element-when-dragging-an-element/index.html'></iframe>
 
 ## More
 

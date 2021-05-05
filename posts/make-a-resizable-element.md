@@ -124,7 +124,7 @@ const resizers = ele.querySelectorAll('.resizer');
 ```
 ## Demo
 
-<iframe src='/demo/make-a-resizable-element/index.html' />
+<iframe src='/demo/make-a-resizable-element/index.html'></iframe>
 
 ## More
 

@@ -80,7 +80,7 @@ textboxEle.addEventListener('input', function(e) {
 
 ## Demo
 
-<iframe src='/demo/resize-the-width-of-a-text-box-to-fit-its-content-automatically/index.html' />
+<iframe src='/demo/resize-the-width-of-a-text-box-to-fit-its-content-automatically/index.html'></iframe>
 
 ## More
 

@@ -238,7 +238,7 @@ Following is the final demo. Try to drag and drop the first cell of any row.
 
 ## Demo
 
-<iframe src='/demo/drag-and-drop-table-row/index.html' />
+<iframe src='/demo/drag-and-drop-table-row/index.html'></iframe>
 
 ## More
 

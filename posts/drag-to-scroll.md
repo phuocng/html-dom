@@ -116,7 +116,7 @@ Hopefully you love the following demo!
 
 ## Demo
 
-<iframe src='/demo/drag-to-scroll/index.html' />
+<iframe src='/demo/drag-to-scroll/index.html'></iframe>
 
 ## More
 

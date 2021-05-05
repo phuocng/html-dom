@@ -326,6 +326,11 @@ code {
     transform: translate(-1px, -100%);
 }
 
+/* Demo */
+iframe {
+    border: 1px solid var(--color-gray-300);
+}
+
 /* Responsive */
 @media (min-width: 640px) {
     .sidebar {

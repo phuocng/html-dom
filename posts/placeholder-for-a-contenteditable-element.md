@@ -63,7 +63,7 @@ ele.addEventListener('blur', function(e) {
 
 ## Demo
 
-<iframe src='/demo/placeholder-for-a-contenteditable-element/index.html' />
+<iframe src='/demo/placeholder-for-a-contenteditable-element/index.html'></iframe>
 
 ## More
 

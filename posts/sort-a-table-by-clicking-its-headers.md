@@ -200,7 +200,7 @@ const sortColumn = function(index) {
 
 ## Demo
 
-<iframe src='/demo/sort-a-table-by-clicking-its-headers/index.html' />
+<iframe src='/demo/sort-a-table-by-clicking-its-headers/index.html'></iframe>
 
 ## More
 

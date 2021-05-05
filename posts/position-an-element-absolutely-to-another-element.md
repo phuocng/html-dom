@@ -59,7 +59,7 @@ This way uses CSS only and doesn't require any position calculation. Anyway, it 
 
 In the demo below, clicking the _Toggle overflow:hidden_ button will make the popover hidden as well.
 
-<iframe src='/demo/position-an-element-absolutely-to-another-element/css.html' />
+<iframe src='/demo/position-an-element-absolutely-to-another-element/css.html'></iframe>
 
 ## 2. Append the popover to `body`
 
@@ -95,7 +95,7 @@ popover.style.top = `\${top + 8}px`;
 popover.style.left = `\${left}px`;
 ```
 
-<iframe src='/demo/position-an-element-absolutely-to-another-element/absolute.html' />
+<iframe src='/demo/position-an-element-absolutely-to-another-element/absolute.html'></iframe>
 
 ## 3. Use an anchor element
 
@@ -141,7 +141,7 @@ popover.style.left = `\${left - anchorRect.left}px`;
 
 * [Create a custom scrollbar](/create-a-custom-scrollbar)
 
-<iframe src='/demo/position-an-element-absolutely-to-another-element/anchor.html' />
+<iframe src='/demo/position-an-element-absolutely-to-another-element/anchor.html'></iframe>
 
 ## More
 

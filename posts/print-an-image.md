@@ -100,7 +100,7 @@ _Photo by [Rod Long](https://unsplash.com/@rodlong) on [Unsplash](https://unspla
 
 ## Demo
 
-<iframe src='/demo/print-an-image/index.html' />
+<iframe src='/demo/print-an-image/index.html'></iframe>
 
 ## More
 

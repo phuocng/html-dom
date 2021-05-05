@@ -35,7 +35,7 @@ editEle.addEventListener('click', function(e) {
 
 ## Demo
 
-<iframe src='/demo/put-cursor-at-the-end-of-an-input/index.html' />
+<iframe src='/demo/put-cursor-at-the-end-of-an-input/index.html'></iframe>
 
 ## More
 

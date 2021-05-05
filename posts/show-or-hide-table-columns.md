@@ -242,7 +242,7 @@ In the demo below, right-click the headers to show or hide any columns. Enjoy!
 
 ## Demo
 
-<iframe src='/demo/show-or-hide-table-columns/index.html' />
+<iframe src='/demo/show-or-hide-table-columns/index.html'></iframe>
 
 ## More
 

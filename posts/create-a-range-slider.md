@@ -151,7 +151,7 @@ Enjoy the demo!
 
 ## Demo
 
-<iframe src='/demo/create-a-range-slider/index.html' />
+<iframe src='/demo/create-a-range-slider/index.html'></iframe>
 
 ## More
 
