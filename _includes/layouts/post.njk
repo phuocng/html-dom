@@ -29,6 +29,8 @@ permalink: "/{{ page.fileSlug }}/index.html"
 
         <div class="sidebar">
             <div class="sidebar__inner">
+                <script src="https://cdn.carbonads.com/carbon.js?serve=CE7I6KQI&placement=htmldomdev" async id="_carbonads_js"></script>
+
                 {% set randomProducts = products | randomItems(5) | sortBy('name') %}
                 {% for product in randomProducts %}
                 {% include "_product.njk" %}
