@@ -127,7 +127,8 @@ code {
     top: 1rem;
 }
 .sidebar__card {
-    border-radius: 0.5rem;
+    border-top-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
     margin: 1rem 0;
     overflow: hidden;
     padding: 1rem;
@@ -324,6 +325,27 @@ code {
     position: absolute;
     top: 0;
     transform: translate(-1px, -100%);
+}
+
+/* Ads */
+#carbonads {
+    border: 1px solid var(--color-gray-300);
+    border-top-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding: 0.5rem 1rem;  
+}
+.carbon-img {
+    display: block;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+.carbon-poweredby {
+    display: block;
+    font-size: 0.75rem;
+    text-align: right;
+}
+.carbon-text {
+    display: block;
 }
 
 /* Demo */
