@@ -32,10 +32,12 @@ code {
     margin-left: -1rem;
     margin-right: -1rem;
 }
-.grid__item {
-    margin: 1.5rem 0;
+.grid__item,
+.grid__item--3 {
+    margin: 1rem 0;
     padding-left: 1rem;
     padding-right: 1rem;
+    width: 100%;
 }
 
 /* Header */
@@ -195,9 +197,6 @@ code {
     margin: 0.5rem 0;
 }
 
-.home-example {
-    height: 8rem;
-}
 .home-example__inner {
     /* Center */
     align-items: center;
@@ -241,6 +240,9 @@ code {
 }
 
 .home-product {
+    border-top-left-radius: 1rem;
+}
+.home-product__link {
     align-items: center;
     display: flex;
     flex-direction: column;    
@@ -266,7 +268,7 @@ code {
     border-top-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     display: flex;
-    padding: 0.5rem 1rem;
+    padding: 1rem;
 }
 .post__content {
     flex: 1;
@@ -295,11 +297,6 @@ code {
 }
 
 /* Post navigation */
-.post-nav {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 4rem;
-}
 .post-nav__item {
     /* Center */
     align-items: center;
@@ -310,6 +307,7 @@ code {
     border: 1px solid var(--color-gray-300);
     border-bottom-right-radius: 1rem;
     height: 100%;
+    margin: 2rem 0;
     padding: 0.75rem;
     position: relative;
 }
@@ -355,6 +353,17 @@ iframe {
 
 /* Responsive */
 @media (min-width: 640px) {
+    .grid__item,
+    .grid__item--3 {
+        width: 50%;
+    }
+    .home-example {
+        height: 8rem;
+    }
+    .post-nav {
+        display: flex;
+        justify-content: space-between;
+    }
     .sidebar {
         display: block;
         flex: 0 0 10rem;
@@ -362,19 +371,20 @@ iframe {
     }
 }
 @media (min-width: 768px) {
+    .grid__item,
+    .grid__item--3 {
+        width: 33.33333%;
+    }
     .sidebar {
         flex-basis: 12rem;
     }
 }
-@media (min-width: 1024px) {
-    .sidebar {
-        flex-basis: 16rem;
-        margin-left: 1rem;
-    }
+@media (min-width: 1024px) {    
     .grid__item {
         width: 25%;
     }
-    .grid__item--3 {
-        width: 33.33333%;
+    .sidebar {
+        flex-basis: 16rem;
+        margin-left: 1rem;
     }
 }
