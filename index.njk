@@ -88,7 +88,7 @@ layout: layouts/base.njk
         {% for posts in chunkPosts %}        
         {% set product = products[(loop.index - 1)] %}
         <div class="grid">
-            {% for post in posts | reverse %}
+            {% for post in posts %}
             <div class="grid__item home-example">
                 <div class="home-example__inner">
                     <div class="home-example__category home-example__category--{{ post.data.category | lower }}">{{ post.data.category }}</div>
