@@ -23,7 +23,7 @@ code:not([class]) {
 /* Layout */
 .container {
     margin: 0 auto;
-    max-width: 64rem;
+    max-width: 80rem;
     padding: 0 1rem;
 }
 .grid {
@@ -93,7 +93,6 @@ code:not([class]) {
     align-items: center;
     display: flex;
     justify-content: space-between;
-    padding: 0.5rem 0;
 }
 .header__nav a {
     color: #FFF;
@@ -102,7 +101,6 @@ code:not([class]) {
 .header__logo {
     display: flex;
     justify-content: center;
-    margin: 1rem 0;
 }
 .header__heading {
     font-size: 2.5rem;
@@ -431,5 +429,10 @@ iframe {
     .sidebar {
         flex-basis: 16rem;
         margin-left: 1rem;
+    }
+}
+@media (min-width: 1280px) {    
+    .grid__item {
+        width: 20%;
     }
 }
