@@ -392,7 +392,8 @@ code {
 
 /* Demo */
 iframe {
-    border: 1px solid var(--color-gray-300);
+    border: none;
+    width: 100%;
 }
 
 /* Responsive */
