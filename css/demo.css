@@ -8,3 +8,10 @@ body {
 a {
     text-decoration: none;
 }
+
+.demo {
+    align-items: center;
+    border: 1px solid #cbd5e0;
+    display: flex;
+    justify-content: center;
+}

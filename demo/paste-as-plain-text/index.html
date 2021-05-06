@@ -1,15 +1,29 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>HTML DOM</title>
+    <title>HTML DOM - Paste as plain text</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/css/demo.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap">
+    <style>
+    .container {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        padding: 2rem;
+    }
+    .editor {
+        border: 1px solid #cbd5e0;
+        height: 16rem;
+        overflow: auto;
+        width: 100%;
+    }
+    </style>
 </head>
 <body>
-    <div class="flex items-center justify-center p-8">
-        <div contenteditable class="border border-gray-400 h-64 w-full overflow-auto" id="editor"></div>
+    <div class="container">
+        <div contenteditable class="editor" id="editor"></div>
     </div>
 
 <script>

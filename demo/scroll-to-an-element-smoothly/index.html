@@ -7,24 +7,64 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap">
     <style>
-    .section {
-        height: 32rem;
+    .navigation {
+        /* Fixed position */
+        left: 0;
+        position: fixed;
+        top: 50%;
+        transform: translate(0px, -50%);
+
+        /* Center the content */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;        
+        
+        /* Misc */
+        padding: 1rem;
+    }
+    .navigation__item {
+        /* Make it like circle */
+        border-radius: 9999px;
+        height: .75rem;
+        width: .75rem;
+
+        border: 1px solid #cbd5e0;        
+        margin: .25rem 0;
+    }
+    .navigation__item--selected {
+        background-color: #cbd5e0;
+    }
+    .section {        
+        height: 100vh;
+        width: 100%;
+
+        /* Center the content */
+        align-items: center;
+        display: flex;
+        justify-content: center;   
+
+        /* Misc */
+        border-bottom: 1px solid #cbd5e0;  
+        font-size: 2.25rem;
+    }
+    .section:last-child {
+        border-bottom-color: transparent;
     }
     </style>
 </head>
-<body class="font-sans w-full overflow-auto" style="max-height: 32rem">
+<body style="height: 32rem; overflow: auto">
     <!-- Navigation -->
-    <div class="fixed left-0 flex flex-col justify-center p-4" style="top: 50%; transform: translate(0px, -50%);">
-        <a href="#section-1" class="border border-gray-400 h-3 w-3 rounded-full my-1 trigger bg-gray-400"></a>
-        <a href="#section-2" class="border border-gray-400 h-3 w-3 rounded-full my-1 trigger"></a>
-        <a href="#section-3" class="border border-gray-400 h-3 w-3 rounded-full my-1 trigger"></a>
-        <a href="#section-4" class="border border-gray-400 h-3 w-3 rounded-full my-1 trigger"></a>
+    <div class="navigation">
+        <a href="#section-1" class="navigation__item navigation__item--selected"></a>
+        <a href="#section-2" class="navigation__item"></a>
+        <a href="#section-3" class="navigation__item"></a>
+        <a href="#section-4" class="navigation__item"></a>
     </div>
 
-    <div id="section-1" class="border-b border-gray-400 flex items-center justify-center text-4xl w-full section">1</div>
-    <div id="section-2" class="border-b border-gray-400 flex items-center justify-center text-4xl w-full section">2</div>
-    <div id="section-3" class="border-b border-gray-400 flex items-center justify-center text-4xl w-full section">3</div>
-    <div id="section-4" class="flex items-center justify-center text-4xl w-full section">4</div>
+    <div id="section-1" class="section">1</div>
+    <div id="section-2" class="section">2</div>
+    <div id="section-3" class="section">3</div>
+    <div id="section-4" class="section">4</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -62,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
         requestId = window.requestAnimationFrame(loop);
     };
 
-    const triggers = [].slice.call(document.querySelectorAll('.trigger'));
+    const triggers = [].slice.call(document.querySelectorAll('.navigation__item'));
     let activeTriggerEle = triggers.length === 0 ? null : triggers[0];
 
     const clickHandler = function(e) {
@@ -74,9 +114,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const id = href.substr(1);
         const target = document.getElementById(id);
 
-        activeTriggerEle && activeTriggerEle.classList.remove('bg-gray-400');
+        activeTriggerEle && activeTriggerEle.classList.remove('navigation__item--selected');
         activeTriggerEle = e.target;
-        activeTriggerEle.classList.add('bg-gray-400');
+        activeTriggerEle.classList.add('navigation__item--selected');
 
         scrollToTarget(target);
     };

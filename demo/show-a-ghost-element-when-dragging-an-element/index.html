@@ -10,6 +10,14 @@
     .draggable {
         cursor: move;
         user-select: none;
+
+        /* Misc */
+        align-items: center;
+        border: 1px solid #cbd5e0;
+        display: flex;
+        height: 8rem;
+        justify-content: center;
+        width: 8rem;
     }
     .dragging {
         align-items: center;
@@ -22,8 +30,8 @@
     </style>
 </head>
 <body>
-    <div class="flex items-center justify-center" style="min-height: 32rem;">
-        <div draggable="true" class="draggable border border-gray-400 h-32 w-32 flex items-center justify-center" id="dragMe">Drag me</div>
+    <div style="align-items: center; display: flex; justify-content: center; min-height: 32rem;">
+        <div draggable="true" class="draggable" id="dragMe">Drag me</div>
     </div>
 
 <script>

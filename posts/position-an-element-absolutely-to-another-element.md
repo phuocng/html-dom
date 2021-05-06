@@ -137,11 +137,11 @@ popover.style.top = `\${top - anchorRect.top + 8}px`;
 popover.style.left = `\${left - anchorRect.left}px`;
 ```
 
+<iframe src='/demo/position-an-element-absolutely-to-another-element/anchor.html'></iframe>
+
 ## Use cases
 
 * [Create a custom scrollbar](/create-a-custom-scrollbar)
-
-<iframe src='/demo/position-an-element-absolutely-to-another-element/anchor.html'></iframe>
 
 ## More
 

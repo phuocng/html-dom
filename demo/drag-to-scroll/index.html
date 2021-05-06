@@ -1,24 +1,39 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>HTML DOM</title>
+    <title>HTML DOM - Drag to scroll</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/css/demo.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap">
+    <style>
+    .item {
+        /* Center the content */
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        /* Misc */
+        border: 1px solid #cbd5e0;
+        font-size: 2.25rem;
+        height: 12rem;
+        margin: 2rem 0;
+        width: 100%;
+    }
+    </style>    
 </head>
 <body>
-    <div id="container" class="px-8 overflow-scroll" style="height: 32rem;">
-        <div class="bg-gray-100 border border-gray-400 flex items-center justify-center text-4xl w-full h-48 my-8">1</div>
-        <div class="bg-gray-100 border border-gray-400 flex items-center justify-center text-4xl w-full h-48 my-8">2</div>
-        <div class="bg-gray-100 border border-gray-400 flex items-center justify-center text-4xl w-full h-48 my-8">3</div>
-        <div class="bg-gray-100 border border-gray-400 flex items-center justify-center text-4xl w-full h-48 my-8">4</div>
-        <div class="bg-gray-100 border border-gray-400 flex items-center justify-center text-4xl w-full h-48 my-8">5</div>
-        <div class="bg-gray-100 border border-gray-400 flex items-center justify-center text-4xl w-full h-48 my-8">6</div>
-        <div class="bg-gray-100 border border-gray-400 flex items-center justify-center text-4xl w-full h-48 my-8">7</div>
-        <div class="bg-gray-100 border border-gray-400 flex items-center justify-center text-4xl w-full h-48 my-8">8</div>
-        <div class="bg-gray-100 border border-gray-400 flex items-center justify-center text-4xl w-full h-48 my-8">9</div>
-        <div class="bg-gray-100 border border-gray-400 flex items-center justify-center text-4xl w-full h-48 my-8">10</div>
+    <div id="container" style="height: 32rem; overflow: auto; padding: 0 2rem;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">10</div>
     </div>
 
 <script>

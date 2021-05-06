@@ -1,12 +1,40 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>HTML DOM</title>
+    <title>HTML DOM - Position an element absolutely to another element</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/css/demo.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap">
     <style>
+    .body {
+        position: relative;
+
+        /* Misc */
+        display: flex;
+        height: 16rem;
+        justify-content: center;
+        padding: 2rem;
+    }
+    .target {
+        /* Center the content */
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        /* Misc */
+        height: 8rem;
+        border: 1px solid #cbd5e0;
+        width: 16rem;
+    }
+    .popover {
+        /* Absolute position */        
+        position: absolute;
+
+        /* Misc */
+        border: 1px solid #cbd5e0;
+        padding: .5rem;
+    }
     .arrow {
         background-color: rgb(255, 255, 255);
         border-left: 1px solid #cbd5e0;
@@ -20,14 +48,16 @@
     }
     </style>
 </head>
-<body class="flex font-sans justify-center p-8 relative h-64">
-    <div id="target" class="border border-gray-400 flex items-center justify-center h-32 w-64">
-        Target
-    </div>
+<body class="body">
+    <div class="container" >
+        <div id="target" class="target">
+            Target
+        </div>
 
-    <div id="popover" class="absolute border border-gray-400 p-2">
-        <div class="arrow"></div>
-        Popover
+        <div id="popover" class="popover">
+            <div class="arrow"></div>
+            Popover
+        </div>
     </div>
 
 <script>

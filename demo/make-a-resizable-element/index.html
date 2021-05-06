@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>HTML DOM</title>
+    <title>HTML DOM - Make a resizable element</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/css/demo.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -9,6 +9,16 @@
     <style>
     .resizable {
         position: relative;
+
+        /* Center the content */
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        /* Misc */
+        border: 1px solid #cbd5e0;
+        height: 8rem;
+        width: 8rem;
     }
     .resizer {
         position: absolute;
@@ -31,11 +41,18 @@
         left: 0;
         width: 100%;
     }
+
+    /* Optional styles */
+
+    .container {
+        min-height: 32rem;
+        padding: 1rem;
+    }
     </style>
 </head>
 <body>
-    <div class="p-4" style="min-height: 32rem;">
-        <div class="resizable border border-gray-400 h-32 w-32 flex items-center justify-center" id="resizeMe">
+    <div class="container">
+        <div class="resizable" id="resizeMe">
             Resize me
             <div class="resizer resizer-r"></div>
             <div class="resizer resizer-b"></div>

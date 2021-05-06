@@ -1,22 +1,42 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>HTML DOM</title>
+    <title>HTML DOM - Make a draggable element</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/css/demo.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap">
     <style>
+    .container {
+        /* Center the content */
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        /* Misc */
+        min-height: 32rem;
+    }
     .draggable {
+        /* Required styles */
         cursor: move;
         position: absolute;
         user-select: none;
+
+        /* Center the content */
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        /* Misc */
+        border: 1px solid #cbd5e0;
+        height: 8rem;
+        width: 8rem;
     }
     </style>
 </head>
 <body>
-    <div class="flex items-center justify-center" style="min-height: 32rem;">
-        <div class="draggable border border-gray-400 h-32 w-32 flex items-center justify-center" id="dragMe">Drag me</div>
+    <div class="container">
+        <div class="draggable" id="dragMe">Drag me</div>
     </div>
 
 <script>

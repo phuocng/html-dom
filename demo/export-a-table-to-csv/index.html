@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>HTML DOM</title>
+    <title>HTML DOM - Export a table to csv</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/css/demo.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -16,10 +16,18 @@
     .table th, .table td {
         padding: 0.5rem;
     }
+    .button {
+        background-color: #63b3ed;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        margin-top: 1rem;
+        padding: .5rem .75rem;
+    }
     </style>
 </head>
 <body>
-    <div class="p-4">
+    <div style="padding: 1rem">
         <table id="exportMe" class="table">
             <thead>
                 <tr>
@@ -82,7 +90,7 @@
             </tbody>
         </table>
 
-        <button class="border-none bg-blue-400 text-white px-3 py-2 mt-4" id="export">Export</button>
+        <button class="button" id="export">Export</button>
     </div>
 
 <script>

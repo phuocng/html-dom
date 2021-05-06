@@ -1,20 +1,19 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>HTML DOM</title>
+    <title>HTML DOM - Print an image</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/css/demo.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap">
 </head>
 <body>
-    <div class="p-16 flex flex-col justify-center">
+    <div style="display: flex; flex-direction: column; justify-content: center; padding: 4rem;">
         <img id="image" src="/assets/village.jpg" />
-        <div class="mt-4 text-center">
-            <button class="bg-blue-400 border-none px-4 py-2 text-white" id="print">Print</button>
+        <div style="margin-top: 1rem; text-align: center;">
+            <button style="background-color: #63b3ed; border: none; color: #fff; cursor: pointer; padding: .5rem 1rem;" id="print">Print</button>
         </div>
     </div>
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Query the element

@@ -7,6 +7,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap">
     <style>
+    .container {
+        position: relative;
+    }
+    .container__menu {
+        /* Absolute position */
+        position: absolute;
+
+        /* Reset */
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        /* Misc */
+        background-color: #f7fafc;
+        border: 1px solid #cbd5e0;
+        border-radius: .25rem;        
+        padding: .5rem;
+    }
+    .container__menu--hidden {
+        display: none;
+    }
     .table {
         border-collapse: collapse;
     }
@@ -22,7 +43,7 @@
     </style>
 </head>
 <body>
-    <div class="p-4 relative">
+    <div class="container">
         <table id="table" class="table">
             <thead>
                 <tr>
@@ -107,8 +128,7 @@
             </tbody>
         </table>
 
-        <ul id="menu" class="absolute bg-gray-100 border border-gray-400 shadow-xl rounded p-2 hidden">
-        </ul>
+        <ul id="menu" class="container__menu container__menu--hidden"></ul>
     </div>
 
 <script>
@@ -129,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         menu.style.top = `${y}px`;
         menu.style.left = `${x}px`;
-        menu.classList.toggle('hidden');
+        menu.classList.toggle('container__menu--hidden');
 
         document.addEventListener('click', documentClickHandler);
     });
@@ -138,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const documentClickHandler = function(e) {
         const isClickedOutside = !menu.contains(e.target);
         if (isClickedOutside) {
-            menu.classList.add('hidden');
+            menu.classList.add('container__menu--hidden');
             document.removeEventListener('click', documentClickHandler);
         }
     };
@@ -210,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Handle the event
         checkbox.addEventListener('change', function(e) {
             e.target.checked ? showColumn(index) : hideColumn(index);
-            menu.classList.add('hidden');
+            menu.classList.add('container__menu--hidden');
         });
     });
 });

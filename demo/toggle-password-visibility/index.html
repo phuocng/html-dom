@@ -6,14 +6,34 @@
     <link rel="stylesheet" href="/css/demo.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap">
+    <style>
+    .toggle {        
+        align-items: center;
+        display: flex;
+        border: 1px solid #cbd5e0;        
+    }
+    .toggle__input {
+        border: none;
+        flex: 1;
+
+        /* Misc */
+        padding: .5rem;
+    }
+    .toggle__button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        padding: .5rem;
+    }
+    </style>
 </head>
 <body>
-    <div class="flex items-center justify-center">
-        <div class="my-12 w-64">
-            <div class="flex items-center border border-gray-400">
-                <input type="password" class="border-none flex-1 p-2" id="password" />
+    <div class="demo">
+        <div style="margin: 4rem 0; width: 16rem">
+            <div class="toggle">
+                <input type="password" class="toggle__input" autocomplete="off" id="password" />
 
-                <button class="p-2" id="toggle">
+                <button class="toggle__button" id="toggle">
                     <svg
                         viewBox="0 0 24 24"
                         style="fill: none; height: 24px; stroke: rgba(0, 0, 0, 0.4); stroke-linecap: round; stroke-linejoin: round; stroke-width: 1; width: 24px;"
@@ -22,7 +42,7 @@
                     </svg>
                 </button>
             </div>
-        </div>
+        </div>        
     </div>
 
 <script>
