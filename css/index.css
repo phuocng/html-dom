@@ -10,7 +10,7 @@ body {
 a {
     text-decoration: none;
 }
-code {
+code:not([class]) {
     background-color: #FDE68A;
     font-size: 1rem;
 }

@@ -3,52 +3,18 @@
     <meta charset="utf-8" />
     <title>HTML DOM</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="/demo/highlight.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/demo.css">
+    <link rel="stylesheet" href="/css/prism.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap">
-    <style>
-    .hljs, code {
-        font-family: Source Code Pro,monospace;
-    }
-    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap">    
 </head>
-<body class="font-sans w-full">
-    <div class="flex flex-col items-center justify-center p-8">
-        <div class="w-full mb-4">
-            <pre id="sampleCode" class="hljs"><code class="javascript"><span class="hljs-comment">// Query the elements</span>
-<span class="hljs-keyword">const</span> copyButton = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'copyButton'</span>);
-<span class="hljs-keyword">const</span> codeEle = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'sampleCode'</span>);
-
-copyButton.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">const</span> selection = <span class="hljs-built_in">window</span>.getSelection();
-
-    <span class="hljs-comment">// Save the current selection</span>
-    <span class="hljs-keyword">const</span> currentRange = selection.rangeCount === <span class="hljs-number">0</span>
-        ? <span class="hljs-literal">null</span> : selection.getRangeAt(<span class="hljs-number">0</span>);
-
-    <span class="hljs-comment">// Select the text content of code element</span>
-    <span class="hljs-keyword">const</span> range = <span class="hljs-built_in">document</span>.createRange();
-    range.selectNodeContents(codeEle);
-    selection.removeAllRanges();
-    selection.addRange(range);
-
-    <span class="hljs-comment">// Copy to the clipboard</span>
-    <span class="hljs-keyword">try</span> {
-        <span class="hljs-built_in">document</span>.execCommand(<span class="hljs-string">'copy'</span>);
-        copyButton.innerHTML = <span class="hljs-string">'Copied'</span>;
-    } <span class="hljs-keyword">catch</span> (err) {
-        <span class="hljs-comment">// Unable to copy</span>
-        copyButton.innerHTML = <span class="hljs-string">'Copy'</span>;
-    } <span class="hljs-keyword">finally</span> {
-        <span class="hljs-comment">// Restore the previous selection</span>
-        selection.removeAllRanges();
-        currentRange &amp;&amp; selection.addRange(currentRange);
-    }
-});</code></pre>
+<body>
+    <div style="align-items: center; display: flex; flex-direction: column; justify-content: center">
+        <div style="margin-bottom: 1rem; width: 100%">
+            <pre id="sampleCode" class="language-js"><code class="language-js"><span class="token comment">// Query the elements</span><br><span class="token keyword">const</span> copyButton <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'copyButton'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">const</span> codeEle <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'sampleCode'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>copyButton<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">const</span> selection <span class="token operator">=</span> window<span class="token punctuation">.</span><span class="token function">getSelection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    <span class="token comment">// Save the current selection</span><br>    <span class="token keyword">const</span> currentRange <span class="token operator">=</span> selection<span class="token punctuation">.</span>rangeCount <span class="token operator">===</span> <span class="token number">0</span><br>        <span class="token operator">?</span> <span class="token keyword">null</span> <span class="token operator">:</span> selection<span class="token punctuation">.</span><span class="token function">getRangeAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    <span class="token comment">// Select the text content of code element</span><br>    <span class="token keyword">const</span> range <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createRange</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    range<span class="token punctuation">.</span><span class="token function">selectNodeContents</span><span class="token punctuation">(</span>codeEle<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    selection<span class="token punctuation">.</span><span class="token function">removeAllRanges</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    selection<span class="token punctuation">.</span><span class="token function">addRange</span><span class="token punctuation">(</span>range<span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    <span class="token comment">// Copy to the clipboard</span><br>    <span class="token keyword">try</span> <span class="token punctuation">{</span><br>        document<span class="token punctuation">.</span><span class="token function">execCommand</span><span class="token punctuation">(</span><span class="token string">'copy'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        copyButton<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'Copied'</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token comment">// Unable to copy</span><br>        copyButton<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'Copy'</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span><br>        <span class="token comment">// Restore the previous selection</span><br>        selection<span class="token punctuation">.</span><span class="token function">removeAllRanges</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        currentRange <span class="token operator">&amp;&amp;</span> selection<span class="token punctuation">.</span><span class="token function">addRange</span><span class="token punctuation">(</span>currentRange<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
         </div>
 
-        <button id="copyButton" type="button" class="bg-blue-600 px-2 py-1 text-white white">Copy</button>
+        <button id="copyButton" type="button" style="background-color: #3182ce; border: none; color: #FFF; padding: .25rem .5rem">Copy</button>
     </div>
 
 <script>

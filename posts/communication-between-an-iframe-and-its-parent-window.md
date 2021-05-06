@@ -50,32 +50,30 @@ window.addEventListener('message', function(e) {
 });
 ```
 
-> ## Tip
->
-> If you send or receive message from different iframes, you can include a parameter to indicate where the message comes from.
->
-> ```js
-> // From a child iframe
-> const message = JSON.stringify({
->   channel: 'FROM_FRAME_A',
->   ...
-});
-> window.parent.postMessage(message, '*');
-> ```
->
-> Then in the main page, you can distinguish the messages by looking at the parameter:
->
-> ```js
-> window.addEventListener('message', function(e) {
->   const data = JSON.parse(e.data);
->   // Where does the message come from
->   const channel = data.channel;
-> });
-> ```
+## Tip
 
-Here is an example demonstrates how to send a simple message between
-a [page](https://github.com/phuoc-ng/html-dom/blob/master/demo/communication-between-an-iframe-and-its-parent-window/index.html)
-and [a child iframe](https://github.com/phuoc-ng/html-dom/blob/master/demo/communication-between-an-iframe-and-its-parent-window/iframe.html):
+If you send or receive message from different iframes, you can include a parameter to indicate where the message comes from.
+
+```js
+// From a child iframe
+const message = JSON.stringify({
+  channel: 'FROM_FRAME_A',
+  ...
+});
+window.parent.postMessage(message, '*');
+```
+
+Then in the main page, you can distinguish the messages by looking at the parameter:
+
+```js
+window.addEventListener('message', function(e) {
+  const data = JSON.parse(e.data);
+  // Where does the message come from
+  const channel = data.channel;
+});
+```
+
+Here is an example demonstrates how to send a simple message between a [page](https://github.com/phuoc-ng/html-dom/blob/master/demo/communication-between-an-iframe-and-its-parent-window/index.html) and [a child iframe](https://github.com/phuoc-ng/html-dom/blob/master/demo/communication-between-an-iframe-and-its-parent-window/iframe.html):
 
 ## Demo
 

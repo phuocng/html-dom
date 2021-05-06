@@ -25,20 +25,19 @@ in all modern browsers
 
 Jump to the next section if you want to have a customizable slider.
 
-> ## Tip
-> 
-> Using the similar technique mentioned in this [post](/check-if-the-native-date-input-is-supported), we can check if the `range` input
-> is supported or not:
->
-> ```js
-> const isRangeInputSupported = function() {
->     const ele = document.createElement('input');
->     ele.setAttribute('type', 'range');
->     // If the browser doesn't support the `range` input,
->     // the `type` attribute will be reverted back to `text`
->     return ele.type !== 'text';
-> };
-> ```
+*Tip*
+
+Using the similar technique mentioned in this [post](/check-if-the-native-date-input-is-supported), we can check if the `range` input is supported or not:
+
+```js
+const isRangeInputSupported = function() {
+    const ele = document.createElement('input');
+    ele.setAttribute('type', 'range');
+    // If the browser doesn't support the `range` input,
+    // the `type` attribute will be reverted back to `text`
+    return ele.type !== 'text';
+};
+```
 
 ## 2. Create a customizable range slider
 
@@ -52,8 +51,7 @@ A slider is a combination of three parts: a knob, and two sides located at the l
 </div>
 ```
 
-These parts are placed in the same row. The right element takes the available width. So, we can use the following styles
-to build the layout:
+These parts are placed in the same row. The right element takes the available width. So, we can use the following styles to build the layout:
 
 ```css
 .container {
@@ -73,9 +71,9 @@ to build the layout:
 
 You can take a look at the demo to see the full styles of elements.
 
-> ## Resource
->
-> This [page](https://csslayout.io/patterns/slider) demonstrates the simplest layout for a range slider
+*Resource*
+
+This [page](https://csslayout.io/patterns/slider) demonstrates the simplest layout for a range slider
 
 ### Handle the events
 
@@ -139,9 +137,9 @@ const mouseUpHandler = function() {
 };
 ```
 
-> ## Tip
->
-> This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+*Tip*
+
+This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
 
 ## Use cases
 
