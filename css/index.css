@@ -18,6 +18,10 @@ code:not([class]) {
 
 :root {
     --theme-color: #5b5d8a;
+    --color-category-advanced: #DC2626;
+    --color-category-basic: #52525B;
+    --color-category-intermediate: #2563EB;
+    --color-category-tip: #15803D;
     --color-gray-300: #D4D4D8;
 }
 
@@ -255,7 +259,7 @@ code:not([class]) {
 }
 .home-example__category {
     border-top-left-radius: 0.5rem;
-    color: #fff;
+    color: #FFF;
     font-size: 0.75rem;
     padding: 0.25rem 0.5rem;
 
@@ -266,16 +270,16 @@ code:not([class]) {
     transform: translate(-1px, -100%);
 }
 .home-example__category--advanced {
-    background-color: #e53e3e;
+    background-color: var(--color-category-advanced);
 }
 .home-example__category--basic {
-    background-color: #718096;
+    background-color: var(--color-category-basic);
 }
 .home-example__category--intermediate {
-    background-color: #3182ce;
+    background-color: var(--color-category-intermediate);
 }
 .home-example__category--tip {
-    background-color: #9333EA;
+    background-color: var(--color-category-tip);
 }
 .home-example__link {
     font-size: 1.25rem;
