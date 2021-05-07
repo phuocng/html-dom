@@ -109,8 +109,8 @@ const cloneTable = function() {
     
     // Set the same position as table
     list.style.position = 'absolute';
-    list.style.left = `\${rect.left}px`;
-    list.style.top = `\${rect.top}px`;
+    list.style.left = `${rect.left}px`;
+    list.style.top = `${rect.top}px`;
 
     // Insert it before the table
     table.parentNode.insertBefore(list, table);
@@ -185,7 +185,7 @@ So the item looks like the original row completely:
 cells.forEach(function(cell) {
     const newCell = cell.cloneNode(true);
     // Set the width as the original cell
-    newCell.style.width = `\${parseInt(window.getComputedStyle(cell).width)}px`;
+    newCell.style.width = `${parseInt(window.getComputedStyle(cell).width)}px`;
     newRow.appendChild(newCell);
 });
 ```

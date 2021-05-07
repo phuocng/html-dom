@@ -38,7 +38,7 @@ const serialize = function(formEle) {
                 return ele.options
                     .map(function(opt) {
                         return opt.selected
-                            ? `\${encodeURIComponent(name)}=\${encodeURIComponent(opt.value)}`
+                            ? `${encodeURIComponent(name)}=${encodeURIComponent(opt.value)}`
                             : '';
                     })
                     .filter(function(item) {
@@ -47,7 +47,7 @@ const serialize = function(formEle) {
                     .join('&');
             }
 
-            return `\${encodeURIComponent(name)}=\${encodeURIComponent(ele.value)}`;
+            return `${encodeURIComponent(name)}=${encodeURIComponent(ele.value)}`;
         })
         .filter(function(item) {
             return item;

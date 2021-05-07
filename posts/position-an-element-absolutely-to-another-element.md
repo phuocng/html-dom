@@ -92,8 +92,8 @@ const left = targetRect.left + targetRect.width / 2 - popoverRect.width / 2;
 We also need space for the arrow at the top, so let's add some offset:
 
 ```js
-popover.style.top = `\${top + 8}px`;
-popover.style.left = `\${left}px`;
+popover.style.top = `${top + 8}px`;
+popover.style.left = `${left}px`;
 ```
 
 <iframe src='/demo/position-an-element-absolutely-to-another-element/absolute.html'></iframe>
@@ -132,8 +132,8 @@ const popoverRect = popover.getBoundingClientRect();
 const top = targetRect.top + targetRect.height;
 const left = targetRect.left + targetRect.width / 2 - popoverRect.width / 2;
 
-popover.style.top = `\${top - anchorRect.top + 8}px`;
-popover.style.left = `\${left - anchorRect.left}px`;
+popover.style.top = `${top - anchorRect.top + 8}px`;
+popover.style.left = `${left - anchorRect.left}px`;
 ```
 
 <iframe src='/demo/position-an-element-absolutely-to-another-element/anchor.html'></iframe>

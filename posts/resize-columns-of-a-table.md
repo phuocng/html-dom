@@ -51,7 +51,7 @@ const cols = table.querySelectorAll('th');
     resizer.classList.add('resizer');
 
     // Set the height
-    resizer.style.height = `\${table.offsetHeight}px`;
+    resizer.style.height = `${table.offsetHeight}px`;
 
     // Add a resizer element to the column
     col.appendChild(resizer);
@@ -98,7 +98,7 @@ const createResizableColumn = function(col, resizer) {
         const dx = e.clientX - x;
 
         // Update the width of column
-        col.style.width = `\${w + dx}px`;
+        col.style.width = `${w + dx}px`;
     };
 
     // When user releases the mouse, remove the existing event listeners

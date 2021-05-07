@@ -16,7 +16,7 @@ frame.addEventListener('load', function() {
     const height = frame.contentDocument.body.scrollHeight;
 
     // Set the height of iframe
-    frame.setAttribute('height', `\${height}px`);
+    frame.setAttribute('height', `${height}px`);
 });
 ```
 

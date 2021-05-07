@@ -133,7 +133,7 @@ To hide all cells in given column, we find all cells based on the `data-column-i
 const hideColumn = function(index) {
     cells
         .filter(function(cell) {
-            return cell.getAttribute('data-column-index') === `\${index}`;
+            return cell.getAttribute('data-column-index') === `${index}`;
         })
         .forEach(function(cell) {
             cell.style.display = 'none';
@@ -147,7 +147,7 @@ By taking the advantage of using `data` attribute, it's so easy to show the colu
 const showColumn = function(index) {
     cells
         .filter(function(cell) {
-            return cell.getAttribute('data-column-index') === `\${index}`;
+            return cell.getAttribute('data-column-index') === `${index}`;
         })
         .forEach(function(cell) {
             cell.style.display = '';
@@ -202,8 +202,8 @@ const hideColumn = function(index) {
             .querySelector('[data-shown="true"]')
             .getAttribute('data-column-index');
 
-        const checkbox = menu.querySelector(`
-            [type="checkbox"][data-column-index="\${shownColumnIndex}"]`
+        const checkbox = menu.querySelector(
+            `[type="checkbox"][data-column-index="${shownColumnIndex}"]`
         );
         checkbox.setAttribute('disabled', 'true');
     }

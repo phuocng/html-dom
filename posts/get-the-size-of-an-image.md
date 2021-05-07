@@ -95,7 +95,7 @@ avatarEle.addEventListener('change', function(e) {
             const width = data.width;
             const height = data.height;
 
-            sizeEle.innerHTML = `\${width} x \${height}`;
+            sizeEle.innerHTML = `${width} x ${height}`;
         });
     });
 });

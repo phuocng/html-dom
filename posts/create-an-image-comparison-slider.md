@@ -127,8 +127,8 @@ const mouseMoveHandler = function(e) {
     newLeftWidth = Math.min(newLeftWidth, 100);
 
     // Set the width for modified and resizer elements
-    leftSide.style.width = `\${newLeftWidth}%`;
-    resizer.style.left = `\${newLeftWidth}%`;
+    leftSide.style.width = `${newLeftWidth}%`;
+    resizer.style.left = `${newLeftWidth}%`;
 };
 
 // Attach the handler

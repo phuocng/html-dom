@@ -67,8 +67,8 @@ cloneImage.addEventListener('load', function(e) {
     const height = e.target.naturalHeight;
 
     // Set the size for image
-    image.style.width = `\${width}px`;
-    image.style.height = `\${height}px`;
+    image.style.width = `${width}px`;
+    image.style.height = `${height}px`;
 });
 
 // Clone it
@@ -90,7 +90,7 @@ Now we scale the image to that value by setting the `transform` style:
 ```js
 cloneImage.addEventListener('load', function(e) {
     ...
-    image.style.transform = `scale(\${scale}, \${scale})`;
+    image.style.transform = `scale(${scale}, ${scale})`;
 });
 ```
 
@@ -119,7 +119,7 @@ const leftSide = knob.previousElementSibling;
 
 cloneImage.addEventListener('load', function(e) {
     ...
-    leftSide.style.width = `\${(scale - minScale) / step}%`;
+    leftSide.style.width = `${(scale - minScale) / step}%`;
 });
 ```
 
@@ -136,11 +136,11 @@ const mouseMoveHandler = function(e) {
     let newLeftWidth = (leftWidth + dx) * 100 / containerWidth;
     
     // Set the width
-    leftSide.style.width = `\${newLeftWidth}%`;
+    leftSide.style.width = `${newLeftWidth}%`;
 
     // Calculate the scale
     const scale = minScale + (newLeftWidth * step);
-    image.style.transform = `scale(\${scale}, \${scale})`;
+    image.style.transform = `scale(${scale}, ${scale})`;
 };
 ```
 

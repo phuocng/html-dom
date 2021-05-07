@@ -34,7 +34,7 @@ fileEle.addEventListener('change', function(e) {
         sizeEle.style.display = 'none';
     } else {
         // File size in bytes
-        sizeEle.innerHTML = `\${files[0].size} B`;
+        sizeEle.innerHTML = `${files[0].size} B`;
 
         // Display it
         sizeEle.style.display = 'block';
@@ -53,7 +53,7 @@ The following `formatFileSize` helper method is created for that purpose:
 const formatFileSize = function(bytes) {
     const sufixes = ['B', 'kB', 'MB', 'GB', 'TB'];
     const i = Math.floor(Math.log(bytes) / Math.log(1024));
-    return `\${(bytes / Math.pow(1024, i)).toFixed(2)} \${sufixes[i]}`;
+    return `${(bytes / Math.pow(1024, i)).toFixed(2)} ${sufixes[i]}`;
 };
 
 // Display the file size

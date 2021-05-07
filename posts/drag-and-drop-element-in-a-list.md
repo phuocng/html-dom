@@ -57,8 +57,8 @@ const mouseDownHandler = function(e) {
 const mouseMoveHandler = function(e) {
     // Set position for dragging element
     draggingEle.style.position = 'absolute';
-    draggingEle.style.top = `\${e.pageY - y}px`; 
-    draggingEle.style.left = `\${e.pageX - x}px`;
+    draggingEle.style.top = `${e.pageY - y}px`; 
+    draggingEle.style.left = `${e.pageX - x}px`;
 };
 ```
 
@@ -132,7 +132,7 @@ const mouseMoveHandler = function(e) {
         );
 
         // Set the placeholder's height
-        placeholder.style.height = `\${draggingRect.height}px`;
+        placeholder.style.height = `${draggingRect.height}px`;
     }
     
     ...

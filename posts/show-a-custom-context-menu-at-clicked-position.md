@@ -71,8 +71,8 @@ ele.addEventListener('contextmenu', function(e) {
     const y = e.clientY - rect.top;
     
     // Set the position for menu
-    menu.style.top = `\${y}px`;
-    menu.style.left = `\${x}px`;
+    menu.style.top = `${y}px`;
+    menu.style.left = `${x}px`;
 
     // Show the menu
     menu.classList.remove('hidden');

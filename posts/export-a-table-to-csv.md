@@ -39,7 +39,7 @@ const toCsv = function(table) {
                 })
                 .join(',');
         })
-        .join('\\n');
+        .join('\n');
 };
 ```
 
@@ -51,7 +51,7 @@ For more information, you can visit the [Download a file](/download-a-file) post
 ```js
 const download = function(text, fileName) {
     const link = document.createElement('a');
-    link.setAttribute('href', `data:text/csv;charset=utf-8,\${encodeURIComponent(text)}`);
+    link.setAttribute('href', `data:text/csv;charset=utf-8,${encodeURIComponent(text)}`);
     link.setAttribute('download', fileName);
 
     link.style.display = 'none';

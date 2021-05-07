@@ -96,8 +96,8 @@ const cloneTable = function() {
     
     // Set the same position as table
     list.style.position = 'absolute';
-    list.style.left = `\${rect.left}px`;
-    list.style.top = `\${rect.top}px`;
+    list.style.left = `${rect.left}px`;
+    list.style.top = `${rect.top}px`;
 
     // Insert it before the table
     table.parentNode.insertBefore(list, table);
@@ -193,11 +193,11 @@ originalHeaderCells.forEach(function(headerCell, headerIndex) {
     // Get the width of original cell
     const width = parseInt(window.getComputedStyle(headerCell).width);
 
-    newTable.style.width = `\${width}px`;
+    newTable.style.width = `${width}px`;
 
     cells.forEach(function(cell) {
         const newCell = cell.cloneNode(true);
-        newCell.style.width = `\${width}px`;
+        newCell.style.width = `${width}px`;
         ...
     });
 });

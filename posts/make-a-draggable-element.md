@@ -61,8 +61,8 @@ const mouseMoveHandler = function(e) {
     const dy = e.clientY - y;
 
     // Set the position of element
-    ele.style.top = `\${ele.offsetTop + dy}px`; 
-    ele.style.left = `\${ele.offsetLeft + dx}px`;
+    ele.style.top = `${ele.offsetTop + dy}px`; 
+    ele.style.left = `${ele.offsetLeft + dx}px`;
 
     // Reassign the position of mouse
     x = e.clientX;

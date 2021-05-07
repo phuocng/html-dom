@@ -47,7 +47,7 @@ ele.addEventListener('input', function(e) {
     const target = e.target;
 
     // If users enter supported character (digits or space)
-    /^[0-9\\s]*$/.test(target.value)
+    /^[0-9\s]*$/.test(target.value)
         // Backup the current value
         ? currentValue = target.value
         // Otherwise, restore the value
@@ -56,12 +56,11 @@ ele.addEventListener('input', function(e) {
 });
 ```
 
-Here we check if the value matches the regular expression `/^[0-9\\s]*$/` that covers the digit and space characters.
+Here we check if the value matches the regular expression `/^[0-9\s]*$/` that covers the digit and space characters.
 
 It fixes the cases where users paste from the keyboard (`Ctrl + V`), context menu or drop text to the input.
 
-But there's another issue. Calling `target.value = currentValue` will put the cursor at the end of input.
-We have to persist the cursor's position.
+But there's another issue. Calling `target.value = currentValue` will put the cursor at the end of input. We have to persist the cursor's position.
 
 ```js
 // Track the current cursor's position
@@ -82,7 +81,7 @@ When user changes the input value, we will restore both the value and selection 
 ele.addEventListener('input', function(e) {
     const target = e.target;
 
-    if (/^[0-9\\s]*$/.test(target.value)) {
+    if (/^[0-9\s]*$/.test(target.value)) {
         currentValue = target.value;
     } else {
         // Users enter the not supported characters

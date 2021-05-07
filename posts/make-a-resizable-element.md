@@ -96,8 +96,8 @@ const mouseMoveHandler = function(e) {
     const dy = e.clientY - y;
 
     // Adjust the dimension of element
-    ele.style.width = `\${w + dx}px`;
-    ele.style.height = `\${h + dy}px`;
+    ele.style.width = `${w + dx}px`;
+    ele.style.height = `${h + dy}px`;
 };
 
 const mouseUpHandler = function() {

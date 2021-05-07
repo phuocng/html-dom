@@ -45,7 +45,7 @@ Finally, we set the font size as the element scales up to full width:
 
 ```js
 const scaleFontSize = Math.floor(scale * fontSize);
-ele.style.fontSize = `\${scaleFontSize}px`;
+ele.style.fontSize = `${scaleFontSize}px`;
 ```
 
 ## Demo

@@ -79,7 +79,7 @@ const mouseMoveHandler = function(e) {
     const dy = e.clientY - y;
 
     const newLeftWidth = (leftWidth + dx) * 100 / resizer.parentNode.getBoundingClientRect().width;
-    leftSide.style.width = `\${newLeftWidth}%`;
+    leftSide.style.width = `${newLeftWidth}%`;
 };
 ```
 
@@ -174,7 +174,7 @@ const mouseDownHandler = function(e) {
 
 const mouseMoveHandler = function(e) {
     const h = (prevSiblingHeight + dy) * 100 / resizer.parentNode.getBoundingClientRect().height;
-    prevSibling.style.height = `\${h}%`;
+    prevSibling.style.height = `${h}%`;
 };
 ```
 
@@ -221,12 +221,12 @@ const mouseMoveHandler = function(e) {
     switch (direction) {
         case 'vertical':
             const h = (prevSiblingHeight + dy) * 100 / resizer.parentNode.getBoundingClientRect().height;
-            prevSibling.style.height = `\${h}%`;
+            prevSibling.style.height = `${h}%`;
             break;
         case 'horizontal':
         default:
             const w = (prevSiblingWidth + dx) * 100 / resizer.parentNode.getBoundingClientRect().width;
-            prevSibling.style.width = `\${w}%`;
+            prevSibling.style.width = `${w}%`;
             break;
     }
 
