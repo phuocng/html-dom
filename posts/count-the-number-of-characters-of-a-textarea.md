@@ -40,15 +40,17 @@ messageEle.addEventListener('input', function(e) {
     // Count the current number of characters
     const currentLength = target.value.length;
 
-    counterEle.innerHTML = `\${currentLength}/\${maxLength}`;
+    counterEle.innerHTML = `${currentLength}/${maxLength}`;
 });
 ```
 
-> ## Good to know
->
-> The common mistake is to capture the `keyup` event. It doesn't work in some cases such as:
-> * User drags a text into the textarea
-> * User right-clicks in the textarea and chooses _Paste_ from the context menu
+{% callout %}
+### Good to know
+
+The common mistake is to capture the `keyup` event. It doesn't work in some cases such as:
+* User drags a text into the textarea
+* User right-clicks in the textarea and chooses _Paste_ from the context menu
+{% endcallout %}
 
 ## Demo
 

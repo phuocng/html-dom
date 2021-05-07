@@ -34,12 +34,9 @@ body {
 }
 ```
 
-Unfortunately, the `-webkit-scrollbar` styles [aren't standard](https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar) 
-and isn't recommended to use on production sites.
+Unfortunately, the `-webkit-scrollbar` styles [aren't standard](https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar) and isn't recommended to use on production sites.
 
-In this post, you'll see how to hide the default scrollbar and create a fake, customizable scrollbar.
-
-Assume that our target is a scrollable element whose `height` or `max-height` style is set:
+In this post, you'll see how to hide the default scrollbar and create a fake, customizable scrollbar. Assume that our target is a scrollable element whose `height` or `max-height` style is set:
 
 ```html
 <div id="content" class="content" style="overflow: auto; max-height: ...;">
@@ -49,8 +46,7 @@ Assume that our target is a scrollable element whose `height` or `max-height` st
 
 ## Hide the default scrollbar
 
-We wrap the content in a container which has the same `height` or `max-height` as the content. Instead of setting max height for the content,
-it'll take the full height.
+We wrap the content in a container which has the same `height` or `max-height` as the content. Instead of setting max height for the content, it'll take the full height.
 
 ```html
 <div id="wrapper" class="wrapper">
@@ -84,8 +80,7 @@ It's easy to hide the default scrollbar by using a negative margin:
 
 ## Position the fake scrollbar
 
-In this step, we'll create an element representing the fake scrollbar. It'll be positioned at the right side of the wrapper,
-and has the same height as wrapper.
+In this step, we'll create an element representing the fake scrollbar. It'll be positioned at the right side of the wrapper, and has the same height as wrapper.
 
 To do so, we will use the third approach mentioned in the [Position an element absolutely to another element](/position-an-element-absolutely-to-another-element) post:
 
@@ -117,19 +112,20 @@ const anchorRect = anchor.getBoundingClientRect();
 // Set the scrollbar position
 const top = wrapperRect.top - anchorRect.top;
 const left = wrapperRect.width + wrapperRect.left - anchorRect.left;
-scrollbar.style.top = `\${top}px`;
-scrollbar.style.left = `\${left}px`;
+scrollbar.style.top = `${top}px`;
+scrollbar.style.left = `${left}px`;
 ```
 
 The scrollbar has the same height as the wrapper:
 
 ```js
-scrollbar.style.height = `\${wrapperRect.height}px`;
+scrollbar.style.height = `${wrapperRect.height}px`;
 ```
 
 ## Organize the scrollbar
 
 The scrollbar consists of two parts:
+
 * A track element that lets user know that there's a scrollbar. It takes the full size of scrollbar
 * A thumb element that user can click on and drag to scroll
 
@@ -161,8 +157,7 @@ These parts are positioned absolutely to the scrollbar, therefore they have the 
 }
 ```
 
-Initially, the thumb's height is calculated based on the ratio between normal and scroll [heights](/determine-the-height-and-width-of-an-element)
-of the content element:
+Initially, the thumb's height is calculated based on the ratio between normal and scroll [heights](/determine-the-height-and-width-of-an-element) of the content element:
 
 ```js
 // Query element
@@ -170,7 +165,7 @@ const track = document.getElementById('track');
 const thumb = document.getElementById('thumb');
 
 const scrollRatio = content.clientHeight / content.scrollHeight;
-thumb.style.height = `\${scrollRatio * 100}%`;
+thumb.style.height = `${scrollRatio * 100}%`;
 ```
 
 ## Drag the thumb to scroll
@@ -210,7 +205,7 @@ Here is the `scroll` event handler of the content element:
 ```js
 const scrollContentHandler = function() {
     window.requestAnimationFrame(function() {
-        thumb.style.top = `\${content.scrollTop * 100 / content.scrollHeight}%`;
+        thumb.style.top = `${content.scrollTop * 100 / content.scrollHeight}%`;
     });
 };
 

@@ -8,8 +8,7 @@ metadata:
   keywords: Blob, FileReader, readAsDataURL, resize image, toBlob, toDataURL, URL createObjectURL
 ---
 
-Assume that we want to resize an image to a given number of percentages.
-The image can be determined from a `file` input:
+Assume that we want to resize an image to a given number of percentages. The image can be determined from a `file` input:
 
 ```js
 // A file input
@@ -64,9 +63,7 @@ const resize = function(image, ratio) {
 };
 ```
 
-In the sample code above, after drawing a new image, we have to check if the current browser supports the _canvas_' `toBlob` method.
-
-If not, we have to get the data URL from `canvas.toDataURL()` first, and then use the following function to convert it to a _Blob_:
+In the sample code above, after drawing a new image, we have to check if the current browser supports the _canvas_' `toBlob` method. If not, we have to get the data URL from `canvas.toDataURL()` first, and then use the following function to convert it to a _Blob_:
 
 ```js
 const dataUrlToBlob = function(url) {

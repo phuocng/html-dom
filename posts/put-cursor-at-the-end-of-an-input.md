@@ -8,8 +8,7 @@ metadata:
   keywords:
 ---
 
-Assume that we have a text field representing the full name of an user.
-There is also a _Edit_ button for updating the full name.
+Assume that we have a text field representing the full name of an user. There is also a _Edit_ button for updating the full name.
 
 ```html
 <input type="text" id="fullName" />

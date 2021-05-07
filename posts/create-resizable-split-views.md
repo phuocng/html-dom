@@ -85,8 +85,7 @@ const mouseMoveHandler = function(e) {
 
 There're two important things that I would like to point out here:
 
-* The width of left side is set based on the number of percentages of the parent's width. It keeps the ratio of left and side widths,
-and makes two sides look good when user resizes the browser.
+* The width of left side is set based on the number of percentages of the parent's width. It keeps the ratio of left and side widths, and makes two sides look good when user resizes the browser.
 * It's not necessary to update the width of right side if we always force it to take the remaining width:
 
 ```html
@@ -113,8 +112,7 @@ const mouseMoveHandler = function(e) {
 };
 ```
 
-But it causes another issue. As soon as the user moves the mouse around, we will see the default mouse cursor beause the
-mouse isn't on top of the resizer. User will see the screen flickering because the cursor is changed continuously.
+But it causes another issue. As soon as the user moves the mouse around, we will see the default mouse cursor beause the mouse isn't on top of the resizer. User will see the screen flickering because the cursor is changed continuously.
 
 To fix that, we set the cursor for the entire page:
 
@@ -125,8 +123,7 @@ const mouseMoveHandler = function(e) {
 };
 ```
 
-We also prevent the mouse events and text selection in both sides by [setting the values](/set-css-style-for-an-element)
-for `user-select` and `pointer-events`:
+We also prevent the mouse events and text selection in both sides by [setting the values](/set-css-style-for-an-element) for `user-select` and `pointer-events`:
 
 ```js
 const mouseMoveHandler = function(e) {
@@ -241,13 +238,17 @@ const mouseMoveHandler = function(e) {
 };
 ```
 
-> ## Tip
->
-> This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+{% callout %}
+### Tip
 
-> ## Tip
->
-> Using custom `data-` attribute is a good way to manage variables associated with the element.
+This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+{% endcallout %}
+
+{% callout %}
+### Tip
+
+Using custom `data-` attribute is a good way to manage variables associated with the element.
+{% endcallout %}
 
 Enjoy the demo!
 

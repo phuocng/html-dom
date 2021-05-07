@@ -14,8 +14,7 @@ metadata:
 ele.innerHTML = '';
 ```
 
-This method isn't recommended because it doesn't remove event handlers of child node. Hence, it might cause a memory leak if you
-are managing a big list of elements.
+This method isn't recommended because it doesn't remove event handlers of child node. Hence, it might cause a memory leak if you are managing a big list of elements.
 
 ## 2. Remove child nodes
 

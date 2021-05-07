@@ -14,8 +14,7 @@ Let's say that an input has the `id` of `textbox` as below:
 <input type="text" id="textbox" />
 ```
 
-To adjust its width based on its content dynamically, we create a fake element whose content is the same as the input value.
-And we set the input's width as the fake element's width.
+To adjust its width based on its content dynamically, we create a fake element whose content is the same as the input value. And we set the input's width as the fake element's width.
 
 ```js
 // Create a div element
@@ -66,7 +65,9 @@ const setWidth = function() {
 };
 ```
 
-> This [post](/measure-the-width-of-given-text-of-given-font) introduces more ways to measure the width of given text in given font
+{% callout %}
+This [post](/measure-the-width-of-given-text-of-given-font) introduces more ways to measure the width of given text in given font
+{% endcallout %}
 
 Finally, we invoke the `setWidth` function when users change the input value by listening on the `input` event:
 

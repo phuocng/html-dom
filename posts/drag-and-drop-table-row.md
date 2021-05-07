@@ -15,8 +15,7 @@ Now we can use the same technique to apply to the table rows. The basic idea is
 * When user starts moving the table row, we create a list of items. Each item is cloned from each row of table.
 * We show the list at the same position as table, and hide the table.
 * At this step, moving row around is actually moving the list item.
-* When user drags an item, we determine the index of target item within the list. And move the original dragged row to before or after the
-row associated with the end index.
+* When user drags an item, we determine the index of target item within the list. And move the original dragged row to before or after the row associated with the end index.
 
 Let's get started with the basic markup of table:
 
@@ -31,8 +30,7 @@ Let's get started with the basic markup of table:
 As mentioned in the [Drag and drop element in a list](/drag-and-drop-element-in-a-list) example, we need handle three events:
 
 * `mousedown` for the first cell of any row, so user can click and drag the first cell in each row
-* `mousemove` for `document`: This event triggers when user moves the row around, and we will create and insert a placeholder row
-depending on the direction (up or down)
+* `mousemove` for `document`: This event triggers when user moves the row around, and we will create and insert a placeholder row depending on the direction (up or down)
 * `mouseup` for `document`: This event occurs when user drags the row.
 
 Here is the skeleton of these event handlers:

@@ -8,8 +8,7 @@ metadata:
   keywords:
 ---
 
-Starting from the given `ele` element, we traverse all parents up to the root of document (`document.body`).
-For each parent node, we check if it is a [scrollable node](/check-if-an-element-is-scrollable).
+Starting from the given `ele` element, we traverse all parents up to the root of document (`document.body`). For each parent node, we check if it is a [scrollable node](/check-if-an-element-is-scrollable).
 
 ```js
 const isScrollable = function(ele) {

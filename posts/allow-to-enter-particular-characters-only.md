@@ -8,8 +8,7 @@ metadata:
   keywords: addEventListener, input event, keypress event, preventDefault, selectionEnd, selectionStart, setSelectionRange
 ---
 
-In this example, we will force users to enter characters from given set only. Specifically, the supported characters
-in this demonstration include the digits and space. Of course, you can apply the idea for other characters as well.
+In this example, we will force users to enter characters from given set only. Specifically, the supported characters in this demonstration include the digits and space. Of course, you can apply the idea for other characters as well.
 
 Here is our input element:
 

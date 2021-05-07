@@ -16,8 +16,7 @@ Assume that we have a droppable element as below
 </div>
 ```
 
-We will hightlight the element when user drags a file over it. For example, the element will have a dashed border which can be simulated
-by a CSS class:
+We will hightlight the element when user drags a file over it. For example, the element will have a dashed border which can be simulated by a CSS class:
 
 ```css
 .dragging {
@@ -55,8 +54,7 @@ ele.addEventListener('drop', function(e) {
 });
 ```
 
-The last thing, `e.preventDefault()` is used in the handlers to [prevent](/prevent-the-default-action-of-an-event) the browser from
-executing the default action.
+The last thing, `e.preventDefault()` is used in the handlers to [prevent](/prevent-the-default-action-of-an-event) the browser from executing the default action.
 
 ## Demo
 

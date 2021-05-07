@@ -20,16 +20,15 @@ or applying the CSS property `scroll-behavior` to the target element:
 scroll-behavior: smooth;
 ```
 
-Both methods [aren't supported](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView#Browser_compatibility) in IE and Safari, and don't
-allow to customize the animation.
+Both methods [aren't supported](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView#Browser_compatibility) in IE and Safari, and don't allow to customize the animation.
 
-This post introduces a smoothly scroll implementation which also allows us to customize the animation effect and duration.
-We'll demonstrate in a popular use case that user can jump between sections by clicking associated navigation button.
+This post introduces a smoothly scroll implementation which also allows us to customize the animation effect and duration. We'll demonstrate in a popular use case that user can jump between sections by clicking associated navigation button.
 
-> ## Resource
->
-> The post doesn't mention how to add a navigation fixed on the left (or right) of the page. You can see a
-> simple way to [create a fixed navigation](https://csslayout.io/patterns/fixed-at-side) on the [CSS Layout](https://csslayout.io) site.
+{% callout %}
+### Resource
+
+The post doesn't mention how to add a navigation fixed on the left (or right) of the page. You can see a simple way to [create a fixed navigation](https://csslayout.io/patterns/fixed-at-side) on the [CSS Layout](https://csslayout.io) site.
+{% endcallout %}
 
 The navigation consists of some `a` elements:
 
@@ -51,9 +50,7 @@ triggers.forEach(function(ele) {
 });
 ```
 
-The `clickHandler` function handles the `click` event of a navigation element. 
-It determintes the target section based on the `href` attribute. Notice that we will scroll to the target section ourselves,
-hence the [default action](/prevent-the-default-action-of-an-event) will be ignored: 
+The `clickHandler` function handles the `click` event of a navigation element. It determintes the target section based on the `href` attribute. Notice that we will scroll to the target section ourselves, hence the [default action](/prevent-the-default-action-of-an-event) will be ignored: 
 
 ```js
 const clickHandler = function(e) {
@@ -73,20 +70,22 @@ Don't worry if you haven't seen the `scrollToTarget` function. As the name impli
 
 ## Scroll to given target
 
-It is the main part of the post. To scroll to given point, we can use `window.scrollTo(0, y)` where `y` indicates the distance from the top
-of the page to the target.
+It is the main part of the post. To scroll to given point, we can use `window.scrollTo(0, y)` where `y` indicates the distance from the top of the page to the target.
 
-> ## Good to know
->
-> It's also possible to set `behavior: 'smooth'`:
-> 
-> ```js
-> window.scrollTo({ top, left, behavior: 'smooth' })
-> ```
->
-> The option [isn't supported](https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo#Browser_Compatibility) in IE and Safari.
+{% callout %}
+### Good to know
+
+It's also possible to set `behavior: 'smooth'`:
+ 
+```js
+window.scrollTo({ top, left, behavior: 'smooth' })
+```
+
+The option [isn't supported](https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo#Browser_Compatibility) in IE and Safari.
+{% endcallout %}
 
 What we're going to do is to move from the starting point to the ending point in given duration.
+
 * The starting point is the current y-axis offset, `window.pageYOffset`
 * The ending point is the top distance of the target. It can be retrieved as `target.getBoundingClientRect().top`
 * The duration is a number of milliseconds. You can change it to a configurable option, but in this post, it's set as 800.
@@ -124,8 +123,7 @@ const scrollToTarget = function(target) {
 };
 ```
 
-As you see, we tell the browser to execute the `loop` function before the next paint happens. 
-At the first time, `startTime` will be initialized as the current timestamp (`currentTime`).
+As you see, we tell the browser to execute the `loop` function before the next paint happens. At the first time, `startTime` will be initialized as the current timestamp (`currentTime`).
 
 We then calculate how many milliseconds has gone:
 
@@ -133,8 +131,7 @@ We then calculate how many milliseconds has gone:
 const time = currentTime - startTime;
 ```
 
-Based on the elapsed time and the duration, it's so easy to calculate the number of percentages we have been moving,
-and scroll to that position:
+Based on the elapsed time and the duration, it's so easy to calculate the number of percentages we have been moving, and scroll to that position:
 
 ```js
 // `percent` is in the range of 0 and 1
@@ -153,18 +150,17 @@ if (time < duration) {
 }
 ```
 
-> ## Good practice
->
-> It's common to think of using `setTimeout()` or `setInterval()` when we need to move between given points in the given duration.
-> But it's recommended to use [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame)
-> which gives better performance animation.
+{% callout %}
+### Good practice
+
+It's common to think of using `setTimeout()` or `setInterval()` when we need to move between given points in the given duration. But it's recommended to use [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) which gives better performance animation.
+{% endcallout %}
 
 ## Customize the animation
 
-Currently, we move to the target equally per millisecond. We move the same distance every milliseconds.
-If you want, you can replace the current linear movement with other [easing functions](https://1loc.dev/#easing-functions).
+Currently, we move to the target equally per millisecond. We move the same distance every milliseconds. 
 
-Look at [this website](https://easings.net) to imagine how each easing produces different animations.
+If you want, you can replace the current linear movement with other [easing functions](https://1loc.dev/#easing-functions). Look at [this website](https://easings.net) to imagine how each easing produces different animations.
 
 The code below uses the `easeInQuad` animation:
 

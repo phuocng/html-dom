@@ -17,8 +17,7 @@ const isIe = function() {
 };
 ```
 
-We also can rely on `document.documentMode`. This property indicates the document compatibility mode of the document
-which is an integer in IE 5-11. Other browsers return `undefined`.
+We also can rely on `document.documentMode`. This property indicates the document compatibility mode of the document which is an integer in IE 5-11. Other browsers return `undefined`.
 
 ```js
 const isIE = !!document.documentMode;

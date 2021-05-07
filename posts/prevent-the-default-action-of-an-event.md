@@ -28,6 +28,7 @@ It's same if you the inline attribute:
 ```
 
 I don't recommend this approach because
+
 * Returning `false` just doesn't make sense
 * It doesn't work with the [addEventListener()](/attach-or-detach-an-event-handler) method
 

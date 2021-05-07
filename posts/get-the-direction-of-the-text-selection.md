@@ -8,8 +8,7 @@ metadata:
   keywords: anchorNode, anchorOffset, createRange, focusNode, focusOffset, get selected text, range collapsed, setEnd, setStart, window getSelection
 ---
 
-The following function returns `forward` if user selected text from the left to right.
-It returns `backward` in the other case.
+The following function returns `forward` if user selected text from the left to right. It returns `backward` in the other case.
 
 ```js
 const getDirection = function() {

@@ -44,8 +44,7 @@ fileEle.addEventListener('change', function(e) {
 
 ## Display a readable size
 
-There is a room for improving the output of file size. Instead of displaying in bytes, we can transform it to
-a readable format in kB, MB, GB, and TB depending on how big it is.
+There is a room for improving the output of file size. Instead of displaying in bytes, we can transform it to a readable format in kB, MB, GB, and TB depending on how big it is.
 
 The following `formatFileSize` helper method is created for that purpose:
 

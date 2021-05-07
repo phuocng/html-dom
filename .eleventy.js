@@ -60,6 +60,10 @@ module.exports = function (eleventyConfig) {
         return arr.reduce((acc, e, i) => (i % size ? acc[acc.length - 1].push(e) : acc.push([e]), acc), []);
     });
 
+    eleventyConfig.addPairedShortcode('callout', (content) => (
+        `<div class='post__callout'>${markdownLibrary.render(content.trim())}</div>`
+    ));
+
     // Minify HTML
     const minifyHtml = (rawContent, outputPath) => (
         (outputPath && outputPath.endsWith('.html'))

@@ -19,13 +19,14 @@ HTML provides a built-in `range` input:
 ```
 
 It's supported in modern browsers, IE 10 and later. But there're some limitations such as:
+
 * You can't customize the knob
-* At the time of writing this, the vertical-oriented slider [isn't supported](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#Browser_compatibility) 
-in all modern browsers
+* At the time of writing this, the vertical-oriented slider [isn't supported](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#Browser_compatibility) in all modern browsers
 
 Jump to the next section if you want to have a customizable slider.
 
-*Tip*
+{% callout %}
+### Tip
 
 Using the similar technique mentioned in this [post](/check-if-the-native-date-input-is-supported), we can check if the `range` input is supported or not:
 
@@ -38,6 +39,7 @@ const isRangeInputSupported = function() {
     return ele.type !== 'text';
 };
 ```
+{% endcallout %}
 
 ## 2. Create a customizable range slider
 
@@ -71,9 +73,11 @@ These parts are placed in the same row. The right element takes the available wi
 
 You can take a look at the demo to see the full styles of elements.
 
-*Resource*
+{% callout %}
+### Resource
 
 This [page](https://csslayout.io/patterns/slider) demonstrates the simplest layout for a range slider
+{% endcallout %}
 
 ### Handle the events
 
@@ -119,7 +123,7 @@ const mouseMoveHandler = function(e) {
     newLeftWidth = Math.max(newLeftWidth, 0);
     newLeftWidth = Math.min(newLeftWidth, 100);
 
-    leftSide.style.width = `\${newLeftWidth}%`;
+    leftSide.style.width = `${newLeftWidth}%`;
 };
 ```
 
@@ -137,9 +141,11 @@ const mouseUpHandler = function() {
 };
 ```
 
-*Tip*
+{% callout %}
+### Tip
 
 This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+{% endcallout %}
 
 ## Use cases
 

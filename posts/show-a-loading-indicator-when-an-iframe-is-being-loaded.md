@@ -32,8 +32,7 @@ The loading indicator and iframe are organized as following:
 </div>
 ```
 
-Initially, the iframe will be hidden by setting the opacity to zero. On the other hand, the loading indicator could be displayed at
-the center and on top of the iframe. 
+Initially, the iframe will be hidden by setting the opacity to zero. On the other hand, the loading indicator could be displayed at the center and on top of the iframe. 
 
 We can apply some CSS styles to the container and loading elements:
 
@@ -60,14 +59,15 @@ We can apply some CSS styles to the container and loading elements:
 }
 ```
 
-> ## Resource
->
-> This [page](https://csslayout.io/patterns/centering) introduces the most simple way to center an element in both horizontal and vertical directions.
+{% callout %}
+### Resource
+
+This [page](https://csslayout.io/patterns/centering) introduces the most simple way to center an element in both horizontal and vertical directions.
+{% endcallout %}
 
 ## Handle the event
 
-The layout looks good now. By default, user will see only the loading indicator. We will [hide](/show-or-hide-an-element) the loading indicator 
-(or even [remove](/remove-an-element) it if you want) as soon as the iframe is loaded:
+The layout looks good now. By default, user will see only the loading indicator. We will [hide](/show-or-hide-an-element) the loading indicator (or even [remove](/remove-an-element) it if you want) as soon as the iframe is loaded:
 
 ```js
 // Query the elements

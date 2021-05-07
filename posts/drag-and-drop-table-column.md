@@ -30,8 +30,7 @@ Let's get started with the basic markup of table:
 As mentioned in the [Drag and drop element in a list](/drag-and-drop-element-in-a-list) example, we need handle three events:
 
 * `mousedown` for the all header cells, so user can click and drag the first cell in each column
-* `mousemove` for `document`: This event triggers when user moves the column around, and we will create and insert a placeholder column
-depending on the direction (left or right)
+* `mousemove` for `document`: This event triggers when user moves the column around, and we will create and insert a placeholder column depending on the direction (left or right)
 * `mouseup` for `document`: This event occurs when user drags the column.
 
 Here is the skeleton of these event handlers:

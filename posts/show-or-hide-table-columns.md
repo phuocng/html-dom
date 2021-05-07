@@ -8,9 +8,7 @@ metadata:
   keywords: addEventListener, custom context menu, data attribute, getAttribute, hide table columns, setAttribute, show table columns
 ---
 
-This post shows how to show or hide any columns of a table by righ-clicking its header.
-
-The markup consists of the table and a menu that allows user to toggle columns:
+This post shows how to show or hide any columns of a table by righ-clicking its header. The markup consists of the table and a menu that allows user to toggle columns:
 
 ```html
 <table id="table">...</table>
@@ -19,8 +17,7 @@ The markup consists of the table and a menu that allows user to toggle columns:
 
 ## Build the menu
 
-Since the user can toggle any columns, the menu is constructed by items which each of them contains a checkbox
-to toggle particular column:
+Since the user can toggle any columns, the menu is constructed by items which each of them contains a checkbox to toggle particular column:
 
 ```html
 <ul id="menu">
@@ -35,9 +32,11 @@ to toggle particular column:
 </ul>
 ```
 
-> ## Good to know
->
-> If a `label` has a single checkbox and a text node, clicking the text will force the checkbox to be changed.
+{% callout %}
+### Good to know
+
+If a `label` has a single checkbox and a text node, clicking the text will force the checkbox to be changed.
+{% endcallout %}
 
 To build up the menu items, we [loop over](/loop-over-a-nodelist) the table headers, and [create](/create-an-element) a menu item for each of them:
 
@@ -77,17 +76,16 @@ headers.forEach(function(th, index) {
 });
 ```
 
-The `showColumn` and `hideColumn` functions will show or hide the associated column which is defined by the column index.
-We'll see how to implement them later.
+The `showColumn` and `hideColumn` functions will show or hide the associated column which is defined by the column index. We'll see how to implement them later.
 
 ## Toggle the menu
 
 The menu will be used to toggle table columns, but we need to toggle the menu first.
+
 * It'll be shown when right-clicking the table header
 * It'll be hidden when user clicks outside of the menu
 
-You can take a look at the [Show a custom context menu at clicked position](/show-a-custom-context-menu-at-clicked-position) for more details.
-In short, we have something likes this:
+You can take a look at the [Show a custom context menu at clicked position](/show-a-custom-context-menu-at-clicked-position) for more details. In short, we have something likes this:
 
 ```js
 const thead = table.querySelector('thead');
@@ -109,14 +107,15 @@ const documentClickHandler = function(e) {
 };
 ```
 
-> ## Tip
->
-> This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+{% callout %}
+### Tip
+
+This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+{% endcallout %}
 
 ## Toggle table columns
 
-When clicking a menu item, we will toggle the column determined by given index.
-In order to query all cells in the given column, we [add](/get-set-and-remove-data-attributes) a custom `data` attribute to each cell:
+When clicking a menu item, we will toggle the column determined by given index. In order to query all cells in the given column, we [add](/get-set-and-remove-data-attributes) a custom `data` attribute to each cell:
 
 ```js
 // Get the number of columns
@@ -128,8 +127,7 @@ cells.forEach(function(cell, index) {
 });
 ```
 
-To hide all cells in given column, we find all cells based on the `data-column-index` attribute, and [hide](/show-or-hide-an-element)
-each of them:
+To hide all cells in given column, we find all cells based on the `data-column-index` attribute, and [hide](/show-or-hide-an-element) each of them:
 
 ```js
 const hideColumn = function(index) {
@@ -160,9 +158,8 @@ const showColumn = function(index) {
 ## Don't allow to hide the last column
 
 As the title of section, we should prevent the last remaining column to be hidden. The associated checkbox has to be disabled.
-To do so, we have to associate each checkbox in menu with the column by continuing using the `data` attribute.
 
-Let's modify the building menu code a little bit:
+To do so, we have to associate each checkbox in menu with the column by continuing using the `data` attribute. Let's modify the building menu code a little bit:
 
 ```js
 headers.forEach(function(th, index) {
@@ -213,8 +210,7 @@ const hideColumn = function(index) {
 };
 ```
 
-To get it working completely, we need to initialize the `data-shown` attribute for each cell, and turn it back to `true` when 
-showing a column:
+To get it working completely, we need to initialize the `data-shown` attribute for each cell, and turn it back to `true` when showing a column:
 
 ```js
 cells.forEach(function(cell, index) {

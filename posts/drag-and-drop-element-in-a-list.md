@@ -31,8 +31,7 @@ Each item has class of `draggable` indicating that user can drag it:
 
 ## Make items draggable
 
-By using the similar approach mentioned in the [_Make a draggable element_](/make-a-draggable-element) post,
-we can turn each item into a draggable element:
+By using the similar approach mentioned in the [_Make a draggable element_](/make-a-draggable-element) post, we can turn each item into a draggable element:
 
 ```js
 // The current dragging item

@@ -9,12 +9,12 @@ metadata:
 ---
 
 It's a common requirement that asks for an element to be shown absolutely to a particular element. We can list some cases, such as
+
 * Show a popover when clicking an element
 * Show a tooltip when moving the mouse over an element
 * Or show a context menu when right-clicking an element 
 
-In this post, you'll see three ways to archive that requirement. They are implemented to demonstrate the first use case where
-we display a popover under a given target.
+In this post, you'll see three ways to archive that requirement. They are implemented to demonstrate the first use case where we display a popover under a given target.
 
 First of all, assume that the target and popover elements are two simple `div` elements as below:
 
@@ -23,10 +23,11 @@ First of all, assume that the target and popover elements are two simple `div` e
 <div id="popover">...</div>
 ```
 
-> ## Resource
->
-> The implementations don't tell you how to add an arrow to the popover. You can take a look at this [page](https://csslayout.io/patterns/popover-arrow/)
-> to see how it can be done with CSS.
+{% callout %}
+### Resource
+
+The implementations don't tell you how to add an arrow to the popover. You can take a look at this [page](https://csslayout.io/patterns/popover-arrow/) to see how it can be done with CSS.
+{% endcallout %}
 
 ## 1. Use absolute CSS
 
@@ -99,8 +100,7 @@ popover.style.left = `\${left}px`;
 
 ## 3. Use an anchor element
 
-This approach is similar to the previous one. The difference is that instead of appending the popover to `body`, we add an anchor
-between the target and popover.
+This approach is similar to the previous one. The difference is that instead of appending the popover to `body`, we add an anchor between the target and popover.
 
 ```html
 <div id="target">...</div>
@@ -118,8 +118,7 @@ The anchor is positioned absolutely as following:
 }
 ```
 
-The popover's top and left properties have to subtract the top and left values of the anchor from the one we calculate in the previous
-section:
+The popover's top and left properties have to subtract the top and left values of the anchor from the one we calculate in the previous section:
 
 ```js
 const target = document.getElementById('target');

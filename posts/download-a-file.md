@@ -39,7 +39,8 @@ document.body.removeChild(link);
 
 ## 3. Download file with generated data
 
-It's common to download a file with dynamic data, such as 
+It's common to download a file with dynamic data, such as
+
 - a JSON
 - a text
 - an image

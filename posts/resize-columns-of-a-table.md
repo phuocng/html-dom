@@ -18,8 +18,7 @@ Assume that we want to resize any column of the following table:
 
 ## Prepare the resizer
 
-For each column, we insert a `div` element indicating that the associated column can be resized.
-The resizer element is positioned absolutely inside the column. The CSS styles for them would be as below:
+For each column, we insert a `div` element indicating that the associated column can be resized. The resizer element is positioned absolutely inside the column. The CSS styles for them would be as below:
 
 ```css
 .table th {
@@ -36,8 +35,7 @@ The resizer element is positioned absolutely inside the column. The CSS styles f
 }
 ```
 
-To [create](/create-an-element) resizers and [append](/append-to-an-element) them to columns, we have to [query](/select-an-element-or-list-of-elements)
-and [loop over](/loop-over-a-nodelist) all columns:
+To [create](/create-an-element) resizers and [append](/append-to-an-element) them to columns, we have to [query](/select-an-element-or-list-of-elements) and [loop over](/loop-over-a-nodelist) all columns:
 
 ```js
 // Query the table
@@ -113,9 +111,11 @@ const createResizableColumn = function(col, resizer) {
 };
 ```
 
-> ## Tip
->
-> This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+{% callout %}
+### Tip
+
+This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+{% endcallout %}
 
 ## Highlight the resizer
 

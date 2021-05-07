@@ -22,8 +22,7 @@ ele.onclick = function() {
 delete ele.onclick;
 ```
 
-This approach isn't recommended because we can only attach one handler for each event. Setting the `onclick` attribute, for example,
-will override any existing handler for the `click` event.
+This approach isn't recommended because we can only attach one handler for each event. Setting the `onclick` attribute, for example, will override any existing handler for the `click` event.
 
 ## Use the addEventListener method
 

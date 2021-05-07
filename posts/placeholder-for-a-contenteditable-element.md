@@ -38,8 +38,7 @@ First, we add the `id` and `data-placeholder` attributes to the element as follo
 <div contenteditable data-placeholder="Edit me" id="editMe"></div>
 ```
 
-When users focus on the element, we will reset its content if it's the same as the placeholder.
-Also, when the element loses its focus, its content will be set back to the placeholder if users don't enter anything.
+When users focus on the element, we will reset its content if it's the same as the placeholder. Also, when the element loses its focus, its content will be set back to the placeholder if users don't enter anything.
 
 ```js
 const ele = document.getElementById('editMe');

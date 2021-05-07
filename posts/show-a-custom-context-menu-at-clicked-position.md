@@ -10,9 +10,7 @@ metadata:
 
 The browser will show the default context menu when user right-clicks on the page. Sometimes, we want to replace the default menu with our own menu that allows user to perform additional actions.
 
-This post illustrates a simple implementation.
-
-First of all, let's create an element that we want to show a customized context menu element:
+This post illustrates a simple implementation. First of all, let's create an element that we want to show a customized context menu element:
 
 ```html
 <div id="element">Right-click me</div>
@@ -33,8 +31,7 @@ ele.addEventListener('contextmenu', function(e) {
 
 ## Show the menu at clicked position
 
-We will calculate the position of menu, but it need to be positioned absolutely to its container firstly.
-So, let's place the element and menu to a container whose position is `relative`:
+We will calculate the position of menu, but it need to be positioned absolutely to its container firstly. So, let's place the element and menu to a container whose position is `relative`:
 
 ```html
 <div class="relative">
@@ -59,9 +56,11 @@ The `relative`, `absolute` and `hidden` classes are defined as following:
 }
 ```
 
-> ## Resource
->
-> This post doesn't tell how to build the menu. It's up to you but [CSS Layout](https://csslayout.io/patterns/menu) is a nice resource to look at.
+{% callout %}
+### Resource
+
+This post doesn't tell how to build the menu. It's up to you but [CSS Layout](https://csslayout.io/patterns/menu) is a nice resource to look at.
+{% endcallout %}
 
 It's the time to set the position for the menu. It can be calculated based on [the mouse position](/calculate-the-mouse-position-relative-to-an-element):
 
@@ -105,12 +104,13 @@ const documentClickHandler = function(e) {
 
 The menu is hidden by [adding](/add-or-remove-class-from-an-element) the `hidden` class. 
 
-More importantly, the `click` event handler is also removed from `document` as we don't need to handle that when the menu is hidden.
-This technique is mentioned in the [Create one time event handler](/create-one-time-event-handler) post.
+More importantly, the `click` event handler is also removed from `document` as we don't need to handle that when the menu is hidden. This technique is mentioned in the [Create one time event handler](/create-one-time-event-handler) post.
 
-> ## Tip
->
-> This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+{% callout %}
+### Tip
+
+This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+{% endcallout %}
 
 ## Use case
 

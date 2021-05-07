@@ -37,8 +37,7 @@ script.addEventListener('load', function() {
 
 Assume that you want to load an array of JavaScript files, `arrayOfJs`, in order.
 
-To do that, we have to load the first script, and load the second script when the first one is loaded completely.
-And continue doing so until all scripts are loaded.
+To do that, we have to load the first script, and load the second script when the first one is loaded completely. And continue doing so until all scripts are loaded.
 
 ```js
 // Load a script from given `url`

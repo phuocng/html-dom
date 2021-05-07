@@ -20,8 +20,7 @@ Assume that we have a `table` element and a `button` for exporting the table cel
 
 ## Export the table cells to CSV
 
-The function below exports all the cells of `table` to CSV format. First, we [select](/select-an-element-or-list-of-elements) all the rows,
-[loop](/loop-over-a-nodelist) over them and export each row to CSV.
+The function below exports all the cells of `table` to CSV format. First, we [select](/select-an-element-or-list-of-elements) all the rows, [loop](/loop-over-a-nodelist) over them and export each row to CSV.
 
 In each row, we go through all cells, and retrive their [text content](/get-the-text-content-of-an-element).
 

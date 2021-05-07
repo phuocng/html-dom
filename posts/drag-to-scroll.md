@@ -43,8 +43,7 @@ ele.scrollLeft = 150;
 
 ## Drag to scroll
 
-The implementation is quite straightforward. By using the similar technique in the [Make a draggable element](/make-a-draggable-element) post,
-we start with handling the `mousedown` event which occurs when user clicks the element:
+The implementation is quite straightforward. By using the similar technique in the [Make a draggable element](/make-a-draggable-element) post, we start with handling the `mousedown` event which occurs when user clicks the element:
 
 ```js
 let pos = { top: 0, left: 0, x: 0, y: 0 };
@@ -64,12 +63,13 @@ const mouseDownHandler = function(e) {
 };
 ```
 
-> ## Tip
->
-> This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+{% callout %}
+### Tip
 
-`pos` stores the current scroll and mouse positions. When user moves the mouse, we calculate how far it has been moved,
-and then scroll to the element to the same position:
+This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+{% endcallout %}
+
+`pos` stores the current scroll and mouse positions. When user moves the mouse, we calculate how far it has been moved, and then scroll to the element to the same position:
 
 ```js
 const mouseMoveHandler = function(e) {
@@ -83,10 +83,12 @@ const mouseMoveHandler = function(e) {
 };
 ```
 
-> ## Good practice
->
-> As you see above, the `left`, `top`, `x`, and `y` properties are related to each other.
-> It's better to encapsulate them in a single variable `pos` instead of creating four variables.
+{% callout %}
+### Good practice
+
+As you see above, the `left`, `top`, `x`, and `y` properties are related to each other.
+It's better to encapsulate them in a single variable `pos` instead of creating four variables.
+{% endcallout %}
 
 Last but not least, we can improve the user experience by [setting](/set-css-style-for-an-element) some CSS properties when user starts moving the mouse:
 

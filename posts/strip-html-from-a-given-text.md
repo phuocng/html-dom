@@ -24,9 +24,7 @@ const stripHtml = function(html) {
 ```
 
 This approach isn't recommended because it can cause a security issue if the input `html` consists of special tags, such as 
-`<script>`.
-
-However, we can prevent the html from being executed by replacing the `div` tag with `textarea`:
+`<script>`. However, we can prevent the html from being executed by replacing the `div` tag with `textarea`:
 
 ```js
 const stripHtml = function(html) {
@@ -47,8 +45,7 @@ const stripHtml = function(html) {
 
 ## 3. Use template
 
-The [`<template>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template) tag holds a HTML content that is not to be rendered immediately.
-However, this is not supported on older browser such as IE 11.
+The [`<template>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template) tag holds a HTML content that is not to be rendered immediately. However, this is not supported on older browser such as IE 11.
 
 ```js
 const stripHtml = function(html) {

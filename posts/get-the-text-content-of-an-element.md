@@ -8,8 +8,7 @@ metadata:
   keywords:
 ---
 
-Returns the raw text content of the `ele` element and its children.
-All the HTML tags are excluded.
+Returns the raw text content of the `ele` element and its children. All the HTML tags are excluded.
 
 ```js
 const text = ele.textContent;

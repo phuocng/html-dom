@@ -8,14 +8,9 @@ metadata:
   keywords: addEventListener, appendChild, clone node, iframe srcdoc, load event, print image, removeChild, set CSS style, setAttribute, window print
 ---
 
-You can print a web page by clicking the _Print_ menu of browser or pressing the shortcut `Ctrl+P` (or `command+P` on macOS).
+You can print a web page by clicking the _Print_ menu of browser or pressing the shortcut `Ctrl+P` (or `command+P` on macOS). Calling the `window.print()` function provides the same result which prints the entire page.
 
-Calling the `window.print()` function provides the same result which prints the entire page.
-
-In order to print an image, we can insert the image element to a fake `iframe` element, and call the `print()` function
-on the iframe's window.
-
-Assume that the page has an image element and a print button as below:
+In order to print an image, we can insert the image element to a fake `iframe` element, and call the `print()` function on the iframe's window. Assume that the page has an image element and a print button as below:
 
 ```html
 <img id="image" src="/path/to/image.jpg" />
@@ -52,8 +47,7 @@ document.body.appendChild(iframe);
 
 ## Insert the image when the iframe is ready
 
-Despite the fact that the iframe source is a simple HTML, not a remote path as defined by the `src` attribute,
-we have to wait for the iframe to be loaded completely:
+Despite the fact that the iframe source is a simple HTML, not a remote path as defined by the `src` attribute, we have to wait for the iframe to be loaded completely:
 
 ```js
 iframe.addEventListener('load', function() {
@@ -80,9 +74,11 @@ iframe.addEventListener('load', function() {
 });
 ```
 
-> ## Tip
->
-> This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+{% callout %}
+### Tip
+
+This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+{% endcallout %}
 
 ## Remove the iframe
 

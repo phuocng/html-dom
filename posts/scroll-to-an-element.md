@@ -22,15 +22,17 @@ The `behavior` option [isn't supported](https://developer.mozilla.org/en-US/docs
 ele.scrollIntoView({ behavior: 'smooth' });
 ```
 
-> ## Good to know
->
-> The similar CSS property which provides the same functionality is
->
-> ```css
-> scroll-behavior: smooth;
-> ```
->
-> It [isn't supported](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior#Browser_compatibility) in IE and Safari.
+{% callout %}
+### Good to know
+
+The similar CSS property which provides the same functionality is
+
+```css
+scroll-behavior: smooth;
+``
+
+It [is not supported](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior#Browser_compatibility) in IE and Safari.
+{% endcallout %}
 
 ## More
 

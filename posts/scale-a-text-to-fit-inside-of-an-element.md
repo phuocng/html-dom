@@ -14,8 +14,7 @@ Let's say that we want to scale a text inside a headline:
 <div id="headline">Hello World</div>
 ```
 
-First of all, we need to measure the width of element with its current font size and [text content](/get-the-text-content-of-an-element).
-For more information, you can take a look at this [post](/measure-the-width-of-given-text-of-given-font).
+First of all, we need to measure the width of element with its current font size and [text content](/get-the-text-content-of-an-element). For more information, you can take a look at this [post](/measure-the-width-of-given-text-of-given-font).
 
 ```js
 const measureWidth = function(text, font) {

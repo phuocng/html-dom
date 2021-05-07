@@ -42,7 +42,8 @@ This approach doesn't support the case that users press the _Shift_ key.
 
 ## 2. Support the Shift key
 
-The caps lock is treated as ON if users press 
+The caps lock is treated as ON if users press
+
 * an uppercase letter without Shift
 * or an lowercase letter with Shift
 

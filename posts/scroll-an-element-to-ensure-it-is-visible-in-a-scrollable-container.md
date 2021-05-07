@@ -8,8 +8,7 @@ metadata:
   keywords: check element visible container, clientHeight, offsetTop, scrollTop
 ---
 
-The following functions scrolls the `ele` element if it's not [visible](/check-if-an-element-is-visible-in-a-scrollable-container)
-in its scrollable container:
+The following functions scrolls the `ele` element if it's not [visible](/check-if-an-element-is-visible-in-a-scrollable-container) in its scrollable container:
 
 ```js
 const scrollToBeVisible = function(ele, container) {

@@ -23,6 +23,7 @@ Copying the sample code to the clipboard could consist of three steps:
 * [Select](/select-the-text-content-of-an-element) the text content of the code element
 * [Copy](/copy-text-to-the-clipboard) it to the clipboard using the `document.execCommand('copy')` function
 * Last but not least, both the steps above have an effect on the text selection.
+
 So we have to backup the current selected text before copying, and [restore it](/save-and-restore-the-text-selection) at the end.
 
 You can see the code in the demo below. Enjoy!

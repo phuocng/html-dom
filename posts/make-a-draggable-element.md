@@ -78,9 +78,11 @@ const mouseUpHandler = function() {
 ele.addEventListener('mousedown', mouseDownHandler);
 ```
 
-> ## Tip
->
-> This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+{% callout %}
+### Tip
+
+This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+{% endcallout %}
 
 ## Use cases
 

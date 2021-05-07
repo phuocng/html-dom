@@ -8,8 +8,7 @@ metadata:
   keywords: detect dark mode, prefers-color-scheme
 ---
 
-Modern operating systems such as macOS, Windows 10 allow users to choose the appearance they would 
-like to see in all applications.
+Modern operating systems such as macOS, Windows 10 allow users to choose the appearance they would like to see in all applications.
 
 The following screenshot is taken from the _General_ setting pane in macOS:
 
@@ -18,6 +17,7 @@ The following screenshot is taken from the _General_ setting pane in macOS:
 The option can be detected by looking at the `prefers-color-scheme` media query.
 
 It can be one of the following values:
+
 * `light`: User would like to see the page in the light mode
 * `dark`: User would like to see the page in the dark mode
 * `no-preference`: The system doesn't know about the user preferences
@@ -26,7 +26,7 @@ By checking against this media query value, we can determine if the user prefers
 
 ```js
 const isDarkMode = window.matchMedia && 
-    window.matchMedia('(prefers-color-scheme: dark)').matches;
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
 ```
 
 ## More

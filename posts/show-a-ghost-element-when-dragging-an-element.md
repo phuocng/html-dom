@@ -14,8 +14,7 @@ Assume that we have a draggable element:
 <div draggable="true" class="draggable">Drag me</div>
 ```
 
-Using the `draggable` attribute lets the browser know that the element can be dragged around.
-By default, the browser will show a _ghost_ element created from the original element when it is being dragged.
+Using the `draggable` attribute lets the browser know that the element can be dragged around. By default, the browser will show a _ghost_ element created from the original element when it is being dragged.
 
 We can customize the ghost element:
 
@@ -48,8 +47,7 @@ ele.addEventListener('dragend', function(e) {
 });
 ```
 
-In the sample code above, the ghost element is created and removed on the fly. However, it's also possible to use
-an existing element:
+In the sample code above, the ghost element is created and removed on the fly. However, it's also possible to use an existing element:
 
 ```html
 <div draggable="true" class="draggable">Drag me</div>

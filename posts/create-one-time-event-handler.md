@@ -10,8 +10,7 @@ metadata:
 
 ## 1. Use the once option
 
-When attach a handler to given event, you can pass `{ once: true }` to the last parameter of the
-`addEventListener` method:
+When attach a handler to given event, you can pass `{ once: true }` to the last parameter of the `addEventListener` method:
 
 ```js
 const handler = function(e) {

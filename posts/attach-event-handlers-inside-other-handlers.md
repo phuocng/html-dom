@@ -10,8 +10,7 @@ metadata:
 
 Usually, there are many event handlers which handle different events for different elements. These events could depend on each other.
 
-Let's look at a common use case. When user clicks a button, we will open a modal at the center of screen. The modal can be closed by pressing
-the Escape key.
+Let's look at a common use case. When user clicks a button, we will open a modal at the center of screen. The modal can be closed by pressing the Escape key.
 
 There are two handlers here:
 * The first one handles the `click` event of the button

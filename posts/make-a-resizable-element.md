@@ -107,9 +107,11 @@ const mouseUpHandler = function() {
 };
 ```
 
-> ## Tip
->
-> This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+{% callout %}
+### Tip
+
+This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+{% endcallout %}
 
 All the event handlers are ready. Finally, we attach the `mousedown` event handler to all the resizers:
 

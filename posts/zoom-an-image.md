@@ -8,9 +8,7 @@ metadata:
   keywords: addEventListener, getBoundingClientRect, mousedown event, mousemove event, mouseup event, previous sibling, previousElementSibling, next sibling, nextElementSibling, range input, range slider, scale image, set css style, set element width, transform scale, zoom image
 ---
 
-In this post, we'll see how to create an image zoomer which allows users to zoom an image using a [range slider](/create-a-range-slider).
-
-Here is the structure of the elements:
+In this post, we'll see how to create an image zoomer which allows users to zoom an image using a [range slider](/create-a-range-slider). Here is the structure of the elements:
 
 ```html
 <!-- The image container -->
@@ -37,8 +35,7 @@ Here is the structure of the elements:
 
 ## Prepare the image container
 
-The image will be displayed at the center of its container. In case users zoom in the image to the level which makes the image bigger than
-its container, then we'll hide the outside parts.
+The image will be displayed at the center of its container. In case users zoom in the image to the level which makes the image bigger than its container, then we'll hide the outside parts.
 
 Having that imagination, the container could be styled as below:
 
@@ -56,8 +53,7 @@ Having that imagination, the container could be styled as below:
 
 ## Calculate the initial scale
 
-Initially, we want the image to be fit within its container. To do that, we clone the image and handle the `load` event
-to determine the size of image:
+Initially, we want the image to be fit within its container. To do that, we clone the image and handle the `load` event to determine the size of image:
 
 ```js
 // Query the element
@@ -100,8 +96,7 @@ cloneImage.addEventListener('load', function(e) {
 
 ## Create the range slider
 
-You can take a look at the [Create a range slider](/create-a-range-slider) post for more details.
-Initially, we want to set the slider range based on the scale calculated in the previous section.
+You can take a look at the [Create a range slider](/create-a-range-slider) post for more details. Initially, we want to set the slider range based on the scale calculated in the previous section.
 
 First, we define the minimum and maximum scales and calculate the range step:
 
@@ -111,8 +106,9 @@ const maxScale = 2;
 const step = (maxScale - minScale) / 100;
 ```
 
-> It's also possible to set the lower and upper values based on the initial scale. I set constant values
-> to make this post simple.
+{% callout %}
+It's also possible to set the lower and upper values based on the initial scale. I set constant values to make this post simple.
+{% endcallout %}
 
 The slider can update the value via the width of left part:
 
@@ -129,8 +125,7 @@ cloneImage.addEventListener('load', function(e) {
 
 ## Scale the image when sliding the range
 
-In the previous section, we set the initial value for the slider based on the scale. It's the time to do the other part,
-update the scale based on the slider's value.
+In the previous section, we set the initial value for the slider based on the scale. It's the time to do the other part, update the scale based on the slider's value.
 
 It happens when user drags the knob:
 

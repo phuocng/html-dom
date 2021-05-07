@@ -43,8 +43,7 @@ Initially, the modified image will take half width of the container. It's positi
 }
 ```
 
-We don't use the `img` tag to display the modified image here because the image could be scaled. Instead, we use the modified
-image as the background of modified element:
+We don't use the `img` tag to display the modified image here because the image could be scaled. Instead, we use the modified image as the background of modified element:
 
 ```html
 <div
@@ -88,8 +87,7 @@ It's a lot easier to set the position for the resizer. It is displayed at the ce
 
 ## Handle the events
 
-When user moves the resizer, we calculate how far the mouse has been moved. Then set the position for the modified and resizer elements
-based on the current mouse position.
+When user moves the resizer, we calculate how far the mouse has been moved. Then set the position for the modified and resizer elements based on the current mouse position.
 
 For more information about the idea, you can look at the [create resizable split views](/create-resizable-split-views) post.
 Here is the piece of code:
@@ -149,9 +147,11 @@ const mouseMoveHandler = function(e) {
 };
 ```
 
-> ## Tip
->
-> This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+{% callout %}
+### Tip
+
+This post uses the [Attach event handlers inside other handlers](/attach-event-handlers-inside-other-handlers) tip.
+{% endcallout %}
 
 Below is the demo that you can play with.
 
