@@ -34,11 +34,18 @@ ele.getElementsByTagName('span');
 
 ## Select elements by CSS selector
 
-Returns the list of elements that match a given selector:
+Returns the **list** of elements that match a given selector:
 
 ~~~ javascript
 ele.querySelectorAll('div.hello');
 ~~~
+
+Returns the **first** element that match a given selector:
+
+~~~ javascript
+ele.querySelector('div.hello');
+~~~
+
 `}
 />
 <RelatedPosts
