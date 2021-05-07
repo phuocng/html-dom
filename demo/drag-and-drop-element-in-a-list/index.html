@@ -1,14 +1,28 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>HTML DOM</title>
+    <title>HTML DOM - Drag and drop element in a list</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="/demo/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/demo.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap">
     <style>
     .draggable {
         cursor: move;
         margin-bottom: 1rem;
         user-select: none;
+
+        /* Center the content */
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        /* Size */
+        height: 4rem;
+        width: 16rem;
+
+        /* Misc */
+        border: 1px solid #cbd5e0;
     }
     .placeholder {
         background-color: #edf2f7;
@@ -17,14 +31,14 @@
     }
     </style>
 </head>
-<body class="font-sans w-full">
-    <div class="flex flex-col items-center justify-center py-16">
+<body>
+    <div style="align-items: center; display: flex; justify-content: center; padding: 4rem 0">
         <div id="list">
-            <div class="draggable border border-gray-400 h-12 w-64 flex items-center justify-center">A</div>
-            <div class="draggable border border-gray-400 h-16 w-64 flex items-center justify-center">B</div>
-            <div class="draggable border border-gray-400 h-20 w-64 flex items-center justify-center">C</div>
-            <div class="draggable border border-gray-400 h-24 w-64 flex items-center justify-center">D</div>
-            <div class="draggable border border-gray-400 h-32 w-64 flex items-center justify-center">E</div>
+            <div class="draggable">A</div>
+            <div class="draggable">B</div>
+            <div class="draggable">C</div>
+            <div class="draggable">D</div>
+            <div class="draggable">E</div>
         </div>
     </div>
 

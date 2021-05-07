@@ -1,18 +1,35 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>HTML DOM</title>
+    <title>HTML DOM - Position an element absolutely to another element</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="/demo/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/demo.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap">
     <style>
     .target {
         position: relative;
+
+        /* Center the content */
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        /* Misc */
+        border: 1px solid #cbd5e0;
+        height: 8rem;
+        width: 16rem;
     }
     .popover {
+        /* Absolute position */
         left: 50%;
         position: absolute;
         top: 100%;
         transform: translate(-50%, .75rem);
+
+        /* Misc */
+        border: 1px solid #cbd5e0;
+        padding: .5rem;
     }
     .arrow {
         background-color: rgb(255, 255, 255);
@@ -27,18 +44,20 @@
     }
     </style>
 </head>
-<body class="flex font-sans h-64 justify-center p-4">
-    <div>
-        <div class="text-center mb-2">
-            <button type="button" class="bg-blue-600 px-2 py-1 text-white white" id="toggleButton">Toggle overflow:hidden</button>
-        </div>
+<body>
+    <div style="display: flex; height: 16rem; justify-content: center; padding: 1rem;">
+        <div>
+            <div style="margin-bottom: .5rem; text-align: center;">
+                <button type="button" style="background-color: #3182ce; border: none; color: #fff; cursor: pointer; padding: .25rem .5rem;" id="toggleButton">Toggle overflow:hidden</button>
+            </div>
 
-        <div id="target" class="target border border-gray-400 flex h-32 items-center justify-center w-64">
-            Target
+            <div id="target" class="target">
+                Target
 
-            <div id="popover" class="border border-gray-400 p-2 popover">
-                <div class="arrow"></div>
-                Popover
+                <div id="popover" class="popover">
+                    <div class="arrow"></div>
+                    Popover
+                </div>
             </div>
         </div>
     </div>

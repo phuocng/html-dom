@@ -1,3 +1,5 @@
-.netlify
-dist
-node_modules
+.DS_Store
+.netlify/
+_site/
+node_modules/
+package-lock.json

@@ -1,9 +1,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>HTML DOM</title>
+    <title>HTML DOM - Resize columns of a table</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="/demo/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/demo.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap">
     <style>
     .table {
         border-collapse: collapse;
@@ -37,70 +39,68 @@
     }
     </style>
 </head>
-<body class="font-sans w-full">
-    <div class="p-4">
-        <table id="resizeMe" class="table">
-            <thead>
-                <tr>
-                    <th>No.</th>
-                    <th>First name</th>
-                    <th>Last name</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Andrea</td>
-                    <td>Ross</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Penelope</td>
-                    <td>Mills</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Sarah</td>
-                    <td>Grant</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Vanessa</td>
-                    <td>Roberts</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Oliver</td>
-                    <td>Alsop</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>Jennifer</td>
-                    <td>Forsyth</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>Michelle</td>
-                    <td>King</td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>Steven</td>
-                    <td>Kelly</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>Julian</td>
-                    <td>Ferguson</td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>Chloe</td>
-                    <td>Ince</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<body>
+    <table id="resizeMe" class="table">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>First name</th>
+                <th>Last name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Andrea</td>
+                <td>Ross</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Penelope</td>
+                <td>Mills</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Sarah</td>
+                <td>Grant</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Vanessa</td>
+                <td>Roberts</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Oliver</td>
+                <td>Alsop</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Jennifer</td>
+                <td>Forsyth</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Michelle</td>
+                <td>King</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Steven</td>
+                <td>Kelly</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Julian</td>
+                <td>Ferguson</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Chloe</td>
+                <td>Ince</td>
+            </tr>
+        </tbody>
+    </table>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {

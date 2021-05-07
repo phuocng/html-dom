@@ -1,9 +1,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>HTML DOM</title>
+    <title>HTML DOM - Export a table to csv</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="/demo/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/demo.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap">
     <style>
     .table {
         border-collapse: collapse;
@@ -14,10 +16,18 @@
     .table th, .table td {
         padding: 0.5rem;
     }
+    .button {
+        background-color: #63b3ed;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        margin-top: 1rem;
+        padding: .5rem .75rem;
+    }
     </style>
 </head>
-<body class="font-sans w-full">
-    <div class="p-4">
+<body>
+    <div style="padding: 1rem">
         <table id="exportMe" class="table">
             <thead>
                 <tr>
@@ -80,7 +90,7 @@
             </tbody>
         </table>
 
-        <button class="border-none bg-blue-400 text-white px-3 py-2 mt-4" id="export">Export</button>
+        <button class="button" id="export">Export</button>
     </div>
 
 <script>

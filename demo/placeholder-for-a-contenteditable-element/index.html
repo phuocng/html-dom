@@ -1,17 +1,26 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>HTML DOM</title>
+    <title>HTML DOM - Placeholder for a contenteditable element</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="/demo/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/demo.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap">
+    <style>
+    .container {
+        margin: 0 auto;
+        padding: 3rem 0;
+        width: 16rem;
+    }
+    .editable {
+        border: 1px solid #cbd5e0;
+        padding: .5rem;
+    }
+    </style>
 </head>
-<body class="font-sans w-full">
-    <div class="flex items-center justify-center">
-        <div class="my-12 w-64">
-            <div class="flex items-center">
-                <div contenteditable class="border border-gray-400 flex-1 p-2 mr-2" data-placeholder="Edit me" id="editMe"></div>
-            </div>
-        </div>
+<body>
+    <div class="container">
+        <div contenteditable class="editable" data-placeholder="Edit me" id="editMe"></div>
     </div>
 
 <script>

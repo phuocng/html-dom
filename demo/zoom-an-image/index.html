@@ -1,13 +1,31 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>HTML DOM</title>
+    <title>HTML DOM - Zoom an image</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="/demo/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/demo.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap">
     <style>
     .image-container {
+        /* Center the image */
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        /* Misc */
+        border: 1px solid #cbd5e0;
         overflow: hidden;
         width: 100%;
+    }
+    .range-wrapper {
+        /* Center the content */
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        /* Misc */
+        padding-top: 2rem;
     }
     .range-container {
         /* Content is centered horizontally */
@@ -16,6 +34,10 @@
 
         /* Size */
         height: 1.5rem;
+        width: 16rem;
+
+        /* Misc */
+        margin: 0 .25rem;
     }
     .left {
         /* Width based on the current value */
@@ -46,21 +68,19 @@
     }
     </style>
 </head>
-<body class="font-sans w-full">
-    <div class="p-16">
-        <div class="flex items-center justify-center border border-gray-400 image-container">
-            <img id="image" src="/assets/city.jpg" />
+<body>
+    <div class="image-container">
+        <img id="image" src="/assets/city.jpg" />
+    </div>
+    
+    <div class="range-wrapper">
+        <div class="select-none">10%</div>
+        <div class="range-container">
+            <div class="left"></div>
+            <div class="knob" id="knob"></div>
+            <div class="right"></div>
         </div>
-        
-        <div class="flex items-center justify-center pt-8">
-            <div class="select-none">10%</div>
-            <div class="w-64 range-container mx-1">
-                <div class="left"></div>
-                <div class="knob" id="knob"></div>
-                <div class="right"></div>
-            </div>
-            <div class="select-none">200%</div>
-        </div>
+        <div class="select-none">200%</div>
     </div>
 
 <script>
