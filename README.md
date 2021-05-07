@@ -22,7 +22,7 @@ A website introducing the APIs, well-known problems, most popular questions coul
 * [x] Many real use cases
 * [x] Work with the modern browsers. _Try to support IE 11_
 
-![HTML DOM](public/assets/screenshot.png)
+![HTML DOM](assets/screenshot.png)
 
 ## Running it on local
 
