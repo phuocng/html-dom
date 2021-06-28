@@ -8,7 +8,7 @@ metadata:
   keywords: addEventListener, getBoundingClientRect, image comparison slider, mousedown event, mousemove event, mouseup event, previous sibling, previousElementSibling, next sibling, nextElementSibling, set css style, set element width
 ---
 
-In this post, we'll create a slider for comparing two imges visually. The slider has three elements organized as below:
+In this post, we'll create a slider for comparing two images visually. The slider has three elements organized as below:
 
 ```html
 <div class="container">
