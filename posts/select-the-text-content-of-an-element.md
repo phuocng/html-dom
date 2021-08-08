@@ -14,7 +14,7 @@ The following function selects the text content of the `ele` element:
 const selectText = function(ele) {
     const selection = window.getSelection();
     const range = document.createRange();
-    range.selectNodeContents(node);
+    range.selectNodeContents(ele);
     selection.removeAllRanges();
     selection.addRange(range);
 };
