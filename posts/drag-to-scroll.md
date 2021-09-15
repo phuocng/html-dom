@@ -105,6 +105,9 @@ These CSS properties are reset when the mouse is released:
 
 ```js
 const mouseUpHandler = function() {
+    document.removeEventListener('mousemove', mouseMoveHandler);
+    document.removeEventListener('mouseup', mouseUpHandler);
+    
     ele.style.cursor = 'grab';
     ele.style.removeProperty('user-select');
 };
