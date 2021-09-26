@@ -1,7 +1,6 @@
 .block-header {
     background: #fff;
     border-bottom: 1px solid #e4e4e4;
-    padding: 0.25rem 0;
     position: sticky;
     top: 0;
     z-index: 9999;
@@ -9,6 +8,7 @@
 .block-header__inner {
     align-items: center;
     display: flex;
+    height: 3rem;
     justify-content: space-between;
 }
 .block-header__cta {
