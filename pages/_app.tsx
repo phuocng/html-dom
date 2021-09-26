@@ -20,7 +20,7 @@ import {
 
 // Design
 import '@1milligram/design/lib/styles/index.css';
-
+import '@1milligram/frame/lib/styles/index.css';
 import '../styles/index.scss';
 
 const markdownComponents = {

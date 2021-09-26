@@ -32,6 +32,7 @@
         "start": "serve out"
     },
     "dependencies": {
+        "@1milligram/frame": "^1.0.0",
         "@mdx-js/loader": "^1.6.22",
         "@mdx-js/react": "^1.6.22",
         "@next/mdx": "^11.1.2",

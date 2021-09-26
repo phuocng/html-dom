@@ -1,3 +1,4 @@
+import { Demo } from '../components/Demo';
 import { PostLayout } from '../layouts/PostLayout';
 
 It's a common requirement that asks for an element to be shown absolutely to a particular element. We can list some cases, such as
@@ -48,7 +49,7 @@ This way uses CSS only and doesn't require any position calculation. Anyway, it 
 
 In the demo below, clicking the _Toggle overflow:hidden_ button will make the popover hidden as well.
 
-<iframe src="/demo/position-an-element-absolutely-to-another-element/css.html"></iframe>
+<Demo title="Use absolute CSS" url="/demo/position-an-element-absolutely-to-another-element/css.html" />
 
 ### 2. Append the popover to `body`
 
@@ -84,7 +85,7 @@ popover.style.top = `${top + 8}px`;
 popover.style.left = `${left}px`;
 ```
 
-<iframe src="/demo/position-an-element-absolutely-to-another-element/absolute.html"></iframe>
+<Demo title="Append the popover to body" url="/demo/position-an-element-absolutely-to-another-element/absolute.html" />
 
 ### 3. Use an anchor element
 
@@ -124,7 +125,7 @@ popover.style.top = `${top - anchorRect.top + 8}px`;
 popover.style.left = `${left - anchorRect.left}px`;
 ```
 
-<iframe src="/demo/position-an-element-absolutely-to-another-element/anchor.html"></iframe>
+<Demo title="Use an anchor element" url="/demo/position-an-element-absolutely-to-another-element/anchor.html" />
 
 ### Use cases
 
