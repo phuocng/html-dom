@@ -16,12 +16,9 @@ Both methods [aren't supported](https://developer.mozilla.org/en-US/docs/Web/API
 
 This post introduces a smoothly scroll implementation which also allows us to customize the animation effect and duration. We'll demonstrate in a popular use case that user can jump between sections by clicking associated navigation button.
 
-{% callout %}
-
-#### Resource
-
-The post doesn't mention how to add a navigation fixed on the left (or right) of the page. You can see a simple way to [create a fixed navigation](https://csslayout.io/patterns/fixed-at-side) on the [CSS Layout](https://csslayout.io) site.
-{% endcallout %}
+> **Resource**
+>
+> The post doesn't mention how to add a navigation fixed on the left (or right) of the page. You can see a simple way to [create a fixed navigation](https://csslayout.io/patterns/fixed-at-side) on the [CSS Layout](https://csslayout.io) site
 
 The navigation consists of some `a` elements:
 
@@ -65,18 +62,15 @@ Don't worry if you haven't seen the `scrollToTarget` function. As the name impli
 
 It is the main part of the post. To scroll to given point, we can use `window.scrollTo(0, y)` where `y` indicates the distance from the top of the page to the target.
 
-{% callout %}
-
-#### Good to know
-
-It's also possible to set `behavior: 'smooth'`:
-
-```js
-window.scrollTo({ top, left, behavior: 'smooth' });
-```
-
-The option [isn't supported](https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo#Browser_Compatibility) in IE and Safari.
-{% endcallout %}
+> **Good to know**
+>
+> It's also possible to set `behavior: 'smooth'`:
+>
+> ```js
+> window.scrollTo({ top, left, behavior: 'smooth' });
+> ```
+>
+> The option [isn't supported](https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo#Browser_Compatibility) in IE and Safari.
 
 What we're going to do is to move from the starting point to the ending point in given duration.
 
@@ -144,12 +138,9 @@ if (time < duration) {
 }
 ```
 
-{% callout %}
-
-#### Good practice
-
-It's common to think of using `setTimeout()` or `setInterval()` when we need to move between given points in the given duration. But it's recommended to use [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) which gives better performance animation.
-{% endcallout %}
+> **Good practice**
+>
+> It's common to think of using `setTimeout()` or `setInterval()` when we need to move between given points in the given duration. But it's recommended to use [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) which gives better performance animation.
 
 ### Customize the animation
 
