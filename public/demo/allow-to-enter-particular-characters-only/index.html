@@ -1,0 +1,50 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>HTML DOM - Allow to enter particular characters only</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/css/demo.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap"
+        />
+    </head>
+    <body>
+        <div style="align-items: center; display: flex; justify-content: center">
+            <div style="margin: 4rem 0; width: 16rem">
+                <div style="align-items: center; display: flex">
+                    <input type="text" style="border: 1px solid #cbd5e0; padding: 0.5rem" id="input" />
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const ele = document.getElementById('input');
+                const state = {
+                    value: ele.value,
+                };
+
+                ele.addEventListener('keydown', function (e) {
+                    const target = e.target;
+                    state.selectionStart = target.selectionStart;
+                    state.selectionEnd = target.selectionEnd;
+                });
+
+                ele.addEventListener('input', function (e) {
+                    const target = e.target;
+
+                    if (/^[0-9\s]*$/.test(target.value)) {
+                        state.value = target.value;
+                    } else {
+                        // Users enter the not supported characters
+                        // Restore the value and selection
+                        target.value = state.value;
+                        target.setSelectionRange(state.selectionStart, state.selectionEnd);
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

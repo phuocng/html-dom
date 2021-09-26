@@ -1,0 +1,14 @@
+import { PostLayout } from '../layouts/PostLayout';
+
+```js
+history.back();
+
+// Or
+history.go(-1);
+```
+
+export default ({ children }) => (
+    <PostLayout keywords="" title="Go back to the previous page">
+        {children}
+    </PostLayout>
+);

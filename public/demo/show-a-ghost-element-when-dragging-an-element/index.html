@@ -1,0 +1,63 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>HTML DOM - Show a ghost element when dragging an element</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/css/demo.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap"
+        />
+        <style>
+            .draggable {
+                cursor: move;
+                user-select: none;
+
+                /* Misc */
+                align-items: center;
+                border: 1px solid #cbd5e0;
+                display: flex;
+                height: 8rem;
+                justify-content: center;
+                width: 8rem;
+            }
+            .dragging {
+                align-items: center;
+                background-color: yellow;
+                display: flex;
+                height: 100px;
+                justify-content: center;
+                width: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="align-items: center; display: flex; justify-content: center; min-height: 32rem">
+            <div draggable="true" class="draggable" id="dragMe">Drag me</div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Query the element
+                const ele = document.getElementById('dragMe');
+
+                // The ghost element
+                let ghostEle;
+
+                ele.addEventListener('dragstart', function (e) {
+                    ghostEle = document.createElement('div');
+                    ghostEle.classList.add('dragging');
+                    ghostEle.innerHTML = 'I am flying';
+                    document.body.appendChild(ghostEle);
+
+                    e.dataTransfer.setDragImage(ghostEle, 0, 0);
+                });
+
+                ele.addEventListener('dragend', function (e) {
+                    document.body.removeChild(ghostEle);
+                });
+            });
+        </script>
+    </body>
+</html>

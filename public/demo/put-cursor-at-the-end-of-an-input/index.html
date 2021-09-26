@@ -1,0 +1,42 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>HTML DOM - Put cursor at the end of an input</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/css/demo.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap"
+        />
+    </head>
+    <body>
+        <div style="align-items: center; display: flex; margin: 3rem auto; width: 16rem">
+            <input
+                type="text"
+                style="border: 1px solid #cbd5e0; flex: 1; margin-right: 0.5rem; padding: 0.5rem"
+                value="Full name"
+                id="fullName"
+            />
+            <button
+                id="edit"
+                style="background-color: transparent; border: none; cursor: pointer; text-decoration: underline"
+            >
+                Edit
+            </button>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const fullNameEle = document.getElementById('fullName');
+                const editEle = document.getElementById('edit');
+
+                editEle.addEventListener('click', function (e) {
+                    fullNameEle.focus();
+                    const length = fullNameEle.value.length;
+                    fullNameEle.setSelectionRange(length, length);
+                });
+            });
+        </script>
+    </body>
+</html>

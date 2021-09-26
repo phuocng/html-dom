@@ -1,0 +1,66 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>HTML DOM - Copy highlighted code to the clipboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/css/demo.css" />
+        <link rel="stylesheet" href="/css/prism.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap"
+        />
+    </head>
+    <body>
+        <div style="align-items: center; display: flex; flex-direction: column; justify-content: center; padding: 1rem">
+            <div style="margin-bottom: 1rem; width: 100%">
+                <pre
+                    id="sampleCode"
+                    class="language-js"
+                ><code class="language-js"><span class="token comment">// Query the elements</span><br><span class="token keyword">const</span> copyButton <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'copyButton'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">const</span> codeEle <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'sampleCode'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>copyButton<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">const</span> selection <span class="token operator">=</span> window<span class="token punctuation">.</span><span class="token function">getSelection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    <span class="token comment">// Save the current selection</span><br>    <span class="token keyword">const</span> currentRange <span class="token operator">=</span> selection<span class="token punctuation">.</span>rangeCount <span class="token operator">===</span> <span class="token number">0</span><br>        <span class="token operator">?</span> <span class="token keyword">null</span> <span class="token operator">:</span> selection<span class="token punctuation">.</span><span class="token function">getRangeAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    <span class="token comment">// Select the text content of code element</span><br>    <span class="token keyword">const</span> range <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createRange</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    range<span class="token punctuation">.</span><span class="token function">selectNodeContents</span><span class="token punctuation">(</span>codeEle<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    selection<span class="token punctuation">.</span><span class="token function">removeAllRanges</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    selection<span class="token punctuation">.</span><span class="token function">addRange</span><span class="token punctuation">(</span>range<span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    <span class="token comment">// Copy to the clipboard</span><br>    <span class="token keyword">try</span> <span class="token punctuation">{</span><br>        document<span class="token punctuation">.</span><span class="token function">execCommand</span><span class="token punctuation">(</span><span class="token string">'copy'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        copyButton<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'Copied'</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token comment">// Unable to copy</span><br>        copyButton<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'Copy'</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span><br>        <span class="token comment">// Restore the previous selection</span><br>        selection<span class="token punctuation">.</span><span class="token function">removeAllRanges</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        currentRange <span class="token operator">&amp;&amp;</span> selection<span class="token punctuation">.</span><span class="token function">addRange</span><span class="token punctuation">(</span>currentRange<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+            </div>
+
+            <button
+                id="copyButton"
+                type="button"
+                style="background-color: #3182ce; border: none; color: #fff; padding: 0.25rem 0.5rem"
+            >
+                Copy
+            </button>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Query the elements
+                const copyButton = document.getElementById('copyButton');
+                const codeEle = document.getElementById('sampleCode');
+
+                copyButton.addEventListener('click', function () {
+                    const selection = window.getSelection();
+
+                    // Save the current selection
+                    const currentRange = selection.rangeCount === 0 ? null : selection.getRangeAt(0);
+
+                    // Select the text content of code element
+                    const range = document.createRange();
+                    range.selectNodeContents(codeEle);
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+
+                    // Copy to the clipboard
+                    try {
+                        document.execCommand('copy');
+                        copyButton.innerHTML = 'Copied';
+                    } catch (err) {
+                        // Unable to copy
+                        copyButton.innerHTML = 'Copy';
+                    } finally {
+                        // Restore the previous selection
+                        selection.removeAllRanges();
+                        currentRange && selection.addRange(currentRange);
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

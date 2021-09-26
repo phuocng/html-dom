@@ -1,0 +1,106 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>HTML DOM - Show a custom context menu at clicked position</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/css/demo.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap"
+        />
+        <style>
+            .container {
+                position: relative;
+            }
+            .container__trigger {
+                /* Center the content */
+                align-items: center;
+                display: flex;
+                justify-content: center;
+
+                /* Size */
+                height: 16rem;
+                width: 16rem;
+
+                /* Misc */
+                border: 1px solid #cbd5e0;
+            }
+            .container__menu {
+                /* Absolute position */
+                position: absolute;
+
+                /* Reset */
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+
+                /* Misc */
+                border: 1px solid #cbd5e0;
+                border-radius: 0.25rem;
+                background-color: #f7fafc;
+            }
+            .container__menu--hidden {
+                display: none;
+            }
+            .container__item {
+                padding: 0.5rem 1rem;
+                white-space: nowrap;
+            }
+            .container__item:hover {
+                background-color: #bee3f8;
+            }
+            .container__divider {
+                border-bottom: 1px solid #cbd5e0;
+                height: 1px;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="align-items: center; display: flex; justify-content: center; padding: 4rem">
+            <div class="container">
+                <div class="container__trigger" id="element">Right-click me</div>
+
+                <ul id="menu" class="container__menu container__menu--hidden">
+                    <li class="container__item">First action</li>
+                    <li class="container__item">Second action</li>
+                    <li class="container__divider"></li>
+                    <li class="container__item">Yet another action</li>
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const ele = document.getElementById('element');
+                const menu = document.getElementById('menu');
+
+                ele.addEventListener('contextmenu', function (e) {
+                    e.preventDefault();
+
+                    const rect = ele.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    // Set the position for menu
+                    menu.style.top = `${y}px`;
+                    menu.style.left = `${x}px`;
+
+                    // Show the menu
+                    menu.classList.remove('container__menu--hidden');
+
+                    document.addEventListener('click', documentClickHandler);
+                });
+
+                // Hide the menu when clicking outside of it
+                const documentClickHandler = function (e) {
+                    const isClickedOutside = !menu.contains(e.target);
+                    if (isClickedOutside) {
+                        menu.classList.add('container__menu--hidden');
+                        document.removeEventListener('click', documentClickHandler);
+                    }
+                };
+            });
+        </script>
+    </body>
+</html>

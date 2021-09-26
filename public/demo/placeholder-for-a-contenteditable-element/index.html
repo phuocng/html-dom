@@ -1,0 +1,51 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>HTML DOM - Placeholder for a contenteditable element</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/css/demo.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap"
+        />
+        <style>
+            .container {
+                margin: 0 auto;
+                padding: 3rem 0;
+                width: 16rem;
+            }
+            .editable {
+                border: 1px solid #cbd5e0;
+                padding: 0.5rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div contenteditable class="editable" data-placeholder="Edit me" id="editMe"></div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const ele = document.getElementById('editMe');
+
+                // Get the placeholder attribute
+                const placeholder = ele.getAttribute('data-placeholder');
+
+                // Set the placeholder as initial content if it's empty
+                ele.innerHTML === '' && (ele.innerHTML = placeholder);
+
+                ele.addEventListener('focus', function (e) {
+                    const value = e.target.innerHTML;
+                    value === placeholder && (e.target.innerHTML = '');
+                });
+
+                ele.addEventListener('blur', function (e) {
+                    const value = e.target.innerHTML;
+                    value === '' && (e.target.innerHTML = placeholder);
+                });
+            });
+        </script>
+    </body>
+</html>

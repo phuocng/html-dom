@@ -1,0 +1,80 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>HTML DOM - Position an element absolutely to another element</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/css/demo.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap"
+        />
+        <style>
+            .body {
+                position: relative;
+
+                /* Misc */
+                display: flex;
+                height: 16rem;
+                justify-content: center;
+                padding: 2rem;
+            }
+            .target {
+                /* Center the content */
+                align-items: center;
+                display: flex;
+                justify-content: center;
+
+                /* Misc */
+                height: 8rem;
+                border: 1px solid #cbd5e0;
+                width: 16rem;
+            }
+            .popover {
+                /* Absolute position */
+                position: absolute;
+
+                /* Misc */
+                border: 1px solid #cbd5e0;
+                padding: 0.5rem;
+            }
+            .arrow {
+                background-color: rgb(255, 255, 255);
+                border-left: 1px solid #cbd5e0;
+                border-top: 1px solid #cbd5e0;
+                height: 0.75rem;
+                left: 50%;
+                position: absolute;
+                top: 0;
+                transform: translate(-50%, -50%) rotate(45deg);
+                width: 0.75rem;
+            }
+        </style>
+    </head>
+    <body class="body">
+        <div class="container">
+            <div id="target" class="target">Target</div>
+
+            <div id="popover" class="popover">
+                <div class="arrow"></div>
+                Popover
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const target = document.getElementById('target');
+                const popover = document.getElementById('popover');
+
+                const targetRect = target.getBoundingClientRect();
+                const popoverRect = popover.getBoundingClientRect();
+
+                const top = targetRect.top + targetRect.height;
+                const left = targetRect.left + targetRect.width / 2 - popoverRect.width / 2;
+
+                popover.style.top = `${top + 8}px`;
+                popover.style.left = `${left}px`;
+            });
+        </script>
+    </body>
+</html>

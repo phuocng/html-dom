@@ -1,0 +1,188 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>HTML DOM - Create a custom scrollbar</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/css/demo.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap"
+        />
+        <style>
+            .anchor {
+                left: 0;
+                position: absolute;
+                top: 0;
+            }
+            .grabbing {
+                cursor: grabbing;
+                user-select: none;
+            }
+            .scrollbar {
+                background-color: #edf2f7;
+                border: 1px solid #cbd5e0;
+                border-left-width: 0;
+                position: absolute;
+                width: 0.75rem;
+            }
+            .thumb {
+                background-color: #718096;
+                border-radius: 9999px;
+                cursor: grab;
+                left: 0;
+                position: absolute;
+                width: 100%;
+            }
+            .track {
+                height: 100%;
+                left: 0;
+                position: absolute;
+                top: 0;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper" style="border: 1px solid #cbd5e0; height: 32rem; margin: 2rem; overflow: hidden">
+            <div
+                id="content"
+                style="height: 100%; margin-right: -1rem; overflow: auto; padding: 0.5rem; padding-right: 1rem"
+            >
+                <p style="margin-bottom: 1rem">
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
+                    massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
+                    quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+                    Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,
+                    imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+                    Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula,
+                    porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis,
+                    feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean
+                    imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam
+                    rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet
+                    adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
+                    Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam
+                    quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet
+                    nibh. Donec sodales sagittis magna.
+                </p>
+                <p style="margin-bottom: 1rem">
+                    Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero.
+                    Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id,
+                    metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum
+                    ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi
+                    consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec,
+                    imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer
+                    eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy
+                    metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut Lorem ipsum dolor sit amet,
+                    consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+                    penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
+                    pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla
+                    vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae,
+                    justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus
+                    elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat
+                    vitae, eleifend ac, enim.
+                </p>
+                <p>
+                    Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus
+                    varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
+                    ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum
+                    rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit
+                    vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae
+                    sapien ut libero venenatis faucibus. Nullam quis ante Etiam sit amet orci eget eros faucibus
+                    tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed
+                    consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce
+                    vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus.
+                    Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum
+                    primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer
+                    lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet
+                    iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget,
+                    posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy
+                    metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut
+                </p>
+            </div>
+        </div>
+        <div id="anchor" class="anchor"></div>
+        <div id="scrollbar" class="scrollbar">
+            <div id="track" class="track"></div>
+            <div id="thumb" class="thumb"></div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Query elements
+                const wrapper = document.getElementById('wrapper');
+                const content = document.getElementById('content');
+                const anchor = document.getElementById('anchor');
+                const scrollbar = document.getElementById('scrollbar');
+                const track = document.getElementById('track');
+                const thumb = document.getElementById('thumb');
+
+                // Get the bounding rectangles
+                const wrapperRect = wrapper.getBoundingClientRect();
+                const anchorRect = anchor.getBoundingClientRect();
+
+                // Set the scrollbar position
+                const top = wrapperRect.top - anchorRect.top;
+                const left = wrapperRect.width + wrapperRect.left - anchorRect.left;
+                scrollbar.style.top = `${top}px`;
+                scrollbar.style.left = `${left}px`;
+
+                // The scrollbar has the same height as the wrapper
+                scrollbar.style.height = `${wrapperRect.height}px`;
+
+                // Set the initial height for thumb
+                const scrollRatio = content.clientHeight / content.scrollHeight;
+                thumb.style.height = `${scrollRatio * 100}%`;
+
+                let pos = { top: 0, y: 0 };
+
+                const mouseDownThumbHandler = function (e) {
+                    pos = {
+                        // The current scroll
+                        top: content.scrollTop,
+                        // Get the current mouse position
+                        y: e.clientY,
+                    };
+
+                    thumb.classList.add('grabbing');
+                    document.body.classList.add('grabbing');
+
+                    document.addEventListener('mousemove', mouseMoveHandler);
+                    document.addEventListener('mouseup', mouseUpHandler);
+                };
+
+                const mouseMoveHandler = function (e) {
+                    // How far the mouse has been moved
+                    const dy = e.clientY - pos.y;
+
+                    // Scroll the content
+                    content.scrollTop = pos.top + dy / scrollRatio;
+                };
+
+                const mouseUpHandler = function (e) {
+                    thumb.classList.remove('grabbing');
+                    document.body.classList.remove('grabbing');
+
+                    document.removeEventListener('mousemove', mouseMoveHandler);
+                    document.removeEventListener('mouseup', mouseUpHandler);
+                };
+
+                const scrollContentHandler = function () {
+                    window.requestAnimationFrame(function () {
+                        thumb.style.top = `${(content.scrollTop * 100) / content.scrollHeight}%`;
+                    });
+                };
+
+                const trackClickHandler = function (e) {
+                    const bound = track.getBoundingClientRect();
+                    const percentage = (e.clientY - bound.top) / bound.height;
+                    content.scrollTop = percentage * (content.scrollHeight - content.clientHeight);
+                };
+
+                content.addEventListener('scroll', scrollContentHandler);
+                thumb.addEventListener('mousedown', mouseDownThumbHandler);
+                track.addEventListener('click', trackClickHandler);
+            });
+        </script>
+    </body>
+</html>

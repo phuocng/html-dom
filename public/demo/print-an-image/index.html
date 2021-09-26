@@ -1,0 +1,67 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>HTML DOM - Print an image</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/css/demo.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap"
+        />
+    </head>
+    <body>
+        <div style="display: flex; flex-direction: column; justify-content: center; padding: 4rem">
+            <img id="image" src="/assets/village.jpg" />
+            <div style="margin-top: 1rem; text-align: center">
+                <button
+                    style="background-color: #63b3ed; border: none; color: #fff; cursor: pointer; padding: 0.5rem 1rem"
+                    id="print"
+                >
+                    Print
+                </button>
+            </div>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Query the element
+                const printBtn = document.getElementById('print');
+
+                printBtn.addEventListener('click', function () {
+                    // Create a fake iframe
+                    const iframe = document.createElement('iframe');
+
+                    // Make it hidden
+                    iframe.style.height = 0;
+                    iframe.style.visibility = 'hidden';
+                    iframe.style.width = 0;
+
+                    // Set the iframe's source
+                    iframe.setAttribute('srcdoc', '<html><body></body></html>');
+
+                    document.body.appendChild(iframe);
+
+                    iframe.contentWindow.addEventListener('afterprint', function () {
+                        iframe.parentNode.removeChild(iframe);
+                    });
+
+                    iframe.addEventListener('load', function () {
+                        // Clone the image
+                        const image = document.getElementById('image').cloneNode();
+                        image.style.maxWidth = '100%';
+
+                        // Append the image to the iframe's body
+                        const body = iframe.contentDocument.body;
+                        body.style.textAlign = 'center';
+                        body.appendChild(image);
+
+                        image.addEventListener('load', function () {
+                            // Invoke the print when the image is ready
+                            iframe.contentWindow.print();
+                        });
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

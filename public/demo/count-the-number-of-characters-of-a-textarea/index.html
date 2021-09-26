@@ -1,0 +1,35 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>HTML DOM - Count the number of characters of a textarea</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/css/demo.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap"
+        />
+    </head>
+    <body>
+        <div style="margin: 4rem auto; width: 16rem">
+            <textarea rows="5" style="border: 1px solid #cbd5e0; width: 100%" maxlength="200" id="message"></textarea>
+            <div style="margin-top: 0.25rem; text-align: right" id="counter">0</div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const messageEle = document.getElementById('message');
+                const counterEle = document.getElementById('counter');
+                const maxLength = messageEle.getAttribute('maxlength');
+
+                counterEle.innerHTML = `0/${maxLength}`;
+
+                messageEle.addEventListener('input', function (e) {
+                    const target = e.target;
+                    const currentLength = target.value.length;
+                    counterEle.innerHTML = `${currentLength}/${maxLength}`;
+                });
+            });
+        </script>
+    </body>
+</html>

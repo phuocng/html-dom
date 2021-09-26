@@ -1,0 +1,40 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>HTML DOM - Press shift and enter for a new line</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/css/demo.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap"
+        />
+    </head>
+    <body>
+        <div style="margin: 3rem auto; width: 16rem">
+            <textarea
+                rows="5"
+                id="message"
+                style="border: 1px solid #cbd5e0; padding: 0.5rem; width: 100%"
+                placeholder="Shift + Enter for a new line"
+            ></textarea>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const ele = document.getElementById('message');
+
+                ele.addEventListener('keydown', function (e) {
+                    const keyCode = e.which || e.keyCode;
+                    // 13 represents the Enter key
+                    if (keyCode === 13 && !e.shiftKey) {
+                        // Don't generate a new line
+                        e.preventDefault();
+
+                        // Do something else such as send the message to back-end ...
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>HTML DOM - Highlight an element when dragging a file over it</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/css/demo.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap"
+        />
+        <style>
+            .container {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                padding: 6rem 0;
+            }
+            .item {
+                /* Center the content */
+                align-items: center;
+                display: flex;
+                justify-content: center;
+
+                /* Misc */
+                border: 1px solid #cbd5e0;
+                height: 16rem;
+                width: 16rem;
+            }
+            .dragging {
+                border: 4px dashed #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="item" id="droppable">Drop here</div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Query the element
+                const ele = document.getElementById('droppable');
+
+                ele.addEventListener('dragover', function (e) {
+                    e.preventDefault();
+                });
+
+                ele.addEventListener('dragenter', function (e) {
+                    e.preventDefault();
+                    e.target.classList.add('dragging');
+                });
+
+                ele.addEventListener('dragleave', function (e) {
+                    e.preventDefault();
+                    e.target.classList.remove('dragging');
+                });
+
+                ele.addEventListener('drop', function (e) {
+                    e.preventDefault();
+                    e.target.classList.remove('dragging');
+                });
+            });
+        </script>
+    </body>
+</html>

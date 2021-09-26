@@ -1,0 +1,168 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>HTML DOM - Create resizable split views</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/css/demo.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro&display=swap"
+        />
+        <style>
+            .container {
+                display: flex;
+
+                /* Misc */
+                border: 1px solid #cbd5e0;
+                height: 32rem;
+                width: 100%;
+            }
+            .resizer[data-direction='horizontal'] {
+                background-color: #cbd5e0;
+                cursor: ew-resize;
+                height: 100%;
+                width: 2px;
+            }
+            .resizer[data-direction='vertical'] {
+                background-color: #cbd5e0;
+                cursor: ns-resize;
+                height: 2px;
+                width: 100%;
+            }
+            .container__left {
+                /* Initially, the left takes 1/4 width */
+                width: 25%;
+
+                /* Misc */
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+            .container__right {
+                /* Take the remaining width */
+                flex: 1;
+
+                /* Misc */
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .container__top {
+                /* Initial height */
+                height: 12rem;
+
+                /* Misc */
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+            .container__bottom {
+                /* Take the remaining height */
+                flex: 1;
+
+                /* Misc */
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="container__left">Left</div>
+            <div class="resizer" data-direction="horizontal"></div>
+            <div class="container__right">
+                <div class="container__top">Top</div>
+                <div class="resizer" data-direction="vertical"></div>
+                <div class="container__bottom">Bottom</div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const resizable = function (resizer) {
+                    const direction = resizer.getAttribute('data-direction') || 'horizontal';
+                    const prevSibling = resizer.previousElementSibling;
+                    const nextSibling = resizer.nextElementSibling;
+
+                    // The current position of mouse
+                    let x = 0;
+                    let y = 0;
+                    let prevSiblingHeight = 0;
+                    let prevSiblingWidth = 0;
+
+                    // Handle the mousedown event
+                    // that's triggered when user drags the resizer
+                    const mouseDownHandler = function (e) {
+                        // Get the current mouse position
+                        x = e.clientX;
+                        y = e.clientY;
+                        const rect = prevSibling.getBoundingClientRect();
+                        prevSiblingHeight = rect.height;
+                        prevSiblingWidth = rect.width;
+
+                        // Attach the listeners to `document`
+                        document.addEventListener('mousemove', mouseMoveHandler);
+                        document.addEventListener('mouseup', mouseUpHandler);
+                    };
+
+                    const mouseMoveHandler = function (e) {
+                        // How far the mouse has been moved
+                        const dx = e.clientX - x;
+                        const dy = e.clientY - y;
+
+                        switch (direction) {
+                            case 'vertical':
+                                const h =
+                                    ((prevSiblingHeight + dy) * 100) /
+                                    resizer.parentNode.getBoundingClientRect().height;
+                                prevSibling.style.height = `${h}%`;
+                                break;
+                            case 'horizontal':
+                            default:
+                                const w =
+                                    ((prevSiblingWidth + dx) * 100) / resizer.parentNode.getBoundingClientRect().width;
+                                prevSibling.style.width = `${w}%`;
+                                break;
+                        }
+
+                        const cursor = direction === 'horizontal' ? 'col-resize' : 'row-resize';
+                        resizer.style.cursor = cursor;
+                        document.body.style.cursor = cursor;
+
+                        prevSibling.style.userSelect = 'none';
+                        prevSibling.style.pointerEvents = 'none';
+
+                        nextSibling.style.userSelect = 'none';
+                        nextSibling.style.pointerEvents = 'none';
+                    };
+
+                    const mouseUpHandler = function () {
+                        resizer.style.removeProperty('cursor');
+                        document.body.style.removeProperty('cursor');
+
+                        prevSibling.style.removeProperty('user-select');
+                        prevSibling.style.removeProperty('pointer-events');
+
+                        nextSibling.style.removeProperty('user-select');
+                        nextSibling.style.removeProperty('pointer-events');
+
+                        // Remove the handlers of `mousemove` and `mouseup`
+                        document.removeEventListener('mousemove', mouseMoveHandler);
+                        document.removeEventListener('mouseup', mouseUpHandler);
+                    };
+
+                    // Attach the handler
+                    resizer.addEventListener('mousedown', mouseDownHandler);
+                };
+
+                // Query all resizers
+                document.querySelectorAll('.resizer').forEach(function (ele) {
+                    resizable(ele);
+                });
+            });
+        </script>
+    </body>
+</html>
