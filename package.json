@@ -15,24 +15,39 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/phuoc-ng/html-dom"
+        "url": "https://github.com/1milligram/html-dom"
     },
     "bugs": {
-        "url": "https://github.com/phuoc-ng/html-dom/issues"
+        "url": "https://github.com/1milligram/html-dom/issues"
     },
     "license": "MIT",
     "scripts": {
-        "build": "eleventy",
-        "serve": "eleventy --serve",
-        "deploy": "rm -rf _site && npm run build && netlify deploy --dir=_site --prod"
+        "build": "next build",
+        "dev": "next dev",
+        "format": "prettier --write \"**/*.+(css|html|json|js|jsx|mdx|scss|ts|tsx)\"",
+        "preexport": "npm run build",
+        "export": "next export",
+        "deploy": "npm run export && netlify deploy --prod --dir=out",
+        "prestart": "npm run export",
+        "start": "serve out"
+    },
+    "dependencies": {
+        "@mdx-js/loader": "^1.6.22",
+        "@mdx-js/react": "^1.6.22",
+        "@next/mdx": "^11.1.2",
+        "next": "^11.1.2",
+        "prism-react-renderer": "^1.2.1",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
     },
     "devDependencies": {
-        "@11ty/eleventy": "^0.11.1",
-        "@11ty/eleventy-navigation": "^0.1.6",
-        "@11ty/eleventy-plugin-rss": "^1.1.0",
-        "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.6",
-        "html-minifier": "^4.0.0",
-        "markdown-it": "^12.0.4",
-        "node-fetch": "^2.6.1"
+        "@1milligram/design": "^0.4.0",
+        "@types/linkifyjs": "^2.1.4",
+        "@types/react": "^17.0.20",
+        "@types/react-dom": "^17.0.9",
+        "prettier": "^2.4.0",
+        "sass": "^1.39.2",
+        "serve": "^12.0.1",
+        "typescript": "^4.4.3"
     }
 }
