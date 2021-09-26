@@ -4,6 +4,6 @@ const withMDX = require('@next/mdx')({
 
 module.exports = withMDX({
     // `true` will transform `/about` to `/about/index.html`
-    trailingSlash: false,
+    trailingSlash: true,
     pageExtensions: ['js', 'jsx', 'tsx', 'mdx'],
 });
