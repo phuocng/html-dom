@@ -1,7 +1,8 @@
 @import './prism.css';
 
 body {
-    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+        'Segoe UI Emoji', 'Segoe UI Symbol';
     line-height: 1.5;
     margin: 0;
 }
@@ -12,17 +13,17 @@ a {
     text-decoration: none;
 }
 code:not([class]) {
-    background-color: #FDE68A;
+    background-color: #fde68a;
     font-size: 1rem;
 }
 
 :root {
     --theme-color: #5b5d8a;
-    --color-category-advanced: #DC2626;
-    --color-category-basic: #52525B;
-    --color-category-intermediate: #2563EB;
-    --color-category-tip: #15803D;
-    --color-gray-300: #D4D4D8;
+    --color-category-advanced: #dc2626;
+    --color-category-basic: #52525b;
+    --color-category-intermediate: #2563eb;
+    --color-category-tip: #15803d;
+    --color-gray-300: #d4d4d8;
 }
 
 /* Layout */
@@ -46,13 +47,13 @@ code:not([class]) {
 }
 
 /* Header */
-.header {    
+.header {
     background-color: var(--theme-color);
-    color: #FFF;
+    color: #fff;
     margin-bottom: 4rem;
     position: relative;
 }
-.header__corner {    
+.header__corner {
     content: '';
     position: absolute;
 
@@ -60,7 +61,7 @@ code:not([class]) {
     height: 4rem;
     width: 4rem;
 }
-.header__corner::before {    
+.header__corner::before {
     content: '';
 
     /* Position */
@@ -79,9 +80,9 @@ code:not([class]) {
     left: 0;
     transform: translate(0, 100%);
 }
-.header__corner--bl::before {    
+.header__corner--bl::before {
     background: #fff;
-    border-top-left-radius: 100%;    
+    border-top-left-radius: 100%;
 }
 .header__corner--br {
     background: #fff;
@@ -100,7 +101,7 @@ code:not([class]) {
     justify-content: space-between;
 }
 .header__nav a {
-    color: #FFF;
+    color: #fff;
     font-size: 1.5rem;
 }
 .header__logo {
@@ -118,8 +119,8 @@ code:not([class]) {
     position: relative;
     text-align: center;
 }
-.header__edit a {    
-    background-color: #FFF;    
+.header__edit a {
+    background-color: #fff;
     border: 1px solid var(--color-gray-300);
     border-top-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
@@ -140,7 +141,7 @@ code:not([class]) {
 }
 .footer__copyright {
     align-items: center;
-    border-bottom: 1px solid #D1D5DB;
+    border-bottom: 1px solid #d1d5db;
     display: flex;
     justify-content: space-between;
     margin: 0.5rem 0;
@@ -160,9 +161,9 @@ code:not([class]) {
     text-decoration: none;
 }
 .footer__link--dot:not(:last-child):after {
-    color: #9CA3AF;
+    color: #9ca3af;
     display: inline-flex;
-    content: " • ";
+    content: ' • ';
     margin: 0 0.5rem;
 }
 
@@ -182,7 +183,7 @@ code:not([class]) {
     padding: 1rem;
 }
 .sidebar__card a {
-    color: #FFF;
+    color: #fff;
     text-decoration: none;
 }
 .sidebar__card-logo {
@@ -193,7 +194,7 @@ code:not([class]) {
 }
 .sidebar__card-title {
     font-size: 1.25rem;
-    margin: 0.5rem;    
+    margin: 0.5rem;
     padding: 0;
     text-align: center;
 }
@@ -208,7 +209,7 @@ code:not([class]) {
 }
 .home-section__heading {
     color: var(--theme-color);
-    display: grid;    
+    display: grid;
     grid-gap: 1rem;
     font-size: 2.5rem;
     font-weight: 600;
@@ -259,7 +260,7 @@ code:not([class]) {
 }
 .home-example__category {
     border-top-left-radius: 0.5rem;
-    color: #FFF;
+    color: #fff;
     font-size: 0.75rem;
     padding: 0.25rem 0.5rem;
 
@@ -292,7 +293,7 @@ code:not([class]) {
 .home-product__link {
     align-items: center;
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
 }
 .home-product__head {
     align-items: center;
@@ -342,7 +343,7 @@ code:not([class]) {
 .post__content table,
 .post__content th,
 .post__content td {
-    border: 1px solid rgba(0, 0, 0, .3);
+    border: 1px solid rgba(0, 0, 0, 0.3);
     border-collapse: collapse;
     padding: 0.5rem;
 }
@@ -381,7 +382,7 @@ code:not([class]) {
     border: 1px solid var(--color-gray-300);
     border-top-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
-    padding: 0.5rem 1rem;  
+    padding: 0.5rem 1rem;
 }
 .carbon-img {
     display: block;
@@ -431,7 +432,7 @@ iframe {
         flex-basis: 12rem;
     }
 }
-@media (min-width: 1024px) {    
+@media (min-width: 1024px) {
     .grid__item {
         width: 25%;
     }
@@ -440,7 +441,7 @@ iframe {
         margin-left: 1rem;
     }
 }
-@media (min-width: 1280px) {    
+@media (min-width: 1280px) {
     .grid__item {
         width: 20%;
     }

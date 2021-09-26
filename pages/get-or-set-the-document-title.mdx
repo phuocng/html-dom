@@ -1,0 +1,19 @@
+import { PostLayout } from '../layouts/PostLayout';
+
+### Get the document title
+
+```js
+const title = document.title;
+```
+
+### Set the document title
+
+```js
+document.title = 'Hello World';
+```
+
+export default ({ children }) => (
+    <PostLayout keywords="" title="Get or set the document title">
+        {children}
+    </PostLayout>
+);

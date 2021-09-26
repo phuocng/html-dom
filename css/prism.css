@@ -3,12 +3,12 @@ Prism theme
 Credit to https://github.com/tailwindlabs/tailwindcss.com/blob/master/src/css/prism.css
 */
 pre {
-    background: #27272A;
+    background: #27272a;
     border: none;
     border-radius: 0px;
     box-shadow: none;
-    color: #FFF;
-    font-family: "Source Code Pro", monospace;
+    color: #fff;
+    font-family: 'Source Code Pro', monospace;
     font-size: 1rem;
     line-height: 1.5;
     margin: 1rem 0;
@@ -21,7 +21,7 @@ pre {
 .token.selector,
 .token.selector .class,
 .token.function {
-    color: #E879F9;
+    color: #e879f9;
 }
 
 .token.attr-name,
@@ -30,7 +30,7 @@ pre {
 .token.operator,
 .token.pseudo-class,
 .token.important {
-    color: #22D3EE;
+    color: #22d3ee;
 }
 
 .token.attr-value,
@@ -39,13 +39,13 @@ pre {
 .token.number,
 .token.unit,
 .token.color {
-    color: #BEF264;
+    color: #bef264;
 }
 
 .token.punctuation,
 .token.module,
 .token.property {
-    color: #BAE6FD;
+    color: #bae6fd;
 }
 
 .token.atapply .token:not(.rule):not(.important) {
@@ -61,5 +61,5 @@ pre {
 }
 
 .token.comment {
-    color: #A1A1AA;
+    color: #a1a1aa;
 }

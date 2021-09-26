@@ -8,35 +8,17 @@ class MyDocument extends Document {
                     <link href="/favicon.png" rel="icon" />
                     <meta charSet="utf-8" />
 
-                    <meta
-                        content="Manage HTML DOM with vanilla JavaScript"
-                        name="description"
-                    />
-                    <meta
-                        content="Document Object Model, DOM API, HTML, HTML DOM"
-                        name="keywords"
-                    />
+                    <meta content="Manage HTML DOM with vanilla JavaScript" name="description" />
+                    <meta content="Document Object Model, DOM API, HTML, HTML DOM" name="keywords" />
                     <meta content="Nguyen Huu Phuoc" name="author" />
                     <meta content="@nghuuphuoc" name="twitter:site" />
                     <meta content="summary" name="twitter:card" />
-                    <meta
-                        content="Manage HTML DOM with vanilla JavaScript"
-                        name="twitter:description"
-                    />
-                    <meta
-                        content="Manage HTML DOM with vanilla JavaScript"
-                        name="twitter:title"
-                    />
+                    <meta content="Manage HTML DOM with vanilla JavaScript" name="twitter:description" />
+                    <meta content="Manage HTML DOM with vanilla JavaScript" name="twitter:title" />
                     <meta content="/assets/logo.png" name="twitter:image" />
 
-                    <meta
-                        content="Manage HTML DOM with vanilla JavaScript"
-                        property="og:title"
-                    />
-                    <meta
-                        content="Manage HTML DOM with vanilla JavaScript"
-                        property="og:description"
-                    />
+                    <meta content="Manage HTML DOM with vanilla JavaScript" property="og:title" />
+                    <meta content="Manage HTML DOM with vanilla JavaScript" property="og:description" />
                     <meta content="article" property="og:type" />
                     <meta content="https://htmldom.dev" property="og:url" />
                     <meta content="/assets/logo.png" property="og:image" />

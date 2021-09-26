@@ -1,0 +1,13 @@
+import { PostLayout } from '../layouts/PostLayout';
+
+Assume that `ele` represents the element that you want to check if it has the focus currently:
+
+```js
+const hasFocus = ele === document.activeElement;
+```
+
+export default ({ children }) => (
+    <PostLayout keywords="" title="Detect if an element is focused">
+        {children}
+    </PostLayout>
+);

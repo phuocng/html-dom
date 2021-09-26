@@ -1,0 +1,13 @@
+import { PostLayout } from '../layouts/PostLayout';
+
+The `ele` will be removed from the DOM tree, and is replaced with `newEle`:
+
+```js
+ele.parentNode.replaceChild(newEle, ele);
+```
+
+export default ({ children }) => (
+    <PostLayout keywords="" title="Replace an element">
+        {children}
+    </PostLayout>
+);
