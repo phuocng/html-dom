@@ -21,3 +21,25 @@
     border-top: 1px solid #e6e6e6;
     content: '';
 }
+
+.block-home__post {
+    align-items: center;
+    border: 1px solid #e6e6e6;
+    border-radius: 0.25rem;
+    color: #333;
+    display: flex;
+    margin: 1rem 0;
+    padding: 0.25rem 1rem;
+    overflow: hidden;
+
+    &:hover {
+        background: #e5e5e5;
+    }
+}
+
+.block-home__title {
+    font-size: 1.25rem;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
