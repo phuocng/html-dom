@@ -1,12 +1,25 @@
 import * as React from 'react';
-import Highlight, { defaultProps } from 'prism-react-renderer';
+import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/vsDark';
 
-const Code = ({ children, className }) => {
-    const lang = className ? className.split('-').pop() : 'js';
+const Code = (props) => {
+    const {
+        children,
+        className,
+        inline,
+    }: {
+        children: string | string[];
+        className?: string;
+        inline: boolean;
+    } = props;
 
-    return (
-        <Highlight {...defaultProps} theme={theme} code={children.trim()} language={lang}>
+    const lang = className ? className.split('-').pop() : 'js';
+    const code = Array.isArray(children) ? children[0].trim() : children.trim();
+
+    return inline ? (
+        <code className="block-markdown__code">{code}</code>
+    ) : (
+        <Highlight {...defaultProps} theme={theme} code={code} language={lang as Language}>
             {({ className, style, tokens, getLineProps, getTokenProps }) => (
                 <pre className={`block-markdown__pre ${className}`} style={{ ...style }}>
                     {tokens.map((line, i) => (

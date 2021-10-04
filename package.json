@@ -34,13 +34,14 @@
     "dependencies": {
         "@1milligram/design": "^0.4.0",
         "@1milligram/frame": "^1.0.1",
-        "@mdx-js/loader": "^1.6.22",
-        "@mdx-js/react": "^1.6.22",
-        "@next/mdx": "^11.1.2",
+        "gray-matter": "^4.0.3",
         "next": "^11.1.2",
         "prism-react-renderer": "^1.2.1",
         "react": "^17.0.2",
-        "react-dom": "^17.0.2"
+        "react-dom": "^17.0.2",
+        "react-markdown": "^7.0.1",
+        "remark-directive": "^2.0.0",
+        "remark-gfm": "^2.0.0"
     },
     "devDependencies": {
         "@types/react": "^17.0.20",
