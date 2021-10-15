@@ -5,8 +5,10 @@ class MyDocument extends Document {
         return (
             <Html>
                 <Head>
-                    <link href="/favicon.png" rel="icon" />
                     <meta charSet="utf-8" />
+                    <link rel="icon" href="/favicon.png" type="image/png" />
+                    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+                    <link rel="mask-icon" href="/mask-favicon.svg" color="#1975FF" />
 
                     <meta content="Manage HTML DOM with vanilla JavaScript" name="description" />
                     <meta content="Document Object Model, DOM API, HTML, HTML DOM" name="keywords" />
@@ -15,16 +17,13 @@ class MyDocument extends Document {
                     <meta content="summary" name="twitter:card" />
                     <meta content="Manage HTML DOM with vanilla JavaScript" name="twitter:description" />
                     <meta content="Manage HTML DOM with vanilla JavaScript" name="twitter:title" />
-                    <meta content="/assets/logo.png" name="twitter:image" />
 
                     <meta content="Manage HTML DOM with vanilla JavaScript" property="og:title" />
                     <meta content="Manage HTML DOM with vanilla JavaScript" property="og:description" />
                     <meta content="article" property="og:type" />
                     <meta content="https://htmldom.dev" property="og:url" />
-                    <meta content="/assets/logo.png" property="og:image" />
                     <meta content="HTML DOM" property="og:site_name" />
 
-                    <link rel="icon" href="/assets/favicon.png" />
                     <link rel="preconnect" href="https://fonts.googleapis.com" />
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
                     <link
