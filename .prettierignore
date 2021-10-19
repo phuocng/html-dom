@@ -1,3 +1,4 @@
 .netlify
 .next
+out
 node_modules

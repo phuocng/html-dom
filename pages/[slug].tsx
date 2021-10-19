@@ -29,6 +29,8 @@ const PostPage: React.FC<PostPageProps> = ({ content, frontMatter, prevPost, nex
             <Spacer size="medium" />
             <Pagination>
                 {prevPost && <PrevPagination href={`/${prevPost.slug}`}>{prevPost.title}</PrevPagination>}
+            </Pagination>
+            <Pagination>
                 {nextPost && <NextPagination href={`/${nextPost.slug}`}>{nextPost.title}</NextPagination>}
             </Pagination>
         </PostLayout>

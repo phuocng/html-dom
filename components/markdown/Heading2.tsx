@@ -5,7 +5,6 @@ const Heading2 = (props) => (
     <>
         <Spacer size="medium" />
         <Heading level={2}>{props.children}</Heading>
-        <Spacer size="small" />
     </>
 );
 
