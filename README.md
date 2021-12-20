@@ -5,7 +5,7 @@
 Web development goes very fast. I still remember the moments when starting to use [jQuery](https://jquery.com), [Prototype](http://prototypejs.org),
 [script.aculo.us](https://script.aculo.us), [Zepto](https://zeptojs.com) and many more.
 
-Nowadays, even if our application is powered by mordern tools such as Angular, Vue, React, Svelte, .etc, we have to deal with DOM.
+Nowadays, even if our application is powered by modern tools such as Angular, Vue, React, Svelte, .etc, we have to deal with DOM.
 The frameworks encapsulate and hide the DOM management directly, but still give us a door to work with DOM via _ref_, _event handlers_.
 
 If you develop or use a web component in any framework, you have to work with DOM at a certain level.
