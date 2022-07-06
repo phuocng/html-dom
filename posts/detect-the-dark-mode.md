@@ -18,7 +18,7 @@ It can be one of the following values:
 -   `dark`: User would like to see the page in the dark mode
 -   `no-preference`: The system doesn't know about the user preferences
 
-By checking against this media query value, we can determine if the user prefers the drak mode or not:
+By checking against this media query value, we can determine if the user prefers the dark mode or not:
 
 ```js
 const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
