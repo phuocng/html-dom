@@ -1,4 +1,3 @@
 .netlify
-.next
-out
+_site
 node_modules

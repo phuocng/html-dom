@@ -1,3 +1,0 @@
-User-agent: *
-Disallow:
-Sitemap: https://htmldom.dev/sitemap.xml
