@@ -11,16 +11,16 @@ The frameworks encapsulate and hide the DOM management directly, but still give 
 If you develop or use a web component in any framework, you have to work with DOM at a certain level.
 
 Knowing the browser DOM APIs and how to use them play an important role in web development.
-A website introducing the APIs, well-known problems, most popular questions could be very useful. 
+A website introducing the APIs, well-known problems, most popular questions could be very useful.
 
 ## Features
 
-* [x] No external library. Only native browsers' APIs
-* [x] Small and easy to understand examples
-* [x] Live demos
-* [x] Many tips and good practices included
-* [x] Many real use cases
-* [x] Work with the modern browsers. _Try to support IE 11_
+-   [x] No external library. Only native browsers' APIs
+-   [x] Small and easy to understand examples
+-   [x] Live demos
+-   [x] Many tips and good practices included
+-   [x] Many real use cases
+-   [x] Work with the modern browsers. _Try to support IE 11_
 
 ## Running it on local
 
@@ -50,5 +50,6 @@ Open http://localhost:8081 in your browser to see it in action.
 This project is developed by _Nguyen Huu Phuoc_. I love building products and sharing knowledge.
 
 Be my friend on
-* [Twitter](https://twitter.com/nghuuphuoc)
-* [Github](https://github.com/phuocng)
+
+-   [Twitter](https://twitter.com/nghuuphuoc)
+-   [Github](https://github.com/phuocng)

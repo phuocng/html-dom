@@ -3,6 +3,13 @@ const markdownIt = require('markdown-it');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const htmlmin = require('html-minifier');
 
+const CATEGORIES = {
+    'Basic': 0,
+    'Advanced': 1,
+    'Intermediate': 2,
+    'Tip': 3,
+};
+
 module.exports = function(eleventyConfig) {
     // Copy the `img` and `css` folders to the output
     eleventyConfig.addPassthroughCopy('assets');
@@ -47,7 +54,9 @@ module.exports = function(eleventyConfig) {
                     categories.push(category);
                 }
             });
-        return categories.sort();
+        return categories.sort(function(a, b) {
+            return CATEGORIES[a] - CATEGORIES[b];
+        });
     });
 
     eleventyConfig.addCollection('groupByCategories', function(collectionApi) {
