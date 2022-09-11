@@ -1,5 +1,6 @@
 ---
 category: Advanced
+layout: layouts/post.njk
 keywords: addEventListener, getBoundingClientRect, mousedown event, mousemove event, mouseup event, previous sibling, previousElementSibling, next sibling, nextElementSibling, range input, range slider, scale image, set css style, set element width, transform scale, zoom image
 title: Zoom an image
 ---
@@ -144,7 +145,7 @@ _Photo by [Pedro Lastra](https://unsplash.com/@peterlaster) on [Unsplash](https:
 
 ### Demo
 
-:demo[]{title="Zoom an image" url="/demo/zoom-an-image/index.html"}
+{% demo '/assets/demo/zoom-an-image/index.html' %}
 
 ### See also
 

@@ -1,5 +1,6 @@
 ---
 category: Intermediate
+layout: layouts/post.njk
 keywords: addRange, clipboardData, createTextNode, deleteContents, execCommand, getRangeAt, getSelection, get text from clipboard, insertNode, insert text current position, paste plain text, queryCommandSupported removeAllRanges, selectNodeContents
 title: Paste as plain text
 ---
@@ -51,7 +52,7 @@ Try to paste some rich text in the following `contenteditable` element:
 
 ### Demo
 
-:demo[]{title="Paste as plain text" url="/demo/paste-as-plain-text/index.html"}
+{% demo '/assets/demo/paste-as-plain-text/index.html' %}
 
 ### See also
 

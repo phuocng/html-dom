@@ -39,7 +39,7 @@ In the demo below, pressing `Enter` will do nothing:
 
 ### Demo
 
-:demo[]{title="Press Shift and Enter for a new line" url="/demo/press-shift-and-enter-for-a-new-line/index.html"}
+{% demo '/assets/demo/press-shift-and-enter-for-a-new-line/index.html' %}
 
 ### See also
 

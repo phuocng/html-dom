@@ -1,5 +1,6 @@
 ---
 category: Intermediate
+layout: layouts/post.njk
 keywords:
 title: Preview an image before uploading it
 ---

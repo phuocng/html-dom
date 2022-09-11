@@ -1,5 +1,6 @@
 ---
 category: Advanced
+layout: layouts/post.njk
 keywords:
 title: Resize columns of a table
 ---
@@ -139,7 +140,7 @@ const mouseUpHandler = function() {
 
 ### Demo
 
-:demo[]{title="Resize columns of a table" url="/demo/resize-columns-of-a-table/index.html"}
+{% demo '/assets/demo/resize-columns-of-a-table/index.html' %}
 
 ### See also
 

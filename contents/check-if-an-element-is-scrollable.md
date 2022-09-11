@@ -1,5 +1,6 @@
 ---
 category: Intermediate
+layout: layouts/post.njk
 keywords:
 title: Check if an element is scrollable
 ---

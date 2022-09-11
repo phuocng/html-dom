@@ -1,5 +1,6 @@
 ---
 category: Advanced
+layout: layouts/post.njk
 keywords:
 title: Make a resizable element
 ---
@@ -121,7 +122,7 @@ const resizers = ele.querySelectorAll('.resizer');
 
 ### Demo
 
-:demo[]{title="Make a resizable element" url="/demo/make-a-resizable-element/index.html"}
+{% demo '/assets/demo/make-a-resizable-element/index.html' %}
 
 ### See also
 

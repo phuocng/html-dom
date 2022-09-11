@@ -1,5 +1,6 @@
 ---
 category: Intermediate
+layout: layouts/post.njk
 keywords:
 title: Detect if the caps lock is on
 ---

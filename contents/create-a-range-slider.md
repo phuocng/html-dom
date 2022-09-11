@@ -1,5 +1,6 @@
 ---
 category: Advanced
+layout: layouts/post.njk
 keywords: addEventListener, getBoundingClientRect, mousedown event, mousemove event, mouseup event, previous sibling, previousElementSibling, next sibling, nextElementSibling, range input, range slider, set css style, set element width
 title: Create a range slider
 ---
@@ -145,7 +146,7 @@ Enjoy the demo!
 
 ### Demo
 
-:demo[]{title="Create a range slider" url="/demo/create-a-range-slider/index.html"}
+{% demo '/assets/demo/create-a-range-slider/index.html' %}
 
 ### See also
 

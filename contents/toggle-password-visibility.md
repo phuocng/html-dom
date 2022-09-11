@@ -34,7 +34,7 @@ toggleEle.addEventListener('click', function () {
 
 ### Demo
 
-:demo[]{title="Toggle password visibility" url="/demo/toggle-password-visibility/index.html"}
+{% demo '/assets/demo/toggle-password-visibility/index.html' %}
 
 ### See also
 

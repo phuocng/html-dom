@@ -1,5 +1,6 @@
 ---
 category: Advanced
+layout: layouts/post.njk
 keywords: addEventListener, getBoundingClientRect, image comparison slider, mousedown event, mousemove event, mouseup event, previous sibling, previousElementSibling, next sibling, nextElementSibling, set css style, set element width
 title: Create an image comparison slider
 ---
@@ -149,7 +150,7 @@ _Photo by [frank mckenna](https://unsplash.com/@frankiefoto) on [Unsplash](https
 
 ### Demo
 
-:demo[]{title="Create an image comparison slider" url="/demo/create-an-image-comparison-slider/index.html"}
+{% demo '/assets/demo/create-an-image-comparison-slider/index.html' %}
 
 ### See also
 

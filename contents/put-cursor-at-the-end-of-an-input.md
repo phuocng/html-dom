@@ -31,7 +31,7 @@ editEle.addEventListener('click', function (e) {
 
 ### Demo
 
-:demo[]{title="Put cursor at the end of an input" url="/demo/put-cursor-at-the-end-of-an-input/index.html"}
+{% demo '/assets/demo/put-cursor-at-the-end-of-an-input/index.html' %}
 
 ### See also
 

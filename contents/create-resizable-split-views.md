@@ -1,5 +1,6 @@
 ---
 category: Advanced
+layout: layouts/post.njk
 keywords: addEventListener, data attribute, getBoundingClientRect, mousedown event, mousemove event, mouseup event, next sibling, nextElementSibling, previous sibling, previousElementSibling, set css style, split view
 title: Create resizable split views
 ---
@@ -153,7 +154,7 @@ const mouseUpHandler = function () {
 
 Below is the demo that you can play with.
 
-:demo[]{title="Create resizable split views" url="/demo/create-resizable-split-views/index.html"}
+{% demo '/assets/demo/create-resizable-split-views/index.html' %}
 
 ### Support vertical direction
 
@@ -246,7 +247,7 @@ Enjoy the demo!
 
 ### Demo
 
-:demo[]{title="Support vertical direction" url="/demo/create-resizable-split-views/direction.html"}
+{% demo '/assets/demo/create-resizable-split-views/direction.html' %}
 
 ### See also
 

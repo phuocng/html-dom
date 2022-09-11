@@ -1,5 +1,6 @@
 ---
 category: Intermediate
+layout: layouts/post.njk
 keywords: absolute position, element position, getBoundingClientRect
 title: Position an element absolutely to another element
 ---
@@ -52,7 +53,7 @@ This way uses CSS only and doesn't require any position calculation. Anyway, it 
 
 In the demo below, clicking the _Toggle overflow:hidden_ button will make the popover hidden as well.
 
-:demo[]{title="Use absolute CSS" url="/demo/position-an-element-absolutely-to-another-element/css.html"}
+{% demo '/assets/demo/position-an-element-absolutely-to-another-element/css.html' %}
 
 ### 2. Append the popover to `body`
 
@@ -88,7 +89,7 @@ popover.style.top = `${top + 8}px`;
 popover.style.left = `${left}px`;
 ```
 
-:demo[]{title="Append the popover to body" url="/demo/position-an-element-absolutely-to-another-element/absolute.html"}
+{% demo '/assets/demo/position-an-element-absolutely-to-another-element/absolute.html' %}
 
 ### 3. Use an anchor element
 
@@ -128,7 +129,7 @@ popover.style.top = `${top - anchorRect.top + 8}px`;
 popover.style.left = `${left - anchorRect.left}px`;
 ```
 
-:demo[]{title="Use an anchor element" url="/demo/position-an-element-absolutely-to-another-element/anchor.html"}
+{% demo '/assets/demo/position-an-element-absolutely-to-another-element/anchor.html' %}
 
 ### Use cases
 

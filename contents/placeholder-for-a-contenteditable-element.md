@@ -1,5 +1,6 @@
 ---
 category: Intermediate
+layout: layouts/post.njk
 keywords:
 title: Placeholder for a contenteditable element
 ---
@@ -58,7 +59,7 @@ ele.addEventListener('blur', function (e) {
 
 ### Demo
 
-:demo[]{title="Placeholder for a contenteditable element" url="/demo/placeholder-for-a-contenteditable-element/index.html"}
+{% demo '/assets/demo/placeholder-for-a-contenteditable-element/index.html' %}
 
 ### See also
 

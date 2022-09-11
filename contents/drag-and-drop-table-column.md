@@ -1,5 +1,6 @@
 ---
 category: Advanced
+layout: layouts/post.njk
 keywords: addEventListener, drag drop list, drag drop table row, getBoundingClientRect, insert node before, insertBefore, mousedown event, mousemove event, mouseup event, next sibling, nextElementSibling, previous sibling, previousElementSibling, sortable list, swap nodes
 title: Drag and drop table column
 ---
@@ -255,7 +256,7 @@ Following is the final demo. Try to drag and drop the first cell of any column.
 
 ### Demo
 
-:demo[]{title="Drag and drop table column" url="/demo/drag-and-drop-table-column/index.html"}
+{% demo '/assets/demo/drag-and-drop-table-column/index.html' %}
 
 ### See also
 

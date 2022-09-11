@@ -1,5 +1,6 @@
 ---
 category: Intermediate
+layout: layouts/post.njk
 keywords:
 title: Scale a text to fit inside of an element
 ---
@@ -46,7 +47,7 @@ ele.style.fontSize = `${scaleFontSize}px`;
 
 ### Demo
 
-:demo[]{title="Scale a text to fit inside of an element" url="/demo/scale-a-text-to-fit-inside-of-an-element/index.html"}
+{% demo '/assets/demo/scale-a-text-to-fit-inside-of-an-element/index.html' %}
 
 ### See also
 

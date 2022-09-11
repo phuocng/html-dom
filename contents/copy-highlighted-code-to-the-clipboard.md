@@ -1,5 +1,6 @@
 ---
 category: Advanced
+layout: layouts/post.njk
 keywords: addEventListener, addRange, copy text clipboard, createRange, execCommand, getRangeAt, getSelection, rangeCount, removeAllRanges, selectNodeContents, window get selection
 title: Copy highlighted code to the clipboard
 ---
@@ -26,7 +27,7 @@ You can see the code in the demo below. Enjoy!
 
 ### Demo
 
-:demo[]{title="Copy highlighted code to the clipboard" url="/demo/copy-highlighted-code-to-the-clipboard/index.html"}
+{% demo '/assets/demo/copy-highlighted-code-to-the-clipboard/index.html' %}
 
 ### See also
 

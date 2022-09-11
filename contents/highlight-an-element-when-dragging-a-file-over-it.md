@@ -1,5 +1,6 @@
 ---
 category: Intermediate
+layout: layouts/post.njk
 keywords:
 title: Highlight an element when dragging a file over it
 ---
@@ -52,7 +53,7 @@ The last thing, `e.preventDefault()` is used in the handlers to [prevent](/preve
 
 ### Demo
 
-:demo[]{title="Highlight an element when dragging a file over it" url="/demo/highlight-an-element-when-dragging-a-file-over-it/index.html"}
+{% demo '/assets/demo/highlight-an-element-when-dragging-a-file-over-it/index.html' %}
 
 ### See also
 

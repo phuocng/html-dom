@@ -1,5 +1,6 @@
 ---
 category: Advanced
+layout: layouts/post.njk
 keywords:
 title: Sort a table by clicking its headers
 ---
@@ -193,7 +194,7 @@ const sortColumn = function(index) {
 
 ### Demo
 
-:demo[]{title="Sort a table by clicking its headers" url="/demo/sort-a-table-by-clicking-its-headers/index.html"}
+{% demo '/assets/demo/sort-a-table-by-clicking-its-headers/index.html' %}
 
 ### See also
 

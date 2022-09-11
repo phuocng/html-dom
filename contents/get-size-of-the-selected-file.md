@@ -63,7 +63,7 @@ sizeEle.innerHTML = formatFileSize(files[0].size);
 
 ### Demo
 
-:demo[]{title="Get size of the selected file" url="/demo/get-size-of-the-selected-file/index.html"}
+{% demo '/assets/demo/get-size-of-the-selected-file/index.html' %}
 
 ### See also
 

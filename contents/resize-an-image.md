@@ -1,5 +1,6 @@
 ---
 category: Intermediate
+layout: layouts/post.njk
 keywords: Blob, FileReader, readAsDataURL, resize image, toBlob, toDataURL, URL createObjectURL
 title: Resize an image
 ---

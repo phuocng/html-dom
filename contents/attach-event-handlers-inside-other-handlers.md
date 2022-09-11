@@ -1,5 +1,6 @@
 ---
 category: Tip
+layout: layouts/post.njk
 keywords: addEventListener, attach event handler, detach event handler, removeEventListener
 title: Attach event handlers inside other handlers
 ---

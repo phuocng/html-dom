@@ -1,5 +1,6 @@
 ---
 category: Advanced
+layout: layouts/post.njk
 keywords:
 title: Make a draggable element
 ---
@@ -90,7 +91,7 @@ We can use the technique in this post to
 
 ### Demo
 
-:demo[]{title="Make a draggable element" url="/demo/make-a-draggable-element/index.html"}
+{% demo '/assets/demo/make-a-draggable-element/index.html' %}
 
 ### See also
 

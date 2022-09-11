@@ -1,5 +1,6 @@
 ---
 category: Intermediate
+layout: layouts/post.njk
 keywords: addEventListener, input event, keypress event, preventDefault, selectionEnd, selectionStart, setSelectionRange
 title: Allow to enter particular characters only
 ---
@@ -111,7 +112,7 @@ In our specific example, `<input type="number" />` doesn't help because it doesn
 
 ### Demo
 
-:demo[]{title="Allow to enter particular characters only" url="/demo/allow-to-enter-particular-characters-only/index.html"}
+{% demo '/assets/demo/allow-to-enter-particular-characters-only/index.html' %}
 
 ### See also
 

@@ -1,5 +1,6 @@
 ---
 category: Advanced
+layout: layouts/post.njk
 keywords: addEventListener, custom context menu, data attribute, getAttribute, hide table columns, setAttribute, show table columns
 title: Show or hide table columns
 ---
@@ -224,7 +225,7 @@ In the demo below, right-click the headers to show or hide any columns. Enjoy!
 
 ### Demo
 
-:demo[]{title="Show or hide table columns" url="/demo/show-or-hide-table-columns/index.html"}
+{% demo '/assets/demo/show-or-hide-table-columns/index.html' %}
 
 ### See also
 

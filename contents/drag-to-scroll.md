@@ -1,5 +1,6 @@
 ---
 category: Advanced
+layout: layouts/post.njk
 keywords: addEventListener, clientX, clientY, cursor grab, cursor grabbing, drag element, drag scroll, mousedown event, mousemove event, mouseup event, remove CSS property, scrollLeft, scrollTop, set CSS property
 title: Drag to scroll
 ---
@@ -111,7 +112,7 @@ Hopefully you love the following demo!
 
 ### Demo
 
-:demo[]{title="Drag to scroll" url="/demo/drag-to-scroll/index.html"}
+{% demo '/assets/demo/drag-to-scroll/index.html' %}
 
 ### See also
 

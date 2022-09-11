@@ -1,5 +1,6 @@
 ---
 category: Intermediate
+layout: layouts/post.njk
 keywords:
 title: Export a table to csv
 ---
@@ -78,7 +79,7 @@ exportBtn.addEventListener('click', function () {
 
 ### Demo
 
-:demo[]{title="Export a table to csv" url="/demo/export-a-table-to-csv/index.html"}
+{% demo '/assets/demo/export-a-table-to-csv/index.html' %}
 
 ### See also
 

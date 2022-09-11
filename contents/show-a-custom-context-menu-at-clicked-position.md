@@ -1,5 +1,6 @@
 ---
 category: Intermediate
+layout: layouts/post.njk
 keywords: addEventListener, clientX, clientY, contextmenu event, custom context menu, detect click outside, getBoundingClientRect, mouse position, prevent default action, set element position
 title: Show a custom context menu at clicked position
 ---
@@ -112,7 +113,7 @@ Finally, following is the demo you can play with!
 
 ### Demo
 
-:demo[]{title="Show a custom context menu at clicked position" url="/demo/show-a-custom-context-menu-at-clicked-position/index.html"}
+{% demo '/assets/demo/show-a-custom-context-menu-at-clicked-position/index.html' %}
 
 ### See also
 

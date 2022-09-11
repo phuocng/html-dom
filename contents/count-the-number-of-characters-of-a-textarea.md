@@ -50,7 +50,7 @@ messageEle.addEventListener('input', function (e) {
 
 ### Demo
 
-:demo[]{title="Count the number of characters of a textarea" url="/demo/count-the-number-of-characters-of-a-textarea/index.html"}
+{% demo '/assets/demo/count-the-number-of-characters-of-a-textarea/index.html' %}
 
 ### See also
 

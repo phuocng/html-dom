@@ -1,5 +1,6 @@
 ---
 category: Advanced
+layout: layouts/post.njk
 keywords: addEventListener, drag drop list, getBoundingClientRect, insert node before, insertBefore, mousedown event, mousemove event, mouseup event, next sibling, nextElementSibling, previous sibling, previousElementSibling, sortable list, swap nodes
 title: Drag and drop element in a list
 ---
@@ -237,7 +238,7 @@ Following is the final demo. Try to drag and drop any item!
 
 ### Demo
 
-:demo[]{title="Drag and drop element in a list" url="/demo/drag-and-drop-element-in-a-list/index.html"}
+{% demo '/assets/demo/drag-and-drop-element-in-a-list/index.html' %}
 
 ### See also
 

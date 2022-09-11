@@ -1,5 +1,6 @@
 ---
 category: Intermediate
+layout: layouts/post.njk
 keywords: check element visible container, clientHeight, offsetTop, scrollTop
 title: Scroll an element to ensure it is visible in a scrollable container
 ---

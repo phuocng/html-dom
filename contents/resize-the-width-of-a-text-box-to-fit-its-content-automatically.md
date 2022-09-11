@@ -1,5 +1,6 @@
 ---
 category: Intermediate
+layout: layouts/post.njk
 keywords:
 title: Resize the width of a text box to fit its content automatically
 ---
@@ -74,7 +75,7 @@ textboxEle.addEventListener('input', function (e) {
 
 ### Demo
 
-:demo[]{title="Resize the width of a text box to fit its content automatically" url="/demo/resize-the-width-of-a-text-box-to-fit-its-content-automatically/index.html"}
+{% demo '/assets/demo/resize-the-width-of-a-text-box-to-fit-its-content-automatically/index.html' %}
 
 ### See also
 

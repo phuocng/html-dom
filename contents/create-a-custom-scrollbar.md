@@ -1,5 +1,6 @@
 ---
 category: Advanced
+layout: layouts/post.njk
 keywords: custom scrollbar, drag to scroll, fake scrollbar, scrollbar-color, scrollbar-width, webkit-scrollbar, webkit-scrollbar-track, webkit-scrollbar-thumb
 title: Create a custom scrollbar
 ---
@@ -221,7 +222,7 @@ I hope this post isn't too long and you can follow until here. Following is the 
 
 ### Demo
 
-:demo[]{title="Create a custom scrollbar" url="/demo/create-a-custom-scrollbar/index.html"}
+{% demo '/assets/demo/create-a-custom-scrollbar/index.html' %}
 
 ### See also
 

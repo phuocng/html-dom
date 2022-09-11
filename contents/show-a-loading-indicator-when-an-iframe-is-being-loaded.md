@@ -1,5 +1,6 @@
 ---
 category: Intermediate
+layout: layouts/post.njk
 keywords: addEventListener, hide element, iframe load event, show loading indicator
 title: Show a loading indicator when an iframe is being loaded
 ---

@@ -1,5 +1,6 @@
 ---
 category: Intermediate
+layout: layouts/post.njk
 keywords:
 title: Communication between an iframe and its parent window
 ---
@@ -73,7 +74,7 @@ Here is an example demonstrates how to send a simple message between a [page](ht
 
 ### Demo
 
-:demo[]{title="Communication between an iframe and its parent window" url="/demo/communication-between-an-iframe-and-its-parent-window/index.html"}
+{% demo '/assets/demo/communication-between-an-iframe-and-its-parent-window/index.html' %}
 
 ### See also
 

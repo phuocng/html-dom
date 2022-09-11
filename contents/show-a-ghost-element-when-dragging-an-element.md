@@ -1,5 +1,6 @@
 ---
 category: Intermediate
+layout: layouts/post.njk
 keywords: addEventListener, drag ghost element, dragend event, dragstart event, setDragImage
 title: Show a ghost element when dragging an element
 ---
@@ -62,7 +63,7 @@ ele.addEventListener('dragstart', function (e) {
 
 ### Demo
 
-:demo[]{title="Show a ghost element when dragging an element" url="/demo/show-a-ghost-element-when-dragging-an-element/index.html"}
+{% demo '/assets/demo/show-a-ghost-element-when-dragging-an-element/index.html' %}
 
 ### See also
 

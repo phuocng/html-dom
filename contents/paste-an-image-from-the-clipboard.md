@@ -1,5 +1,6 @@
 ---
 category: Intermediate
+layout: layouts/post.njk
 keywords: clipboardData, createObjectURL, FormData, getAsFile, paste event, paste image from clipboard, XMLHttpRequest
 title: Paste an image from the clipboard
 ---
@@ -59,7 +60,7 @@ req.send(formData);
 
 ### Demo
 
-:demo[]{title="Paste an image from the clipboard" url="/demo/paste-an-image-from-the-clipboard/index.html"}
+{% demo '/assets/demo/paste-an-image-from-the-clipboard/index.html' %}
 
 ### See also
 

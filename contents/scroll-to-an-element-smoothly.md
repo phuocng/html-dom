@@ -1,5 +1,6 @@
 ---
 category: Advanced
+layout: layouts/post.njk
 keywords: cancelAnimationFrame, full page scroll, pageYOffset, requestAnimationFrame, scroll-behavior property, scrollIntoView, scrollIntoView behavior smooth, scrollTo, smoothly scroll
 title: Scroll to an element smoothly
 ---
@@ -170,7 +171,7 @@ In the following demo, try to move between sections by clicking an circle on the
 
 ### Demo
 
-:demo[]{title="Scroll to an element smoothly" url="/demo/scroll-to-an-element-smoothly/index.html"}
+{% demo '/assets/demo/scroll-to-an-element-smoothly/index.html' %}
 
 ### See also
 

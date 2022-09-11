@@ -1,5 +1,6 @@
 ---
 category: Intermediate
+layout: layouts/post.njk
 keywords: addRange, getRangeAt, getSelection, rangeCount, removeAllRanges, restore range, window get selection
 title: Save and restore the text selection
 ---

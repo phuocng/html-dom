@@ -1,5 +1,6 @@
 ---
 category: Intermediate
+layout: layouts/post.njk
 keywords: addEventListener, appendChild, clone node, iframe srcdoc, load event, print image, removeChild, set CSS style, setAttribute, window print
 title: Print an image
 ---
@@ -89,7 +90,7 @@ _Photo by [Rod Long](https://unsplash.com/@rodlong) on [Unsplash](https://unspla
 
 ### Demo
 
-:demo[]{title="Print an image" url="/demo/print-an-image/index.html"}
+{% demo '/assets/demo/print-an-image/index.html' %}
 
 ### See also
 
