@@ -9,7 +9,7 @@ Modern operating systems such as macOS, Windows 10 allow users to choose the app
 
 The following screenshot is taken from the _General_ setting pane in macOS:
 
-![Set the dark mode in macOS](/assets/appearance-setting.png)
+![Set the dark mode in macOS](/assets/images/appearance-setting.png)
 
 The option can be detected by looking at the `prefers-color-scheme` media query.
 

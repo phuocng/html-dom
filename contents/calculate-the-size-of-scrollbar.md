@@ -45,7 +45,7 @@ const calculateScrollbarWidth = function () {
 
 This method doesn't work on macOS if the _Show scroll bars_ option is set as _Automatically based on mouse or trackpad_ or _When scrolling_.
 
-![Show scroll bars option on macOS](/assets/scroll-macos.png)
+![Show scroll bars option on macOS](/assets/images/scroll-macos.png)
 
 ### See also
 
