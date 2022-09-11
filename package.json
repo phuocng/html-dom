@@ -15,40 +15,40 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/1milligram/html-dom"
+        "url": "https://github.com/phuocng/html-dom"
     },
     "bugs": {
-        "url": "https://github.com/1milligram/html-dom/issues"
+        "url": "https://github.com/phuocng/html-dom/issues"
     },
     "license": "MIT",
     "scripts": {
-        "build": "next build",
-        "dev": "next dev",
-        "format": "prettier --write \"**/*.+(css|html|json|js|jsx|mdx|scss|ts|tsx)\"",
-        "preexport": "npm run build",
-        "export": "next export",
-        "deploy": "npm run export && netlify deploy --prod --dir=out",
-        "prestart": "npm run export",
-        "start": "serve out"
-    },
-    "dependencies": {
-        "@1milligram/design": "^0.4.0",
-        "@1milligram/frame": "^1.0.1",
-        "gray-matter": "^4.0.3",
-        "next": "^11.1.2",
-        "prism-react-renderer": "^1.2.1",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "react-markdown": "^7.0.1",
-        "remark-directive": "^2.0.0",
-        "remark-gfm": "^2.0.0"
+        "build": "npm run build:eleventy && npm run build:sass && npm run build:js",
+        "build:sass": "sass styles/index.scss _site/styles/index.min.css --no-source-map --style compressed",
+        "build:eleventy": "npx @11ty/eleventy",
+        "build:js": "rollup -c rollup.config.js",
+        "deploy": "npm run build && netlify deploy --prod --dir=_site",
+        "format": "prettier --write \"**/*.+(json|md|scss)\"",
+        "start": "npm run watch:eleventy & npm run watch:sass",
+        "watch:eleventy": "npx @11ty/eleventy --serve --port=8081",
+        "watch:sass": "sass styles/index.scss _site/styles/index.min.css --no-source-map --style compressed --watch"
     },
     "devDependencies": {
-        "@types/react": "^17.0.20",
-        "@types/react-dom": "^17.0.9",
-        "prettier": "^2.4.0",
-        "sass": "^1.39.2",
-        "serve": "^12.0.1",
-        "typescript": "^4.4.3"
+        "@11ty/eleventy-plugin-syntaxhighlight": "^4.1.0",
+        "@rollup/plugin-node-resolve": "^14.0.1",
+        "@rollup/plugin-typescript": "^8.5.0",
+        "html-minifier": "^4.0.0",
+        "lit": "^2.3.1",
+        "node-fetch": "^2.6.7",
+        "prettier": "^2.7.1",
+        "rollup": "^2.79.0",
+        "rollup-plugin-minify-html-literals": "^1.2.6",
+        "rollup-plugin-terser": "^7.0.2",
+        "sass": "^1.54.8",
+        "tslib": "^2.4.0",
+        "typescript": "^4.8.3"
+    },
+    "dependencies": {
+        "@11ty/eleventy": "^1.0.2",
+        "markdown-it": "^13.0.1"
     }
 }

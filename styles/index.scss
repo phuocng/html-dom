@@ -1,12 +1,14 @@
-@import './reset';
+@import './common';
 
-// Blocks
-@import 'blocks/ad';
-@import 'blocks/demo';
-@import 'blocks/footer';
-@import 'blocks/header';
-@import 'blocks/layout';
-@import 'blocks/markdown';
+@import './blocks/card';
+@import './blocks/category';
+@import './blocks/example';
+@import './blocks/hero';
+@import './blocks/follow';
+@import './blocks/footer';
+@import './blocks/header';
+@import './blocks/nav';
+@import './blocks/post';
 
-// Pages
-@import 'pages/home';
+// Themes
+@import './themes/dracula.scss';
