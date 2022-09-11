@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "lib": ["dom", "es2017"],
+        "moduleResolution": "node",
+        "strict": true,
+        "target": "es6"
+    },
+    "exclude": ["node_modules"]
+}

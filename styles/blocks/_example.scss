@@ -53,7 +53,7 @@
     }
 }
 .example__content {
-    min-height: 20rem;
+    padding: 1rem;
 }
 .example__content--small {
     height: 20rem;
@@ -63,9 +63,4 @@
 }
 .example__content--large {
     height: 40rem;
-}
-.example__frame {
-    border: none;
-    height: 20rem;
-    width: 100%;
 }
