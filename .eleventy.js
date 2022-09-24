@@ -5,8 +5,8 @@ const htmlmin = require('html-minifier');
 
 const CATEGORIES = {
     'Basic': 0,
-    'Advanced': 1,
-    'Intermediate': 2,
+    'Intermediate': 1,
+    'Advanced': 2,
     'Tip': 3,
 };
 
