@@ -20,30 +20,7 @@ A website introducing the APIs, well-known problems, most popular questions coul
 -   [x] Live demos
 -   [x] Many tips and good practices included
 -   [x] Many real use cases
--   [x] Work with the modern browsers. _Try to support IE 11_
-
-## Running it on local
-
-1. Clone the project:
-
-```shell
-$ git clone https://github.com/phuocng/html-dom
-```
-
-2. Install the dependencies:
-
-```shell
-$ cd html-dom
-$ npm install
-```
-
-3. Run it on the local:
-
-```shell
-$ npm run start
-```
-
-Open http://localhost:8081 in your browser to see it in action.
+-   [x] Work with the modern browsers. ~~Try to support Internet Explorer~~
 
 ## About
 
