@@ -1,0 +1,26 @@
+---
+category: Level 1 — Basic
+created: '2020-02-18'
+keywords:
+title: Detect clicks outside of an element
+---
+
+Check if a click was outside of the `ele` element:
+
+```js
+document.addEventListener('click', function (evt) {
+    const isClickedOutside = !ele.contains(evt.target);
+
+    // `isClickedOutside` is true if the clicked target is outside of `ele`
+});
+```
+
+## Use case
+
+-   [Show a custom context menu at clicked position](https://phuoc.ng/collection/html-dom/show-a-custom-context-menu-at-clicked-position)
+
+## See also
+
+-   [Attach or detach an event handler](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler)
+-   [Check if an element is a descendant of another](https://phuoc.ng/collection/html-dom/check-if-an-element-is-a-descendant-of-another)
+-   [Show a custom context menu at clicked position](https://phuoc.ng/collection/html-dom/show-a-custom-context-menu-at-clicked-position)

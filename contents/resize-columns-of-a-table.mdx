@@ -1,0 +1,310 @@
+---
+category: Level 3 — Advanced
+created: '2020-03-05'
+keywords:
+title: Resize columns of a table
+updated: '2021-05-07'
+---
+
+Assume that we want to resize any column of the following table:
+
+```html
+<table id="resizeMe" class="table">
+    ...
+</table>
+```
+
+## Prepare the resizer
+
+For each column, we insert a `div` element indicating that the associated column can be resized. The resizer element is positioned absolutely inside the column. The CSS styles for them would be as below:
+
+```css
+.table th {
+    position: relative;
+}
+.resizer {
+    /* Displayed at the right side of column */
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5px;
+    cursor: col-resize;
+    user-select: none;
+}
+```
+
+To [create](https://phuoc.ng/collection/html-dom/create-an-element) resizers and [append](https://phuoc.ng/collection/html-dom/append-to-an-element) them to columns, we have to [query](https://phuoc.ng/collection/html-dom/select-an-element-or-list-of-elements) and [loop over](https://phuoc.ng/collection/html-dom/loop-over-a-nodelist) all columns:
+
+```js
+// Query the table
+const table = document.getElementById('resizeMe');
+
+// Query all headers
+const cols = table.querySelectorAll('th');
+
+// Loop over them
+[].forEach.call(cols, function (col) {
+    // Create a resizer element
+    const resizer = document.createElement('div');
+    resizer.classList.add('resizer');
+
+    // Set the height
+    resizer.style.height = `${table.offsetHeight}px`;
+
+    // Add a resizer element to the column
+    col.appendChild(resizer);
+
+    // Will be implemented in the next section
+    createResizableColumn(col, resizer);
+});
+```
+
+## Handle the resizer's events
+
+We are going to implement a function, `createResizableColumn`, which accepts two parameters:
+
+-   `col` that represents the table header
+-   `resizer` that represents the resizer element within the column
+
+In order to allow user to resize `col`, we have to handle three events:
+
+-   `mousedown` on the resizer: Track the current position of mouse
+-   `mousemove` on `document`: Calculate how far the mouse has been moved, and adjust the width of the column
+-   `mouseup` on `document`: Remove the event handlers of `document`
+
+```js
+const createResizableColumn = function (col, resizer) {
+    // Track the current position of mouse
+    let x = 0;
+    let w = 0;
+
+    const mouseDownHandler = function (e) {
+        // Get the current mouse position
+        x = e.clientX;
+
+        // Calculate the current width of column
+        const styles = window.getComputedStyle(col);
+        w = parseInt(styles.width, 10);
+
+        // Attach listeners for document's events
+        document.addEventListener('mousemove', mouseMoveHandler);
+        document.addEventListener('mouseup', mouseUpHandler);
+    };
+
+    const mouseMoveHandler = function (e) {
+        // Determine how far the mouse has been moved
+        const dx = e.clientX - x;
+
+        // Update the width of column
+        col.style.width = `${w + dx}px`;
+    };
+
+    // When user releases the mouse, remove the existing event listeners
+    const mouseUpHandler = function () {
+        document.removeEventListener('mousemove', mouseMoveHandler);
+        document.removeEventListener('mouseup', mouseUpHandler);
+    };
+
+    resizer.addEventListener('mousedown', mouseDownHandler);
+};
+```
+
+> **Tip**
+>
+> This post uses the [Attach event handlers inside other handlers](https://phuoc.ng/collection/html-dom/attach-event-handlers-inside-other-handlers) tip
+
+## Highlight the resizer
+
+We can improve the user experience a little bit. When user hovers or clicks on the resizer, it can be hightlighted.
+To demonstrate the idea in the most simple way, we add a solid border to the `:hover` selector:
+
+```css
+.resizer:hover,
+.resizing {
+    border-right: 2px solid blue;
+}
+```
+
+The `resizing` class is added to the resizer while user clicks and drags the resizer:
+
+```js
+const mouseDownHandler = function(e) {
+    ...
+    resizer.classList.add('resizing');
+};
+
+const mouseUpHandler = function() {
+    ...
+    resizer.classList.remove('resizing');
+};
+```
+
+## Demo
+
+<Playground>
+```html
+<table id="resizeMe" class="table">
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>First name</th>
+            <th>Last name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Andrea</td>
+            <td>Ross</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Penelope</td>
+            <td>Mills</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Sarah</td>
+            <td>Grant</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Vanessa</td>
+            <td>Roberts</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Oliver</td>
+            <td>Alsop</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Jennifer</td>
+            <td>Forsyth</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Michelle</td>
+            <td>King</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Steven</td>
+            <td>Kelly</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>Julian</td>
+            <td>Ferguson</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Chloe</td>
+            <td>Ince</td>
+        </tr>
+    </tbody>
+</table>
+```
+
+```css
+.table {
+    border-collapse: collapse;
+}
+.table,
+.table th,
+.table td {
+    border: 1px solid #ccc;
+}
+.table th,
+.table td {
+    padding: 0.5rem;
+}
+.table th {
+    position: relative;
+}
+.resizer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5px;
+    cursor: col-resize;
+    user-select: none;
+}
+.resizer:hover,
+.resizing {
+    border-right: 2px solid blue;
+}
+
+.resizable {
+    border: 1px solid gray;
+    height: 100px;
+    width: 100px;
+    position: relative;
+}
+```
+
+```js
+document.addEventListener('DOMContentLoaded', function () {
+    const createResizableTable = function (table) {
+        const cols = table.querySelectorAll('th');
+        [].forEach.call(cols, function (col) {
+            // Add a resizer element to the column
+            const resizer = document.createElement('div');
+            resizer.classList.add('resizer');
+
+            // Set the height
+            resizer.style.height = table.offsetHeight + 'px';
+
+            col.appendChild(resizer);
+
+            createResizableColumn(col, resizer);
+        });
+    };
+
+    const createResizableColumn = function (col, resizer) {
+        let x = 0;
+        let w = 0;
+
+        const mouseDownHandler = function (e) {
+            x = e.clientX;
+
+            const styles = window.getComputedStyle(col);
+            w = parseInt(styles.width, 10);
+
+            document.addEventListener('mousemove', mouseMoveHandler);
+            document.addEventListener('mouseup', mouseUpHandler);
+
+            resizer.classList.add('resizing');
+        };
+
+        const mouseMoveHandler = function (e) {
+            const dx = e.clientX - x;
+            col.style.width = (w + dx) + 'px';
+        };
+
+        const mouseUpHandler = function () {
+            resizer.classList.remove('resizing');
+            document.removeEventListener('mousemove', mouseMoveHandler);
+            document.removeEventListener('mouseup', mouseUpHandler);
+        };
+
+        resizer.addEventListener('mousedown', mouseDownHandler);
+    };
+
+    createResizableTable(document.getElementById('resizeMe'));
+});
+```
+</Playground>
+
+## See also
+
+-   [Add or remove class from an element](https://phuoc.ng/collection/html-dom/add-or-remove-class-from-an-element)
+-   [Append to an element](https://phuoc.ng/collection/html-dom/append-to-an-element)
+-   [Attach or detach an event handler](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler)
+-   [Create an element](https://phuoc.ng/collection/html-dom/create-an-element)
+-   [Drag to scroll](https://phuoc.ng/collection/html-dom/drag-to-scroll)
+-   [Get css styles of an element](https://phuoc.ng/collection/html-dom/get-css-styles-of-an-element)
+-   [Loop over a nodelist](https://phuoc.ng/collection/html-dom/loop-over-a-nodelist)
+-   [Make a draggable element](https://phuoc.ng/collection/html-dom/make-a-draggable-element)
+-   [Make a resizable element](https://phuoc.ng/collection/html-dom/make-a-resizable-element)
+-   [Set css style for an element](https://phuoc.ng/collection/html-dom/set-css-style-for-an-element)

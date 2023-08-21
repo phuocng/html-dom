@@ -1,0 +1,21 @@
+---
+category: Level 2 — Intermediate
+created: '2020-02-18'
+keywords:
+title: Load a CSS file dynamically
+---
+
+```js
+// Create new link element
+const link = document.createElement('link');
+link.setAttribute('rel', 'stylesheet');
+link.setAttribute('href', '/path/to/js/file.css');
+
+// Append to the `head` element
+document.head.appendChild(link);
+```
+
+## See also
+
+-   [Change the website favicon](https://phuoc.ng/collection/html-dom/change-the-website-favicon)
+-   [Load a JavaScript file dynamically](https://phuoc.ng/collection/html-dom/load-a-javascript-file-dynamically)

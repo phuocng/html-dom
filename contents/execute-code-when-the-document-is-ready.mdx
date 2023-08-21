@@ -1,0 +1,26 @@
+---
+category: Level 1 — Basic
+contributors:
+    - welenofsky
+created: '2020-02-16'
+keywords:
+title: Execute code when the document is ready
+updated: '2020-04-10'
+---
+
+```js
+const ready = function (cb) {
+  // Check if the `document` is loaded completely
+  document.readyState === "loading"
+    ? document.addEventListener("DOMContentLoaded", function (e) {
+        cb();
+      })
+    : cb();
+};
+
+// Usage
+ready(function() {
+    // Do something when the document is ready
+    ...
+});
+```

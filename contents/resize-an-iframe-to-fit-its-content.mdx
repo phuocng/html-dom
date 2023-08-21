@@ -1,0 +1,24 @@
+---
+category: Level 1 — Basic
+created: '2020-02-21'
+keywords:
+title: Resize an iframe to fit its content
+updated: '2021-05-07'
+---
+
+Assume that `frame` represents the iframe element.
+
+```js
+frame.addEventListener('load', function () {
+    // Get the height of the content
+    const height = frame.contentDocument.body.scrollHeight;
+
+    // Set the height of iframe
+    frame.setAttribute('height', `${height}px`);
+});
+```
+
+## See also
+
+-   [Attach or detach an event handler](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler)
+-   [Show a loading indicator when an iframe is being loaded](https://phuoc.ng/collection/html-dom/show-a-loading-indicator-when-an-iframe-is-being-loaded)

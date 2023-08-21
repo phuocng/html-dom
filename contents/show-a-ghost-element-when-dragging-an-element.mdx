@@ -1,0 +1,125 @@
+---
+category: Level 2 — Intermediate
+created: '2020-03-31'
+keywords: addEventListener, drag ghost element, dragend event, dragstart event, setDragImage
+title: Show a ghost element when dragging an element
+---
+
+Assume that we have a draggable element:
+
+```html
+<div draggable="true" class="draggable">Drag me</div>
+```
+
+Using the `draggable` attribute lets the browser know that the element can be dragged around. By default, the browser will show a _ghost_ element created from the original element when it is being dragged.
+
+We can customize the ghost element:
+
+```js
+// Query the element
+const ele = document.getElementById('dragMe');
+
+// The ghost element
+let ghostEle;
+
+ele.addEventListener('dragstart', function (e) {
+    // Create the ghost element
+    ghostEle = document.createElement('div');
+    ghostEle.classList.add('dragging');
+    ghostEle.innerHTML = 'I am flying';
+
+    // Append it to `body`
+    document.body.appendChild(ghostEle);
+
+    // Customize the drag image
+    e.dataTransfer.setDragImage(ghostEle, 0, 0);
+});
+```
+
+It's worth noting that the ghost element should be removed from the page when users drag the element:
+
+```js
+ele.addEventListener('dragend', function (e) {
+    document.body.removeChild(ghostEle);
+});
+```
+
+In the sample code above, the ghost element is created and removed on the fly. However, it's also possible to use an existing element:
+
+```html
+<div draggable="true" class="draggable">Drag me</div>
+<div id="ghost" class="dragging">I am flying</div>
+```
+
+The event handler doesn't change much:
+
+```js
+const ghostEle = document.getElementById('ghost');
+
+ele.addEventListener('dragstart', function (e) {
+    e.dataTransfer.setDragImage(ghostEle, 0, 0);
+});
+```
+
+## Demo
+
+<Playground>
+```html
+<div style="align-items: center; display: flex; justify-content: center; min-height: 32rem">
+    <div draggable="true" class="draggable" id="dragMe">Drag me</div>
+</div>
+```
+
+```css
+.draggable {
+    cursor: move;
+    user-select: none;
+
+    /* Misc */
+    align-items: center;
+    border: 1px solid #cbd5e0;
+    display: flex;
+    height: 8rem;
+    justify-content: center;
+    width: 8rem;
+}
+.dragging {
+    align-items: center;
+    background-color: yellow;
+    display: flex;
+    height: 100px;
+    justify-content: center;
+    width: 100px;
+}
+```
+
+```js
+document.addEventListener('DOMContentLoaded', function () {
+    // Query the element
+    const ele = document.getElementById('dragMe');
+
+    // The ghost element
+    let ghostEle;
+
+    ele.addEventListener('dragstart', function (e) {
+        ghostEle = document.createElement('div');
+        ghostEle.classList.add('dragging');
+        ghostEle.innerHTML = 'I am flying';
+        document.body.appendChild(ghostEle);
+
+        e.dataTransfer.setDragImage(ghostEle, 0, 0);
+    });
+
+    ele.addEventListener('dragend', function (e) {
+        document.body.removeChild(ghostEle);
+    });
+});
+```
+</Playground>
+
+## See also
+
+-   [Attach or detach an event handler](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler)
+-   [Create an element](https://phuoc.ng/collection/html-dom/create-an-element)
+-   [Make a draggable element](https://phuoc.ng/collection/html-dom/make-a-draggable-element)
+-   [Remove an element](https://phuoc.ng/collection/html-dom/remove-an-element)

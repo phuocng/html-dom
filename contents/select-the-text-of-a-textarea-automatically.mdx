@@ -1,0 +1,20 @@
+---
+category: Level 1 — Basic
+created: '2020-02-27'
+keywords:
+title: Select the text of a textarea automatically
+---
+
+Assume that `ele` represents a textarea element.
+
+```js
+ele.addEventListener('focus', function (e) {
+    // Select the text
+    e.target.select();
+});
+```
+
+## See also
+
+-   [Attach or detach an event handler](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler)
+-   [Trigger an event](https://phuoc.ng/collection/html-dom/trigger-an-event)
