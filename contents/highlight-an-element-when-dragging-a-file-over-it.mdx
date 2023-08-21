@@ -1,0 +1,117 @@
+---
+category: Level 2 — Intermediate
+created: '2020-03-09'
+keywords:
+title: Highlight an element when dragging a file over it
+---
+
+Assume that we have a droppable element as below
+
+```html
+<div id="droppable">...</div>
+```
+
+We will hightlight the element when user drags a file over it. For example, the element will have a dashed border which can be simulated by a CSS class:
+
+```css
+.dragging {
+    border: 4px dashed #ccc;
+}
+```
+
+The `dragging` class will be [added](https://phuoc.ng/collection/html-dom/add-or-remove-class-from-an-element) to the element when user drags file and moves it over the element:
+
+```js
+// Query the element
+const ele = document.getElementById('droppable');
+
+ele.addEventListener('dragenter', function (e) {
+    e.preventDefault();
+    e.target.classList.add('dragging');
+});
+```
+
+In similar events, the class is removed from the element when user moves the file out of the element, or drops it:
+
+```js
+ele.addEventListener('dragover', function (e) {
+    e.preventDefault();
+});
+
+ele.addEventListener('dragleave', function (e) {
+    e.preventDefault();
+    e.target.classList.remove('dragging');
+});
+
+ele.addEventListener('drop', function (e) {
+    e.preventDefault();
+    e.target.classList.remove('dragging');
+});
+```
+
+The last thing, `e.preventDefault()` is used in the handlers to [prevent](https://phuoc.ng/collection/html-dom/prevent-the-default-action-of-an-event) the browser from executing the default action.
+
+## Demo
+
+<Playground>
+```html
+<div class="container">
+    <div class="item" id="droppable">Drop here</div>
+</div>
+```
+
+```css
+.container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 6rem 0;
+}
+.item {
+    /* Center the content */
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    /* Misc */
+    border: 1px solid #cbd5e0;
+    height: 16rem;
+    width: 16rem;
+}
+.dragging {
+    border: 4px dashed #ccc;
+}
+```
+
+```js
+document.addEventListener('DOMContentLoaded', function () {
+    // Query the element
+    const ele = document.getElementById('droppable');
+
+    ele.addEventListener('dragover', function (e) {
+        e.preventDefault();
+    });
+
+    ele.addEventListener('dragenter', function (e) {
+        e.preventDefault();
+        e.target.classList.add('dragging');
+    });
+
+    ele.addEventListener('dragleave', function (e) {
+        e.preventDefault();
+        e.target.classList.remove('dragging');
+    });
+
+    ele.addEventListener('drop', function (e) {
+        e.preventDefault();
+        e.target.classList.remove('dragging');
+    });
+});
+```
+</Playground>
+
+## See also
+
+-   [Add or remove class from an element](https://phuoc.ng/collection/html-dom/add-or-remove-class-from-an-element)
+-   [Attach or detach an event handler](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler)
+-   [Prevent the default action of an event](https://phuoc.ng/collection/html-dom/prevent-the-default-action-of-an-event)

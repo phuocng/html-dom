@@ -1,0 +1,24 @@
+---
+category: Level 1 — Basic
+created: '2020-02-16'
+keywords:
+title: Clone an element
+---
+
+```js
+const cloned = ele.cloneNode(true);
+```
+
+Using the `cloneNode(true)` method will deep copy a given element. In the sample code above, all attributes and children of the original node `ele` will be cloned in `cloned` as well.
+
+Passing `false` produces a cloned node that keeps only the attributes and the original node:
+
+```js
+const cloned = ele.cloneNode(false);
+```
+
+## See also
+
+-   [Drag and drop table column](https://phuoc.ng/collection/html-dom/drag-and-drop-table-column)
+-   [Drag and drop table row](https://phuoc.ng/collection/html-dom/drag-and-drop-table-row)
+-   [Print an image](https://phuoc.ng/collection/html-dom/print-an-image)

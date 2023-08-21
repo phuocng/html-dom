@@ -1,0 +1,38 @@
+---
+category: Level 1 — Basic
+created: '2020-02-16'
+keywords: insert after, insert before, insertAdjacentElement, insertBefore, nextSibling
+title: Insert an element after or before other element
+---
+
+## Insert after
+
+Insert the `ele` element after the `refEle` element:
+
+```js
+refEle.parentNode.insertBefore(ele, refEle.nextSibling);
+
+// Or
+refEle.insertAdjacentElement('afterend', ele);
+```
+
+## Insert before
+
+Insert the `ele` element before the `refEle` element:
+
+```js
+refEle.parentNode.insertBefore(ele, refEle);
+
+// Or
+refEle.insertAdjacentElement('beforebegin', ele);
+```
+
+## See also
+
+-   [Append to an element](https://phuoc.ng/collection/html-dom/append-to-an-element)
+-   [Drag and drop element in a list](https://phuoc.ng/collection/html-dom/drag-and-drop-element-in-a-list)
+-   [Drag and drop table column](https://phuoc.ng/collection/html-dom/drag-and-drop-table-column)
+-   [Drag and drop table row](https://phuoc.ng/collection/html-dom/drag-and-drop-table-row)
+-   [Insert given html after or before an element](https://phuoc.ng/collection/html-dom/insert-given-html-after-or-before-an-element)
+-   [Prepend to an element](https://phuoc.ng/collection/html-dom/prepend-to-an-element)
+-   [Swap two nodes](https://phuoc.ng/collection/html-dom/swap-two-nodes)

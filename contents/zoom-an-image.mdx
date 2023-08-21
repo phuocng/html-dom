@@ -1,0 +1,328 @@
+---
+category: Level 3 — Advanced
+created: '2020-04-18'
+keywords: addEventListener, getBoundingClientRect, mousedown event, mousemove event, mouseup event, previous sibling, previousElementSibling, next sibling, nextElementSibling, range input, range slider, scale image, set css style, set element width, transform scale, zoom image
+title: Zoom an image
+updated: '2021-05-07'
+---
+
+In this post, we'll see how to create an image zoomer which allows users to zoom an image using a [range slider](https://phuoc.ng/collection/html-dom/create-a-range-slider). Here is the structure of the elements:
+
+```html
+<!-- The image container -->
+<div class="image-container">
+    <img id="image" />
+</div>
+
+<!-- The range slider -->
+<div>
+    <!-- The minimum zoom level -->
+    <div>10%</div>
+
+    <!-- The slider is constructed by three parts -->
+    <div>
+        <div class="left"></div>
+        <div id="knob"></div>
+        <div class="right"></div>
+    </div>
+
+    <!-- The maximum zoom level -->
+    <div>200%</div>
+</div>
+```
+
+## Prepare the image container
+
+The image will be displayed at the center of its container. In case users zoom in the image to the level which makes the image bigger than its container, then we'll hide the outside parts.
+
+Having that imagination, the container could be styled as below:
+
+```css
+.image-container {
+    /* Center the content */
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    overflow: hidden;
+    width: 100%;
+}
+```
+
+## Calculate the initial scale
+
+Initially, we want the image to be fit within its container. To do that, we clone the image and handle the `load` event to determine the size of image:
+
+```js
+// Query the element
+const image = document.getElementById('image');
+
+// Create new image element
+const cloneImage = new Image();
+cloneImage.addEventListener('load', function (e) {
+    // Get the natural size
+    const width = e.target.naturalWidth;
+    const height = e.target.naturalHeight;
+
+    // Set the size for image
+    image.style.width = `${width}px`;
+    image.style.height = `${height}px`;
+});
+
+// Clone it
+cloneImage.src = image.src;
+```
+
+The initial scale can be determined based on the widths of [container](https://phuoc.ng/collection/html-dom/get-the-parent-node-of-an-element) and image:
+
+```js
+cloneImage.addEventListener('load', function(e) {
+    ...
+    // The initial scale
+    const scale = image.parentNode.getBoundingClientRect().width / width;
+});
+```
+
+Now we scale the image to that value by setting the `transform` style:
+
+```js
+cloneImage.addEventListener('load', function(e) {
+    ...
+    image.style.transform = `scale(${scale}, ${scale})`;
+});
+```
+
+## Create the range slider
+
+You can take a look at the [Create a range slider](https://phuoc.ng/collection/html-dom/create-a-range-slider) post for more details. Initially, we want to set the slider range based on the scale calculated in the previous section.
+
+First, we define the minimum and maximum scales and calculate the range step:
+
+```js
+const minScale = 0.1;
+const maxScale = 2;
+const step = (maxScale - minScale) / 100;
+```
+
+> It's also possible to set the lower and upper values based on the initial scale. I set constant values to make this post simple
+
+The slider can update the value via the width of left part:
+
+```js
+// Query the elements
+const knob = document.getElementById('knob');
+const leftSide = knob.previousElementSibling;
+
+cloneImage.addEventListener('load', function(e) {
+    ...
+    leftSide.style.width = `${(scale - minScale) / step}%`;
+});
+```
+
+## Scale the image when sliding the range
+
+In the previous section, we set the initial value for the slider based on the scale. It's the time to do the other part, update the scale based on the slider's value.
+
+It happens when user drags the knob:
+
+```js
+const mouseMoveHandler = function (e) {
+    // Calculate the width for the left part
+    // ...
+    let newLeftWidth = ((leftWidth + dx) * 100) / containerWidth;
+
+    // Set the width
+    leftSide.style.width = `${newLeftWidth}%`;
+
+    // Calculate the scale
+    const scale = minScale + newLeftWidth * step;
+    image.style.transform = `scale(${scale}, ${scale})`;
+};
+```
+
+Enjoy the demo!
+
+_Photo by [Pedro Lastra](https://unsplash.com/@peterlaster) on [Unsplash](https://unsplash.com/photos/Nyvq2juw4_o)_
+
+## Demo
+
+<Playground>
+```html
+<div class="image-container">
+    <img id="image" src="/assets/html-dom/city.jpg" />
+</div>
+
+<div class="range-wrapper">
+    <div class="select-none">10%</div>
+    <div class="range-container">
+        <div class="left"></div>
+        <div class="knob" id="knob"></div>
+        <div class="right"></div>
+    </div>
+    <div class="select-none">200%</div>
+</div>
+```
+
+```css
+.image-container {
+    /* Center the image */
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    /* Misc */
+    border: 1px solid #cbd5e0;
+    overflow: hidden;
+    width: 100%;
+}
+.range-wrapper {
+    /* Center the content */
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    /* Misc */
+    padding-top: 2rem;
+}
+.range-container {
+    /* Content is centered horizontally */
+    align-items: center;
+    display: flex;
+
+    /* Size */
+    height: 1.5rem;
+    width: 16rem;
+
+    /* Misc */
+    margin: 0 0.25rem;
+}
+.left {
+    /* Width based on the current value */
+    height: 2px;
+
+    /* Colors */
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.knob {
+    /* Size */
+    height: 1.5rem;
+    width: 1.5rem;
+
+    /* Rounded border */
+    border-radius: 9999px;
+
+    /* Colors */
+    background-color: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+.right {
+    /* Take the remaining width */
+    flex: 1;
+    height: 2px;
+
+    /* Colors */
+    background-color: rgba(0, 0, 0, 0.3);
+}
+```
+
+```js
+document.addEventListener('DOMContentLoaded', function () {
+    // Query the elements
+    const image = document.getElementById('image');
+    const knob = document.getElementById('knob');
+    const leftSide = knob.previousElementSibling;
+    const rightSide = knob.nextElementSibling;
+
+    // The current position of mouse
+    let x = 0;
+    let y = 0;
+    let leftWidth = 0;
+
+    const minScale = 0.1;
+    const maxScale = 2;
+    const step = (maxScale - minScale) / 100;
+
+    // Create new image element
+    const cloneImage = new Image();
+    cloneImage.addEventListener('load', function (e) {
+        // Get the natural size
+        const width = e.target.naturalWidth;
+        const height = e.target.naturalHeight;
+
+        // Set the size for image
+        image.style.width = width + 'px';
+        image.style.height = height + 'px';
+
+        const scale = image.parentNode.getBoundingClientRect().width / width;
+        image.style.transform = 'scale(' + scale + ', ' + scale + ')';
+
+        leftSide.style.width = ((scale - minScale) / step) + '%';
+    });
+    // Clone it
+    cloneImage.src = image.src;
+
+    // Handle the mousedown event
+    // that's triggered when user drags the knob
+    const mouseDownHandler = function (e) {
+        // Get the current mouse position
+        x = e.clientX;
+        y = e.clientY;
+        leftWidth = leftSide.getBoundingClientRect().width;
+
+        // Attach the listeners to document
+        document.addEventListener('mousemove', mouseMoveHandler);
+        document.addEventListener('mouseup', mouseUpHandler);
+    };
+
+    const mouseMoveHandler = function (e) {
+        // How far the mouse has been moved
+        const dx = e.clientX - x;
+        const dy = e.clientY - y;
+
+        const containerWidth = knob.parentNode.getBoundingClientRect().width;
+        let newLeftWidth = ((leftWidth + dx) * 100) / containerWidth;
+        newLeftWidth = Math.max(newLeftWidth, 0);
+        newLeftWidth = Math.min(newLeftWidth, 100);
+
+        leftSide.style.width = newLeftWidth + '%';
+
+        leftSide.style.userSelect = 'none';
+        leftSide.style.pointerEvents = 'none';
+
+        rightSide.style.userSelect = 'none';
+        rightSide.style.pointerEvents = 'none';
+
+        const scale = minScale + newLeftWidth * step;
+        image.style.transform = 'scale(' + scale + ', ' + scale + ')';
+    };
+
+    // Triggered when user drops the knob
+    const mouseUpHandler = function () {
+        leftSide.style.removeProperty('user-select');
+        leftSide.style.removeProperty('pointer-events');
+
+        rightSide.style.removeProperty('user-select');
+        rightSide.style.removeProperty('pointer-events');
+
+        // Remove the handlers of mousemove and mouseup
+        document.removeEventListener('mousemove', mouseMoveHandler);
+        document.removeEventListener('mouseup', mouseUpHandler);
+    };
+
+    // Attach the handler
+    knob.addEventListener('mousedown', mouseDownHandler);
+});
+```
+</Playground>
+
+## See also
+
+-   [Attach or detach an event handler](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler)
+-   [Create a range slider](https://phuoc.ng/collection/html-dom/create-a-range-slider)
+-   [Create an image comparison slider](https://phuoc.ng/collection/html-dom/create-an-image-comparison-slider)
+-   [Create resizable split views](https://phuoc.ng/collection/html-dom/create-resizable-split-views)
+-   [Drag to scroll](https://phuoc.ng/collection/html-dom/drag-to-scroll)
+-   [Get siblings of an element](https://phuoc.ng/collection/html-dom/get-siblings-of-an-element)
+-   [Get the parent node of an element](https://phuoc.ng/collection/html-dom/get-the-parent-node-of-an-element)
+-   [Make a draggable element](https://phuoc.ng/collection/html-dom/make-a-draggable-element)
+-   [Set css style for an element](https://phuoc.ng/collection/html-dom/set-css-style-for-an-element)

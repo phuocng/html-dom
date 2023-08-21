@@ -1,0 +1,27 @@
+---
+category: Level 1 — Basic
+created: '2020-02-16'
+keywords:
+title: Unwrap an element
+---
+
+Remove the `ele` element except its children:
+
+```js
+// Get the parent node
+const parent = ele.parentNode;
+
+// Move all children node to the parent
+while (ele.firstChild) {
+    parent.insertBefore(ele.firstChild, ele);
+}
+
+// `ele` becomes an empty element
+// Remove it from the parent
+parent.removeChild(ele);
+```
+
+## See also
+
+-   [Remove all children of a node](https://phuoc.ng/collection/html-dom/remove-all-children-of-a-node)
+-   [Wrap an element around a given element](https://phuoc.ng/collection/html-dom/wrap-an-element-around-a-given-element)

@@ -1,0 +1,69 @@
+---
+category: Level 1 — Basic
+created: '2020-02-28'
+keywords:
+title: Put cursor at the end of an input
+---
+
+Assume that we have a text field representing the full name of an user. There is also a _Edit_ button for updating the full name.
+
+```html
+<input type="text" id="fullName" />
+
+<button id="edit">Edit</button>
+```
+
+There is a common requirement that clicking the Edit button will focus on the text field, and move the cursor to the end of it:
+
+```js
+const fullNameEle = document.getElementById('fullName');
+const editEle = document.getElementById('edit');
+
+editEle.addEventListener('click', function (e) {
+    // Focus on the full name element
+    fullNameEle.focus();
+
+    // Move the cursor to the end
+    const length = fullNameEle.value.length;
+    fullNameEle.setSelectionRange(length, length);
+});
+```
+
+## Demo
+
+<Playground>
+```html
+<div style="align-items: center; display: flex; margin: 3rem auto; width: 16rem">
+    <input
+        type="text"
+        style="border: 1px solid #cbd5e0; flex: 1; margin-right: 0.5rem; padding: 0.5rem"
+        value="Full name"
+        id="fullName"
+    />
+    <button
+        id="edit"
+        style="background-color: transparent; border: none; cursor: pointer; text-decoration: underline"
+    >
+        Edit
+    </button>
+</div>
+```
+
+```js
+document.addEventListener('DOMContentLoaded', function () {
+    const fullNameEle = document.getElementById('fullName');
+    const editEle = document.getElementById('edit');
+
+    editEle.addEventListener('click', function (e) {
+        fullNameEle.focus();
+        const length = fullNameEle.value.length;
+        fullNameEle.setSelectionRange(length, length);
+    });
+});
+```
+</Playground>
+
+## See also
+
+-   [Attach or detach an event handler](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler)
+-   [Trigger an event](https://phuoc.ng/collection/html-dom/trigger-an-event)

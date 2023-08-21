@@ -1,0 +1,16 @@
+---
+category: Level 1 — Basic
+created: '2020-04-25'
+keywords: check touch events supported, DocumentTouch
+title: Check if the touch events are supported
+---
+
+Check if the current browser supports the touch events:
+
+```js
+const touchSupported = 'ontouchstart' in window || (window.DocumentTouch && document instanceof DocumentTouch);
+```
+
+## See also
+
+-   [Detect mobile browsers](https://phuoc.ng/collection/html-dom/detect-mobile-browsers)

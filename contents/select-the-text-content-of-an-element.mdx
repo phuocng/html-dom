@@ -1,0 +1,28 @@
+---
+category: Level 1 — Basic
+contributors:
+    - wuzhengyan2015
+created: '2020-04-19'
+keywords: createRange, getSelection, removeAllRanges, select text content, selectNodeContents
+title: Select the text content of an element
+updated: '2021-08-08'
+---
+
+The following function selects the text content of the `ele` element:
+
+```js
+const selectText = function (ele) {
+    const selection = window.getSelection();
+    const range = document.createRange();
+    range.selectNodeContents(ele);
+    selection.removeAllRanges();
+    selection.addRange(range);
+};
+```
+
+## See also
+
+-   [Copy highlighted code to the clipboard](https://phuoc.ng/collection/html-dom/copy-highlighted-code-to-the-clipboard)
+-   [Get the selected text](https://phuoc.ng/collection/html-dom/get-the-selected-text)
+-   [Paste as plain text](https://phuoc.ng/collection/html-dom/paste-as-plain-text)
+-   [Save and restore the text selection](https://phuoc.ng/collection/html-dom/save-and-restore-the-text-selection)

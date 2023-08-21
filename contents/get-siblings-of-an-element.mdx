@@ -1,0 +1,44 @@
+---
+category: Level 1 — Basic
+contributors:
+    - Neos21
+created: '2020-02-17'
+keywords: all siblings, next sibling, nextSibling, parentNode, previous sibling, previousSibling
+title: Get siblings of an element
+updated: '2020-03-31'
+---
+
+## Get the previous sibling
+
+```js
+const prev = ele.previousSibling;
+```
+
+## Get the next sibling
+
+```js
+const next = ele.nextSibling;
+```
+
+## Get all siblings
+
+```js
+// Get the parent node
+const parent = ele.parentNode;
+
+// Filter the children, exclude the element
+const siblings = [].slice.call(parent.children).filter(function (child) {
+    return child !== ele;
+});
+```
+
+## See also
+
+-   [Create a range slider](https://phuoc.ng/collection/html-dom/create-a-range-slider)
+-   [Create an image comparison slider](https://phuoc.ng/collection/html-dom/create-an-image-comparison-slider)
+-   [Create resizable split views](https://phuoc.ng/collection/html-dom/create-resizable-split-views)
+-   [Drag and drop element in a list](https://phuoc.ng/collection/html-dom/drag-and-drop-element-in-a-list)
+-   [Drag and drop table column](https://phuoc.ng/collection/html-dom/drag-and-drop-table-column)
+-   [Drag and drop table row](https://phuoc.ng/collection/html-dom/drag-and-drop-table-row)
+-   [Swap two nodes](https://phuoc.ng/collection/html-dom/swap-two-nodes)
+-   [Zoom an image](https://phuoc.ng/collection/html-dom/zoom-an-image)

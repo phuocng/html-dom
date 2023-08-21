@@ -1,0 +1,24 @@
+---
+category: Level 1 — Basic
+created: '2020-02-16'
+keywords:
+title: Check an element against a selector
+---
+
+```js
+// Return true if `ele` matches the CSS selector `selector`
+const matches = function (ele, selector) {
+    return (
+        ele.matches ||
+        ele.matchesSelector ||
+        ele.msMatchesSelector ||
+        ele.mozMatchesSelector ||
+        ele.webkitMatchesSelector ||
+        ele.oMatchesSelector
+    ).call(ele, selector);
+};
+```
+
+## See also
+
+-   [Get the closest element by given selector](https://phuoc.ng/collection/html-dom/get-the-closest-element-by-given-selector)
