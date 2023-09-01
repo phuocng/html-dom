@@ -1,0 +1,123 @@
+---
+category: Level 2 — Intermediate
+created: '2023-08-27'
+description: How to add a special message when users copy text from your website with JavaScript
+keywords: JavaScript clipboard
+openGraphCover: /og/html-dom/add-message-users-copy-text.png
+title: Add a special message when users copy text
+---
+
+Have you ever wanted to add a special message or attribution when users copy text from your website? For instance, when users select text and press `Ctrl + C` you might want to include the original website. That way, if users paste the content elsewhere, they'll see a message like this:
+
+```html
+The original text
+
+Copied from https://www.yourwebsite.com
+```
+
+In this post, we'll learn how to achieve this specific behavior using JavaScript DOM. Typically, this behavior isn't applied to the entire page. Instead, it's used when users copy text from the main content section of the page. We'll assume that the markup has an element with the id of `content`.
+
+```html
+<div id="content">
+    ...
+</div>
+```
+
+Alright, let's dive in!
+
+To select an element using JavaScript, we can use the `getElementById` method or any other method that fits your needs.
+
+```js
+const contentEle = document.getElementById('content');
+```
+
+## Handling the copy event
+
+Now it's time to handle the `copy` event, which occurs when the user copies the text.
+
+```javascript
+contentEle.addEventListener('copy', (e) => {
+    // We will add a custom message here ...
+});
+```
+
+## Modifying the clipboard data
+
+Within the event listener, we can modify the data that gets copied to the clipboard by using the `ClipboardEvent.clipboardData` property.
+
+Unfortunately, the selected text cannot be obtained using the `clipboardData.getData()` function. It's only available when we handle the other events such as _paste_.
+
+Fortunately, there's another way to [get the selected text](https://phuoc.ng/collection/html-dom/get-the-selected-text): by using the selection API. By calling `window.getSelection().toString()`, we can retrieve the exact text that the user has selected.
+
+The copy event handler could look like this:
+
+```javascript
+element.addEventListener('copy', (e) => {
+    const clipboardData = e.clipboardData;
+    const originalText = window.getSelection().toString();
+    if (!originalText) {
+        return;
+    }
+
+    // Modify the clipboard data
+    e.preventDefault();
+    clipboardData.setData('text/plain', originalText + '\n\n' + 'Copied from https://yourwebsite.com');
+});
+```
+
+In this example, we're adding a new line with a custom message `Copied from https://yourwebsite.com` to the original text being copied. Then, we set the updated copy back to the clipboard using the `clipboardData.setData()` function.
+
+But, here's the important part: make sure to prevent the default behavior of the `copy` event. This will keep the original text from being copied to the clipboard without the custom message.
+
+```js
+e.preventDefault();
+```
+
+Apart from using clipboard APIs, there is another way to save text to the clipboard. Check out this [post](https://phuoc.ng/collection/html-dom/copy-text-to-the-clipboard) for more details.
+
+Voila! With just a few lines of JavaScript DOM code, you can add a custom message to the text that users copy from your website.
+
+Here's a live demonstration that you can play with! Check it out!
+
+<Playground>
+```css demo.css hidden
+textarea {
+    border: 1px solid rgb(203 213 225);
+    border-radius: 0.25rem;
+    height: 6rem;
+    margin-top: 1rem;
+    width: 100%;
+}
+```
+
+```html index.html
+<div class="content" id="content">
+    Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to
+</div>
+<textarea id="output" placeholder="Copy some text above and paste it here ..."></textarea>
+```
+
+```js scripts.js
+document.addEventListener('DOMContentLoaded', () => {
+    const contentEle = document.getElementById('content');
+
+    contentEle.addEventListener('copy', function(e) {
+        const clipboardData = e.clipboardData;
+        const originalText = window.getSelection().toString();
+        if (!originalText) {
+            return;
+        }
+
+        // Modify the clipboard data
+        e.preventDefault();
+        clipboardData.setData('text/plain', originalText + '\n\n' + 'Copied from https://yourwebsite.com');
+    });
+});
+```
+</Playground>
+
+## See also
+
+-   [Copy highlighted code to the clipboard](https://phuoc.ng/collection/html-dom/copy-highlighted-code-to-the-clipboard)
+-   [Copy text to the clipboard](https://phuoc.ng/collection/html-dom/copy-text-to-the-clipboard)
+-   [Paste as plain text](https://phuoc.ng/collection/html-dom/paste-as-plain-text)
