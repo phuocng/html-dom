@@ -1,0 +1,38 @@
+---
+category: Tip
+created: '2023-08-30'
+description: Get the bounding rectangle of a text node
+keywords: text node, getBoundingClientRect()
+openGraphCover: /og/html-dom/bounding-rectangle-text-node.png
+title: Get the bounding rectangle of a text node
+---
+
+When we want to calculate the bounding rectangle of an element, we can use the `getBoundingClientRect()` method. Unfortunately, this method isn't available for text nodes.
+
+But don't worry, there are some tips to help you overcome this issue.
+
+One solution is to use a `Range` to select the text node. Then we can get the bounding rectangle of the range, which will give us the bounding rectangle of the text node.
+
+```js
+const calculateBoundingRect = (textNode) => {
+    const range = document.createRange();
+    range.selectNode(textNode);
+    return range.getBoundingClientRect();
+};
+```
+
+The second approach is simpler and more natural. We just need to place the text node inside a `span` element, and then calculate the bounding rectangle of the `span`.
+
+```js
+const calculateBoundingRect = (textNode) => {
+    const span = document.createElement('span');
+    textNode.parentNode.insertBefore(span, textNode);
+    span.appendChild(textNode);
+    const rect = span.getBoundingClientRect();
+
+    // Remove the span element
+    span.remove();
+
+    return rect;
+};
+```
