@@ -1,0 +1,508 @@
+---
+category: Level 3 — Advanced
+created: '2023-09-02'
+description: Show an addition toolbar for the selected text with JavaScript DOM
+openGraphCover: /og/html-dom/show-toolbar-selected-text.png
+title: Show an addition toolbar after users selects text
+---
+
+Web applications often offer additional actions when users select text on a page. For instance, when using a web-based document editor, it's helpful to have a toolbar appear when text is selected. This toolbar makes it easy to format text, such as by making it bold, italic, or underlined.
+
+Another example is when you want to share a piece of text on social media. By selecting the text and clicking the share button on the toolbar, you can quickly post it to popular social networks.
+
+In this post, we'll learn how to add this functionality to a web application using JavaScript. We'll use DOM manipulation to detect when the user has selected text, and then display an additional toolbar in the perfect spot. Let's get started!
+
+## Preparing the toolbar
+
+Let's talk about the toolbar. It is made up of a few buttons that should be displayed in the center of the toolbar, both vertically and horizontally. This can be easily achieved using CSS flexbox.
+
+```html index.html
+<div id="toolbar" class="toolbar">
+    <button class="toolbar__button">...</button>
+    <button class="toolbar__button">...</button>
+    <button class="toolbar__button">...</button>
+    <!-- Other buttons go here ... -->
+</div>
+```
+
+```css styles.css
+.toolbar {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+```
+
+But wait, there's more! The toolbar needs to be repositioned dynamically depending on where we select the text. So, to make sure it's in the right spot, we'll set the `position` style to `absolute` within the document. And to keep it hidden until we need it, we'll set the `opacity` property to zero.
+
+```css styles.css
+.toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+```
+
+## Detecting text selection
+
+To detect when a user has selected text, we can use the `selection` object provided by the browser. This handy object contains information about the current text selection, such as the selected text, start and end positions of the selection, and the text node containing the selection.
+
+Check out this example of how we can detect a text selection:
+
+```js script.js
+document.addEventListener('mouseup', function() {
+    const selection = window.getSelection();
+    if (selection.toString().length > 0) {
+        // The user has selected some text
+    }
+});
+```
+
+In this example, we're using the `mouseup` event to detect when the user has finished selecting text. We then check if the length of the selected text is greater than zero, which means the user has selected some text.
+
+## Positioning the toolbar
+
+When we detect that a user has selected some text, we need to figure out where to position the toolbar. To do that, we first need to determine the rectangle that encloses the selected text.
+
+We typically use the `getClientRect()` function to calculate the bounding rectangle of an element. Here's an example code that will give you the bounding rectangle of the toolbar:
+
+```js
+const toolbarEle = document.getElementById('toolbar');
+const toolbarRect = toolbarEle.getBoundingClientRect();
+```
+
+But when it comes to selected text, we can use a similar function called `getBoundingClientRect()` provided by the Selection APIs. This function returns a set of numbers, including the `top`, `left`, `height`, and `width` of the bounding rectangle.
+
+```js
+const selectionRect = selection.getRangeAt(0).getBoundingClientRect();
+```
+
+The `top` and `left` properties indicate the distance from the top-left corner of the selection to the top and left sides of the document. The `height` and `width` properties tell us how tall and wide the selected text is.
+
+To see this in action, try selecting some text in the paragraphs below. You'll see the bounding rectangle highlighted with a dashed border. Give it a few tries, and you'll get the hang of using `getBoundingClientRect()` to position your toolbar perfectly.
+
+<Playground>
+```css styles.css hidden
+p {
+    padding: 0 0.5rem;
+}
+.selection {
+    background: rgb(199 210 254);
+}
+.bounding {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    outline: 2px dashed rgb(99 102 241);
+}
+```
+
+```html index.html hidden
+<p>Beast grass created without and seasons fish they're midst lesser without, fourth night above which. Evening moveth given. Kind shall green second moved they're moved very first dry appear heaven heaven grass i appear. Multiply night day. Won't whales let green under. Made so have firmament cattle abundantly very can't fly shall multiply brought fourth good, for isn't beginning. Had fourth i thing.</p>
+
+<p>Wherein first fourth good fill second be said doesn't, cattle him. Dry. All, created two she'd sixth. After fourth, sixth had so subdue you'll. Gathered divide them shall lights there. Dominion Called, waters. To given third man tree years fifth light saying us saw, divided day firmament thing blessed can't good for gathering called divide Waters day. Sea greater first creepeth, whose. The replenish green isn't that don't fly two day. Herb set, and sea saw is, lesser, moveth creepeth signs good above i unto.</p>
+
+<p>One, beast together god them saying image his fish multiply replenish signs. Gathering herb good cattle may let fowl earth place own she'd fish yielding. Subdue our grass he male female lesser third midst darkness wherein a above divided. Seasons third fly after hath and i saying, bearing third fruitful called creature.</p>
+
+<div id="bounding" class="bounding"></div>
+```
+
+```js scripts.js hidden
+document.addEventListener('DOMContentLoaded', () => {
+    const boundingEle = document.getElementById('bounding');
+
+    document.addEventListener('mousedown', (e) => {
+        boundingEle.style.height = '0';
+        boundingEle.style.width = '0';
+        boundingEle.style.opacity = 0;
+    });
+
+    document.addEventListener('mouseup', (e) => {
+        const selection = window.getSelection();
+        if (selection.toString() === '' || selection.rangeCount === 0) {
+            return;
+        }
+
+        const selectionRect = selection.getRangeAt(0).getBoundingClientRect();
+        boundingEle.classList.add('bounding');
+        boundingEle.style.opacity = 1;
+        boundingEle.style.height = `${selectionRect.height}px`;
+        boundingEle.style.width = `${selectionRect.width}px`;
+        boundingEle.style.transform = `translate(${selectionRect.left}px, ${selectionRect.top}px)`;
+    });
+});
+```
+</Playground>
+
+We can now calculate the position and size of both the selected text and the toolbar element, making it easy to display the toolbar exactly where we want it.
+
+For instance, if we want to center the toolbar horizontally and position it at the top of the selected text, we can use the following formulas:
+
+```js
+const distanceFromTop = window.scrollY;
+let top = selectionRect.top + distanceFromTop - toolbarRect.height;
+let left = selectionRect.left + (selectionRect.width - toolbarRect.width) / 2;
+```
+
+Notice that we need to factor in the current scrollbar position (`distanceFromTop`) when calculating the top distance, to ensure that the toolbar appears in the correct vertical position.
+
+There are some tricky cases that you might have to handle on your own. For instance, if the `top` value is negative, the toolbar may end up outside of the visible area. This can happen when users select the first line of a page, which is often too close to the top edge.
+
+One solution is to position the toolbar at the bottom of the selected text, instead of at the top. To do this, you'll need to tweak the position calculations a bit.
+
+```js
+if (top < 0) {
+    top = selectionRect.top + distanceFromTop + selectionRect.height;
+    left = selectionRect.left;
+}
+```
+
+Once you have the top and left distances, moving the toolbar to the right position is a piece of cake. Just remember to reset the `opacity` so that users can see the toolbar.
+
+```js
+toolbarEle.style.transform = `translate(${left}px, ${top}px)`;
+toolbarEle.style.opacity = 1;
+```
+
+## Adding an arrow
+
+To help users locate the toolbar, we can add an arrow at the bottom, centered horizontally. We can create this arrow using the `::after` pseudo-element without adding a new element to the page. By setting the `position` property to `absolute`, we can place the arrow in the toolbar.
+
+Even though the arrow doesn't have any content, we still need to set the `content` property to an empty string so that it appears on the page. Don't worry about the zero `height` and `width`, because the arrow's size will be defined by its border.
+
+```css
+.toolbar::after {
+    content: '';
+    position: absolute;
+    height: 0px;
+    width: 0px;
+}
+```
+
+Next, we need to move the arrow to the bottom of the toolbar and center it horizontally. We can easily achieve this by defining the `top` and `left` properties and using the `translate()` function.
+
+```css
+.toolbar::after {
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+```
+
+To create an arrow shape, you can use borders of different colors and widths. It's important to note that the arrow's borders should match the color of the toolbar's background.
+
+```css
+.toolbar {
+    background: var(--toolbar-background);
+}
+.toolbar::after {
+    border-color: var(--toolbar-background) transparent transparent;
+    border-width: 0.5rem 0.5rem 0;
+}
+```
+
+Wait a minute! What happens if the toolbar is below the selected text? In that case, the arrow will appear on top of the toolbar. We'll need to adjust the arrow's position and borders.
+
+To sum it up, we'll create two separate classes for the toolbar, depending on the position of both the toolbar and the arrow.
+
+```css
+.toolbar--bottom::after {
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    border-color: var(--toolbar-background) transparent transparent;
+    border-width: 0.5rem 0.5rem 0;
+}
+.toolbar--top::after {
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    border-color: transparent transparent var(--toolbar-background);
+    border-width: 0 0.5rem 0.5rem;
+}
+```
+
+We can select the corresponding class depending on the position of the toolbar. In this example, we use the `remove()` and `add()` functions to remove and add a CSS class to the toolbar element.
+
+```js
+// Inside the mouseup event handler ...
+let arrowDirection = 'bottom';
+
+if (top < 0) {
+    // Recalculate the top and left distances ...
+    arrowDirection = 'top';
+}
+
+toolbarEle.classList.remove('toolbar--bottom');
+toolbarEle.classList.remove('toolbar--top');
+toolbarEle.classList.add(`toolbar--${arrowDirection}`);
+```
+
+## Hiding the toolbar
+
+We need to hide the toolbar when there is no selected text. So, when does this happen?
+
+Well, the document triggers the `selectionchange` event whenever users select text or not. We can use the event handler to easily detect whether users have made a text selection or not. If there's no selection, we can hide the toolbar automatically. It's as simple as that!
+
+```js
+document.addEventListener('selectionchange', () => {
+    const selection = window.getSelection().toString();
+    if (!selection) {
+        toolbarEle.style.opacity = '0';
+    }
+});
+```
+
+## Sharing the selected text
+
+Most social networks provide URLs that let us share information on their platform. These URLs can have different parameters, which allow us to pass along the target URL and the text we want to share.
+
+It's important to remember to encode the passed parameters, so the final sharing URL has a valid format. Luckily, we can use the built-in `encodeURIComponent()` function for this purpose.
+
+If we want to share selected text on Twitter, we can pass that text and the current URL to Twitter's sharing URL.
+
+```js
+const userName = '...';
+const pageUrl = encodeURIComponent(window.location.href);
+const selectedText = encodeURIComponent(window.getSelection().toString());
+const url = `https://twitter.com/intent/tweet?text=${selectedText}&url=${pageUrl}&via=${userName}`;
+```
+
+We can now open the sharing URL in a new window using the `open` function, which has three parameters. The first parameter is for the sharing URL, the second one is for the window title, and the last one is for the window size in pixels.
+
+```js
+window.open(url, 'Share', 'width=500, height=400');
+```
+
+To find the correct format for the sharing URL of each social network API, refer to their official documentation. Here are some examples:
+
+```javascript
+// Facebook
+const url = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}&quote=${selectedText}`
+
+// Linkedin
+const url = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
+
+// Pinterest
+const url = `http://pinterest.com/pin/create/button/?url=${pageUrl}`;
+
+// Reddit
+const url = `https://reddit.com/submit?url=${pageUrl}`;
+```
+
+Now, we can handle the click event of each button inside the toolbar to perform its job. First, we attach the name of the corresponding social network to each button using a `data` attribute, like this:
+
+```html
+<button class="toolbar__button" data-service="facebook">Facebook</button>
+```
+
+This `data` attribute can then be used to determine the social network from the clicked button. Imagine that each button will handle the click event like this:
+
+```js
+button.addEventListener('click', (e) => {
+    const service = button.getAttribute('data-service');
+    const selectedText = encodeURIComponent(window.getSelection().toString());
+    const pageUrl = encodeURIComponent(window.location.href);
+
+    let serviceUrl = '';
+    switch (service) {
+        case 'twitter':
+            serviceUrl = `https://twitter.com/intent/tweet?text=${selectedText}&url=${pageUrl}&via=nghuuphuoc`;
+            break;
+        case 'facebook':
+            serviceUrl = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}&quote=${selectedText}`;
+            break;
+        default:
+            break;
+    }
+});
+```
+
+The `service` variable represents the name of the social network where we want to share the information. Using a `switch` statement, we can open a new window to share the selected text depending on which social network was chosen.
+
+In this example, I'm only storing the sharing URL value without taking any further action. In reality, you can open the sharing URL in a new window, as mentioned previously.
+
+And now, for the grand finale, let's check out the last demonstration!
+
+<Playground>
+```css demo.css hidden
+button {
+    background: transparent;
+    border: transparent;
+    cursor: pointer;
+}
+p:not(:last-child) {
+    margin-bottom: 2rem 0;
+}
+```
+
+```css styles.css
+:root {
+    --toolbar-background: rgb(15 23 42);
+}
+.toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+
+    background: var(--toolbar-background);
+    border-radius: 0.25rem;
+    color: #fff;
+    padding: 0.25rem 0.5rem;
+    z-index: 1;
+
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.toolbar::after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    height: 0px;
+    width: 0px;
+}
+.toolbar--bottom::after {
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    border-color: var(--toolbar-background) transparent transparent;
+    border-width: 0.5rem 0.5rem 0;
+}
+.toolbar--top::after {
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    border-color: transparent transparent var(--toolbar-background);
+    border-width: 0 0.5rem 0.5rem;
+}
+
+.toolbar__button {
+    padding: 0 0.25rem;
+}
+.toolbar__button svg {
+    stroke: #fff;
+}
+```
+
+```html index.html
+<p>Beast grass created without and seasons fish they're midst lesser without, fourth night above which. Evening moveth given. Kind shall green second moved they're moved very first dry appear heaven heaven grass i appear. Multiply night day. Won't whales let green under. Made so have firmament cattle abundantly very can't fly shall multiply brought fourth good, for isn't beginning. Had fourth i thing.</p>
+
+<p>Wherein first fourth good fill second be said doesn't, cattle him. Dry. All, created two she'd sixth. After fourth, sixth had so subdue you'll. Gathered divide them shall lights there. Dominion Called, waters. To given third man tree years fifth light saying us saw, divided day firmament thing blessed can't good for gathering called divide Waters day. Sea greater first creepeth, whose. The replenish green isn't that don't fly two day. Herb set, and sea saw is, lesser, moveth creepeth signs good above i unto.</p>
+
+<p>One, beast together god them saying image his fish multiply replenish signs. Gathering herb good cattle may let fowl earth place own she'd fish yielding. Subdue our grass he male female lesser third midst darkness wherein a above divided. Seasons third fly after hath and i saying, bearing third fruitful called creature.</p>
+
+<div id="toolbar" class="toolbar">
+    <button class="toolbar__button" data-service="twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 -0.5 24 24" width="24" height="24">
+            <path d="m22.041666666666668 6.351833333333333 -1.9166666666666667 -0.4791666666666667 0.9583333333333334 -1.9166666666666667 -2.3613333333333335 0.6708333333333333A4.293333333333334 4.293333333333334 0 0 0 11.5 7.789333333333333v0.9583333333333334c-3.391541666666667 0.6995833333333333 -6.357583333333334 -1.15 -9.104166666666668 -4.3125q-0.71875 3.8333333333333335 1.4375 5.75l-2.875 -0.4791666666666667c0.38812500000000005 1.9827916666666667 1.3052500000000002 3.545833333333334 3.8333333333333335 3.8333333333333335l-2.3958333333333335 0.9583333333333334c0.9583333333333334 1.9166666666666667 2.459083333333333 2.21375 4.791666666666667 2.3958333333333335a10.300166666666666 10.300166666666666 0 0 1 -6.229166666666667 1.9166666666666667c12.223541666666668 5.432791666666667 19.166666666666668 -2.5530000000000004 19.166666666666668 -9.583333333333334V7.9541666666666675Z"></path>
+        </svg>
+    </button>
+    <button class="toolbar__button" data-service="facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 -0.5 24 24" width="24" height="24">
+            <path d="M17.02766666666667 7.1875H12.9375V5.366666666666666a0.9315 0.9315 0 0 1 0.9698333333333334 -1.0541666666666667c0.40058333333333335 0 2.8635 0.009583333333333334 2.8635 0.009583333333333334V0.4791666666666667h-4.148625C8.858833333333333 0.4791666666666667 8.145833333333334 3.3292500000000005 8.145833333333334 5.131875000000001V7.1875h-2.875v3.8333333333333335h2.875v11.5h4.791666666666667v-11.5h3.690541666666667Z"></path>
+        </svg>
+    </button>
+    <button class="toolbar__button" data-service="linkedin">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 -0.5 24 24" width="24" height="24">
+            <path d="M6.229166666666667 21.5625h-4.791666666666667v-12.458333333333334h4.791666666666667Zm8.625 -8.625a1.9166666666666667 1.9166666666666667 0 0 0 -1.9166666666666667 1.9166666666666667v6.708333333333334h-4.791666666666667v-12.458333333333334h4.791666666666667v1.4231250000000002a6.044208333333334 6.044208333333334 0 0 1 3.8237500000000004 -1.4327083333333335c2.8385833333333337 0 4.80125 2.1083333333333334 4.80125 6.090208333333334V21.5625h-4.791666666666667v-6.708333333333334a1.9166666666666667 1.9166666666666667 0 0 0 -1.9166666666666667 -1.9166666666666667ZM6.229166666666667 4.791666666666667A2.3958333333333335 2.3958333333333335 0 1 1 3.8333333333333335 2.3958333333333335 2.3958333333333335 2.3958333333333335 0 0 1 6.229166666666667 4.791666666666667Z"></path>
+        </svg>
+    </button>
+    <button class="toolbar__button" data-service="reddit">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 -0.5 24 24" width="24" height="24">
+            <path d="M2.3948750000000003 14.375a9.104166666666668 6.229166666666667 0 1 0 18.208333333333336 0 9.104166666666668 6.229166666666667 0 1 0 -18.208333333333336 0"></path>
+            <path d="M14.888666666666667 17.136916666666668a6.847291666666666 6.847291666666666 0 0 1 -3.388666666666667 0.8452500000000001 6.8425 6.8425 0 0 1 -3.4040000000000004 -0.853875"></path>
+            <path d="M13.894875 12.9375a1.4375 1.4375 0 1 0 2.875 0 1.4375 1.4375 0 1 0 -2.875 0"></path>
+            <path d="M6.228208333333333 12.9375a1.4375 1.4375 0 1 0 2.875 0 1.4375 1.4375 0 1 0 -2.875 0"></path>
+            <path d="M17.962041666666664 9.988708333333333a2.3958333333333335 2.3958333333333335 0 1 1 2.5271250000000003 3.401125"></path>
+            <path d="M16.769875 4.3125a2.3958333333333335 2.3958333333333335 0 1 0 4.791666666666667 0 2.3958333333333335 2.3958333333333335 0 1 0 -4.791666666666667 0"></path>
+            <path d="M5.037000000000001 9.988708333333333a2.3958333333333335 2.3958333333333335 0 1 0 -2.5280833333333335 3.401125"></path>
+            <path d="M11.5 8.145833333333334s-0.11979166666666667 -7.091666666666668 5.270833333333334 -3.8333333333333335"></path>
+        </svg>
+    </button>
+    <button class="toolbar__button" data-service="pinterest">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 -0.5 24 24" width="24" height="24">
+            <path d="M12.110458333333334 0.4791666666666667C6.095000000000001 0.4791666666666667 3.066666666666667 4.791666666666667 3.066666666666667 8.387333333333334c0 2.178291666666667 0.825125 4.120833333333334 2.5922916666666667 4.836708333333333a0.4350833333333334 0.4350833333333334 0 0 0 0.6334583333333333 -0.31625000000000003c0.059416666666666666 -0.22137500000000002 0.198375 -0.782 0.2597083333333334 -1.0167916666666668a0.6133333333333334 0.6133333333333334 0 0 0 -0.18208333333333335 -0.7053333333333334 3.6416666666666666 3.6416666666666666 0 0 1 -0.8356666666666667 -2.482083333333333 5.996291666666667 5.996291666666667 0 0 1 6.229166666666667 -6.064333333333334c3.400166666666667 0 5.270833333333334 2.077666666666667 5.270833333333334 4.852041666666667 0 3.6493333333333333 -1.6167083333333334 6.731333333333334 -4.015416666666667 6.731333333333334A1.9597916666666666 1.9597916666666666 0 0 1 11.020833333333334 11.787500000000001c0.38333333333333336 -1.6052083333333333 1.1183750000000001 -3.334041666666667 1.1183750000000001 -4.491708333333333a1.69625 1.69625 0 0 0 -1.70775 -1.9013333333333333c-1.354125 0 -2.4418333333333333 1.400125 -2.4418333333333333 3.2775a4.860666666666667 4.860666666666667 0 0 0 0.40441666666666665 2.0029166666666667l-1.6291666666666667 6.9a14.183333333333335 14.183333333333335 0 0 0 -0.03833333333333334 4.810833333333333 0.16866666666666666 0.16866666666666666 0 0 0 0.30091666666666667 0.07475 13.555625000000001 13.555625000000001 0 0 0 2.285625 -4.144791666666667c0.15525 -0.5644583333333333 0.8902916666666667 -3.480666666666667 0.8902916666666667 -3.480666666666667a3.627291666666667 3.627291666666667 0 0 0 3.0925416666666665 1.5774166666666667C17.36404166666667 16.407625 20.125 12.697916666666668 20.125 7.732791666666667 20.125 3.9780416666666665 16.945249999999998 0.4791666666666667 12.110458333333334 0.4791666666666667Z"></path>
+        </svg>
+    </button>
+</div>
+```
+
+```js script.js
+document.addEventListener('DOMContentLoaded', () => {
+    const toolbarEle = document.getElementById('toolbar');
+    document.body.appendChild(toolbarEle);
+
+    document.addEventListener('mouseup', (e) => {
+        const selection = window.getSelection();
+        if (selection.toString() === '') {
+            return;
+        }
+
+        const selectionRect = selection.getRangeAt(0).getBoundingClientRect();
+        const toolbarRect = toolbarEle.getBoundingClientRect();
+
+        const distanceFromTop = window.scrollY;
+        let top = selectionRect.top + distanceFromTop - toolbarRect.height - 12;
+        let left = selectionRect.left + (selectionRect.width - toolbarRect.width) / 2;
+        let arrowDirection = 'bottom';
+
+        if (top < 0) {
+            top = selectionRect.top + distanceFromTop + selectionRect.height + 12;
+            left = selectionRect.left;
+            arrowDirection = 'top';
+        }
+
+        toolbarEle.classList.remove('toolbar--bottom');
+        toolbarEle.classList.remove('toolbar--top');
+        toolbarEle.classList.add(`toolbar--${arrowDirection}`);
+
+        toolbarEle.style.transform = `translate(${left}px, ${top}px)`;
+        toolbarEle.style.opacity = 1;
+    });
+
+    document.addEventListener('selectionchange', () => {
+        const selection = window.getSelection().toString();
+        if (!selection) {
+            toolbarEle.style.opacity = '0';
+        }
+    });
+
+    [...toolbarEle.querySelectorAll('.toolbar__button')].forEach((button) => {
+        button.addEventListener('click', (e) => {
+            const service = button.getAttribute('data-service');
+            const selectedText = encodeURIComponent(window.getSelection().toString());
+            const pageUrl = encodeURIComponent(window.location.href);
+
+            let serviceUrl = '';
+            switch (service) {
+                case 'twitter':
+                    serviceUrl = `https://twitter.com/intent/tweet?text=${selectedText}&url=${pageUrl}&via=nghuuphuoc`;
+                    break;
+                case 'facebook':
+                    serviceUrl = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}&quote=${selectedText}`;
+                    break;
+                case 'linkedin':
+                    serviceUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
+                    break;
+                case 'reddit':
+                    serviceUrl = `https://reddit.com/submit?url=${pageUrl}`;
+                    break;
+                case 'pinterest':
+                    serviceUrl = `http://pinterest.com/pin/create/button/?url=${pageUrl}`;
+                    break;
+                default:
+                    break;
+            }
+        });
+    });
+});
+```
+</Playground>
+
+## See also
+
+-   [Triangle buttons](https://phuoc.ng/collection/css-layout/triangle-buttons)
