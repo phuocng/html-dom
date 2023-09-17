@@ -1,0 +1,97 @@
+---
+category: Level 2 — Intermediate
+created: '2023-09-13'
+description: Different ways to check for the existence of an element
+keywords: MutationObserver
+openGraphCover: /og/html-dom/waiting-element.png
+title: Waiting for an element to become available
+---
+
+When building a website or web application, it's common to need to wait for certain elements to become available on the page before taking action. For example, you might have to wait for a form to load before filling it out, or for a button to appear before clicking it.
+
+This waiting process is also crucial for testing. Automated tests often need to wait for specific elements to load before moving on to the next step. This ensures that the test accurately reflects how people will actually use the website or application.
+
+In this post, we'll explore different ways to use JavaScript to wait for elements to become available on a webpage.
+
+## Repeatedly checking for the existence of an element
+
+If you're looking to check periodically for the existence of an element, there's a straightforward method you can use. Enter `setInterval()`, a built-in JavaScript function that allows you to repeatedly execute a function at a given interval. It requires two arguments: the function to execute, and the interval (in milliseconds) at which to execute it.
+
+Here's an example:
+
+```js
+const intervalId = setInterval(() => {
+    // Select the element we want to wait for
+    const targetElement = document.getElementById('my-element');
+
+    if (targetElement)) {
+        // Stop checking for the element
+        clearInterval(intervalId);
+        console.log('Element is now available');
+    }
+}, 100);
+```
+
+In this code snippet, we use `setInterval()` to repeatedly check for the target element every 100 milliseconds. Once the element is found, we stop checking for it by calling `clearInterval()` and do something with it.
+
+## Using MutationObserver
+
+When checking for the existence of an element in JavaScript, using `setInterval()` may seem like the easiest option. However, it's not the most efficient way to do it. This method repeatedly executes a callback function at a fixed interval until the element is found. This means that if the element takes a while to load, you could end up with unnecessary function calls, which can slow down your code.
+
+A better approach is to use the `MutationObserver` API. This built-in JavaScript feature allows you to watch for changes in the DOM and execute a callback function when specific changes occur. By using `MutationObserver`, your code only runs when necessary, saving resources and improving efficiency.
+
+To wait for an element to become available on a web page, you can create a `MutationObserver` that watches for changes to the DOM and checks if the desired element has appeared.
+
+Here's an example of how to use `MutationObserver` for this purpose:
+
+```js
+const observer = new MutationObserver((mutations) => {
+    // Callback
+});
+
+// Start observing changes to the DOM
+observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+});
+```
+
+In this example, we're creating a new `MutationObserver` to keep an eye on changes to the DOM. We tell the observer to watch for changes to the entire document (`document.body`) and everything within it (`{ childList: true, subtree: true }`).
+
+To be more specific, the `childList` and `subtree` properties tell the observer which changes to the DOM it should pay attention to.
+
+The `childList` property is a simple boolean that indicates whether changes to the target node's direct children should be observed. If set to `true`, the observer will keep an eye out for any additions or removals of child nodes.
+
+The `subtree` property is also a boolean that determines whether changes to any descendant nodes of the target node should be observed. If set to `true`, the observer will watch for additions or removals of any descendant nodes, not just direct children.
+
+By default, both properties are set to `false`, which means that only changes to the target node itself will be observed. But if you want to observe changes deeper in the DOM tree, you can set one or both properties to `true`.
+
+The `MutationObserver` callback is triggered whenever a new element is added or an existing element is removed from the tracked element. Once the target element is found, we stop tracking by calling the `disconnect()` function.
+
+Here's how we can wait for the target element to appear on the page:
+
+```js
+const observer = new MutationObserver((mutations) => {
+    const targetElement = document.getElementById('my-element');
+
+    // Check if the target element has been added to the DOM
+    if (targetElement)) {
+        // Stop tracking
+        observer.disconnect();
+
+        // The target element is available, do something with it
+        console.log('Element is now available');
+    }
+});
+
+observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+});
+```
+
+## Conclusion
+
+Using `MutationObserver` to wait for an element to become available on a webpage is a smarter and more flexible option than using `setInterval()`. The latter method repeatedly executes a callback function at fixed intervals, which can slow down your code by making unnecessary function calls. On the other hand, `MutationObserver` watches for changes in the DOM and executes a callback function only when specific changes occur. This means that your code runs only when necessary, saving resources and improving efficiency.
+
+In summary, if you want a reliable and efficient way to wait for elements on a webpage, `MutationObserver` is definitely worth considering.
