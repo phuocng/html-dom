@@ -1,0 +1,53 @@
+---
+category: Tip
+created: '2023-09-13'
+description: How to avoid shifting layout when opening a modal with JavaScript DOM
+openGraphCover: /og/html-dom/shifting-layout-opening-modal.png
+title: Avoid shifting layout when opening a modal
+---
+
+When a modal pops up, it's standard practice to disable scrolling on the main page. This keeps users from accidentally clicking on content outside of the modal, which could disrupt their experience.
+
+But here's the thing: hiding the scrollbar can cause layout shift problems. When the scrollbar disappears, it changes the size of the container, which can cause other elements to shift around. This can be especially frustrating if users are already interacting with the page.
+
+To avoid this problem, we need to account for any changes in the container caused by hiding or showing the scrollbar. To do that, we can calculate the width of the scrollbar and make room for it accordingly.
+
+To calculate the width of a scrollbar and adjust for it in the main page, we first need to get the original width of the body element before hiding the scrollbar. We can do this by using `document.body.offsetWidth`.
+
+Next, we hide the scrollbar by setting `document.body.style.overflow` to `hidden`. Then, we get the new width of the body element, which is affected by hiding the scrollbar. By subtracting this new width from the original width, we can determine the actual width of the scrollbar.
+
+```js
+const currentWidth = document.body.offsetWidth;
+document.body.style.overflow = "hidden";
+const scrollBarWidth = body.offsetWidth - currentWidth;
+```
+
+To make space for the scrollbar, we need to add its width as a right margin to the body element. We can do this by setting `document.body.style.marginRight` to `${scrollBarWidth}px`. This ensures a smooth user experience by preventing any sudden layout shifts when hiding or showing the scrollbar.
+
+```js
+document.body.style.marginRight = `${scrollBarWidth}px`;
+```
+
+Here's a code snippet you can use to fix this issue when opening a modal:
+
+```js
+const openModal = () => {
+    const currentWidth = document.body.offsetWidth;
+    document.body.style.overflow = "hidden";
+    const scrollBarWidth = body.offsetWidth - currentWidth;
+    document.body.style.marginRight = `${scrollBarWidth}px`;
+};
+```
+
+Similarly, we reset the `overflow` and `margin-right` properties when we close a modal.
+
+```js
+const closeModal = () => {
+    document.body.style.overflow = "auto";
+    document.body.style.marginRight = "";
+};
+```
+
+## See also
+
+-   [Calculate the size of scrollbar](https://phuoc.ng/collection/html-dom/calculate-the-size-of-scrollbar)
