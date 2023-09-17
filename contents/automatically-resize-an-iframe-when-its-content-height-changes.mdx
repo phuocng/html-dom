@@ -1,0 +1,70 @@
+---
+category: Level 2 — Intermediate
+created: '2023-09-13'
+description: Automatically resize an iframe when its content height changes with JavaScript DOM
+keywords: fit iframe, ResizeObserver
+openGraphCover: /og/html-dom/automatically-resize-iframe.png
+title: Automatically resize an iframe when its content height changes
+---
+
+When a page includes an iFrame, we typically set a fixed height using the `height` property:
+
+```html
+<iframe style="height: 400px">
+    ...
+</iframe>
+```
+
+But if you'd rather adjust the height of the iFrame dynamically to fit its content, rather than setting a fixed or maximum height, you can do it using JavaScript and the Document Object Model (DOM). In this post, I'll show you how to make it happen.
+
+## Markup
+
+Let's start by attaching the ID attribute to the iframe. This way, we can easily reference the iFrame element later on. It's worth noting that there are no `max-height` or `height` properties being used here.
+
+```html
+<iframe id="frame">
+    ...
+</iframe>
+```
+
+To retrieve the reference to the iframe, we can use the `getElementById` function.
+
+```js
+document.addEventListener('DOMContentLoaded', () => {
+    const iframeEle = document.getElementById('frame');
+});
+```
+
+## Automatically adjusting iFrame height
+
+To make sure an iFrame's height automatically adjusts when its content changes, we first need to track when the content changes size.
+
+One of the best ways to do this is by using the ResizeObserver API, which is available in modern browsers. This API allows you to observe changes to an element's size. By creating a new `ResizeObserver` instance and passing in a callback function that will be called whenever there are changes to the size of the tracked element, we can easily keep track of any changes that occur within the iFrame.
+
+For example, if we want to track the size of an iFrame's body, we can use this code:
+
+```js
+const iframeBody = iframeEle.contentDocument.body;
+
+const ro = new ResizeObserver(function() {
+  // Called when the body size changes
+});
+
+ro.observe(iframeBody);
+```
+
+Here, we create a new `ResizeObserver` instance that triggers a callback function whenever there are changes to the size of the element being tracked. We then pass the iFrame's body to the `observe()` function to start tracking its size.
+
+Within the callback function, we can dynamically update the height of the iFrame. This allows us to keep the iFrame's size in sync with the content it displays.
+
+```js
+const ro = new ResizeObserver(function() {
+    iframeEle.style.height = `${iframeBody.scrollHeight}px`;
+});
+```
+
+The `iframeBody.scrollHeight` property gives you the height of everything inside the iFrame, including margins, padding, and borders.
+
+## Conclusion
+
+By following these simple steps, you can easily adjust the height of an iFrame to fit its content using JavaScript and the DOM. This technique is incredibly useful for creating responsive web pages that automatically adjust to the size of their content.
