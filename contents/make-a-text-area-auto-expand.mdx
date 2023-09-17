@@ -1,0 +1,67 @@
+---
+category: Level 1 — Basic
+created: '2023-09-03'
+description: Make a textarea auto-expand with JavaScript DOM
+openGraphCover: /og/html-dom/text-area-auto-expand.png
+title: Make a textarea auto-expand
+---
+
+If you want to make a textarea on your website expand as the user types, you can use JavaScript DOM to achieve this. In this post, I'll show you how it's done.
+
+## Markup
+
+Let's assume you have a basic textarea element with an ID of `textarea`. We'll use this ID later to retrieve the textarea element.
+
+```html
+<textarea id="textarea"></textarea>
+```
+
+## Capturing user input
+
+Now it's time to capture user input. To do this, you'll need to add an event listener for the `input` event on your textarea element. This event is triggered every time the user types something into the textarea. You can easily set this up using the `addEventListener` method. Here's an example:
+
+```js
+const textareaEle = document.getElementById('textarea');
+
+textareaEle.addEventListener('input', () => {
+    // Code to be executed when user types in textarea
+});
+```
+
+## Setting the height
+
+If you want your textarea element to grow and shrink as the user types, you'll need to adjust its height accordingly. Here's how to do it:
+
+```js
+textarea.style.height = 'auto';
+textarea.style.height = `${textarea.scrollHeight}px`;
+```
+
+In your event listener, you'll want to set the `height` property of the element. To do this, first reset the height to `auto` so you can get the actual height of the contents using `scrollHeight`. Then, set the height of the textarea element to the `scrollHeight` value. This will ensure that the textarea element expands to fit its contents.
+
+It's as easy as pie! Just type some text into the textarea element in the demo below, press _Enter_ to create new lines, and watch as the textarea height adjusts dynamically to fit your text. Give it a try!
+
+<Playground>
+```css styles.css
+.textarea {
+    border: 1px solid rgb(203 213 225);
+    border-radius: 0.25rem;
+    height: 4rem;
+    width: 16rem;
+}
+```
+
+```html index.html
+<textarea id="textarea" class="textarea"></textarea>
+```
+
+```js scripts.js
+document.addEventListener('DOMContentLoaded', () => {
+    const textareaEle = document.getElementById('textarea');
+    textareaEle.addEventListener('input', () => {
+        textareaEle.style.height = 'auto';
+        textareaEle.style.height = `${textareaEle.scrollHeight}px`;
+    });
+});
+```
+</Playground>
