@@ -1,0 +1,54 @@
+---
+category: Level 1 — Basic
+created: '2023-09-02'
+description: Check if users click outside of selected text with JavaScript DOM
+keywords: JavaScript text selection
+openGraphCover: /og/html-dom/click-outside-selected.png
+title: Check if users click outside of selected text
+---
+
+If you need to know when a user clicks outside of a specific element or text selection on a web page, you can use JavaScript and the Document Object Model (DOM) to get the job done.
+
+First, add an event listener to the `document` object to detect clicks anywhere on the page. This way, you can capture clicks that happen outside of the selected text.
+
+```js
+document.addEventListener('click', (e) => {
+    // Code to execute when the user clicks outside of the selected text
+    // ...
+});
+```
+
+Next, to figure out if the click happened inside or outside of the selected text, you'll need to retrieve the current selection. This can be done easily with the `getSelection()` method.
+
+```js
+const selection = window.getSelection();
+```
+
+You can use the `containsNode()` method to check if a click occurred outside of the selected text. This method requires two arguments: the node to check and a `boolean` value that indicates whether the node should be checked for partial inclusion in the selection.
+
+```js
+const clickedElement = e.target;
+if (!selection.containsNode(clickedElement, true)) {
+    // ...
+}
+```
+
+Here's the complete JavaScript DOM code to check if users click outside of selected text.
+
+```js
+document.addEventListener('click', (e) => {
+    const selection = window.getSelection();
+    const clickedElement = e.target;
+    if (!selection.containsNode(clickedElement, true)) {
+        // Code to execute when the user clicks outside of the selected text
+        // ...
+    }
+});
+```
+
+With this code, you can detect when a user clicks outside of a selected text on your web page. This allows you to execute the appropriate code to handle this event and take necessary actions.
+
+## See also
+
+-   [Check if an element is a descendant of another](https://phuoc.ng/collection/html-dom/check-if-an-element-is-a-descendant-of-another)
+-   [Detect clicks outside of an element](https://phuoc.ng/collection/html-dom/detect-clicks-outside-of-an-element)
