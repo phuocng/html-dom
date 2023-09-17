@@ -1,0 +1,72 @@
+---
+category: Level 1 — Basic
+created: '2023-09-15'
+description: Display a confirm modal when closing the browser with JavaScript
+keywords: beforeunload event
+openGraphCover: /og/html-dom/confirm-when-closing-browser.png
+title: Display a confirm modal when closing the browser
+---
+
+There are several situations where we need to show a confirmation box before closing the browser.
+
+One such situation is when a user accidentally clicks the close button or reloads the browser while filling out a form or creating content. Without a confirmation box, all the progress made so far would be lost.
+
+Another scenario where a confirmation box is useful is when leaving a page that has unsaved changes. This happens when users edit their account information or update their preferences. The box reminds users to save their changes before leaving the page.
+
+Moreover, some websites need users to confirm if they want to leave the site entirely. This is handy for sites that have sensitive information or require users to agree to terms and conditions before accessing certain features.
+
+By adding a confirmation box when exiting the browser, you can prevent accidental loss of progress and provide an extra layer of security for your users.
+
+In this post, we'll learn how to use JavaScript to display a confirmation box that asks the user if they're sure they want to leave the page.
+
+## Adding an event listener to window
+
+To detect when a user is attempting to close their browser, you'll need to add an event listener to the `window` object. You can use the `beforeunload` event to accomplish this. Here's an example:
+
+```js
+window.addEventListener('beforeunload', (event) => {
+    // ...
+});
+```
+
+## Displaying the confirm modal
+
+To display a confirm modal when the `beforeunload` event is triggered, use the `preventDefault()` method to cancel the default behavior of the `beforeunload` event. This prevents the browser from closing the tab or window as it normally would. For older browsers, you also need to set the `returnValue` property to an empty string.
+
+```js
+window.addEventListener('beforeunload', (event) => {
+    event.preventDefault();
+    event.returnValue = '';
+});
+```
+
+Once this is done, the browser displays a confirm modal. This is what it looks like in the Chrome browser:
+
+![Chrome confirmation modal when leaving a site](/assets/html-dom/leave-site.png)
+
+The message displayed on the modal changes based on the action the user takes to close the browser. For instance, when users try to reload the current page, the browser might modify the main message and label of buttons.
+
+![Chrome confirmation modal when reloading a site](/assets/html-dom/reload-site.png)
+
+It's important to note that the message on the confirm modal cannot be customized, as it's provided by the browser.
+
+> **Good to know**
+>
+> On modern browsers like Chrome, you can set the `returnValue` property to any string without any impact on its behavior. But in older browsers like IE, `returnValue` is used to display a custom message for the default confirmation dialog.
+>
+> ```js
+> // Old browsers
+> window.addEventListener('beforeunload', function(event) {
+>   var message = 'Are you sure you want to leave?';
+>   event.returnValue = message;
+>   return message;
+> });
+> ```
+
+## Conclusion
+
+Adding a confirm modal when closing the browser can be a helpful feature for websites with unsaved changes or other crucial information. With JavaScript, you can effortlessly incorporate this feature into your website and enhance the user experience.
+
+## See also
+
+-   [Display a modal when users leave website](https://phuoc.ng/collection/html-dom/display-a-modal-when-users-leave-website)
