@@ -1,0 +1,213 @@
+---
+category: Level 2 — Intermediate
+created: '2023-09-15'
+description: Display a modal when users leave website with JavaScript
+keywords: beforeunload event
+openGraphCover: /og/html-dom/display-modal-when-users-leave.png
+title: Display a modal when users leave website
+---
+
+Retaining customers on a website can be challenging, but there's a trick that works like a charm: showing a subscription modal when they're about to leave. This not only boosts conversions but also improves customer retention on your website. In this post, we'll learn how to implement this feature using JavaScript DOM. Let's get started!
+
+## Tracking the mouse
+
+As explained in this [link](https://phuoc.ng/collection/html-dom/display-a-confirm-modal-when-closing-the-browser), when users close or reload the browser, the `beforeunload` event is triggered. Unfortunately, it's not possible to customize the default warning message or UI with your own message.
+
+Instead, we'll track the user's mouse movements and display a modal when we detect that they're about to leave the page.
+
+To achieve this, we need to detect when the user is about to navigate away from the page. We can do this by tracking the `mouseleave` event across the entire `document`. Here's an example:
+
+```js
+const handleMouseLeave = (e) => {
+    console.log('User left the page');
+};
+
+document.addEventListener('mouseleave', handleMouseLeave);
+```
+
+> **Note**
+>
+> We track the `mouseleave` event instead of the `mousemove` event because it provides a more accurate indication of the user's intention to leave the page. The `mousemove` event fires continuously as long as the mouse is moving, which can result in false positives and impact performance.
+>
+> In contrast, the `mouseleave` event only fires once when the mouse leaves the document area, giving us a more reliable signal to trigger our modal display logic. This approach not only provides a better user experience but also optimizes website performance by reducing unnecessary event handlers.
+
+To kick off, we'll start by logging a message to the console whenever the user leaves the page. From there, we can move on to determining the position of the mouse. Luckily, we can easily achieve this using the `clientX` and `clientY` properties of the `MouseEvent` object. Check out the example below:
+
+```js
+const handleMouseLeave = (e) => {
+    console.log('User left the page', e.clientX, e.clientY);
+};
+```
+
+This code will log the `x` and `y` coordinates of the mouse every time it leaves the page. We can use these coordinates to check if the mouse is in the top-right corner of the browser. For instance, we can show a modal when the mouse is within 10 pixels of the top edge. You can customize this condition to suit your requirements.
+
+Finally, we also remove the event handler when the condition is met. Removing the event handler may sound strange, but it's actually a good practice that can optimize performance. By doing this, the page no longer needs to track the mouse, resulting in smoother and faster user experience.
+
+Here's how you could handle the `mouseleave` event:
+
+```js
+const handleMouseLeave = (e) => {
+    if (e.clientX < 10) {
+        // Show the modal
+        modalEle.classList.remove('modal--hidden');
+        modalEle.classList.add('modal--visible');
+
+        // Stop tracking the mouse
+        document.removeEventListener('mouseleave', handleMouseLeave);
+    }
+});
+```
+
+## Use cookies or local storage to remember modal dismissal
+
+When we add a modal that appears when the user moves their mouse to the top-right corner of the browser, we want to make sure they're not bombarded with it every time they visit the page. To avoid this, we can use cookies or local storage to remember if the user has dismissed the modal and prevent it from showing up again.
+
+To make this happen, we'll add an event listener to the modal element that listens for when the user clicks the *Close* button. When they do, we can set a cookie or local storage value that tells the website not to show the modal again. Here's an example:
+
+```js
+const COOKIE_NAME = 'exit-popup';
+
+const closeButton = document.getElementById('closeButton');
+
+const closeModal = () => {
+    // Hide the modal ...
+
+    // Set cookie value indicating that modal should not appear again
+    const date = new Date();
+    date.setTime(date.getTime() + 365*24*60*60*1000);
+    document.cookie = `${COOKIE_NAME}=true; expires=${date.toUTCString()}`;
+};
+
+closeButton.addEventListener('click', closeModal);
+```
+
+This code adds an event listener to the **Close** button in our modal element. When the button is clicked, it sets a cookie named `exit-popup` with a value of `true`. The cookie is set to expire in one year.
+
+To set the expiration date, we create a new `Date` object and add 1 year's worth of milliseconds to it. Then we convert the resulting date to UTC format using the `toUTCString()` method and use it as the value for the `expires` attribute of the cookie. This ensures that the cookie will expire at the specified time and will be removed from the user's browser.
+
+Before showing the modal, we check for the existence of this cookie using the `document.cookie` property. If it contains a value indicating that the cookie exists, we assume that the user has already dismissed the modal and skip showing it again.
+
+Here's an example implementation for you to try out:
+
+```javascript
+const hasModalShown = () => {
+    const cookie = `; ${document.cookie}`.split(`; ${COOKIE_NAME}=`).pop().split(';').shift();
+    return cookie === 'true';
+};
+```
+
+The `mouseleave` event handler should check both the mouse position and whether the modal has been displayed properly.
+
+```javascript
+const handleMouseLeave = (e) => {
+    if (e.clientY < 10 && !hasModalShown()) {
+        // Show the modal ...
+    }
+});
+```
+
+You can use local storage, in addition to cookies, to check and indicate whether the modal has been displayed.
+
+Check out our demo below: try moving your mouse over the demo area and then to the top. You'll see that the modal appears.
+
+<Playground>
+```css demo.css hidden
+button {
+    border: transparent;
+    background: rgb(203 213 225);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    padding: 0 0.5rem;
+    height: 2rem;
+}
+```
+
+```css styles.css
+.modal {
+    /* Display modal at the center of page */
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    z-index: 1;
+
+    border: 1px solid rgb(203 213 225);
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    padding: 1rem;
+}
+.modal--hidden {
+    display: none;
+}
+.modal--visible {
+    display: block;
+}
+```
+
+```html index.html
+<p class="playground__placeholder">
+    Moved without deep them a herb fly unto void saw Unto deep tree above behold you replenish. Moved him face i over fruitful is. Set shall land may waters is behold whose moved midst in Seasons fourth. Abundantly moveth days stars day you'll fowl fill said over a to hath void waters midst together hath good. Void also yielding. Give was was air is had you'll, make moved set day creeping give don't man great great make fruit the creeping in great void be without the dominion sea open fly two great man creepeth above moving subdue evening together. Beast air creepeth. Female divide, made in above was can't air give to hath man him air. Beast winged.
+</p>
+<p class="playground__placeholder">
+    Their gathered him stars, evening stars gathered cattle moveth two waters which fly blessed multiply sixth doesn't he they're you're forth you after them. Brought had gathered. Rule there shall. Morning Deep hath evening had our blessed third own it. Saying was their image brought. Beginning beginning won't gathering upon divided us the seas. Divide midst seas life living creepeth over said winged land fill face light lights let creepeth subdue, creepeth whose itself. Yielding shall form had seasons so night midst.
+</p>
+<div id="modal" class="modal modal--hidden">
+    <div>Subscribe to our newsletter and stay up-to-date on the latest promotions!</div>
+    <button id="closeButton">Close</button>
+</div>
+```
+
+```js scripts.js
+const SENSITIVITY = 10;
+const COOKIE_NAME = 'exit-popup';
+
+document.addEventListener('DOMContentLoaded', () => {
+    const modalEle = document.getElementById('modal');
+    const closeButton = document.getElementById('closeButton');
+
+    const hasModalShown = () => {
+        const cookie = `; ${document.cookie}`.split(`; ${COOKIE_NAME}=`).pop().split(';').shift();
+        return cookie === 'true';
+    };
+
+    const markModalShown = () => {
+        const date = new Date();
+        date.setTime(date.getTime() + 1*24*60*60*1000);
+        document.cookie = `COOKIE_NAME=true; expires=${date.toUTCString()}`;
+    };
+
+    const closeModal = () => {
+        modalEle.classList.remove('modal--visible');
+        modalEle.classList.add('modal--hidden');
+    };
+
+    const handleMouseLeave = (e) => {
+        if (e.clientY < SENSITIVITY && !hasModalShown()) {
+            document.removeEventListener('mouseleave', handleMouseLeave);
+
+            // Show the modal
+            modalEle.classList.remove('modal--hidden');
+            modalEle.classList.add('modal--visible');
+
+            // markModalShown();
+        }
+    };
+
+    document.addEventListener('mouseleave', handleMouseLeave);
+    closeButton.addEventListener('click', closeModal);
+});
+```
+</Playground>
+
+> **Good practice**
+>
+> When you're designing a subscription modal, it's crucial to keep in mind that users might find popups intrusive or irritating. To ensure that your modal is well-received by visitors, think about offering an incentive for signing up, like a discount code or a free trial period. This will encourage users to subscribe and make the process more enjoyable for them.
+
+## Conclusion
+
+In conclusion, adding a subscription modal to your website can be a powerful way to increase conversions and retain customers. By tracking the user's mouse position and displaying the modal when they're about to leave, you can create an interactive feature that engages the user and motivates them to sign up.
+
+## See also
+
+-   [Display a confirm modal when closing the browser](https://phuoc.ng/collection/html-dom/display-a-confirm-modal-when-closing-the-browser)
