@@ -1,0 +1,442 @@
+---
+category: Level 3 — Advanced
+created: '2023-09-21'
+description: Create a custom cursor with JavaScript
+openGraphCover: /og/html-dom/create-custom-cursor.png
+title: Create a custom cursor
+---
+
+CSS offers several built-in cursors, including the default arrow, text, and pointer cursors. These cursors can be easily applied to HTML elements using CSS properties like `cursor: default`, `cursor: text`, or `cursor: pointer`. Additionally, you can use custom images as cursors by specifying a URL to an image file using the `url()` function in CSS.
+
+But if you want to take your website to the next level with a unique and custom cursor, JavaScript is the way to go. With JavaScript, you can create a custom cursor that changes shape or color based on user interaction, or even add animations to it.
+
+In this post, we'll walk you through creating your very own custom cursor using JavaScript. Are you ready to dive in?
+
+## Hiding the default cursor
+
+To hide the default cursor, we can set the `cursor` property of the `html` element to `none`. This will make the cursor disappear from the screen. You can change the cursor by setting the CSS property directly like this:
+
+```css
+html {
+    cursor: none;
+}
+```
+
+Alternatively, you can use a small piece of JavaScript to set the cursor property like this:
+
+```js
+document.documentElement.style.cursor = 'none';
+```
+
+## Creating a custom cursor
+
+Once we've hidden the default cursor, we can create a new HTML element (like a `div`) and position it at the current mouse position on the screen.
+
+To add the new cursor element to the page, we'll use the `appendChild()` method. This lets us add a new child element to an existing parent element - in our case, we want to add the new `cursorEle` element as a child of the `<body>` tag.
+
+```js
+const cursorEle = document.createElement('div');
+cursorEle.classList.add('cursor');
+document.body.appendChild(cursorEle);
+```
+
+In this example, we're going to attach the `.cursor` class to our custom cursor to define how it looks and behaves. Here's what it looks like:
+
+```css
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+
+    width: 0.75rem;
+    height: 0.75rem;
+    background: rgb(100 116 139);
+    border-radius: 50%;
+}
+```
+
+To make sure the custom cursor stays in the same place on the screen, even when the user scrolls or moves their mouse, we've set the position of the `.cursor` element to `fixed`. We've also used `transform: translate(-50%, -50%)` to center the custom cursor element on the user's mouse position. This way, we center the element around the mouse coordinates instead of just positioning it with its top-left corner at that point.
+
+To keep the custom cursor visible and prevent it from getting hidden behind other page elements, we assign a high value to the `z-index` property of the `.cursor` class. In this example, we've set it to `9999`, which ensures that the cursor always stays on top.
+
+## Updating the cursor position
+
+To update the position of our custom cursor, we'll handle the `mousemove` event. This event is triggered whenever the user moves their mouse over an element on the page.
+
+We can add an event listener to the `document` object that listens for this event and updates the position of our custom cursor element accordingly. Here's some code to help you visualize it:
+
+```js
+document.addEventListener('mousemove', (e) => {
+    cursorEle.style.top = `${e.clientY}px`;
+    cursorEle.style.left = `${e.clientX}px`;
+ });
+```
+
+In this code, we use the `addEventListener()` method to listen for the `mousemove` event on the `document`. When this event is triggered, our callback function is called with an object representing the mouse position.
+
+We then use template literals to set the `top` and `left` CSS properties of our custom cursor element to match the current mouse coordinates. The `clientX` and `clientY` properties of the event object represent the X and Y coordinates of the mouse relative to the top-left corner of the viewport.
+
+By updating these CSS properties in real-time as the user moves their mouse, we can create a custom cursor that follows their movements precisely.
+
+## Hiding the cursor when moving out of the document
+
+To avoid the custom cursor element from remaining visible when the user moves their mouse out of the document, we can use the `mouseout` event to hide it. This event is triggered whenever the user moves their mouse outside of an element on the page.
+
+We can add another event listener to the `document` object that listens for this event and hides our custom cursor element accordingly.
+
+```js
+document.addEventListener('mousemove', (e) => {
+    cursorEle.style.display = 'block';
+});
+document.addEventListener('mouseout', (e) => {
+    cursorEle.style.display = 'none';
+});
+```
+
+In this block of code, we're hiding our custom cursor element by setting its `display` CSS property to `none` whenever the user moves their mouse out of the document. However, we've also made sure to modify the `mousemove` event handler, so that the cursor element becomes visible again as soon as the user moves their mouse back into the document.
+
+## Changing the cursor based on hover interaction
+
+Let's talk about custom cursors. To make them more interactive, we can change their color based on the user's actions. For instance, when hovering over a link or button, we can modify the cursor's appearance to provide visual feedback to the user.
+
+To achieve this effect, we need to add event listeners to the elements we want to track. When the user interacts with these elements (e.g., by hovering over them), we can update the styles of our custom cursor element accordingly.
+
+Check out this example code that modifies the appearance of our custom cursor element when it hovers over a link or button:
+
+```js
+const updateCursorOnHover = (ele) => {
+    ele.addEventListener('mouseover', () => {
+        cursorEle.classList.add('cursor--hover');
+    });
+    ele.addEventListener('mouseout', () => {
+        cursorEle.classList.remove('cursor--hover');
+    });
+};
+
+document.querySelectorAll('a, button').forEach((ele) => {
+    updateCursorOnHover(ele);
+});
+```
+
+In this code block, we use the `querySelectorAll()` method to select all `<a>` and `<button>` tags on the page and add event listeners for `mouseover` and `mouseout`. When the user hovers over a link or button, our callback function is called, and a custom CSS class, `cursor--hover`, is added to our custom cursor element. When the user leaves the link, another callback function is called that resets our custom cursor element's styles to its original value by removing the `cursor--hover` class.
+
+Here's the basic styles for the `cursor--hover` class:
+
+```css
+.cursor--hover {
+    mix-blend-mode: difference;
+    opacity: 0.75;
+
+    transform: translate(-50%, -50%) scale(3);
+    transform-origin: center;
+    transition: transform .3s ease-in-out;
+}
+```
+
+When the `cursor--hover` class is added to our custom cursor element, it creates an animation that scales up the size of the cursor and changes its opacity. We achieve this effect by using the `transform` property with the `scale()` function to increase the size of the `.cursor` element.
+
+We also use the `opacity` property to slightly reduce the visibility of our custom cursor element. Additionally, we set `mix-blend-mode: difference`, which changes how our custom cursor element blends with other elements on the page. The `mix-blend-mode` CSS property defines how an element's content should blend with its background or other elements on a page. When set to `difference`, it causes our custom cursor element to invert colors when it overlaps with another element. This creates a striking visual effect that draws attention to our custom cursor.
+
+## Changing the cursor on click
+
+To create a new custom cursor when users click on the page, we can listen for the `click` event on the `document` object. When this event occurs, we can create a new HTML element (like a `div`) and position it at the current mouse coordinates. This will create a new custom cursor that appears when the user clicks.
+
+First, we need to define the styles for our clicked cursor element. Here's an example CSS class:
+
+```css
+.cursor--click {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+
+    width: 1rem;
+    height: 1rem;
+
+    border: 1px solid rgb(100 116 139);
+    border-radius: 50%;
+
+    pointer-events: none;
+    animation: pulse .8s ease-in-out;
+}
+```
+
+This class creates a small circle element with a pulsing effect that stays in place even when the user scrolls or moves their mouse.
+
+In the CSS code block, we've set the `animation` property to `pulse`, which is a CSS animation defined elsewhere in our stylesheet. Here's what the `pulse` animation looks like:
+
+```css
+@keyframes pulse {
+    from {
+        opacity: 1;
+        transform: translate(-50% , -50%) scale(0);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50% , -50%) scale(3);
+    }
+}
+```
+
+This code creates an animation that runs from the `from` keyframe to the `to` keyframe. The properties defined in these two keyframes are then smoothly transitioned over time to create an animation effect.
+
+At the start of the animation (`from`), our custom cursor element has an initial size and opacity. As time passes, the browser gradually increases the size of our custom cursor element and fades its opacity until it reaches its final size and opacity at the end of the animation (`to`).
+
+By using this pulsing effect, we can draw attention to our custom cursor element and make it more noticeable when users click on elements on our page.
+
+Next, we need to add an event listener to the `document` object that listens for the `click` event. When this event is triggered, we can create a new instance of our clicked cursor element and position it at the current mouse coordinates using template literals.
+
+Here's an example code:
+
+```js
+document.addEventListener('click', (event) => {
+    const clickedCursor = document.createElement('div');
+    clickedCursor.classList.add('cursor--click');
+    clickedCursor.style.top = `${e.clientY}px`;
+    clickedCursor.style.left = `${e.clientX}px`;
+
+    document.body.appendChild(clickedCursor);
+});
+```
+
+In this code block, we're creating a new `div` element with the `document.createElement()` method. We're adding the `.cursor--click` class to the element using `classList.add()`. To position the cursor at the current mouse coordinates, we're setting its `top` and `left` CSS properties. Finally, we're appending the new clicked cursor element to the `<body>` tag using `appendChild()`.
+
+It's important to note that the cursor is dynamically added to the page whenever users click on the page. So we need to remove the newly created cursor element when it completes the animation. To do that, we can add an event listener to the clicked cursor that listens for the `animationend` event.
+
+```js
+document.addEventListener('click', (e) => {
+    // ...
+    clickedCursor.addEventListener('animationend', () => {
+        clickedCursor.remove();
+    });
+});
+```
+
+When this event is triggered, our callback function is called and removes the clicked cursor element from the DOM using the `remove()` method. This ensures that our custom cursors don't accumulate on top of each other and slow down our page.
+
+With this code in place, users will see a new custom cursor every time they click on the page.
+
+## Adding custom cursor effects to dynamically created elements
+
+In the previous section, we learned how to change the appearance of the cursor element when users hover over a link or button. But what about elements that are created dynamically? How can we apply the same functionality to them?
+
+Thankfully, we have the `MutationObserver` API to help us out. This nifty tool allows us to listen for changes in the DOM, even after the initial page load. By using it, we can add event listeners to dynamically created elements and give them the same cool cursor effects as the rest of the page.
+
+Take a look at this example code that uses `MutationObserver` to add a custom cursor effect when hovering over dynamically created button elements:
+
+```js
+// Callback function to execute when mutations are observed
+const callback = (mutationsList, observer) => {
+    // Loop through all added nodes and check if they are links or buttons
+    for (const mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+            const addedNodes = mutation.addedNodes;
+            if (addedNodes.length > 0) {
+                addedNodes.forEach((node) => {
+                    if (node.nodeName === 'A' ||
+                        node.nodeName === 'BUTTON'
+                    ) {
+                        updateCursorOnHover(node);
+                    }
+                });
+            }
+        }
+    }
+};
+
+// Create an observer instance linked to the callback function
+const observer = new MutationObserver(callback);
+
+// Start observing the target node for configured mutations
+observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+});
+```
+
+Our callback function gets triggered every time a mutation happens on the target node. Using a `for...of` loop, we check if any newly added nodes are either `<a>` or `<button>` tags. We do this by looking at their `nodeName` attribute. If we find any, we add event listeners for `mouseover` and `mouseout` by calling the `updateCursorOnHover` method. These listeners add or remove a custom CSS class to our custom cursor element, creating the desired effect.
+
+To make sure our custom cursor effect is applied to any dynamically created `<a>` or `<button>` tags, we create an instance of the `MutationObserver` class using our callback function and options. We start observing the entire document by calling its `observe()` method.
+
+We define the options for the observer with `{ childList: true, subtree: true }`. This tells the observer to listen for changes to the child elements of the target node. By doing this, we guarantee that any newly created `<a>` or `<button>` tags will automatically get our custom cursor effect applied to them.
+
+## Demo
+
+It's time to check out the final result of the steps we've been following so far.
+
+<Playground>
+```css demo.css hidden
+button {
+    background: rgb(59 130 246);
+    border: none;
+    color: #fff;
+}
+
+button,
+input[type="text"] {
+    border-radius: 0.25rem;
+    cursor: pointer;
+    height: 2rem;
+    padding: 0 0.5rem;
+}
+input[type="text"] {
+    border: 1px solid rgb(203 213 225);
+}
+.center {
+    text-align: center;
+}
+```
+
+```css styles.css
+.cursor {
+    display: none;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+
+    width: 0.75rem;
+    height: 0.75rem;
+
+    background: rgb(100 116 139);
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+.cursor--hidden {
+    display: none;
+}
+
+.cursor--hover {
+    mix-blend-mode: difference;
+    opacity: 0.75;
+    transform: translate(-50%, -50%) scale(3);
+    transform-origin: center;
+    transition: transform .3s ease-in-out;
+}
+
+.cursor--click {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+
+    width: 1rem;
+    height: 1rem;
+
+    border: 1px solid rgb(100 116 139);
+    border-radius: 50%;
+
+    pointer-events: none;
+    animation: pulse .8s ease-in-out;
+}
+
+@keyframes pulse {
+    from {
+        opacity: 1;
+        transform: translate(-50% , -50%) scale(0);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50% , -50%) scale(3);
+    }
+}
+```
+
+```html index.html
+<p>His rule. Which dry. Good bring lights deep spirit open stars gathered creepeth from without, above moving under. Fourth heaven after kind. Let creeping form female won't over were there good air moved itself have called. Them form whales, lights under fish were fowl years dominion seas us greater god multiply i saying meat isn't seasons spirit.</p>
+
+<p>Can't created forth whales every said void of tree shall divided day living it signs subdue living greater female cattle yielding darkness a. It that the, given. You fowl had over the life wherein, signs earth can't two. Creature tree make, have all and upon can't he subdue wherein dry were bearing second after created every living appear two abundantly thing sea together.</p>
+
+<p>Without thing said. Created meat moveth saw be made. Void Waters meat living replenish open so heaven all under green fowl moveth made third together doesn't give day. Made behold day divided. Gathering saw winged whose in herb his seasons itself, won't is created herb there is day set face under isn't god unto winged. Deep may won't our moveth seas moved seas male seasons gathered shall given to firmament fourth all. Days air divided earth said man that place.</p>
+
+<div class="center">
+    <p><input type="text" /></p>
+    <p><button>Try to hover on this button</button></p>
+    <p><a href="">Try to hover on this link</a></p>
+</div>
+```
+
+```js scripts.js
+document.addEventListener('DOMContentLoaded', () => {
+    document.documentElement.style.cursor = 'none';
+
+    const cursorEle = document.createElement('div');
+    cursorEle.classList.add('cursor');
+    document.body.appendChild(cursorEle);
+
+    document.addEventListener('mousemove', (e) => {
+        cursorEle.style.display = 'block';
+        cursorEle.style.top = `${e.clientY}px`;
+        cursorEle.style.left = `${e.clientX}px`;
+    });
+
+    document.addEventListener('mouseout', (e) => {
+        cursorEle.style.display = 'none';
+    });
+
+    document.addEventListener('click', (e) => {
+        const clickedCursor = document.createElement('div');
+        clickedCursor.classList.add('cursor--click');
+        clickedCursor.style.top = `${e.clientY}px`;
+        clickedCursor.style.left = `${e.clientX}px`;
+
+        document.body.appendChild(clickedCursor);
+
+        clickedCursor.addEventListener('animationend', () => {
+            clickedCursor.remove();
+        });
+    });
+
+    const updateCursorOnHover = (ele) => {
+        // Add event listener for mouseover on the element
+        ele.addEventListener('mouseover', (e) => {
+            cursorEle.classList.add('cursor--hover');
+        });
+        // Add event listener for mouseout on the element
+        ele.addEventListener('mouseout', (e) => {
+            cursorEle.classList.remove('cursor--hover');
+        });
+    };
+
+    document.querySelectorAll('a, button').forEach((ele) => {
+        updateCursorOnHover(ele);
+    });
+
+    // Callback function to execute when mutations are observed
+    const callback = (mutationsList, observer) => {
+        // Loop through all added nodes and
+        // check if they are links or buttons
+        for (const mutation of mutationsList) {
+            if (mutation.type === 'childList') {
+                const addedNodes = mutation.addedNodes;
+                if (addedNodes.length > 0) {
+                    addedNodes.forEach((node) => {
+                        if (node.nodeName === 'A' ||
+                            node.nodeName === 'BUTTON'
+                        ) {
+                           updateCursorOnHover(node);
+                        }
+                    });
+                }
+            }
+        }
+    };
+
+    // Create an observer instance linked to the callback function
+    const observer = new MutationObserver(callback);
+
+    // Start observing the target node for configured mutations
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+    });
+});
+```
+</Playground>
