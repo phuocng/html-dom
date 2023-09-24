@@ -1,0 +1,50 @@
+---
+category: Level 1 — Basic
+created: '2023-09-23'
+description: Calculate the reading time of a webpage with JavaScript
+openGraphCover: /og/html-dom/calculate-reading-time.png
+title: Calculate the reading time of a webpage
+---
+
+As a web developer, you might want to let users know how long it will take to read the content on your webpage. This is especially helpful if they're in a hurry. In this post, we'll show you how to use JavaScript to calculate the reading time of a webpage.
+
+First, we need to figure out the average reading speed of our users. According to research, most adults read at a speed of about 200-300 words per minute (WPM). However, this can vary depending on factors like age, language, and reading comprehension.
+
+For this post, we'll use an average reading speed of 250 WPM.
+
+Next, we need to count the number of words on the webpage. We can do this using JavaScript by selecting the element that contains the content and using the `textContent` property to get the text. Then, we can split the text into an array of words with the `split()` method and count the number of words with the `length` property.
+
+Here's an example of the code:
+
+```js
+const content = document.querySelector('#content');
+const words = content.textContent.split(' ');
+const numWords = words.length;
+```
+
+Now that we have the average reading speed and word count, we can calculate the reading time. We can do this by dividing the word count by the average reading speed and rounding up to the nearest minute.
+
+Here's a code example:
+
+```js
+// Words per minute
+const readingSpeed = 250;
+const readingTime = Math.ceil(numWords / readingSpeed);
+```
+
+Finally, we can display the reading time to the user. We can select an element on the page to display the reading time and set its `textContent` property to the calculated reading time.
+
+Here's an example of the code in action:
+
+```js
+const readingTimeEle = document.querySelector('#reading-time');
+readingTimeEle.textContent = `${readingTime} minute read`;
+```
+
+## Conclusion
+
+In this post, we've learned how to calculate how long it takes to read a webpage using JavaScript. By giving users an estimate of how much time they'll need to read your content, you can improve their experience and help them manage their time more effectively.
+
+## See also
+
+-   [Reading progress indicator](https://phuoc.ng/collection/css-animation/reading-progress-indicator)
