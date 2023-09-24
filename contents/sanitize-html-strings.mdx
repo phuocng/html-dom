@@ -1,0 +1,148 @@
+---
+category: Level 3 — Advanced
+created: '2023-09-20'
+description: Sanitize HTML strings with JavaScript DOM
+openGraphCover: /og/html-dom/sanitize-html.png
+title: Sanitize HTML strings
+---
+
+Sanitizing HTML strings is crucial in preventing malicious code execution. Hackers can exploit vulnerabilities in web applications by injecting harmful code into HTML strings, which then execute in the user's browser. This can lead to attacks like Cross-Site Scripting (XSS), where the attacker can steal sensitive data or hijack the user's session.
+
+Attackers can inject malicious code through script tags or inline event handlers like `onclick`. They can then steal cookies or redirect the user to a phishing page.
+
+Developers must sanitize all inputs that could contain HTML strings to prevent these attacks. Proper input validation and sanitization techniques can ensure that only safe content is displayed to users and prevent attackers from exploiting vulnerabilities in your application.
+
+In this post, we'll learn how to sanitize HTML strings with JavaScript DOM. But before that, let's take a look at another approach.
+
+## Using regular expressions
+
+When it comes to sanitizing HTML strings, one common approach is to use regular expressions. These patterns match character combinations in strings and can be used to remove any `script` tags from an HTML string.
+
+Here's an example of how to remove `script` tags from an HTML string using regular expressions:
+
+```js
+const sanitizeHTML = (str) => {
+    return str.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+};
+```
+
+This function uses the `replace` method with a regular expression that matches any script tag and replaces it with an empty string. The `gi` flags at the end of the regular expression make the search global and case-insensitive.
+
+However, using regular expressions to sanitize HTML strings has its limitations. As the complexity of the HTML string increases, regular expressions can become complex and difficult to maintain. Additionally, there are other attack vectors, such as inline event handlers or CSS styles, that regular expressions may not catch. So it's important to be aware of these limitations when using this approach.
+
+## Using the DOMParser API
+
+The DOMParser API is a powerful tool in modern browsers that allows you to turn HTML code into a DOM tree. This tree can then be edited using various DOM APIs.
+
+To sanitize an HTML string with the DOMParser API, you can follow these simple steps: first, create a new instance of the DOMParser API using the `new` keyword. Next, use the `parseFromString` method to convert the HTML string into a DOM tree.
+
+```js
+const htmlString = '<script>alert("Hello, world!");</script><p>Some text</p>';
+const parser = new DOMParser();
+const doc = parser.parseFromString(htmlString, 'text/html');
+```
+
+After obtaining the DOM tree, you can easily get rid of any elements or attributes that you don't want by traversing through it. In the following sections, we'll show you how to remove script tags and inline event handlers using this method.
+
+However, depending on the HTML you're working with, you may need to add more steps to ensure that it's fully cleaned up.
+
+### Eliminating the script tags
+
+To remove all script tags from an HTML string, we can use the `getElementsByTagName()` method to get a list of all the `script` elements in the document. Then, we can loop through this list and remove each element using the `remove()` function.
+
+Here's an example of how to remove all script tags from the document:
+
+```js
+const scriptElements = doc.getElementsByTagName('script');
+[...scriptElements].forEach((s) => s.remove());
+```
+
+### Removing event handlers
+
+Let's say you want to remove any inline event handlers from an HTML element. To do this, you can use the `removeDangerousAttributes` function, which takes an HTML element as a parameter and removes any attribute that starts with `on`.
+
+```js
+const removeDangerousAttributes = (ele) => {
+    const atts = ele.attributes;
+    for (let {name, value} of atts) {
+        if (name.startsWith('on')) {
+            elem.removeAttribute(name);
+        }
+    };
+};
+```
+
+Here's how it works:
+
+First, the function gets the attributes of the passed HTML element. Next, it loops through all the attributes and checks if the name of each attribute starts with `on`. If it does, the `removeAttribute()` method is called on the HTML element to remove that attribute.
+
+In reality, we may need to remove an attribute if its value begins with `javascript:` or `data:text/html`. Therefore, we should modify the logic used to check whether an attribute should be removed as follows:
+
+```js
+const removeDangerousAttributes = (ele) => {
+    const atts = ele.attributes;
+    for (let {name, value} of atts) {
+        if (name.startsWith('on') ||
+            value.startsWith('javascript:') ||
+            value.startsWith('data:text/html')
+        ) {
+            elem.removeAttribute(name);
+        }
+    };
+};
+```
+
+To remove the unsafe attributes for all of its child nodes, you can traverse the DOM tree and repeat this process.
+
+```js
+const removeDangerousAttributes = (ele) => {
+    // ...
+
+    ele.children.forEach((node) => {
+        removeDangerousAttributes(node);
+    });
+};
+```
+
+If you want to remove these attributes from the entire document, you can simply call the `removeDangerousAttributes` function on the document itself. It's that easy!
+
+```js
+removeDangerousAttributes(doc.documentElement);
+```
+
+### Retrieving the sanitized HTML
+
+Once we've successfully removed any dangerous tags and attributes, we can export the sanitized HTML string using the `outerHTML` property.
+
+```js
+// Export the sanitized HTML string
+const sanitizedHtmlString = doc.documentElement.outerHTML;
+console.log(sanitizedHtmlString);   // <p>Some text</p>
+```
+
+## Elements and attributes to remove from the DOM tree
+
+When sanitizing HTML strings, it's important to know which elements and attributes should be removed from the DOM tree to keep your web application secure. We've already covered script tags and inline event handlers as common attack vectors that need to be removed, but there are other elements and attributes that can pose a security risk if not properly sanitized.
+
+Here are a few examples:
+
+-   `iframe` tags: These can be used to embed external content into a web page, which could potentially contain malicious code or phishing attempts.
+-   `object` tags: Similar to `iframe` tags, these can also be used to embed external content that may contain security vulnerabilities.
+-   `style` attributes: These can be used to inject CSS styles into an HTML element, which could potentially lead to attacks like Cross-Site Scripting (XSS).
+-   `href` and `src` attributes: Always sanitize these to prevent attackers from injecting malicious URLs into your web application.
+
+It's also possible that there may be other elements and attributes specific to your web application that you need to remove as part of your sanitization process.
+
+## Simplifying HTML sanitization with external libraries
+
+Aside from JavaScript DOM manipulation, there are several other libraries and tools available to simplify the process of sanitizing HTML strings. These libraries offer a faster and more efficient way of cleaning HTML strings than manually manipulating the DOM.
+
+One such library is [DOMPurify](https://github.com/cure53/DOMPurify), a speedy and secure library for sanitizing HTML strings. It uses a whitelist-based approach to ensure that only safe elements, attributes, and URLs are allowed in the sanitized string.
+
+Using these libraries can save significant time and effort in developing robust security measures against malicious code injection in web applications.
+
+## Conclusion
+
+Ensuring the security of your web application is crucial, and sanitizing HTML strings is an essential step in achieving this. The DOMParser API is one tool you can use to get the job done right. By sanitizing your HTML strings, you can prevent malicious code from being executed and protect your users from harm.
+
+It's worth noting that while removing script tags and inline event handlers can help prevent malicious code execution, it's not a bulletproof solution. There are still ways attackers can inject harmful code into your app, such as through CSS styles or exploiting vulnerabilities in your server-side code. That's why it's important to use multiple layers of defense when securing your web application.
