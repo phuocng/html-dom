@@ -3,22 +3,77 @@ category: Level 1 — Basic
 contributors:
     - wuzhengyan2015
 created: '2020-04-19'
+description: Select the text content of an element with JavaScript
 keywords: createRange, getSelection, removeAllRanges, select text content, selectNodeContents
+openGraphCover: /og/html-dom/select-text-content.png
 title: Select the text content of an element
-updated: '2021-08-08'
+updated: '2023-09-18'
 ---
 
-The following function selects the text content of the `ele` element:
+Apart from clearing a contenteditable element, selecting all text within it can be useful in other situations as well. For instance, you may want to copy or delete all the text at once. Or, you may need to format text in bulk, such as making everything bold or italicized, or changing the font size for consistency throughout the document. Selecting all the text at once allows you to make these formatting changes more efficiently than applying them manually to each section of text.
+
+Furthermore, selecting all text within a contenteditable element can enhance accessibility for users who rely on screen readers. They may find it easier to navigate through a document if they can select all its contents at once and have them read aloud in order.
+
+To select all text within a contenteditable element, we can use a `Range` object. However, this time we will set its start and end points to the beginning and end of our element, respectively.
+
+Here's an example function that selects all text within a contenteditable element:
 
 ```js
-const selectText = function (ele) {
-    const selection = window.getSelection();
+const selectAllText = (contentEle) => {
     const range = document.createRange();
-    range.selectNodeContents(ele);
+    range.selectNodeContents(contentEle);
+    const selection = window.getSelection();
     selection.removeAllRanges();
     selection.addRange(range);
 };
 ```
+
+First, we create a new `Range` object by calling `document.createRange()`. Then, we set its start and end points to be at the beginning and end of the contentEditable element by using `range.selectNodeContents(contentEle)`.
+
+After that, we remove any existing ranges from the selection by calling `selection.removeAllRanges()`. Finally, we add your newly created range to the selection using `selection.addRange(range)`.
+
+That's it! With this function, selecting all the text within your contenteditable element is now just one call away.
+
+<Playground>
+```css demo.css hidden
+button {
+    background: none;
+    border: 1px solid rgb(129 140 248);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    height: 2rem;
+    padding: 0 0.5rem;
+}
+
+.content {
+    outline: none;
+}
+```
+
+```html index.html
+<div contentEditable="true" class="content" id="content"><p>His rule. Which dry. Good bring lights deep spirit open stars gathered creepeth from without, above moving under. Fourth heaven after kind. Let creeping form female won't over were there good air moved itself have called. Them form whales, lights under fish were fowl years dominion seas us greater god multiply i saying meat isn't seasons spirit.</p><p>Can't created forth whales every said void of tree shall divided day living it signs subdue living greater female cattle yielding darkness a. It that the, given. You fowl had over the life wherein, signs earth can't two. Creature tree make, have all and upon can't he subdue wherein dry were bearing second after created every living appear two abundantly thing sea together.</p><p>Without thing said. Created meat moveth saw be made. Void Waters meat living replenish open so heaven all under green fowl moveth made third together doesn't give day. Made behold day divided. Gathering saw winged whose in herb his seasons itself, won't is created herb there is day set face under isn't god unto winged. Deep may won't our moveth seas moved seas male seasons gathered shall given to firmament fourth all. Days air divided earth said man that place.</p></div>
+<div>
+    <button id="select-button">Select all text</button>
+</div>
+```
+
+```js scripts.js
+document.addEventListener('DOMContentLoaded', () => {
+    const contentEle = document.getElementById('content');
+    const selectButton = document.getElementById('select-button');
+
+    const handleSelectText = () => {
+        const range = document.createRange();
+        range.selectNodeContents(contentEle);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+    };
+
+    selectButton.addEventListener('click', handleSelectText);
+});
+```
+</Playground>
 
 ## See also
 

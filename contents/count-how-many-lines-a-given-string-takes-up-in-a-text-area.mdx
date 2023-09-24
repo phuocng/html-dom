@@ -1,0 +1,192 @@
+---
+category: Level 2 — Intermediate
+created: '2023-09-24'
+description: Count how many lines a given string takes up in a text area with JavaScript
+openGraphCover: /og/html-dom/count-lines-string-takes-text-area.png
+title: Count how many lines a given string takes up in a text area
+---
+
+When working with text areas in HTML, it's helpful to know how many lines a sentence takes up in the text area. This info can be used to adjust the size of the text area or to limit the amount of text that can be entered.
+
+Knowing the number of lines is also essential when designing user interfaces for messaging apps or email clients. It ensures long messages are displayed properly and not cut off. Similarly, for input fields like addresses or credit card info, where there are character limits per line, calculating the number of lines a sentence takes up can help us size the input fields appropriately.
+
+In this post, we'll explore how to calculate the number of lines a sentence takes up in a text area using JavaScript.
+
+## Measuring the length of a given text
+
+To figure out how many lines a string takes up in a text area, we first need to know how wide the text is. Luckily, there's a way to measure that using the HTML5 canvas element. By using the canvas's 2D drawing context, we can draw text and shapes and then use the `measureText()` method to find the width of any given text.
+
+Here's a code snippet that shows you how to use canvas to measure the width of a string:
+
+```js
+const canvas = document.createElement("canvas");
+const ctx = canvas.getContext("2d");
+
+// Set font size and type
+ctx.font = "16px Arial";
+
+// Get width of text
+const width = ctx.measureText("Hello, world!").width;
+```
+
+Here's an example: we create a new `canvas` element and get its 2D drawing context (`ctx`). Then, we set the font size and type using the `font` property. Finally, we call the `measureText()` method to get the width of our sample text (`Hello, world!`).
+
+## Counting the number of lines
+
+Now that you know how to measure the length of a given text, let's talk about how to calculate how many lines that text would take up in a text area.
+
+To do this, we can split the text into individual words and iterate over them. For each word, we use the canvas context's `measureText` method to calculate its width. If adding the word to the current line would cause it to exceed the allowable width (which is based on the text area's width minus its padding), we start a new line with that word and increment a counter for the number of lines. Otherwise, we add the word to the current line.
+
+Once all the words have been processed, we check if there are any remaining words in the current line. If there are, we increment the line count one last time before returning it as our result.
+
+Here's an example code snippet to illustrate this process:
+
+```js
+const textareaStyles = window.getComputedStyle(textarea);
+const font = `${textareaStyles.fontSize} ${textareaStyles.fontFamily}`;
+const canvas = document.createElement('canvas');
+const context = canvas.getContext('2d');
+context.font = font;
+
+const words = sentence.split(' ');
+let lineCount = 0;
+let currentLine = '';
+for (let i = 0; i < words.length; i++) {
+    const wordWidth = context.measureText(words[i] + ' ').width;
+    const lineWidth = context.measureText(currentLine).width;
+
+    if (lineWidth + wordWidth > textareaWidth) {
+        lineCount++;
+        currentLine = words[i] + ' ';
+    } else {
+        currentLine += words[i] + ' ';
+    }
+}
+
+if (currentLine.trim() !== '') {
+    lineCount++;
+}
+```
+
+In this example, we use the `getComputedStyle()` function to determine the font of the text in the text area. We then construct the font by combining the font size and font family. Finally, we set the font to the canvas context.
+
+The `textareaWidth` variable in the sample code tells us how wide the text area is, but without including the padding. So, how do we calculate it?
+
+First, we need to get the text area's total width. We can do this by calling `getBoundingClientRect()` on the text area element, which returns a `DOMRect` object with information about the element's size and position.
+
+Next, we need to subtract the left and right padding values from the text area's total width. To get these padding values, we use `window.getComputedStyle(textarea)` to retrieve a `CSSStyleDeclaration` object that represents all the styles applied to the textarea, including its padding values.
+
+To get the total amount of left and right padding, we use a helper function like `parseValue()` to extract the numeric value of each padding property (if it exists), and then add them together.
+
+Finally, we subtract this total from the text area's overall width using simple arithmetic to get our final `textareaWidth`.
+
+That's it! With these steps, we can accurately calculate the width of the text area and use it in our code.
+
+```js
+const parseValue = (v) => v.endsWith('px')
+                        ? parseInt(v.slice(0, -2), 10)
+                        : 0;
+
+const textareaStyles = window.getComputedStyle(textarea);
+const paddingLeft = parseValue(textareaStyles.paddingLeft);
+const paddingRight = parseValue(textareaStyles.paddingRight);
+const textareaWidth = textarea.getBoundingClientRect().width
+                    - paddingLeft
+                    - paddingRight;
+```
+
+## Recalculating the number of lines when resizing the text area
+
+Have you ever struggled with recalculating the number of lines in the text area when its size changes? Well, have no fear! The `ResizeObserver` API is here to save the day.
+
+To use it, simply create a new instance of `ResizeObserver` and call the `observe()` method, passing in the text area element as an argument. Then, in the observer's callback function, call your `calculateNumLines()` function again to recalculate the number of lines.
+
+By following these simple steps, your code will automatically update the number of lines in the text area whenever the user resizes it. This is a small but powerful improvement that can make a big difference in user experience.
+
+Check out this sample code to see it in action:
+
+```js
+const calculateNumLines = () => {
+    // ...
+};
+
+const ro = new ResizeObserver(() => {
+    calculateNumLines();
+});
+ro.observe(textarea);
+```
+
+## Demo
+
+In the live demo below, you can easily resize the text area by dragging its bottom-right corner. As you do so, the number of lines in the sentence will be updated automatically.
+
+<Playground>
+```css demo.css hidden
+textarea {
+    border: 1px solid rgb(203 213 225);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 16rem;
+    height: 16rem;
+}
+```
+
+```html index.html
+<textarea id="textarea" readonly>Fourth Image heaven dominion seed land shall light seas form it our signs wherein male Meat greater it divided appear lights she'd seasons together fowl every darkness light divided rule hath so it.</textarea>
+<div>
+    Number of lines: <span id="num-lines"></span>
+</div>
+```
+
+```js scripts.js
+document.addEventListener('DOMContentLoaded', () => {
+    const textarea = document.getElementById('textarea');
+    const numLinesEle = document.getElementById('num-lines');
+
+    const parseValue = (v) => v.endsWith('px') ? parseInt(v.slice(0, -2), 10) : 0;
+
+    const calculateNumLines = (str) => {
+        const textareaStyles = window.getComputedStyle(textarea);
+        const font = `${textareaStyles.fontSize} ${textareaStyles.fontFamily}`;
+        const paddingLeft = parseValue(textareaStyles.paddingLeft);
+        const paddingRight = parseValue(textareaStyles.paddingRight);
+        const textareaWidth = textarea.getBoundingClientRect().width - paddingLeft - paddingRight;
+
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        context.font = font;
+
+        const words = str.split(' ');
+        let lineCount = 0;
+        let currentLine = '';
+        for (let i = 0; i < words.length; i++) {
+            const wordWidth = context.measureText(words[i] + ' ').width;
+            const lineWidth = context.measureText(currentLine).width;
+
+            if (lineWidth + wordWidth > textareaWidth) {
+                lineCount++;
+                currentLine = words[i] + ' ';
+            } else {
+                currentLine += words[i] + ' ';
+            }
+        }
+
+        if (currentLine.trim() !== '') {
+            lineCount++;
+        }
+
+        return lineCount;
+    };
+
+    const ro = new ResizeObserver(() => {
+        numLinesEle.innerHTML = calculateNumLines(textarea.value);
+    });
+    ro.observe(textarea);
+});
+```
+</Playground>
+
+## See also
+
+-   [Display the line numbers in a text area](https://phuoc.ng/collection/html-dom/display-the-line-numbers-in-a-text-area)
+-   [Measure the width of given text of given font](https://phuoc.ng/collection/html-dom/measure-the-width-of-given-text-of-given-font)
