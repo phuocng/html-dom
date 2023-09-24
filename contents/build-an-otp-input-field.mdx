@@ -1,0 +1,332 @@
+---
+category: Level 2 — Intermediate
+created: '2023-09-17'
+description: Build an OTP input field with JavaScript DOM
+openGraphCover: /og/html-dom/build-otp-input.png
+title: Build an OTP input field
+---
+
+An OTP (short for **One-Time Password**) input field is a common feature in web applications that require users to authenticate their identity. It's particularly useful in online banking, e-commerce websites, and social media platforms. OTPs are unique codes generated for each transaction and have a limited lifespan, usually lasting only a few minutes before expiring. This ensures that the code cannot be reused or intercepted by hackers.
+
+As online security becomes a growing concern, more and more web developers are integrating OTP input fields into their applications to safeguard their users' sensitive information. In this post, we'll walk through creating an OTP input field using JavaScript DOM.
+
+## HTML Markup
+
+To create the HTML markup for the OTP input field, we'll start with a `div` element and give it a class of `otp-input`. Inside this `div`, we'll create four input fields with a class of `otp__input`. Here's the code:
+
+```html
+<div class="otp">
+    <input type="text" class="otp__input" maxlength="1" />
+    <input type="text" class="otp__input" maxlength="1" />
+    <input type="text" class="otp__input" maxlength="1" />
+    <input type="text" class="otp__input" maxlength="1" />
+</div>
+```
+
+It's important to note that each input field only allows for a single digit to be entered. Luckily, we can utilize the built-in `maxlength` attribute to ensure this limit is enforced.
+
+## Basic styles
+
+In this example, we'll add two CSS classes: `otp` and `otp__input`.
+
+The `otp` class is responsible for holding the OTP input fields. We've set its display property to `flex` to align and center the child elements both horizontally and vertically. We've also added a 1rem gap between each input field for visual separation, making it easier for users to enter their OTP code.
+
+On the other hand, the `otp__input` class is used to refer to the input fields in the OTP container. This class uses the `text-align` property to center the text within the input fields.
+
+```css
+.otp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+.otp__input {
+    text-align: center;
+}
+```
+
+To make the OTP input field more visually appealing, we can remove the default border and outline styles. Instead, we can add a slender border at the bottom and increase the font size. Check out the example below to see how it could look.
+
+```css
+.otp__input {
+    border: none;
+    border-bottom: 2px solid rgb(203 213 225);
+    font-size: 2rem;
+    outline: none;
+}
+```
+
+## Entering only one digit at a time
+
+We want to make sure that only digits are entered into our OTP input fields. To make this happen, we first select all of the input fields in the OTP container using `querySelectorAll('.otp__input')`. Then, we convert the `NodeList` returned by `querySelectorAll()` into an array using `Array.from()` so that we can use array methods like `forEach()`.
+
+Next, we need to handle the `keydown` event for each input. This event is triggered every time a key is pressed within an input field. Inside the handler, we check if the key pressed is a digit using the `/^[0-9]{1}$/` regular expression pattern. If it's not a digit, we prevent its default behavior by calling `e.preventDefault()`.
+
+It's worth noting that we allow the use of the Backspace and Delete keys to remove the current digit, just as you would expect. So, we also compare the pressed key with them.
+
+Here's an example of what the keydown event handler looks like:
+
+```js
+const otpEle = document.getElementById('otp');
+const inputs = [...otpEle.querySelectorAll('.otp__input')];
+
+const handleKeyDown = (e) => {
+    if (!/^[0-9]{1}$/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Delete') {
+        e.preventDefault();
+    }
+};
+
+inputs.forEach((input) => {
+    input.addEventListener('keydown', handleKeyDown);
+});
+```
+
+## Selecting the digit automatically
+
+When a user clicks on an input field within the OTP container, it becomes active. To make it easier for users to replace the current digit in the input field, we can use the `focus` event to automatically select the input field's content when it is focused.
+
+We do this by using the `select()` method of the target element inside the event handler. This selects the current digit in the input field, so users can replace it without having to delete it first.
+
+```js
+const handleFocus = (e) => {
+    e.target.select();
+};
+
+inputs.forEach((input) => {
+    input.addEventListener('focus', handleFocus);
+});
+```
+
+## Pasting all digits at the same time
+
+It's common for users to copy a number and then paste it into a field. To handle this situation, we can use the `paste` event to capture when a user pastes text into an input field. Then, we split the value of the first input field into an array of digits and set the value of each remaining input field to the corresponding digit in the array.
+
+To give you an idea of how this works, here's an example of what the `handlePaste()` function might look like:
+
+```js
+const handlePaste = (e) => {
+    e.preventDefault();
+    const pastedText = e.clipboardData.getData('text');
+    if (!/^[0-9]{4}$/.test(pastedText)) {
+        return;
+    }
+    const digits = pastedText.split('');
+    inputs.forEach((input, index) => input.value = digits[index]);
+    inputs[inputs.length - 1].focus();
+};
+
+inputs.forEach((input) => {
+    input.addEventListener('paste', handlePaste);
+});
+```
+
+In this function, we start by preventing the default behavior of pasting text with `e.preventDefault()`. Then, we use `e.clipboardData.getData('text')` to get the copied text, which we then split into an array of individual characters using `split('')`.
+
+Please remember that we only allow pasting of four-digit numbers. We do this by checking if the copied text matches the pattern of `/^[0-9]{4}$/`.
+
+Next, we'll loop through each input field and fill it with the corresponding digit from our array. Additionally, the handler will automatically focus on the last input field, making the process even smoother.
+
+## Navigating between fields
+
+Currently, the OTP input provides some useful functionalities. However, we want to take it further by adding more shortcuts to make the user experience smoother.
+
+Our first improvement will be to automatically focus on the next field when the user enters a digit or presses the right arrow key. This way, users can quickly enter the entire OTP without having to manually switch between fields. To do this, we'll handle the `keyup` event on each input field in the OTP container. This event is triggered every time a key is released within an input field.
+
+In the event handler, we'll check if the pressed key is a digit or the right arrow key. If it is, we'll jump to the next field. We'll only do this if we haven't reached the last input field yet, which we'll determine by comparing the current index with the total number of input fields.
+
+Here's what the function might look like:
+
+```js
+const handleKeyUp = (e) => {
+    const index = inputs.indexOf(e.target);
+    switch (e.key) {
+        case '0':
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+        case 'ArrowRight':
+            if (index < inputs.length - 1) {
+                // Jump to the next field
+                inputs[index + 1].focus();
+            }
+            break;
+        default:
+            break;
+    }
+};
+
+inputs.forEach((input) => {
+    input.addEventListener('keyup', handleKeyUp);
+});
+```
+
+Similarly, we want to bring the user back to the previous field when they press the left arrow or Backspace key. Just make sure to check if we aren't on the first field by comparing the index with 0.
+
+```javascript
+switch (e.key) {
+    // ...
+    case 'ArrowLeft':
+    case 'Backspace':
+        if (index > 0) {
+            // Jump to the previous field
+            inputs[index - 1].focus();
+        }
+        break;
+}
+```
+
+How about making it easier to navigate the first and last fields? We can add support for the Home and End keys to accomplish this. We just need to include a few extra checks in our `switch case` statement.
+
+```javascript
+switch (e.key) {
+    // ...
+    case 'Home':
+        // Jump to the first field
+        inputs[0].focus();
+        break;
+    case 'End':
+        // Jump to the first field
+        inputs[inputs.length - 1].focus();
+        break;
+}
+```
+
+And that's it! We've successfully created an OTP input field using JavaScript DOM. It's time to see the final result of the steps we've been following so far.
+
+<Playground>
+```css demo.css hidden
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+```
+
+```css styles.css
+.otp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+.otp__input {
+    border: none;
+    border-bottom: 2px solid rgb(203 213 225);
+    font-size: 2rem;
+    outline: none;
+    padding: 0.25rem 0.5rem;
+    text-align: center;
+    width: 2.5rem;
+}
+```
+
+```html index.html
+<div class="otp" id="otp">
+    <input type="text" class="otp__input" maxlength="1" />
+    <input type="text" class="otp__input" maxlength="1" />
+    <input type="text" class="otp__input" maxlength="1" />
+    <input type="text" class="otp__input" maxlength="1" />
+</div>
+```
+
+```js scripts.js
+document.addEventListener('DOMContentLoaded', () => {
+    const otpEle = document.getElementById('otp');
+    const inputs = [...otpEle.querySelectorAll('.otp__input')];
+
+    const handleKeyDown = (e) => {
+        const { target } = e;
+        const currentValue = target.value;
+        const index = inputs.indexOf(target);
+        switch (e.key) {
+            case 'ArrowDown':
+                target.value = (currentValue === '' || !/^[0-9]{1}$/.test(currentValue))
+                                ? 0
+                                : Math.max(parseInt(currentValue, 10) - 1, 0);
+                break;
+            case 'ArrowUp':
+                target.value = (currentValue === '' || !/^[0-9]{1}$/.test(currentValue))
+                                ? 0
+                                : Math.min(parseInt(currentValue, 10) + 1, 9);
+                break;
+            default:
+                if (!/^[0-9]{1}$/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Delete') {
+                    e.preventDefault();
+                }
+                break;
+        }
+    };
+
+    const handleKeyUp = (e) => {
+        const index = inputs.indexOf(e.target);
+        switch (e.key) {
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+            case 'ArrowRight':
+                if (index < inputs.length - 1) {
+                    // Jump to the next field
+                    inputs[index + 1].focus();
+                }
+                break;
+            case 'ArrowLeft':
+            case 'Backspace':
+                if (index > 0) {
+                    // Jump to the previous field
+                    inputs[index - 1].focus();
+                }
+                break;
+            case 'Home':
+                // Jump to the first field
+                inputs[0].focus();
+                break;
+            case 'End':
+                // Jump to the first field
+                inputs[inputs.length - 1].focus();
+                break;
+            default:
+                break;
+        }
+    };
+
+    const handleFocus = (e) => {
+        e.target.select();
+    };
+
+    const handlePaste = (e) => {
+        e.preventDefault();
+        const pastedText = e.clipboardData.getData('text');
+        if (!/^[0-9]{4}$/.test(pastedText)) {
+            return;
+        }
+        const digits = pastedText.split('');
+        inputs.forEach((input, index) => input.value = digits[index]);
+        inputs[inputs.length - 1].focus();
+    };
+
+    inputs.forEach((input) => {
+        input.addEventListener('keydown', handleKeyDown);
+        input.addEventListener('keyup', handleKeyUp);
+        input.addEventListener('focus', handleFocus);
+        input.addEventListener('paste', handlePaste);
+    });
+});
+```
+</Playground>
+
+## See also
+
+-   [Animate the caret in an input field](https://phuoc.ng/collection/css-animation/animate-the-caret-in-an-input-field)
