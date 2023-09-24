@@ -1,0 +1,354 @@
+---
+category: Level 2 — Intermediate
+created: '2023-09-18'
+description: Build a spin input with JavaScript
+openGraphCover: /og/html-dom/build-spin-input.png
+title: Build a spin input
+---
+
+When users need to adjust a numerical value up or down, we often provide a user interface element to make it easy for them. That's where the spin input comes in handy.
+
+HTML has a built-in input element for creating a spin input by setting the type attribute to `number`. This input only allows digits, which prevents users from entering invalid characters. When you click or tap on the input, two arrow buttons appear on the right side to increase or decrease the value.
+
+Give it a try below:
+
+<Playground>
+```css demo.css hidden
+body {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+```
+
+```css styles.css hidden
+.spin__input {
+    border: 1px solid rgb(203 213 225);
+    border-radius: 0.25rem;
+    height: 2rem;
+    width: 8rem;
+}
+```
+
+```html index.html
+<input type="number" class="spin__input" value="50">
+```
+</Playground>
+
+Unfortunately, we can't easily customize the buttons, such as replacing them with our own images. But don't worry, in this post, we'll learn how to build a spin input with JavaScript DOM.
+
+## HTML Markup
+
+To create the spin input, we'll need to start with the HTML markup. The layout includes an input element and two buttons for increasing and decreasing the value.
+
+```html
+<div class="spin" id="spin">
+    <input type="text" name="input" class="spin__input" value="50">
+    <button class="spin__btn spin__btn--minus"></button>
+    <button class="spin__btn spin__btn--plus"></button>
+</div>
+```
+
+We've created a container `div` with the class `spin`. Inside the container, there are two buttons with the classes `spin__btn spin__btn--minus` and `spin__btn spin__btn--plus`. These buttons will decrease and increase the value, respectively. Additionally, there's an `input` element with a default value of 50.
+
+Instead of using the `number` input type, we're using the usual `text` attribute.
+
+## Basic styles
+
+When creating buttons that require an up or down arrow, we have a few options. We can use a minus or plus sign, an image, or - as we'll explore in this post - fake triangles created with pure CSS.
+
+To create a CSS triangle to represent the up and down arrow in buttons, we can use the `::before` or `::after` pseudo-element and some creative CSS. Here's an example of how to create an upward triangle:
+
+```css
+.spin__btn--plus::before {
+    content: '';
+    width: 0;
+    height: 0;
+
+    border-left: 0.5rem solid transparent;
+    border-right: 0.5rem solid transparent;
+    border-bottom: 0.5rem solid rgb(203 213 225);
+}
+```
+
+In this code snippet, we're adding a triangle before the `spin__btn--plus` class for styling purposes. The pseudo-element doesn't actually contain any content because we set the `content` property to an empty string.
+
+To make the triangle invisible by default, we set the `width` and `height` properties to zero. Then, we use borders with varying colors and thicknesses to create the triangular shape. By setting the left and right borders to `transparent`, only the bottom border is visible. Finally, we set the color of the triangle with the `border-bottom-color` property.
+
+We can use similar code with different border property values to create a downward-pointing triangle for our other button. Check out how the minus button could look with this styling:
+
+```css
+.spin__btn--minus::before {
+    content: '';
+    width: 0;
+    height: 0;
+
+    border-left: 0.5rem solid transparent;
+    border-right: 0.5rem solid transparent;
+    border-top: 0.5rem solid rgb(203 213 225);
+}
+```
+
+## Positioning the buttons
+
+To position our buttons perfectly within the container, we'll need to set the position property of the container to `relative`. This creates a positioning context for its child elements.
+
+```css
+.spin {
+    position: relative;
+}
+```
+
+With this setup, we can use absolute positioning to place our buttons within the container. We set their position properties to `absolute` and specify their `top` and `bottom` values.
+
+```css
+.spin__btn {
+    position: absolute;
+    position: absolute;
+    right: 0;
+    height: 50%;
+}
+.spin__btn--minus {
+    top: 0;
+}
+.spin__btn--plus {
+    bottom: 0;
+}
+```
+
+In the code snippet, we target all `.spin__btn` elements and set their `position` property to `absolute`. Then, we target each individual button and set its `top` or `bottom` properties depending on its desired position.
+
+With these styles, our input element will be perfectly centered vertically within the container with our two arrow buttons positioned at either end.
+
+## Increasing and decreasing value
+
+Now, we need to make our buttons functional by adding event listeners that update the value of our input element. We can do this easily with the `addEventListener` method.
+
+```js
+const container = document.getElementById('spin');
+const inputEle = container.querySelector('.spin__input');
+
+const minusBtn = container.querySelector('.spin__btn--minus');
+const plusBtn = container.querySelector('.spin__btn--plus');
+
+const increase = () => {
+    const currentValue = inputEle.value;
+    const newValue = (currentValue === '') ? 0 : parseInt(currentValue, 10) + 1;
+    inputEle.value = newValue;
+};
+
+const decrease = () => {
+    const currentValue = inputEle.value;
+    const newValue = (currentValue === '') ? 0 : parseInt(currentValue, 10) - 1;
+    inputEle.value = newValue;
+};
+
+minusBtn.addEventListener('click', decrease);
+plusBtn.addEventListener('click', increase);
+```
+
+First, we select the input element and both buttons using `document.getElementById` and `document.querySelector`. Then, we add event listeners to the minus and plus buttons. These listeners call the `decrease` and `increase` methods on the input element, respectively, which decrease or increase the value by 1. It's that simple!
+
+## Accepting digits only
+
+Previously, we used the `number` type for input, which prevented users from entering invalid characters. However, we've changed our approach and now need to restrict input to digits only.
+
+To achieve this, we can handle the `keydown` event, which fires when a user presses a key. We can then verify whether the pressed key is a number by comparing it with the `^[0-9]+$` pattern.
+
+If the key is not a number, we prevent the default behavior by calling `preventDefault()`. It's worth noting that we still allow users to use the Backspace and Delete keys to remove digits as normal.
+
+Here's how we handle the `keydown` event:
+
+```js
+const handleKeyDown = (e) => {
+    if (!/^[0-9]+$/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Delete') {
+        e.preventDefault();
+    }
+};
+
+inputEle.addEventListener('keydown', handleKeyDown);
+```
+
+## Enhancing user experience with keyboard shortcuts
+
+In addition to clicking buttons, we can further improve the user experience by allowing them to adjust the value using keyboard shortcuts. For example, pressing the up arrow key can increase the value, while pressing the down arrow key can decrease it.
+
+To enable this feature, we need to update the `keydown` event handler to detect if the user presses the left or right arrow keys and adjust the value accordingly.
+
+Here's an updated version of our code that includes keyboard shortcuts to enhance the user experience.
+
+```js
+const handleKeyDown = (e) => {
+    switch (e.key) {
+        case 'ArrowDown':
+            decrease();
+            break;
+        case 'ArrowUp':
+            increase();
+            break;
+        default:
+            if (!/^[0-9]+$/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Delete') {
+                e.preventDefault();
+            }
+            break;
+    }
+};
+```
+
+## Setting limits on input values
+
+When working with input values, it's often necessary to set a minimum and maximum range for possible values. This can easily be done using the `min` and `max` attributes.
+
+```html
+<input min="0" max="100">
+```
+
+To ensure that the input value falls within the desired range, we can update our `increase` and `decrease` functions to include the `clamp` function. The `clamp` function is a utility function that ensures a value falls within a given range. It takes three arguments: `min`, `max`, and `value`. The function checks if `value` is less than `min`, and returns `min` if it is. If `value` is greater than `max`, the function returns `max`. If `value` is within the range of `min` and `max`, the function returns `value`.
+
+```js
+const clamp = (min, max, value) => Math.min(Math.max(value, min), max);
+```
+
+With this in mind, we can update our code to include the `clamp` function in our `increase` and `decrease` functions. This ensures that the input value falls within the specified range.
+
+By setting limits on input values, we can ensure that our code is more robust and less prone to errors.
+
+```js
+const min = parseInt(target.getAttribute('min'), 10);
+const max = parseInt(target.getAttribute('max'), 10);
+
+const increase = () => {
+    const currentValue = inputEle.value;
+    const newValue = (currentValue === '') ? 0 : parseInt(currentValue, 10) + 1;
+    inputEle.value = clamp(min, max, newValue);
+};
+
+const decrease = () => {
+    const currentValue = inputEle.value;
+    const newValue = (currentValue === '') ? 0 : parseInt(currentValue, 10) - 1;
+    inputEle.value = clamp(min, max, newValue);
+};
+```
+
+And that's all! With only a few lines of JavaScript and CSS, we've created a spin input that allows you to adjust a numerical value up or down. Give it a try and see for yourself by playing around with the demo below.
+
+<Playground>
+```css demo.css hidden
+body {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+```
+
+```css styles.css
+:root {
+    --spin-button-width: 1.5rem;
+    --spin-arrow-size: 0.5rem;
+}
+
+.spin {
+    border: 1px solid rgb(203 213 225);
+    position: relative;
+    height: 2rem;
+    width: 8rem;
+}
+.spin__input {
+    border: none;
+    outline: none;
+    padding: 0 var(--spin-button-width) 0 0.5rem;
+    width: 100%;
+    height: 100%;
+}
+.spin__btn {
+    background: none;
+    border: none;
+    border-left: 1px solid rgb(203 213 225);
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    right: 0;
+    height: 50%;
+    width: var(--spin-button-width);
+}
+.spin__btn::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: var(--spin-arrow-size) solid transparent;
+    border-right: var(--spin-arrow-size) solid transparent;
+}
+.spin__btn--plus {
+    top: 0;
+}
+.spin__btn--plus::before {
+    border-bottom: var(--spin-arrow-size) solid rgb(203 213 225);
+}
+.spin__btn--minus {
+    bottom: 0;
+}
+.spin__btn--minus::before {
+    border-top: var(--spin-arrow-size) solid rgb(203 213 225);
+}
+```
+
+```html index.html
+<div class="spin" id="spin">
+    <input type="text" name="input" class="spin__input" value="50">
+    <button class="spin__btn spin__btn--plus"></button>
+    <button class="spin__btn spin__btn--minus"></button>
+</div>
+```
+
+```js scripts.js
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('spin');
+    const inputEle = container.querySelector('.spin__input');
+
+    const minusBtn = container.querySelector('.spin__btn--minus');
+    const plusBtn = container.querySelector('.spin__btn--plus');
+
+    const increase = () => {
+        const currentValue = inputEle.value;
+        const newValue = (currentValue === '') ? 0 : parseInt(currentValue, 10) + 1;
+        inputEle.value = newValue;
+    };
+
+    const decrease = () => {
+        const currentValue = inputEle.value;
+        const newValue = (currentValue === '') ? 0 : parseInt(currentValue, 10) - 1;
+        inputEle.value = newValue;
+    };
+
+    const handleKeyDown = (e) => {
+        switch (e.key) {
+            case 'ArrowDown':
+                decrease();
+                break;
+            case 'ArrowUp':
+                increase();
+                break;
+            default:
+                if (!/^[0-9]+$/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Delete') {
+                    e.preventDefault();
+                }
+                break;
+        }
+    };
+
+    inputEle.addEventListener('keydown', handleKeyDown);
+    minusBtn.addEventListener('click', decrease);
+    plusBtn.addEventListener('click', increase);
+});
+```
+</Playground>
+
+## See also
+
+-   [Clamp a number between two values](https://phuoc.ng/collection/1-loc/clamp-a-number-between-two-values)
+-   [Spin button](https://phuoc.ng/collection/css-layout/spin-button)
