@@ -1,0 +1,37 @@
+---
+category: Level 1 — Basic
+created: '2023-09-21'
+description: Dynamically update CSS root variables with JavaScript
+openGraphCover: /og/html-dom/update-css-root-variables.png
+title: Dynamically update CSS root variables
+---
+
+CSS root variables, also known as CSS custom properties, are a powerful tool for defining reusable values in CSS. One of the biggest benefits of using CSS root variables is that they can be updated dynamically using JavaScript. In this tutorial, we'll show you how to update CSS root variables with just a few simple steps.
+
+First, we define the CSS root variables under the special `:root` element.
+
+```css
+:root {
+    --primary-color: rgb(99 102 241);
+}
+```
+
+Then, we can access the root element using either `document.documentElement` or `querySelector()`. Once we have obtained the root element, we can retrieve the computed styles and access any CSS variables.
+
+Here's an example of how to access the primary color variable:
+
+```js
+const root = document.documentElement;
+// Or
+// const root = document.querySelector(':root');
+
+const primaryColor = getComputedStyle(root).getPropertyValue('--primary-color');
+```
+
+Once we have accessed the CSS root variables, updating them with JavaScript is a piece of cake. We can use the root element to set a new value. For example, to update the primary color variable to blue, we can use the following code:
+
+```js
+root.style.setProperty('--primary-color', 'blue');
+```
+
+By using CSS root variables and JavaScript together, we can create dynamic and flexible styles for our website or application.
