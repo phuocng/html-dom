@@ -1,0 +1,133 @@
+---
+category: Level 3 — Advanced
+created: '2023-09-18'
+description: Detect if users open another tab of the current page with JavaScript
+keywords: BroadcastChannel, Page visibility API
+openGraphCover: /og/html-dom/detect-open-another-tab.png
+title: Detect if users open another tab of the current page
+---
+
+Have you ever used an online application that only allows you to use it in a single tab? If you try to access the app in another browser tab, you'll be notified and asked to close the newly opened tab.
+
+In this post, I'll show you how to use JavaScript to create the same functionality. You can also apply this approach to build web applications that need real-time communication between different tabs or windows.
+
+Let's get started!
+
+## Using the Page Visibility API
+
+The **Page Visibility API** is a straightforward tool that can help you determine if a user has opened another tab of the current page. This API is compatible with most modern browsers, such as Chrome, Firefox, Safari, and Edge.
+
+To use the Page Visibility API, take a look at this example:
+
+```js
+// Listen for visibility change events
+document.addEventListener('visibilitychange', function() {
+    // Check if the page is hidden
+    if (document.hidden) {
+        console.log('User opened another tab');
+    } else {
+        console.log('User is on this tab');
+    }
+});
+```
+
+In this example, we're listening for the `visibilitychange` event. This event is triggered when the user either opens another tab or switches back to the current tab. We then check if the `document.hidden` property is `true` or `false`. If it's `true`, then we know that the user has opened another tab, and we log a message to the console.
+
+## Notifying users of new tabs
+
+To notify other tabs that a user has opened a new tab, we can use the `BroadcastChannel` API. This feature allows us to send messages between browsing contexts (tabs) with the same origin. Here's an example of how to use the `BroadcastChannel` API:
+
+```js
+// Create a new BroadcastChannel with a unique channel name
+const channel = new BroadcastChannel('tab-activity');
+
+// Listen for messages on the channel
+channel.addEventListener('message', (event) => {
+    if (event.data === 'open-new-tab') {
+        console.log('User opened another tab');
+    }
+});
+
+// Send a message to all other tabs when a new tab is opened
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        channel.postMessage('open-new-tab');
+    }
+});
+```
+
+In this example, we create a new `BroadcastChannel` with a unique name and listen for messages on that channel. When the user opens another tab, we send a message to all the other tabs using the `BroadcastChannel`. When a tab receives this message, it logs a message to the console indicating that the user has opened another tab.
+
+## Notifying users when closing a tab
+
+To let users know when they're about to close a tab, we can use the `beforeunload` event. This event is triggered when the user navigates away from the current page or tries to close the current tab. Here's an example of how to use the `beforeunload` event:
+
+```js
+const channel = new BroadcastChannel('tab-activity');
+
+window.addEventListener('beforeunload', function(event) {
+    // Send a message to all other tabs that this tab is closing
+    channel.postMessage('tab-closing');
+});
+```
+
+In this example, we're listening for the `beforeunload` event. This event is triggered when the user closes the current tab or navigates away from the current page. Once the event is detected, we create a new `BroadcastChannel` and send a message to all other tabs, letting them know that this tab is closing.
+
+Let's have some fun with the demo below. Follow these steps to see an updated message in the center:
+
+-   Duplicate this tab
+-   Return to this tab when the new one opens
+-   Close the newly opened tab and watch the magic happen.
+
+<Playground>
+```css demo.css hidden
+body {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 16rem;
+}
+.message {
+    font-size: 1.5rem;
+    text-align: center;
+}
+```
+
+```html index.html
+<div id="message" class="message">Try to duplicate this browser tab</div>
+```
+
+```js scripts.js
+document.addEventListener('DOMContentLoaded', () => {
+    const messageEle = document.getElementById('message');
+
+    const channel = new BroadcastChannel('tab-activity');
+
+    // Listen for messages on the channel
+    channel.addEventListener('message', (event) => {
+        switch (event.data) {
+            case 'open-new-tab':
+                messageEle.innerHTML = 'User opened another tab. Please close the other tab';
+                break;
+            case 'tab-closing':
+                messageEle.innerHTML = 'Other tab is closed';
+                break;
+            default:
+                break;
+        }
+    });
+
+    // Send a message to all other tabs when a new tab is opened
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            channel.postMessage('open-new-tab');
+        }
+    });
+
+    // Send a message to all other tabs that this tab is closing
+    window.addEventListener('beforeunload', () => {
+        channel.postMessage('tab-closing');
+    });
+});
+```
+</Playground>
