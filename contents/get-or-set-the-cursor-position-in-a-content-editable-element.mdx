@@ -1,0 +1,191 @@
+---
+category: Level 2 — Intermediate
+created: '2023-09-17'
+description: Get or set the cursor position in a contentEditable element with JavaScript DOM
+openGraphCover: /og/html-dom/get-set-cursor-position-content-editable.png
+title: Get or set the cursor position in a contentEditable element
+---
+
+When working with contenteditable elements on a web page, you might need to programmatically get or set the cursor position. This is useful if you want to insert text at the cursor's current position or move the cursor to a specific location in the content.
+
+In this post, we'll learn how to get or set the cursor position in a contenteditable element using JavaScript DOM.
+
+## Getting cursor position
+
+To determine the current cursor position in a contenteditable element, we can use the `window.getSelection()` method. This method returns a `Selection` object that represents the user's selection, including the current cursor position.
+
+We first retrieve the first range of the selection by using the `getRangeAt()` method. A range is a continuous part of any document object model, and in our case, it represents the location of the text cursor.
+
+Next, we clone this range using the `cloneRange()` method and select all contents within our contenteditable element using the `selectNodeContents()` method. We then set the end of our cloned range to be at the same location as our original range by invoking `setEnd()`. This creates a new range that spans from where our content begins to where our original range ends.
+
+Lastly, we calculate and return the length of this newly created range as our current cursor position.
+
+Here's a code example demonstrating how to get the current cursor position:
+
+```js
+const selection = window.getSelection();
+const range = selection.getRangeAt(0);
+const clonedRange = range.cloneRange();
+clonedRange.selectNodeContents(contentEle);
+clonedRange.setEnd(range.endContainer, range.endOffset);
+
+const cursorPosition = clonedRange.toString().length;
+```
+
+## Setting cursor position
+
+To position the cursor in a `contenteditable` element, you can use a `Range` object to specify the starting and ending points. Here's how it works:
+
+First, we create a new `Range` object using `document.createRange()`. Then, we traverse the DOM tree iteratively using a while loop and a stack. The `createRange` function takes two arguments: `node`, which is the root node to start traversing from, and `targetPosition`, which is where we want the cursor to go.
+
+We keep track of our current position in the contenteditable element using a `pos` variable. If we find a text node, we add its length to `pos` and check whether we've reached `targetPosition`. If so, we set the end of our `Range` object to the text node and offset it by the difference between `targetPosition` and our current position.
+
+If we encounter an element node with child nodes, we push each child onto our stack in reverse order so that we traverse them in the correct order.
+
+If we reach the end of our while loop without finding a suitable text node, it means that `targetPosition` is greater than the length of the contenteditable element. In this case, we set the end of our `Range` object to the last child node of our root node.
+
+```js
+const createRange = (node, targetPosition) => {
+    let range = document.createRange();
+    range.selectNode(node);
+    range.setStart(node, 0);
+
+    let pos = 0;
+    const stack = [node];
+    while (stack.length > 0) {
+        const current = stack.pop();
+
+        if (current.nodeType === Node.TEXT_NODE) {
+            const len = current.textContent.length;
+            if (pos + len >= targetPosition) {
+                range.setEnd(current, targetPosition - pos);
+                return range;
+            }
+            pos += len;
+        } else if (current.childNodes && current.childNodes.length > 0) {
+            for (let i = current.childNodes.length - 1; i >= 0; i--) {
+                stack.push(current.childNodes[i]);
+            }
+        }
+    }
+
+    // The target position is greater than the
+    // length of the contenteditable element.
+    range.setEnd(node, node.childNodes.length);
+    return range;
+};
+```
+
+To set the cursor position, we first create a new `Range` object and set its start to the desired location. Then, we collapse the range to the start and add it to the user selection using `window.getSelection().addRange()`. We also remove any existing ranges from the selection using `selection.removeAllRanges()` to ensure that the new range is the only one selected.
+
+Here's an example code that shows how to set the cursor position:
+
+```js
+const setPosition = (targetPosition) => {
+    const range = createRange(contentEle, targetPosition);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+};
+```
+
+Feel free to experiment with the demo below. Click anywhere inside the editable element to see the cursor position. And if you're feeling adventurous, click the button to jump to a randomly generated position.
+
+<Playground>
+```css demo.css hidden
+button {
+    background: none;
+    border: 1px solid rgb(129 140 248);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    height: 2rem;
+    padding: 0 0.5rem;
+}
+
+.content {
+    outline: none;
+}
+```
+
+```html index.html
+<div contentEditable="true" class="content" id="content"><p>Under second. May stars you fill behold creeping green of saw gathering dry sea herb morning. Forth third male good face moveth from together fowl over meat. Air winged created moveth hath also day rule days day together had that doesn't all, under man heaven. Cattle. Land i fill morning morning brought whales waters earth may rule. Isn't. Above, subdue. Great called he herb appear second. Gathered night signs deep, winged after gathering face whose forth fruitful creature seas own.</p><p>Hath, years day all and them fifth from itself. Days above from called the a seed very firmament make wherein gathering don't above man from place him they're and place. Whales they're moved. Doesn't. Fowl you man. For said isn't fill them cattle very wherein. Man doesn't life saw above fourth brought. Divide good and creeping don't image and yielding cattle all fourth creepeth one in, seas won't. Together he don't stars have. Meat second whales also air herb behold gathered fish him man. Divide be.</p><p>Spirit appear his midst fly have unto fruit cattle likeness. Moving, make fish creeping you'll evening itself doesn't, in night. Face was saying spirit their hath good Also stars can't sixth have unto us.</p></div>
+<div>
+    Current position: <span id="current-position">-</button>
+</div>
+<div>
+    <button id="jump-button">Jump to a random position</button>
+</div>
+```
+
+```js scripts.js
+document.addEventListener('DOMContentLoaded', () => {
+    const contentEle = document.getElementById('content');
+    const currentPosEle = document.getElementById('current-position');
+    const jumpButton = document.getElementById('jump-button');
+
+    const handleSelectionChange = () => {
+        if (document.activeElement !== contentEle) {
+            return;
+        }
+        const selection = window.getSelection();
+        const range = selection.getRangeAt(0);
+        const clonedRange = range.cloneRange();
+        clonedRange.selectNodeContents(contentEle);
+        clonedRange.setEnd(range.endContainer, range.endOffset);
+        currentPosEle.innerHTML = clonedRange.toString().length;
+    };
+
+    const createRange = (node, targetPosition) => {
+        let range = document.createRange();
+        range.selectNode(node);
+        range.setStart(node, 0);
+
+        let pos = 0;
+        const stack = [node];
+        while (stack.length > 0) {
+            const current = stack.pop();
+
+            if (current.nodeType === Node.TEXT_NODE) {
+                const len = current.textContent.length;
+                if (pos + len >= targetPosition) {
+                    range.setEnd(current, targetPosition - pos);
+                    return range;
+                }
+                pos += len;
+            } else if (current.childNodes && current.childNodes.length > 0) {
+                for (let i = current.childNodes.length - 1; i >= 0; i--) {
+                    stack.push(current.childNodes[i]);
+                }
+            }
+        }
+
+        // The target position is greater than
+        // the length of the contenteditable element
+        range.setEnd(node, node.childNodes.length);
+        return range;
+    };
+
+    const setPosition = (targetPosition) => {
+        const range = createRange(contentEle, targetPosition);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+    };
+
+    const handleJumpRandomly = () => {
+        const length = contentEle.textContent.length;
+        const randomPos = Math.floor(Math.random() * (length - 1));
+        jumpButton.innerHTML = `Jump to a random position (${randomPos})`;
+        setPosition(randomPos);
+    };
+
+    document.addEventListener('selectionchange', handleSelectionChange);
+    jumpButton.addEventListener('click', handleJumpRandomly);
+});
+```
+</Playground>
+
+## See also
+
+-   [Get or set the cursor position in a text field](https://phuoc.ng/collection/html-dom/get-or-set-the-cursor-position-in-a-text-field)
+-   [Move the cursor to the end of a contentEditable element](https://phuoc.ng/collection/html-dom/move-the-cursor-to-the-end-of-a-content-editable-element)
