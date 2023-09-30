@@ -1,0 +1,83 @@
+---
+category: Level 1 — Basic
+created: '2023-09-18'
+description: Move the cursor to the end of a contentEditable element with JavaScript
+openGraphCover: /og/html-dom/move-cursor-end-content-editable.png
+title: Move the cursor to the end of a contentEditable element
+---
+
+At times, you may need to move the cursor to the end of a contenteditable element. This can come in handy when you want to focus on an empty element or add new content at the end.
+
+For instance, imagine a chat application where users can reply to a message. It would be great if the cursor automatically moved to the end of the input field, which would already contain the original message, every time they start replying. This way, users don't have to manually move the cursor each time they want to type something new.
+
+Another example is when you're building an editor. In this case, it's crucial that the cursor always stays at the end of the text so that users can continue typing without worrying about moving the cursor around. This can save them a lot of time and effort, and make their overall experience much smoother.
+
+There are also situations where you might want to move the cursor to the end of an element programmatically. For example, if you have an input field with some text, but you want to add more text dynamically using JavaScript, you will need to move the cursor to the end of the input field before adding new text.
+
+To move the cursor to the end of a contenteditable element, we can use a `Range` object. We simply set the start and end points of the range to be at the very end of our element, and then add this range to our selection using `window.getSelection().addRange()`.
+
+Here's a breakdown of the steps involved:
+
+```js
+const moveCursorToEnd = () => {
+    const range = document.createRange();
+    const selection = window.getSelection();
+    range.setStart(contentEle, contentEle.childNodes.length);
+    range.collapse(true);
+    selection.removeAllRanges();
+    selection.addRange(range);
+};
+```
+
+To start, we create a new `Range` object by calling `document.createRange()`. Then, we position the start of the range at the very end of our `contentEle` node by setting its starting node as `contentEle` and its offset as `contentEle.childNodes.length`.
+
+Next, we collapse the range to ensure that only one point in our contenteditable element is selected. We do this by calling `range.collapse(true)`, which sets the endpoint equal to the start point.
+
+Finally, we remove any existing ranges from our selection by calling `sel.removeAllRanges()`. Then, we add our newly created range to the selection using `sel.addRange(range)`.
+
+<Playground>
+```css demo.css hidden
+button {
+    background: none;
+    border: 1px solid rgb(129 140 248);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    height: 2rem;
+    padding: 0 0.5rem;
+}
+
+.content {
+    outline: none;
+}
+```
+
+```html index.html
+<div contentEditable="true" class="content" id="content"><p>His rule. Which dry. Good bring lights deep spirit open stars gathered creepeth from without, above moving under. Fourth heaven after kind. Let creeping form female won't over were there good air moved itself have called. Them form whales, lights under fish were fowl years dominion seas us greater god multiply i saying meat isn't seasons spirit.</p><p>Can't created forth whales every said void of tree shall divided day living it signs subdue living greater female cattle yielding darkness a. It that the, given. You fowl had over the life wherein, signs earth can't two. Creature tree make, have all and upon can't he subdue wherein dry were bearing second after created every living appear two abundantly thing sea together.</p><p>Without thing said. Created meat moveth saw be made. Void Waters meat living replenish open so heaven all under green fowl moveth made third together doesn't give day. Made behold day divided. Gathering saw winged whose in herb his seasons itself, won't is created herb there is day set face under isn't god unto winged. Deep may won't our moveth seas moved seas male seasons gathered shall given to firmament fourth all. Days air divided earth said man that place.</p></div>
+<div>
+    <button id="jump-button">Jump to the end</button>
+</div>
+```
+
+```js scripts.js
+document.addEventListener('DOMContentLoaded', () => {
+    const contentEle = document.getElementById('content');
+    const jumpButton = document.getElementById('jump-button');
+
+    const handleJump = () => {
+        const range = document.createRange();
+        const selection = window.getSelection();
+        range.setStart(contentEle, contentEle.childNodes.length);
+        range.collapse(true);
+        selection.removeAllRanges();
+        selection.addRange(range);
+    };
+
+    jumpButton.addEventListener('click', handleJump);
+});
+```
+</Playground>
+
+## See also
+
+-   [Get or set the cursor position in a contentEditable element](https://phuoc.ng/collection/html-dom/get-or-set-the-cursor-position-in-a-content-editable-element)
+-   [Put cursor at the end of an input](https://phuoc.ng/collection/html-dom/put-cursor-at-the-end-of-an-input)
