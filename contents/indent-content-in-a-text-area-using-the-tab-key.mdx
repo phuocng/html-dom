@@ -1,0 +1,82 @@
+---
+category: Level 1 — Basic
+created: '2023-09-20'
+description: Indent content in a text area using the Tab key with JavaScript DOM
+openGraphCover: /og/html-dom/indent-content-text-area.png
+title: Indent content in a text area using the Tab key
+---
+
+When it comes to real-life use cases, there are plenty of scenarios where adding indentation to a text area can make a big difference. For example, in programming, developers often write code snippets or scripts within a text area. By using the tab key to indent different parts of their code, they can make it easier to read and understand.
+
+Similarly, in academic settings, students may need to submit essays or research papers through online portals that utilize text areas for submissions. Indenting paragraphs or bullet-pointed lists within these text areas can help students better organize their thoughts and ideas.
+
+One way to achieve this is by adding an event listener to the text area and detecting when the `Tab` key is pressed. We prevent the default behavior of the Tab key to avoid the browser from bringing the focus to the next field.
+
+Instead, we can insert a tab character (`\t`) into the text area at the current cursor position. This way, the user can easily add indentation without having to reach for the space bar multiple times.
+
+```js
+const textarea = document.querySelector('textarea');
+
+textarea.addEventListener('keydown', function(e) {
+    if (e.key === 'Tab') {
+        e.preventDefault();
+
+        const start = this.selectionStart;
+        const end = this.selectionEnd;
+
+        const start = this.selectionStart;
+        const end = this.selectionEnd;
+        const value = textarea.value;
+
+        // Insert tab character
+        textarea.value = `${value.substring(0, start)}\t${value.substring(end)}`;
+
+        // Move cursor to new position
+        textarea.selectionStart = textarea.selectionEnd = start + 1;
+    }
+});
+```
+
+By implementing this code, users are able to use the `tab` key to easily indent their text within the text area. This small change can significantly enhance the readability and organization of user-submitted content.
+
+<Playground>
+```css demo.css hidden
+body {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+textarea {
+    border: 1px solid rgb(203 213 225);
+    border-radius: 0.25rem;
+    width: 16rem;
+}
+```
+
+```html index.html
+<textarea id="textarea" rows="10"></textarea>
+```
+
+```js scripts.js
+document.addEventListener('DOMContentLoaded', () => {
+    const textarea = document.getElementById('textarea');
+
+    textarea.addEventListener('keydown', function(e) {
+        if (e.key === 'Tab') {
+            e.preventDefault();
+
+            const start = this.selectionStart;
+            const end = this.selectionEnd;
+            const value = textarea.value;
+
+            // Insert tab character
+            textarea.value = `${value.substring(0, start)}\t${value.substring(end)}`;
+
+            // Move cursor to new position
+            textarea.selectionStart = textarea.selectionEnd = start + 1;
+        }
+    });
+});
+```
+</Playground>
