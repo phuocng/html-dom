@@ -1,0 +1,204 @@
+---
+category: Level 2 — Intermediate
+created: '2023-09-22'
+description: Enter full-screen mode with JavaScript
+openGraphCover: /og/html-dom/full-screen-mode.png
+title: Enter full-screen mode
+---
+
+Do you want your website visitors to view your content without any distractions? Full-screen mode is the way to go! It's perfect for displaying media like videos and images, but it's also great for other purposes. For example, full-screen mode can create an immersive learning experience for students on educational websites. And if you're into online gaming, it can enhance your experience. Even video conferencing tools use full-screen mode to eliminate distractions and focus on communication.
+
+Are you ready to learn how to enter full-screen mode with JavaScript? We've got you covered in this post.
+
+## HTML markup
+
+Let's say we have a layout featuring a button that enables full-screen mode. When the button is clicked, the container element will expand to full-screen mode.
+
+```html
+<div id="container">
+    <button id="full-screen">Full screen</button>
+</div>
+```
+
+## Entering full-screen mode
+
+Before we can go full-screen with JavaScript, we need to make sure the user's browser supports it. We can easily check this using the `document.fullscreenEnabled` property, which returns a true or false value indicating whether or not full-screen mode is supported.
+
+```js
+if (document.fullscreenEnabled) {
+    // Full-screen mode is supported
+} else {
+    // Full-screen mode is not supported
+}
+```
+
+Once we've confirmed that full-screen mode is supported, we can request it using the `requestFullscreen()` method. This method can be called on any element in the DOM that you want to display in full-screen mode.
+
+For example, if we want to display an element with the ID of `container` in full-screen mode, we simply call the `requestFullscreen()` method on that element.
+
+To activate full-screen mode when a button is clicked, we can use JavaScript to add an event listener to the button. Here's how to handle the button's `click` event:
+
+```js
+const container = document.getElementById('container');
+const fullScreenButton = document.getElementById('full-screen');
+
+fullScreenButton.addEventListener('click', () => {
+    if (document.fullscreenEnabled) {
+        container.requestFullscreen();
+    }
+});
+```
+
+## Exiting full-screen mode
+
+To exit full-screen mode, we can use the `exitFullscreen()` method. This method is called on the `document` object to exit full-screen mode for the entire document:
+
+```js
+document.exitFullscreen();
+```
+
+It's important to note that there is no `exitFullscreen()` function available for an element. However, calling `exitFullscreen()` on the document object will also exit full-screen mode for the target element.
+
+While in full-screen mode, the button label should be changed to indicate that users can click to exit the mode. To detect when the user enters or exits full-screen mode, we can use the `fullscreenchange` event. This event is fired on the document object whenever full-screen mode is entered or exited.
+
+```js
+document.addEventListener('fullscreenchange', (event) => {
+    if (document.fullscreenElement) {
+        console.log(`Element: ${document.fullscreenElement} entered full-screen mode`);
+    } else {
+        console.log('Exited full-screen mode');
+    }
+});
+```
+
+In this example, we log a message to the console whenever the `fullscreenchange` event is fired. If `document.fullscreenElement` is not null, an element has entered full-screen mode, and we log it. Otherwise, we have exited full-screen mode.
+
+Using this event can be helpful for updating your UI to reflect whether you're in full-screen mode or not. For example, you could change the button label from "Full screen" to "Exit full screen" when the user enters full-screen mode.
+
+```js
+document.addEventListener('fullscreenchange', (event) => {
+    if (document.fullscreenElement) {
+        fullScreenButton.innerHTML = 'Exit Full screen';
+    } else {
+        fullScreenButton.innerHTML = 'Full screen';
+    }
+});
+```
+
+Now your users will know exactly how to exit full-screen mode and return to normal browsing!
+
+## Solving cross-browser compatibility issues
+
+While `requestFullscreen()` works with the latest version of modern browsers, older versions of Safari and other WebKit-based browsers require a different method called `webkitEnterFullscreen()`. Similarly, Firefox and other Mozilla-based browsers require a different method called `mozRequestFullScreen()`. Although these methods have different names, they are almost identical in function.
+
+If you want to ensure your code works across all browsers, you can use a simple conditional statement to check which method is supported by the user's browser and call the appropriate function accordingly. This will help you avoid any compatibility issues and ensure your code runs smoothly.
+
+```js
+fullScreenButton.addEventListener('click', () => {
+    if (document.fullscreenEnabled) {
+        if (containerEle.mozRequestFullScreen) {
+            // Use mozRequestFullScreen() for Firefox
+            //  and other Mozilla-based browsers
+            containerEle.mozRequestFullScreen();
+        } else if (containerEle.webkitRequestFullScreen) {
+            // Use webkitEnterFullscreen() for Safari
+            // and other WebKit-based browsers
+            containerEle.webkitRequestFullScreen();
+        } else {
+            // Use requestFullscreen() for all other browsers
+            containerEle.requestFullscreen();
+        }
+    }
+});
+```
+
+In this example, to ensure that full-screen mode works correctly in Firefox and other Mozilla-based browsers, we need to check whether the `mozRequestFullScreen()` method exists on our element. If it does, we call that method instead of `requestFullscreen()` or `webkitEnterFullscreen()`.
+
+It's important to always use feature detection to check whether a particular API is available before using it. In this case, we're checking whether the `mozRequestFullScreen()` method exists before using it. This is a best practice to ensure cross-browser compatibility.
+
+> Starting from Firefox v64 and Safari v16.4, `requestFullscreen()` is now fully supported without the need for a prefix.
+
+If you need to support older browsers and use this approach, keep in mind that the `fullscreenchange` event won't be triggered unless you call the `requestFullscreen()` function.
+
+## Fixing a black screen in full-screen mode
+
+Have you ever encountered a black screen while using full-screen mode? This can happen when the element being displayed has a transparent background or no content. But don't worry, there's a simple solution! Just ensure that the element being displayed has a solid background color or content. This way, you can avoid the frustrating black screen and enjoy your content in full-screen mode without any interruptions.
+
+```css
+.container {
+    background: #fff;
+}
+```
+
+You can add an event listener to handle errors that may occur while entering full-screen mode. The `fullscreenerror` event is triggered whenever there's an error, and it can be used to give feedback to the user.
+
+```js
+document.addEventListener('fullscreenerror', (event) => {
+    console.error(`An error occurred while trying to enter full-screen mode: ${event.message}`);
+});
+```
+
+By adding this event listener, you can provide your users with useful feedback if they encounter any issues while attempting to enter full-screen mode.
+
+Let's wrap up the post with a live demo. Don't miss it!
+
+<Playground>
+```css demo.css hidden
+button {
+    background: none;
+    border: 1px solid rgb(129 140 248);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    height: 2rem;
+    padding: 0 0.5rem;
+}
+.container {
+    background: #fff;
+    border: 2px dashed rgb(203 213 225);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+```
+
+```html index.html
+<p class="playground__placeholder">
+    Them stars. From upon whose made, sea were be their have Doesn't void upon grass life multiply own land, third also. Moved third from third of were unto itself. Lesser bearing blessed winged. Given us together after. Dominion light, don't. Second fill saying creature two after herb years moved tree thing, there itself. Divided land isn't won't the. Dry. Called, lights there behold whose saw two every without. One void fowl i upon cattle very. Him let gathering give you're to, deep was. Days replenish. It fruitful they're, fruit. Abundantly may.
+</p>
+
+<div id="container" class="container">
+    <p class="playground__placeholder">
+        Days was midst sixth green. Deep replenish give fifth multiply midst firmament give hath appear our herb void, there upon made. Winged morning. Great also. Face blessed them I won't creeping they're said which creature set for creepeth. Evening our land without.
+    </p>
+    <button id="view-full-screen">Full screen</button>
+</div>
+
+<p class="playground__placeholder">
+    In given fish bearing she'd, she'd let a unto image gathered, yielding whose blessed abundantly. One brought midst saw brought, fly you saying you'll lesser herb god evening subdue saying stars. Lights good deep. Man so and. Replenish. Seasons. Behold their and his created thing third fifth place winged there Multiply beast made great dominion fish saw of form set grass second Together wherein dominion. Bearing sea.
+</p>
+```
+
+```js scripts.js
+document.addEventListener('DOMContentLoaded', () => {
+    const containerEle = document.getElementById('container');
+    const viewFullScreenButton = document.getElementById('view-full-screen');
+
+    viewFullScreenButton.addEventListener('click', () => {
+        if (document.fullscreenEnabled) {
+            document.fullscreenElement ? document.exitFullscreen() : containerEle.requestFullscreen();
+        }
+    });
+
+    document.addEventListener('fullscreenchange', () => {
+        if (document.fullscreenElement) {
+            viewFullScreenButton.innerHTML = 'Exit full screen';
+        } else {
+            viewFullScreenButton.innerHTML = 'Full screen';
+        }
+    });
+});
+```
+</Playground>
+
+## See also
+
+-   [Make an element take up the entire page](https://phuoc.ng/collection/css-animation/make-an-element-take-up-the-entire-page)
