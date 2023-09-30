@@ -1,0 +1,130 @@
+---
+category: Level 1 — Basic
+created: '2023-09-20'
+description: Insert HTML at the current position of a contentEditable element with JavaScript DOM
+openGraphCover: /og/html-dom/insert-html-content-editable.png
+title: Insert HTML at the current position of a contentEditable element
+---
+
+When you're working with contentEditable elements in HTML, sometimes you need to insert HTML right where the user is typing using JavaScript.
+
+One real-life example of this is in a WYSIWYG editor. Let's say a user selects some text and clicks on the bold button. The editor can then insert `<strong>` tags around the selected text at the current position. Another example is in chat apps where users can send formatted messages with links and images. By inserting HTML right where the user is typing, they can easily format their messages without having to type out all of the HTML tags by hand.
+
+In this post, we'll explore various methods to accomplish that goal.
+
+## Inserting a node
+
+To add an element using the `insertNode()` function, you can use the following code snippet as an example:
+
+```js
+// Get the current selection
+const selection = window.getSelection();
+
+// Get the range of the current selection
+const range = selection.getRangeAt(0);
+
+// Create a new element to insert
+const newElement = document.createElement('span');
+newElement.innerHTML = 'Hello, world!';
+
+// Insert the new element at the current position
+range.insertNode(newElement);
+```
+
+In this example, we grab the current selection and range of the selection. Then, we create a new `span` element, set its inner HTML to `Hello, world!`, and insert it at the current position using the `insertNode` method of the range object.
+
+Just keep in mind that this example assumes the contentEditable element is already in focus. Check out the live demo that showcases this approach in action! Don't forget to focus on the content area before clicking the button.
+
+<Playground>
+```css demo.css hidden
+button {
+    background: none;
+    border: 1px solid rgb(129 140 248);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    height: 2rem;
+    padding: 0 0.5rem;
+}
+
+.content {
+    outline: none;
+}
+```
+
+```html index.html
+<div contentEditable="true" class="content" id="content"><p>His rule. Which dry. Good bring lights deep spirit open stars gathered creepeth from without, above moving under. Fourth heaven after kind. Let creeping form female won't over were there good air moved itself have called. Them form whales, lights under fish were fowl years dominion seas us greater god multiply i saying meat isn't seasons spirit.</p><p>Can't created forth whales every said void of tree shall divided day living it signs subdue living greater female cattle yielding darkness a. It that the, given. You fowl had over the life wherein, signs earth can't two. Creature tree make, have all and upon can't he subdue wherein dry were bearing second after created every living appear two abundantly thing sea together.</p><p>Without thing said. Created meat moveth saw be made. Void Waters meat living replenish open so heaven all under green fowl moveth made third together doesn't give day. Made behold day divided. Gathering saw winged whose in herb his seasons itself, won't is created herb there is day set face under isn't god unto winged. Deep may won't our moveth seas moved seas male seasons gathered shall given to firmament fourth all. Days air divided earth said man that place.</p></div>
+<div>
+    <button id="insert-button">Insert HTML</button>
+</div>
+```
+
+```js scripts.js
+document.addEventListener('DOMContentLoaded', () => {
+    const contentEle = document.getElementById('content');
+    const insertButton = document.getElementById('insert-button');
+
+    const handleInsert = () => {
+        // Get the current selection
+        const selection = window.getSelection();
+
+        // Get the range of the current selection
+        const range = selection.getRangeAt(0);
+
+        // Create a new element to insert
+        const newElement = document.createElement('span');
+        newElement.innerHTML = 'Hello, world!';
+
+        // Insert the new element at the current position
+        range.insertNode(newElement);
+    };
+
+    insertButton.addEventListener('click', handleInsert);
+});
+```
+</Playground>
+
+
+## Using execCommand function
+
+You can also insert HTML at the current position of a contentEditable element by using `execCommand` with the `insertHTML` command. Check out this example:
+
+```js
+// Get the current selection
+const selection = window.getSelection();
+
+// Get the HTML to insert
+const htmlToInsert = '<div>Hello, world!</div>';
+
+// Insert the HTML at the current position
+document.execCommand('insertHTML', false, htmlToInsert);
+```
+
+In this example, we first get the current selection and save it. Then, we define the HTML we want to insert as a string variable. Finally, we use the `execCommand` method with the `insertHTML` command to insert the HTML at the current position.
+
+It's important to note that while this method is simpler than creating a new element and inserting it with `range.insertNode()`, it may not work in all browsers.
+
+The `execCommand` method is also useful for formatting selected text. For example, you can make the selected text bold by using the `'bold'` command.
+
+```js
+// Get the current selection
+const selection = window.getSelection();
+
+// Use execCommand to make selected text bold
+document.execCommand('bold', false, null);
+```
+
+To create a link around selected text, you can use the `'createLink'` command and pass in a URL argument. For example:
+
+```js
+// Get the current selection
+const selection = window.getSelection();
+
+// Use execCommand to create a link around selected text
+document.execCommand('createLink', false, 'https://phuoc.ng');
+```
+
+This will create a link around any selected text with the provided URL.
+
+## See also
+
+-   [Insert text into a text area at the current position](https://phuoc.ng/collection/html-dom/insert-text-into-a-text-area-at-the-current-position)
