@@ -1,0 +1,55 @@
+---
+category: Level 1 — Basic
+created: '2023-09-19'
+description: Insert text into a text area at the current position with JavaScript
+openGraphCover: /og/html-dom/insert-text-into-text-area.png
+title: Insert text into a text area at the current position
+---
+
+If you want to add text to a text area using JavaScript, you can work with the DOM. Check out this handy function called `insertText()` below. It only requires two parameters: `textarea`, which represents the text area element, and `text`, which is the text you want to insert.
+
+```javascript
+const insertText = (textarea, text) => {
+    // Get the current cursor position
+    const position = textarea.selectionStart;
+
+    // Get the text before and after the cursor position
+    const before = textarea.value.substring(0, position);
+    const after = textarea.value.substring(position, textarea.value.length);
+
+    // Insert the new text at the cursor position
+    textarea.value = before + text + after;
+
+    // Set the cursor position to after the newly inserted text
+    textarea.selectionStart = textarea.selectionEnd = position + text.length;
+};
+```
+
+First, we find the cursor's position by using the `selectionStart` property of the text area element. Then, we use the `substring` method to grab the text before and after the cursor position. With this information, we can insert the new text into the text area at the cursor position. We do this by combining the `before`, `new text`, and `after` variables. Finally, we move the cursor to after the newly inserted text using the `selectionStart` and `selectionEnd` properties of the text area element.
+
+## Using setRangeText() function
+
+The `setRangeText()` method is another way to insert text into a text area. The syntax for this method is as follows:
+
+```js
+textarea.setRangeText(replacement, start, end, select);
+```
+
+The `replacement` parameter specifies the new text that will be inserted into the text area. The `start` parameter specifies the index at which the new text will start being inserted. The `end` parameter specifies the index at which the new text insertion will end. Finally, the optional `select` parameter determines whether or not to select the newly inserted text.
+
+Using this method is simpler than using `substring`, and it can also handle more advanced scenarios such as replacing selected text with new text.
+
+Here's another version of the `insertText()` function:
+
+```js
+const insertText = (textarea, text) => {
+    const position = textarea.selectionStart;
+    const end = position + text.length;
+    textarea.setRangeText(text, start, end, 'select');
+};
+```
+
+## See also
+
+-   [Insert HTML at the current position of a contentEditable element](https://phuoc.ng/collection/html-dom/insert-html-at-the-current-position-of-a-content-editable-element)
+-   [Select a given line in a text area](https://phuoc.ng/collection/html-dom/select-a-given-line-in-a-text-area)
