@@ -1,0 +1,121 @@
+---
+category: Level 1 — Basic
+created: '2023-09-24'
+description: Select a given line in a text area with JavaScript
+openGraphCover: /og/html-dom/select-line-text-area.png
+title: Select a given line in a text area
+---
+
+Have you ever wanted to select a specific line in a text area using JavaScript DOM? This can come in handy when you need to highlight a particular line of text or copy it to the clipboard.
+
+One real-life example where this technique might be useful is in building a code editor. Code editors often have features that allow users to navigate through their code and highlight specific sections of it. By selecting a particular line, we can help users better visualize and understand their code, leading to a more seamless coding experience. This functionality could also be helpful in creating chat applications where users may want to copy specific lines of conversation for reference or sharing purposes.
+
+In this post, we'll dive into how to implement this functionality with JavaScript.
+
+## Retrieving the text area element
+
+To get started, use the `document.getElementById()` method to retrieve the text area element. Simply pass in the ID of the text area element as an argument.
+
+```js
+const textarea = document.getElementById('textarea');
+```
+
+## Retrieving the beginning and ending indices of the line
+
+If you want to choose a particular line of text in the text area, you'll need to locate the beginning and end indices of that line. To achieve that, we need to retrieve the value of the text area and split it using the newline character (`\n`).
+
+To find the starting position of the selected line, we first create an array of zeros with the same length as the line's index. Then, we map this array to an array of line lengths (adding one for the newline character). Finally, we add up all the elements before the index of your selected line to get the start position.
+
+To determine the end position of your selection, add the length of the line you selected to its starting point. This will give you the index of the last character in your selection.
+
+In the sample code provided, we're selecting the third line (index 2) of the text area element.
+
+```js
+const lines = textarea.value.split('\n');
+
+// Select the third line (index 2)
+const lineIndex = 2;
+
+const start = Array(lineIndex)
+    .fill(0)
+    .map((_, i) => (lines[i].length + 1))
+    .reduce((a, b) => a + b, 0);
+
+// Add the length of the previous lines and the newline character
+const end = start + lines[lineIndex].length;
+```
+
+To simplify the calculation of the starting position, you can use the `reduce()` method instead of mapping and reducing. With `reduce()`, we can add up the lengths of each line up to the selected line's index. Then, we add one more character to account for the newline character.
+
+```js
+const start = lines.slice(0, lineIndex).reduce((acc, curr) => acc + curr.length + 1, 0);
+```
+
+## Selecting the range
+
+To set the selection range of a text area element to the start and end indices of a line, use the `setSelectionRange()` method. Just remember to call the `focus()` function first to ensure the text area element is properly focused before selecting the range.
+
+```js
+textarea.focus();
+textarea.setSelectionRange(start, end);
+```
+
+Now, the third line of the text area element should be selected.
+
+<Playground>
+```css demo.css hidden
+button {
+    background: none;
+    border: 1px solid rgb(129 140 248);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    height: 2rem;
+    padding: 0 0.5rem;
+}
+textarea {
+    border: 1px solid rgb(203 213 225);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 100%;
+    height: 16rem;
+}
+```
+
+```html index.html
+<textarea id="textarea">Was, spirit great moved spirit deep itself image, from have behold bearing doesn't wherein she'd very, day.
+Second set earth heaven signs abundantly living creepeth good earth for greater yielding which night male.
+Bring midst whales blessed, is.
+From subdue.
+Yielding.
+Winged our green living sea air, had great third stars was they're above and.
+Morning light make first and kind sixth they're fowl, there.
+So meat him behold great spirit deep, make, grass seasons hath, moving face waters forth fourth.</textarea>
+<p>
+    <button id="select-button">Select the third line</button>
+</p>
+```
+
+```js scripts.js
+document.addEventListener('DOMContentLoaded', () => {
+    const selectButton = document.getElementById('select-button');
+
+    selectButton.addEventListener('click', () => {
+        const textarea = document.getElementById('textarea');
+        const lines = textarea.value.split('\n');
+        const lineIndex = 2;
+
+        const start = lines.slice(0, lineIndex).reduce((acc, curr) => acc + curr.length + 1, 0);
+
+        // Add the length of the previous lines and the newline character
+        const end = start + lines[lineIndex].length;
+
+        textarea.focus();
+        textarea.setSelectionRange(start, end);
+    });
+});
+```
+</Playground>
+
+## See also
+
+-   [Insert text into a text area at the current position](https://phuoc.ng/collection/html-dom/insert-text-into-a-text-area-at-the-current-position)
