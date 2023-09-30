@@ -1,0 +1,42 @@
+---
+category: Level 1 — Basic
+created: '2023-09-17'
+description: Get or set the cursor position in a text field with JavaScript DOM
+openGraphCover: /og/html-dom/get-set-cursor-position-text-field.png
+title: Get or set the cursor position in a text field
+---
+
+Sometimes we need to set the cursor position in a text field programmatically. For instance, when a user switches a text field from read-only to edit mode, we might want the cursor to move automatically to the end of the input. You may have seen this functionality in many inline edit components.
+
+In this post, we'll explore how to get or set the cursor position in a text field using JavaScript.
+
+## Getting cursor position
+
+To find out where the cursor is in a text field, we can use the `selectionStart` property. This property tells us the index of the first selected character in the text field. But if there's no selected text, it tells us the index of the cursor itself.
+
+Here's a code example that demonstrates how to use `selectionStart` to get the cursor position in a text field:
+
+```js
+const textField = document.getElementById('text-field');
+const cursorPosition = textField.selectionStart;
+```
+
+In this example, we retrieve the text field by its ID and then use the `selectionStart` property to determine the position of the cursor.
+
+## Setting cursor position
+
+To set the cursor position in a text field, we can use the `setSelectionRange()` method. This method takes two parameters: the start and end indexes of the selection.
+
+Check out this example code snippet to see how it's done:
+
+```js
+const textField = document.getElementById('text-field');
+textField.setSelectionRange(3, 3);
+```
+
+In this example, we grab the text field using its ID and then use the `setSelectionRange()` method to move the cursor to the fourth character.
+
+## See also
+
+-   [Get or set the cursor position in a contentEditable element](https://phuoc.ng/collection/html-dom/get-or-set-the-cursor-position-in-a-content-editable-element)
+-   [Put cursor at the end of an input](https://phuoc.ng/collection/html-dom/put-cursor-at-the-end-of-an-input)
