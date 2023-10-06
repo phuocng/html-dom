@@ -1,0 +1,65 @@
+---
+category: Level 2 — Intermediate
+created: '2023-10-02'
+description: Truncate the-content of an element
+openGraphCover: /og/html-dom/truncate-content-element.png
+title: Truncate the content of an element
+---
+
+When it comes to displaying text on a website or application, sometimes less is more. Truncating text can help keep the user interface clean and organized while still providing users with valuable information.
+
+However, truncation can be tricky to implement correctly. In this post, we'll explore how to truncate text using CSS and JavaScript, as well as how to dynamically set the `title` attribute for truncated elements.
+
+## CSS text truncation
+
+Do you ever want to limit the amount of text displayed on your website or app? There's a handy CSS trick that can help: text truncation. With the `text-overflow` property, you can replace overflowing text with an ellipsis (...). But, there's a catch: it only works if you set `white-space` to `nowrap` and `overflow` to `hidden`, `scroll`, or `auto`.
+
+Here's an example of how to use CSS to truncate text:
+
+```css
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+```
+
+## Adding the title attribute
+
+But when text overflows its container, it gets cut off and replaced with an ellipsis, leaving users in the dark about what was truncated. To solve this issue, we can add the `title` attribute to the element. This attribute provides users with additional information about the content that was cut off. By hovering over the truncated element, users can view its full content in a tooltip.
+
+To add the `title` attribute, you can simply include it in the HTML tag and set its value equal to the full content of the element.
+
+```html
+<div class="truncate" title="This is some long text that is being truncated with CSS">
+    This is some long text that is being truncated with CSS
+</div>
+```
+
+Now, when a user hovers over the truncated element, they will see a tooltip displaying the full content of the element. This can greatly improve user experience, especially when dealing with lengthy or important content.
+
+## Setting the title dynamically
+
+When we have content that's fully visible, we don't need to repeat ourselves by showing the same information in both the title and the content.
+
+But here's the good news: we can use the ResizeObserver API to change the title dynamically. This API is available in modern browsers and lets us keep track of any changes to an element's size.
+
+All we need to do is create a new `ResizeObserver` instance, pass in a callback function, and we're good to go. This function will be called whenever there are changes to the size of the tracked element.
+
+In the callback function, we first check if the element's current width is less than its scroll width. If it is, it means the content is truncated and we need to show the full content as a tooltip when the user hovers over the element. We do this by setting the `title` attribute to the `innerText` property of the element.
+
+On the other hand, if the current width of the element is greater than or equal to its scroll width, it means that no truncation has occurred. Therefore, we can remove any existing title attribute for that element.
+
+To put this approach into action, here's an example of how we could implement it.
+
+```js
+const ele = document.getElementById('element');
+const ro = new ResizeObserver(() => {
+    ele.offsetWidth < ele.scrollWidth)
+        ? ele.setAttribute('title', ele.innerText)
+        : ele.removeAttribute('title');
+});
+ro.observe(ele);
+```
+
+This approach ensures that users have all the information they need, while still benefiting from truncated elements when it makes sense.
