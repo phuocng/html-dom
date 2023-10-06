@@ -1,0 +1,235 @@
+---
+category: Level 2 — Intermediate
+created: '2023-09-25'
+description: Jump to the beginning or end of the current line in a text area with JavaScript
+openGraphCover: /og/html-dom/jump-beginning-end-current-line-text-area.png
+title: Jump to the beginning or end of the current line in a text area
+---
+
+When working with large blocks of text, being able to quickly jump to the beginning or end of a line can save you a ton of time and effort. This is especially true when writing code, where lines can be super long and extend beyond the visible area of the screen. By jumping to the beginning or end of a line, you can easily see what's at the start or end of that line without having to manually scroll through all the text in between.
+
+The ability to jump to the first or last position in the current line of a text area might seem like a small feature, but it can have a big impact on your productivity and ease-of-use when working with text. So, let's dive into how to implement this functionality with JavaScript.
+
+## Jumping to the first position
+
+Want to know how to jump to the first position in the current line of a text area with JavaScript? It's easy!
+
+First, use JavaScript to get a reference to the text area element by using the `document.getElementById()` method and passing in the ID of the text area element.
+
+```js
+const textarea = document.getElementById('textarea');
+```
+
+Once you have a reference to the text area element, you can use the `selectionStart` property to get the index of the first character in the current line. To get the current line, use the `substring()` method and pass in the start index and end index of the current line.
+
+```js
+const currentLineIndex = textarea.value.lastIndexOf('\n', textarea.selectionStart - 1) + 1;
+const currentLine = textarea.value.substring(currentLineIndex, textarea.selectionStart);
+```
+
+To find the index of the first character in the current line, use the `lastIndexOf()` method to find the index of the last occurrence of the newline character (`\n`) before the current selection start index. Subtract 1 from the selection start index because the `lastIndexOf()` method searches backwards from the specified index, and we want to exclude the current line from the search. Add 1 to the result of `lastIndexOf()` to get the index of the first character in the current line.
+
+Finally, use the `setSelectionRange()` method to set the selection start and end indexes to the index of the first character in the current line.&#x20;
+
+```js
+textarea.setSelectionRange(currentLineIndex, currentLineIndex);
+```
+
+## Jumping to the last position
+
+Using a similar approach, we can move the cursor to the end of the current line. To do this, we use `indexOf()` instead of `lastIndexOf()` to find the index of the next occurrence of `\n` after the current selection start index. We then check if `nextLineIndex` is `-1`, which would mean that there are no more lines after the current one. In that case, we set `currentLineIndex` to `0`, effectively moving the cursor to the end of the entire text area.
+
+Here's what the implementation looks like:
+
+```js
+const jumpToLastPosition = () => {
+    const nextLineIndex = textarea.value.indexOf('\n', textarea.selectionStart);
+    const currentLineIndex = nextLineIndex === -1 ? 0 : nextLineIndex;
+    textarea.setSelectionRange(currentLineIndex, currentLineIndex);
+};
+```
+
+## Enhancing functionality with keyboard shortcuts
+
+Want to make your text area even more user-friendly? Consider adding support for keyboard shortcuts. One useful shortcut is the Home key, which moves the cursor to the beginning of the current line. To bind this functionality to the `keydown` event of the text area element, simply add the following code:
+
+```js
+textarea.addEventListener('keydown', (e) => {
+    if (e.key === 'Home') {
+        e.preventDefault();
+        jumpToFirstPosition();
+    }
+});
+```
+
+It's important to remember to call `preventDefault()` in the event listener. If you forget this step, the default browser behavior for that key will still occur along with the custom functionality you've added.
+
+In our case, if we didn't call `preventDefault()` in the Home keydown event handler, pressing the Home key would move the cursor to the start of the text area instead of just moving it to the beginning of the current line. By calling `preventDefault()`, we're telling the browser to only perform our custom functionality and not its default behavior for that key.
+
+We can take things further and add support for the End key, which will move the cursor to the end of the current line. This is easy to do. Just modify the `keydown` event listener we created earlier. We only need to check if the End key was pressed by verifying that `e.key` equals `End`.
+
+```js
+textarea.addEventListener('keydown', (e) => {
+    if (e.key === 'Home') {
+        // ...
+    } else if (e.key === 'End') {
+        jumpToLastPosition();
+        e.preventDefault();
+    }
+});
+```
+
+By implementing these shortcuts, your users will be able to navigate their text with ease.
+
+## Automatically scrolling to the desired position
+
+Let's take our jumping functionality to the next level by automatically scrolling to your desired position if it's not currently visible on the screen. This feature comes in handy when you're working with long blocks of text and need to move quickly between different sections.
+
+To make this happen, we'll first check if your desired position is visible on the screen. We can do this by comparing the `scrollTop` property of the text area element with the top and bottom bounds of the current line.
+
+If your desired position isn't visible, we'll use the `scroll()` method to smoothly scroll the text area to that position, bringing it into view.
+
+Here's what our implementation looks like in action:
+
+```js
+const jumpToFirstPosition = () => {
+    const currentLineIndex = ...;
+    const currentLineTop = textarea.offsetTop +
+                        (textarea.scrollHeight - textarea.clientHeight) *
+                        (currentLineIndex / textarea.value.length);
+    const currentLineBottom = currentLineTop + (textarea.scrollHeight / textarea.value.length);
+
+    textarea.setSelectionRange(currentLineIndex, currentLineIndex);
+    if (currentLineTop < textarea.scrollTop ||
+        currentLineBottom > textarea.scrollTop + textarea.clientHeight
+    ) {
+        textarea.scroll({
+            top: currentLineTop,
+            behavior: 'smooth'
+        });
+    }
+};
+```
+
+In this example, we use math to calculate the top and bottom boundaries of each line in a text area.
+
+To do this, we first find the position of the text area on the document by using the `offsetTop` property and subtracting the difference between the text area's height and visible client height. This tells us where the text area starts vertically in relation to the document.
+
+Next, we calculate the percentage of how far down the line is by dividing the current line index by the total number of characters in the text area. We then multiply this percentage by the difference between the text area's total height and visible client height to get the number of pixels we need to move down from the top.
+
+Since each line in a text area has an equal height, we can add `(textarea.scrollHeight / textarea.value.length)` to `currentLineTop` to get `currentLineBottom`. This gives us both endpoints of the current line, which we can use later to compare with our scroll position.
+
+Finally, we check if either boundary is outside the visible text area. If it is, we focus on the desired line and use `scroll()` with an optional configuration object to smoothly scroll to that line.
+
+We can take a similar approach to add a "jump to last position" functionality. To achieve this, we can use the same logic as the `jumpToFirstPosition` function and check if the target position is currently visible. If it's not, we can simply use the `scroll()` method to scroll to that position.
+
+So, here's what the updated implementation of `jumpToLastPosition` would look like:
+
+```js
+const jumpToLastPosition = () => {
+    const nextLineIndex = ...;
+    const currentLineIndex = ...;
+    const currentLineTop = textarea.offsetTop +
+                        (textarea.scrollHeight - textarea.clientHeight) *
+                        (currentLineIndex / textarea.value.length);
+    const currentLineBottom = currentLineTop +
+                        (textarea.scrollHeight / textarea.value.length);
+
+    textarea.setSelectionRange(currentLineIndex, currentLineIndex);
+    if (currentLineTop < textarea.scrollTop ||
+        currentLineBottom > textarea.scrollTop + textarea.clientHeight
+    ) {
+        textarea.scroll({
+            top: currentLineBottom - textarea.clientHeight,
+            behavior: 'smooth',
+        });
+    }
+};
+```
+
+In the updated version of `jumpToLastPosition`, we use some math to figure out where each line falls in the text area. Then, we check if the top or bottom of the current line is outside of the visible area. If it is, we focus on the line and smoothly scroll it into view.
+
+This feature makes it easy for users to jump to any line they want, even if it's not currently visible on the screen.
+
+To give it a try, simply place your cursor anywhere within the text area and hit either the Home or End key.
+
+<Playground>
+```css demo.css hidden
+textarea {
+    border: 1px solid rgb(203 213 225);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 100%;
+    height: 16rem;
+}
+```
+
+```html index.html
+<textarea id="textarea">Can't creeping, dry. Let you're have creeping wherein seasons our hath morning, land firmament whose you saying seas lights. Winged earth face the first over, also seed good. For female gathered fourth third greater night created in together own is, seasons above saw hath to seasons every from make, after their is. Morning seas whose in.
+
+Fill very from in replenish that them seed you moved fowl sixth very fifth you're under male own can't it itself dry may first spirit two to abundantly Bring creepeth appear. Meat land had. Fruit morning moved cattle bearing. Years their firmament god yielding. Their give good, is let set creeping midst created said likeness air Created called together night. He creature open greater us cattle he, said above given.
+
+Appear. Two Multiply fowl you're open called firmament herb signs won't. Creature divided was forth Years saying give, isn't moved fish together won't good. Together days moving one that hath, seed give made his face gathered from after doesn't unto after which so, fish green moving bring seed cattle seed form third be moveth own so have. You'll dry first night saw creeping bring made that created darkness form thing also. Fruitful fifth one whales years saw morning own earth open fifth he, let form, had fowl above i gathered you set. Female itself third years beginning sea Day thing there stars years upon subdue.
+
+Him he creepeth his dry air also beginning shall You're moveth a tree shall which creepeth gathering second behold. Grass years waters first living also dominion be winged fill, under dry gathered heaven the form signs fill day seed i Fourth whales land place subdue sea him is can't night said firmament lesser their kind, had. Cattle fruitful, he i above after under divided to air upon have every.</textarea>
+```
+
+```js scripts.js
+document.addEventListener('DOMContentLoaded', () => {
+    const textarea = document.getElementById('textarea');
+    const jumpToFirstPosition = () => {
+        const currentLineIndex = textarea.value.lastIndexOf('\n', textarea.selectionStart - 1) + 1;
+        const currentLineTop = textarea.offsetTop +
+                            (textarea.scrollHeight - textarea.clientHeight) *
+                            (currentLineIndex / textarea.value.length);
+        const currentLineBottom = currentLineTop +
+                            (textarea.scrollHeight / textarea.value.length);
+
+        textarea.setSelectionRange(currentLineIndex, currentLineIndex);
+        if (currentLineTop < textarea.scrollTop ||
+            currentLineBottom > textarea.scrollTop + textarea.clientHeight
+        ) {
+            textarea.scroll({
+                top: currentLineTop,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    const jumpToLastPosition = () => {
+        const nextLineIndex = textarea.value.indexOf('\n', textarea.selectionStart);
+        const currentLineIndex = nextLineIndex === -1 ? 0 : nextLineIndex;
+        const currentLineTop = textarea.offsetTop +
+                            (textarea.scrollHeight - textarea.clientHeight) *
+                            (currentLineIndex / textarea.value.length);
+        const currentLineBottom = currentLineTop +
+                            (textarea.scrollHeight / textarea.value.length);
+
+        textarea.setSelectionRange(currentLineIndex, currentLineIndex);
+        if (currentLineTop < textarea.scrollTop ||
+            currentLineBottom > textarea.scrollTop + textarea.clientHeight
+        ) {
+            textarea.scroll({
+                top: currentLineBottom - textarea.clientHeight,
+                behavior: 'smooth',
+            });
+        }
+    };
+
+    textarea.addEventListener('keydown', (e) => {
+        switch (e.key) {
+            case 'Home':
+                e.preventDefault();
+                jumpToFirstPosition();
+                break;
+            case 'End':
+                e.preventDefault();
+                jumpToLastPosition();
+                break;
+            default:
+                break;
+        }
+    });
+});
+```
+</Playground>
