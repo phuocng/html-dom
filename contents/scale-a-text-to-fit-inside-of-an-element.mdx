@@ -12,7 +12,7 @@ Let's say that we want to scale a text inside a headline:
 <div id="headline">Hello World</div>
 ```
 
-First of all, we need to measure the width of element with its current font size and [text content](https://phuoc.ng/collection/html-dom/get-the-text-content-of-an-element). For more information, you can take a look at this [post](https://phuoc.ng/collection/html-dom/measure-the-width-of-given-text-of-given-font).
+First of all, we need to measure the width of element with its current font size and [text content](https://phuoc.ng/collection/html-dom/get-the-text-content-of-an-element/). For more information, you can take a look at this [post](https://phuoc.ng/collection/html-dom/measure-the-width-of-given-text-of-given-font/).
 
 ```js
 const measureWidth = function(text, font) {
@@ -33,7 +33,7 @@ const fontSize = parseInt(styles.fontSize);
 const measured = measureWidth(ele.textContent, font);
 ```
 
-Now we can calculate how much the element is scaled by comparing the measured width and the [full width](https://phuoc.ng/collection/html-dom/determine-the-height-and-width-of-an-element):
+Now we can calculate how much the element is scaled by comparing the measured width and the [full width](https://phuoc.ng/collection/html-dom/determine-the-height-and-width-of-an-element/):
 
 ```js
 const scale = ele.clientWidth / parseFloat(measured);
@@ -105,9 +105,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 ## See also
 
--   [Determine the height and width of an element](https://phuoc.ng/collection/html-dom/determine-the-height-and-width-of-an-element)
--   [Get css styles of an element](https://phuoc.ng/collection/html-dom/get-css-styles-of-an-element)
--   [Get the text content of an element](https://phuoc.ng/collection/html-dom/get-the-text-content-of-an-element)
--   [Measure the width of given text of given font](https://phuoc.ng/collection/html-dom/measure-the-width-of-given-text-of-given-font)
--   [Resize the width of a text box to fit its content automatically](https://phuoc.ng/collection/html-dom/resize-the-width-of-a-text-box-to-fit-its-content-automatically)
--   [Set css style for an element](https://phuoc.ng/collection/html-dom/set-css-style-for-an-element)
+-   [Determine the height and width of an element](https://phuoc.ng/collection/html-dom/determine-the-height-and-width-of-an-element/)
+-   [Get css styles of an element](https://phuoc.ng/collection/html-dom/get-css-styles-of-an-element/)
+-   [Get the text content of an element](https://phuoc.ng/collection/html-dom/get-the-text-content-of-an-element/)
+-   [Measure the width of given text of given font](https://phuoc.ng/collection/html-dom/measure-the-width-of-given-text-of-given-font/)
+-   [Resize the width of a text box to fit its content automatically](https://phuoc.ng/collection/html-dom/resize-the-width-of-a-text-box-to-fit-its-content-automatically/)
+-   [Set css style for an element](https://phuoc.ng/collection/html-dom/set-css-style-for-an-element/)

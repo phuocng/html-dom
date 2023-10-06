@@ -5,7 +5,7 @@ keywords: 'cancelAnimationFrame, full page scroll, pageYOffset, requestAnimation
 title: Scroll to an element smoothly
 ---
 
-As mentioned in the [Scroll to an element](https://phuoc.ng/collection/html-dom/scroll-to-an-element) post, we can scroll to given element smoothly by passing `behavior: 'smooth'`:
+As mentioned in the [Scroll to an element](https://phuoc.ng/collection/html-dom/scroll-to-an-element/) post, we can scroll to given element smoothly by passing `behavior: 'smooth'`:
 
 ```js
 ele.scrollIntoView({ behavior: 'smooth' });
@@ -23,7 +23,7 @@ This post introduces a smoothly scroll implementation which also allows us to cu
 
 > **Resource**
 >
-> The post doesn't mention how to add a navigation fixed on the left (or right) of the page. You can see a simple way to [create a fixed navigation](https://phuoc.ng/collection/css-layout/fixed-at-side) on the [CSS Layout](https://phuoc.ng/collection/css-layout) collection.
+> The post doesn't mention how to add a navigation fixed on the left (or right) of the page. You can see a simple way to [create a fixed navigation](https://phuoc.ng/collection/css-layout/fixed-at-side/) on the [CSS Layout](https://phuoc.ng/collection/css-layout) collection.
 
 The navigation consists of some `a` elements:
 
@@ -45,7 +45,7 @@ triggers.forEach(function (ele) {
 });
 ```
 
-The `clickHandler` function handles the `click` event of a navigation element. It determintes the target section based on the `href` attribute. Notice that we will scroll to the target section ourselves, hence the [default action](https://phuoc.ng/collection/html-dom/prevent-the-default-action-of-an-event) will be ignored:
+The `clickHandler` function handles the `click` event of a navigation element. It determintes the target section based on the `href` attribute. Notice that we will scroll to the target section ourselves, hence the [default action](https://phuoc.ng/collection/html-dom/prevent-the-default-action-of-an-event/) will be ignored:
 
 ```js
 const clickHandler = function (e) {
@@ -151,7 +151,7 @@ if (time < duration) {
 
 Currently, we move to the target equally per millisecond. We move the same distance every milliseconds.
 
-If you want, you can replace the current linear movement with other [easing functions](https://phuoc.ng/collection/1-loc/easing-functions). Look at [this website](https://easings.net) to imagine how each easing produces different animations.
+If you want, you can replace the current linear movement with other [easing functions](https://phuoc.ng/collection/1-loc/easing-functions/). Look at [this website](https://easings.net) to imagine how each easing produces different animations.
 
 The code below uses the `easeInQuad` animation:
 
@@ -303,5 +303,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
 ## See also
 
--   [Scroll to an element](https://phuoc.ng/collection/html-dom/scroll-to-an-element)
--   [Scroll to top of the page](https://phuoc.ng/collection/html-dom/scroll-to-top-of-the-page)
+-   [Scroll to an element](https://phuoc.ng/collection/html-dom/scroll-to-an-element/)
+-   [Scroll to top of the page](https://phuoc.ng/collection/html-dom/scroll-to-top-of-the-page/)

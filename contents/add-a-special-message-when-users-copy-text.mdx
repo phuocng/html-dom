@@ -47,7 +47,7 @@ Within the event listener, we can modify the data that gets copied to the clipbo
 
 Unfortunately, the selected text cannot be obtained using the `clipboardData.getData()` function. It's only available when we handle the other events such as _paste_.
 
-Fortunately, there's another way to [get the selected text](https://phuoc.ng/collection/html-dom/get-the-selected-text): by using the selection API. By calling `window.getSelection().toString()`, we can retrieve the exact text that the user has selected.
+Fortunately, there's another way to [get the selected text](https://phuoc.ng/collection/html-dom/get-the-selected-text/): by using the selection API. By calling `window.getSelection().toString()`, we can retrieve the exact text that the user has selected.
 
 The copy event handler could look like this:
 
@@ -73,7 +73,7 @@ But, here's the important part: make sure to prevent the default behavior of the
 e.preventDefault();
 ```
 
-Apart from using clipboard APIs, there is another way to save text to the clipboard. Check out this [post](https://phuoc.ng/collection/html-dom/copy-text-to-the-clipboard) for more details.
+Apart from using clipboard APIs, there is another way to save text to the clipboard. Check out this [post](https://phuoc.ng/collection/html-dom/copy-text-to-the-clipboard/) for more details.
 
 Voila! With just a few lines of JavaScript DOM code, you can add a custom message to the text that users copy from your website.
 
@@ -118,6 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ## See also
 
--   [Copy highlighted code to the clipboard](https://phuoc.ng/collection/html-dom/copy-highlighted-code-to-the-clipboard)
--   [Copy text to the clipboard](https://phuoc.ng/collection/html-dom/copy-text-to-the-clipboard)
--   [Paste as plain text](https://phuoc.ng/collection/html-dom/paste-as-plain-text)
+-   [Copy highlighted code to the clipboard](https://phuoc.ng/collection/html-dom/copy-highlighted-code-to-the-clipboard/)
+-   [Copy text to the clipboard](https://phuoc.ng/collection/html-dom/copy-text-to-the-clipboard/)
+-   [Paste as plain text](https://phuoc.ng/collection/html-dom/paste-as-plain-text/)

@@ -18,7 +18,7 @@ This post illustrates a simple implementation. First of all, let's create an ele
 
 ## Prevent the default context menu from being displayed
 
-To do that, we just [prevent the default action](https://phuoc.ng/collection/html-dom/prevent-the-default-action-of-an-event) of the `contextmenu` event:
+To do that, we just [prevent the default action](https://phuoc.ng/collection/html-dom/prevent-the-default-action-of-an-event/) of the `contextmenu` event:
 
 ```js
 const ele = document.getElementById('element');
@@ -56,9 +56,9 @@ The `relative`, `absolute` and `hidden` classes are defined as following:
 
 > **Resource**
 >
-> This post doesn't tell how to build the menu. It's up to you but [CSS Layout](https://phuoc.ng/collection/css-layout/menu) is a nice resource to look at
+> This post doesn't tell how to build the menu. It's up to you but [CSS Layout](https://phuoc.ng/collection/css-layout/menu/) is a nice resource to look at
 
-It's the time to set the position for the menu. It can be calculated based on [the mouse position](https://phuoc.ng/collection/html-dom/calculate-the-mouse-position-relative-to-an-element):
+It's the time to set the position for the menu. It can be calculated based on [the mouse position](https://phuoc.ng/collection/html-dom/calculate-the-mouse-position-relative-to-an-element/):
 
 ```js
 ele.addEventListener('contextmenu', function (e) {
@@ -77,7 +77,7 @@ ele.addEventListener('contextmenu', function (e) {
 
 ## Close the menu when clicking outside
 
-We can handle the `click` event of `document`, and determine if user [clicks outside](https://phuoc.ng/collection/html-dom/detect-clicks-outside-of-an-element) of the menu:
+We can handle the `click` event of `document`, and determine if user [clicks outside](https://phuoc.ng/collection/html-dom/detect-clicks-outside-of-an-element/) of the menu:
 
 ```js
 ele.addEventListener('contextmenu', function(e) {
@@ -98,17 +98,17 @@ const documentClickHandler = function(e) {
 };
 ```
 
-The menu is hidden by [adding](https://phuoc.ng/collection/html-dom/add-or-remove-class-from-an-element) the `hidden` class.
+The menu is hidden by [adding](https://phuoc.ng/collection/html-dom/add-or-remove-class-from-an-element/) the `hidden` class.
 
-More importantly, the `click` event handler is also removed from `document` as we don't need to handle that when the menu is hidden. This technique is mentioned in the [Create one time event handler](https://phuoc.ng/collection/html-dom/create-one-time-event-handler) post.
+More importantly, the `click` event handler is also removed from `document` as we don't need to handle that when the menu is hidden. This technique is mentioned in the [Create one time event handler](https://phuoc.ng/collection/html-dom/create-one-time-event-handler/) post.
 
 > **Tip**
 >
-> This post uses the [Attach event handlers inside other handlers](https://phuoc.ng/collection/html-dom/attach-event-handlers-inside-other-handlers) tip
+> This post uses the [Attach event handlers inside other handlers](https://phuoc.ng/collection/html-dom/attach-event-handlers-inside-other-handlers/) tip
 
 ## Use case
 
--   [Show or hide table columns](https://phuoc.ng/collection/html-dom/show-or-hide-table-columns)
+-   [Show or hide table columns](https://phuoc.ng/collection/html-dom/show-or-hide-table-columns/)
 
 Finally, following is the demo you can play with!
 
@@ -214,11 +214,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 ## See also
 
--   [Add or remove class from an element](https://phuoc.ng/collection/html-dom/add-or-remove-class-from-an-element)
--   [Attach event handlers inside other handlers](https://phuoc.ng/collection/html-dom/attach-event-handlers-inside-other-handlers)
--   [Attach or detach an event handler](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler)
--   [Calculate the mouse position relative to an element](https://phuoc.ng/collection/html-dom/calculate-the-mouse-position-relative-to-an-element)
--   [Create one time event handler](https://phuoc.ng/collection/html-dom/create-one-time-event-handler)
--   [Prevent the default action of an event](https://phuoc.ng/collection/html-dom/prevent-the-default-action-of-an-event)
--   [Set css style for an element](https://phuoc.ng/collection/html-dom/set-css-style-for-an-element)
--   [Show or hide table columns](https://phuoc.ng/collection/html-dom/show-or-hide-table-columns)
+-   [Add or remove class from an element](https://phuoc.ng/collection/html-dom/add-or-remove-class-from-an-element/)
+-   [Attach event handlers inside other handlers](https://phuoc.ng/collection/html-dom/attach-event-handlers-inside-other-handlers/)
+-   [Attach or detach an event handler](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler/)
+-   [Calculate the mouse position relative to an element](https://phuoc.ng/collection/html-dom/calculate-the-mouse-position-relative-to-an-element/)
+-   [Create one time event handler](https://phuoc.ng/collection/html-dom/create-one-time-event-handler/)
+-   [Prevent the default action of an event](https://phuoc.ng/collection/html-dom/prevent-the-default-action-of-an-event/)
+-   [Set css style for an element](https://phuoc.ng/collection/html-dom/set-css-style-for-an-element/)
+-   [Show or hide table columns](https://phuoc.ng/collection/html-dom/show-or-hide-table-columns/)

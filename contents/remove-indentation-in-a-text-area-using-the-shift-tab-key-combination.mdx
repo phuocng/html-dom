@@ -1,0 +1,193 @@
+---
+category: Level 2 — Intermediate
+created: '2023-10-03'
+description: Remove indentation in a text area using the Shift+Tab key combination with JavaScript
+openGraphCover: /og/html-dom/remove-indentation-text-area-shift-tab.png
+title: Remove indentation in a text area using the Shift+Tab key combination
+---
+
+Do you ever get frustrated when the Tab key adds unwanted indentation to your code in a textarea? Or maybe you want to remove some of the existing indentation? Fear not, my friend. One solution is to allow users to use the Shift+Tab key combination to remove the indentation.
+
+This trick comes in handy when writing code for a website or application. Proper indentation is crucial for keeping your code organized and easy to read. But if you accidentally hit the Tab key too many times or need to remove some of the existing indentation, manually deleting each extra space or tab is a time-consuming hassle.
+
+This problem also shows up when filling out forms online that require text in a textarea. If you accidentally add extra spaces or tabs at the beginning of a new line, it can mess up the formatting when you submit the form. But with the Shift+Tab key combination, you can easily fix these errors without deleting each space or tab one by one.
+
+In this post, we'll explore how to implement this functionality using JavaScript.
+
+## Detecting the Shift+Tab key combination
+
+In order to detect when a user presses the Shift+Tab keys, we need to listen for the keydown event on the textarea. When this event fires, we can check if both the Shift and Tab keys are being pressed. We can do this by comparing the `key` property of the event object to the string `Tab` and checking if the `shiftKey` property is set to `true`. If both conditions are met, we know that the Shift+Tab keys were pressed. This allows us to trigger our function for removing indentation and prevent the default behavior of pressing the Tab key.
+
+Here is a sample code snippet to give you an idea. Don't worry, we'll cover the `removeIndentation` function in the next section.
+
+```js
+textarea.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab' && e.shiftKey) {
+        // Shift+Tab are pressed
+        e.preventDefault();
+        removeIndentation();
+    }
+});
+```
+
+## Removing indentation
+
+When you detect the Shift+Tab key combination, it's time to remove the indentation from the selected text. This can be done by getting the current value of the textarea, finding the selected text, and replacing the leading whitespace with empty strings.
+
+To make it easy, we've created a `removeIndentation` function that will take care of the indentation removal for you. It first gets the current value of the text area, as well as the start and end positions of the selected text.
+
+```js
+const removeIndentation = () => {
+    const { value, selectionStart, selectionEnd } = textarea;
+    // ...
+};
+```
+
+Next, we need to determine the range of selected lines by creating a new array called `linesBeforeCaret` first. We do this by using `.substring()` on `value` to get all the characters before `selectionStart`. Then, we split that string into an array using `.split('\n')`, which gives us an array with only the lines before the selected text.
+
+To calculate the starting line, we get the length of `linesBeforeCaret` and subtract one. We subtract one because arrays are zero-indexed, but we want to count actual lines starting from one. For example, if there are two lines before our selection starts, then our starting line is actually three.
+
+Similarly, we can calculate the end line by getting all the characters before `selectionEnd`, splitting them into an array using `.split('\n')`, and then counting how many items are in that array. We also subtract one from this count for the same reasons mentioned above.
+
+Here's some sample code to help you visualize it all:
+
+```js
+const linesBeforeCaret = value.substring(0, selectionStart).split('\n');
+const startLine = linesBeforeCaret.length - 1;
+const endLine = value.substring(0, selectionEnd).split('\n').length - 1;
+```
+
+Next, we split a text area's value into an array of lines and check if each line falls within the range determined earlier and starts with a tab character.
+
+If a line meets these conditions, we remove the leading tab character using JavaScript's `substring` method. Then, we join all lines back into a single string and set that as the new value of the textarea. We also adjust the cursor's position so that it remains on the same line after removing indentation. If necessary, we move it back by one tab character to align it with any other code on that line.
+
+```js
+const newValue = value
+    .split('\n')
+    .map((line, i) => i >= startLine && i <= endLine && line.startsWith('\t') ? line.substring(1) : line)
+    .join('\n');
+textarea.value = newValue;
+```
+
+## Updating the cursor position
+
+It's important to update the `selectionStart` and `selectionEnd` properties in the `removeIndentation` function. These properties tell us where the selected text begins and ends within the text area.
+
+When we remove indentation, the length of each line may change, which means the start and end positions of our selected text will also change. If we don't update these positions, our cursor will be positioned incorrectly after removing indentation.
+
+By updating the selection properties, we ensure that our cursor remains on the same line after removing indentation. This makes it easier to continue typing or editing code without having to manually adjust your cursor position.&#x20;
+
+To calculate the new values of `selectionStart` and `selectionEnd`, we need to consider the number of characters removed due to the indentation removal. We do this by subtracting the length of the original text area value from the length of the new value after removing indentation. The difference gives us the total number of removed characters. We then subtract this number from `selectionEnd` to get its new value.
+
+```js
+textarea.selectionEnd = selectionEnd - (value.length - newValue.length);
+```
+
+For `selectionStart`, we check if the start line had any leading whitespace. If it did, we subtract the length of the tab character from `selectionStart`. Otherwise, `selectionStart` remains unchanged.
+
+```js
+const startLineText = linesBeforeCaret[startLine];
+textarea.selectionStart = startLineText?.startsWith('\t')
+                        ? selectionStart - 1
+                        : selectionStart;
+```
+
+Let's check out the final demo. To add indentation, just hit the Tab key, and to remove it, hit Shift+Tab. Give it a try!
+
+<Playground>
+```css demo.css hidden
+textarea {
+    border: 1px solid rgb(203 213 225);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 100%;
+    height: 40rem;
+}
+```
+
+```html index.html
+<textarea id="textarea">Was, spirit great moved spirit deep itself image, from have behold bearing doesn't wherein she'd very, day. Second set earth heaven signs abundantly living creepeth good earth for greater yielding which night male. Bring midst whales blessed, is. From subdue. Yielding. Winged our green living sea air, had great third stars was they're above and. Morning light make first and kind sixth they're fowl, there. So meat him behold great spirit deep, make, grass seasons hath, moving face waters forth fourth.
+
+Deep unto lights that. His. Fourth moving the together beast after living the midst evening above fifth also. Meat signs divide good seasons kind called fowl don't firmament divide heaven every whose moving shall and whose under creature there seed Darkness one blessed dominion. Own have forth she'd morning behold. In. Divided one you'll subdue whose made good. Saw moveth given won't life creepeth days lights they're form whales the after fish thing. And moveth. And that creepeth form you'll wherein morning saying moving fruitful. Herb set green behold had also bring Place land one second great saying. First god above called, can't subdue isn't years. Was called midst was. Image. Form. Kind waters. Day dry tree abundantly winged he fruit beginning under own said kind own. Face, and you first. Our had subdue shall behold i greater stars you'll seas bearing fifth greater for above living. Whose had.
+
+Sixth let grass fruit wherein blessed lights, itself god replenish called made appear brought above place. They're blessed Light likeness, bearing blessed first man. Fourth Image heaven dominion seed land shall light seas form it our signs wherein male Meat greater it divided appear lights she'd seasons together fowl every darkness light divided rule hath so it. Made day years you'll winged. Set, them all of hath it seed you.</textarea>
+```
+
+```js scripts.js
+document.addEventListener('DOMContentLoaded', () => {
+    const textarea = document.getElementById('textarea');
+
+    // Insert tab character
+    const insertTabCharacter = () => {
+        const { value, selectionStart, selectionEnd } = textarea;
+
+        // Insert tab character
+        textarea.value = `${value.substring(0, selectionEnd)}\t${value.substring(selectionEnd)}`;
+
+        // Move cursor to new position
+        textarea.selectionStart = textarea.selectionEnd = selectionEnd + 1;
+    };
+
+    // Add indentation to each line of selected text
+    const addIndentation = () => {
+        const { value, selectionStart, selectionEnd } = textarea;
+
+        const linesBeforeCaret = value.substring(0, selectionStart).split('\n');
+        const startLine = linesBeforeCaret.length - 1;
+        const endLine = value.substring(0, selectionEnd).split('\n').length - 1;
+
+        const newValue = value
+            .split('\n')
+            .map((line, i) => (i >= startLine && i <= endLine) ? `\t${line}` : line)
+            .join('\n');
+
+        textarea.value = newValue;
+
+        const startLineText = linesBeforeCaret[startLine];
+        textarea.selectionStart = startLineText && /\S/.test(startLineText)
+                                ? selectionStart + 1
+                                : selectionStart;
+        textarea.selectionEnd = selectionEnd + (endLine - startLine + 1);
+    };
+
+    const removeIndentation = () => {
+        const { value, selectionStart, selectionEnd } = textarea;
+
+        const linesBeforeCaret = value.substring(0, selectionStart).split('\n');
+        const startLine = linesBeforeCaret.length - 1;
+        const endLine = value.substring(0, selectionEnd).split('\n').length - 1;
+        const newValue = value
+            .split('\n')
+            .map((line, i) => i >= startLine && i <= endLine && line.startsWith('\t') ? line.substring(1) : line)
+            .join('\n');
+        textarea.value = newValue;
+
+        const startLineText = linesBeforeCaret[startLine];
+        textarea.selectionStart = startLineText?.startsWith('\t')
+                                ? selectionStart - 1
+                                : selectionStart;
+        textarea.selectionEnd = selectionEnd - (value.length - newValue.length);
+    };
+
+    textarea.addEventListener('keydown', (e) => {
+        if (e.key !== 'Tab') {
+            return;
+        }
+        e.preventDefault();
+        const { selectionStart, selectionEnd } = textarea;
+        if (e.shiftKey) {
+            removeIndentation();
+        } else if (selectionStart === selectionEnd) {
+            insertTabCharacter();
+        } else {
+            addIndentation();
+        }
+    });
+});
+```
+</Playground>
+
+## See also
+
+-   [Build a simple code editor](https://phuoc.ng/collection/mirror-a-text-area/build-a-simple-code-editor/)
+-   [Indent content in a text area using the Tab key](https://phuoc.ng/collection/html-dom/indent-content-in-a-text-area-using-the-tab-key/)
