@@ -15,7 +15,7 @@ Assume that we want to sort any column of the following table:
 
 ## Sort rows
 
-First of all, we [query](https://phuoc.ng/collection/html-dom/select-an-element-or-list-of-elements) all the headers, [loop over](https://phuoc.ng/collection/html-dom/loop-over-a-nodelist) them and [attach an event handler](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler) for the `click` event to each of them:
+First of all, we [query](https://phuoc.ng/collection/html-dom/select-an-element-or-list-of-elements/) all the headers, [loop over](https://phuoc.ng/collection/html-dom/loop-over-a-nodelist/) them and [attach an event handler](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler/) for the `click` event to each of them:
 
 ```js
 // Query the table
@@ -36,8 +36,8 @@ const headers = table.querySelectorAll('th');
 The `sortColumn(index)` function mentioned above will sort all rows by given column `index`. To do so:
 
 -   We can use the `Array`'s `sort()` method to sort the current rows
--   Then, [remove](https://phuoc.ng/collection/html-dom/remove-an-element) all the current rows
--   And [append](https://phuoc.ng/collection/html-dom/append-to-an-element) the sorted rows
+-   Then, [remove](https://phuoc.ng/collection/html-dom/remove-an-element/) all the current rows
+-   And [append](https://phuoc.ng/collection/html-dom/append-to-an-element/) the sorted rows
 
 ```js
 // Query all rows
@@ -76,7 +76,7 @@ const sortColumn = function (index) {
 };
 ```
 
-As you see, an array provides a built-in `sort` method which accepts a function to compare two items. In our case, two cells of the column are compared based on its [HTML content](https://phuoc.ng/collection/html-dom/get-or-set-the-html-of-an-element):
+As you see, an array provides a built-in `sort` method which accepts a function to compare two items. In our case, two cells of the column are compared based on its [HTML content](https://phuoc.ng/collection/html-dom/get-or-set-the-html-of-an-element/):
 
 ```js
 newRows.sort(function(rowA, rowB) {
@@ -359,10 +359,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 ## See also
 
--   [Append to an element](https://phuoc.ng/collection/html-dom/append-to-an-element)
--   [Attach or detach an event handler](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler)
--   [Get or set the html of an element](https://phuoc.ng/collection/html-dom/get-or-set-the-html-of-an-element)
--   [Get set and remove data attributes](https://phuoc.ng/collection/html-dom/get-set-and-remove-data-attributes)
--   [Loop over a nodelist](https://phuoc.ng/collection/html-dom/loop-over-a-nodelist)
--   [Remove an element](https://phuoc.ng/collection/html-dom/remove-an-element)
--   [Select an element or list of elements](https://phuoc.ng/collection/html-dom/select-an-element-or-list-of-elements)
+-   [Append to an element](https://phuoc.ng/collection/html-dom/append-to-an-element/)
+-   [Attach or detach an event handler](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler/)
+-   [Get or set the html of an element](https://phuoc.ng/collection/html-dom/get-or-set-the-html-of-an-element/)
+-   [Get set and remove data attributes](https://phuoc.ng/collection/html-dom/get-set-and-remove-data-attributes/)
+-   [Loop over a nodelist](https://phuoc.ng/collection/html-dom/loop-over-a-nodelist/)
+-   [Remove an element](https://phuoc.ng/collection/html-dom/remove-an-element/)
+-   [Select an element or list of elements](https://phuoc.ng/collection/html-dom/select-an-element-or-list-of-elements/)

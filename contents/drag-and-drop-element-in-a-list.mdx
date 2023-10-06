@@ -31,7 +31,7 @@ Each item has class of `draggable` indicating that user can drag it:
 
 ## Make items draggable
 
-By using the similar approach mentioned in the [_Make a draggable element_](https://phuoc.ng/collection/html-dom/make-a-draggable-element) post, we can turn each item into a draggable element:
+By using the similar approach mentioned in the [_Make a draggable element_](https://phuoc.ng/collection/html-dom/make-a-draggable-element/) post, we can turn each item into a draggable element:
 
 ```js
 // The current dragging item
@@ -81,7 +81,7 @@ const mouseUpHandler = function () {
 };
 ```
 
-Now we can attach the `mousedown` event to each item by [looping over](https://phuoc.ng/collection/html-dom/loop-over-a-nodelist) the list of items:
+Now we can attach the `mousedown` event to each item by [looping over](https://phuoc.ng/collection/html-dom/loop-over-a-nodelist/) the list of items:
 
 ```js
 // Query the list element
@@ -102,7 +102,7 @@ A B C D E
 ```
 
 When we drag an item, `C` for example, the next item (`D`) will move up to the top and takes the area of the dragging element (`C`).
-To fix that, we create a dynamic placeholder element and [insert it](https://phuoc.ng/collection/html-dom/insert-an-element-after-or-before-other-element) right before the dragging element.
+To fix that, we create a dynamic placeholder element and [insert it](https://phuoc.ng/collection/html-dom/insert-an-element-after-or-before-other-element/) right before the dragging element.
 The height of placeholder must be the same as dragging element.
 
 The placeholder is created once during the mouse moving, so we add a new flag `isDraggingStarted` to track it:
@@ -135,7 +135,7 @@ const mouseMoveHandler = function(e) {
 }
 ```
 
-The placeholder will be [removed](https://phuoc.ng/collection/html-dom/remove-an-element) as soon as the users drop the item:
+The placeholder will be [removed](https://phuoc.ng/collection/html-dom/remove-an-element/) as soon as the users drop the item:
 
 ```js
 const mouseUpHandler = function() {
@@ -171,7 +171,7 @@ const isAbove = function (nodeA, nodeB) {
 };
 ```
 
-As user moves the item around, we define the previous and next [sibling items](https://phuoc.ng/collection/html-dom/get-siblings-of-an-element):
+As user moves the item around, we define the previous and next [sibling items](https://phuoc.ng/collection/html-dom/get-siblings-of-an-element/):
 
 ```js
 const mouseMoveHandler = function (e) {
@@ -222,7 +222,7 @@ const mouseMoveHandler = function(e) {
 };
 ```
 
-Here, `swap` is a small function for [swapping two nodes](https://phuoc.ng/collection/html-dom/swap-two-nodes):
+Here, `swap` is a small function for [swapping two nodes](https://phuoc.ng/collection/html-dom/swap-two-nodes/):
 
 ```js
 const swap = function (nodeA, nodeB) {
@@ -405,17 +405,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
 ## See also
 
--   [Add or remove class from an element](https://phuoc.ng/collection/html-dom/add-or-remove-class-from-an-element)
--   [Attach or detach an event handler](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler)
--   [Calculate the mouse position relative to an element](https://phuoc.ng/collection/html-dom/calculate-the-mouse-position-relative-to-an-element)
--   [Create an element](https://phuoc.ng/collection/html-dom/create-an-element)
--   [Drag and drop table column](https://phuoc.ng/collection/html-dom/drag-and-drop-table-column)
--   [Drag and drop table row](https://phuoc.ng/collection/html-dom/drag-and-drop-table-row)
--   [Drag to scroll](https://phuoc.ng/collection/html-dom/drag-to-scroll)
--   [Get siblings of an element](https://phuoc.ng/collection/html-dom/get-siblings-of-an-element)
--   [Insert an element after or before other element](https://phuoc.ng/collection/html-dom/insert-an-element-after-or-before-other-element)
--   [Loop over a nodelist](https://phuoc.ng/collection/html-dom/loop-over-a-nodelist)
--   [Make a draggable element](https://phuoc.ng/collection/html-dom/make-a-draggable-element)
--   [Remove an element](https://phuoc.ng/collection/html-dom/remove-an-element)
--   [Select an element or list of elements](https://phuoc.ng/collection/html-dom/select-an-element-or-list-of-elements)
--   [Set css style for an element](https://phuoc.ng/collection/html-dom/set-css-style-for-an-element)
+-   [Add or remove class from an element](https://phuoc.ng/collection/html-dom/add-or-remove-class-from-an-element/)
+-   [Attach or detach an event handler](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler/)
+-   [Calculate the mouse position relative to an element](https://phuoc.ng/collection/html-dom/calculate-the-mouse-position-relative-to-an-element/)
+-   [Create an element](https://phuoc.ng/collection/html-dom/create-an-element/)
+-   [Drag and drop table column](https://phuoc.ng/collection/html-dom/drag-and-drop-table-column/)
+-   [Drag and drop table row](https://phuoc.ng/collection/html-dom/drag-and-drop-table-row/)
+-   [Drag to scroll](https://phuoc.ng/collection/html-dom/drag-to-scroll/)
+-   [Get siblings of an element](https://phuoc.ng/collection/html-dom/get-siblings-of-an-element/)
+-   [Insert an element after or before other element](https://phuoc.ng/collection/html-dom/insert-an-element-after-or-before-other-element/)
+-   [Loop over a nodelist](https://phuoc.ng/collection/html-dom/loop-over-a-nodelist/)
+-   [Make a draggable element](https://phuoc.ng/collection/html-dom/make-a-draggable-element/)
+-   [Remove an element](https://phuoc.ng/collection/html-dom/remove-an-element/)
+-   [Select an element or list of elements](https://phuoc.ng/collection/html-dom/select-an-element-or-list-of-elements/)
+-   [Set css style for an element](https://phuoc.ng/collection/html-dom/set-css-style-for-an-element/)

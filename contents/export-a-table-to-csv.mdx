@@ -18,9 +18,9 @@ Assume that we have a `table` element and a `button` for exporting the table cel
 
 ## Export the table cells to CSV
 
-The function below exports all the cells of `table` to CSV format. First, we [select](https://phuoc.ng/collection/html-dom/select-an-element-or-list-of-elements) all the rows, [loop](https://phuoc.ng/collection/html-dom/loop-over-a-nodelist) over them and export each row to CSV.
+The function below exports all the cells of `table` to CSV format. First, we [select](https://phuoc.ng/collection/html-dom/select-an-element-or-list-of-elements/) all the rows, [loop](https://phuoc.ng/collection/html-dom/loop-over-a-nodelist/) over them and export each row to CSV.
 
-In each row, we go through all cells, and retrive their [text content](https://phuoc.ng/collection/html-dom/get-the-text-content-of-an-element).
+In each row, we go through all cells, and retrive their [text content](https://phuoc.ng/collection/html-dom/get-the-text-content-of-an-element/).
 
 ```js
 const toCsv = function (table) {
@@ -46,7 +46,7 @@ const toCsv = function (table) {
 ## Download the CSV
 
 The function below creates a fake `a` element whose content is `text` and triggers the `click` event.
-For more information, you can visit the [Download a file](https://phuoc.ng/collection/html-dom/download-a-file) post.
+For more information, you can visit the [Download a file](https://phuoc.ng/collection/html-dom/download-a-file/) post.
 
 ```js
 const download = function (text, fileName) {
@@ -63,7 +63,7 @@ const download = function (text, fileName) {
 };
 ```
 
-The last thing is to connect all pieces together. We just need to [handle](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler) the `click` event of the _Export_ button:
+The last thing is to connect all pieces together. We just need to [handle](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler/) the `click` event of the _Export_ button:
 
 ```js
 const table = document.getElementById('exportMe');
@@ -222,8 +222,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 ## See also
 
--   [Attach or detach an event handler](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler)
--   [Download a file](https://phuoc.ng/collection/html-dom/download-a-file)
--   [Get the text content of an element](https://phuoc.ng/collection/html-dom/get-the-text-content-of-an-element)
--   [Loop over a nodelist](https://phuoc.ng/collection/html-dom/loop-over-a-nodelist)
--   [Select an element or list of elements](https://phuoc.ng/collection/html-dom/select-an-element-or-list-of-elements)
+-   [Attach or detach an event handler](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler/)
+-   [Download a file](https://phuoc.ng/collection/html-dom/download-a-file/)
+-   [Get the text content of an element](https://phuoc.ng/collection/html-dom/get-the-text-content-of-an-element/)
+-   [Loop over a nodelist](https://phuoc.ng/collection/html-dom/loop-over-a-nodelist/)
+-   [Select an element or list of elements](https://phuoc.ng/collection/html-dom/select-an-element-or-list-of-elements/)

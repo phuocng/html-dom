@@ -41,7 +41,7 @@ ele.scrollLeft = 150;
 
 ## Drag to scroll
 
-The implementation is quite straightforward. By using the similar technique in the [Make a draggable element](https://phuoc.ng/collection/html-dom/make-a-draggable-element) post, we start with handling the `mousedown` event which occurs when user clicks the element:
+The implementation is quite straightforward. By using the similar technique in the [Make a draggable element](https://phuoc.ng/collection/html-dom/make-a-draggable-element/) post, we start with handling the `mousedown` event which occurs when user clicks the element:
 
 ```js
 let pos = { top: 0, left: 0, x: 0, y: 0 };
@@ -63,7 +63,7 @@ const mouseDownHandler = function (e) {
 
 > **Tip**
 >
-> This post uses the [Attach event handlers inside other handlers](https://phuoc.ng/collection/html-dom/attach-event-handlers-inside-other-handlers) tip
+> This post uses the [Attach event handlers inside other handlers](https://phuoc.ng/collection/html-dom/attach-event-handlers-inside-other-handlers/) tip
 
 `pos` stores the current scroll and mouse positions. When user moves the mouse, we calculate how far it has been moved, and then scroll to the element to the same position:
 
@@ -84,7 +84,7 @@ const mouseMoveHandler = function (e) {
 > As you see above, the `left`, `top`, `x`, and `y` properties are related to each other.
 > It's better to encapsulate them in a single variable `pos` instead of creating four variables.
 
-Last but not least, we can improve the user experience by [setting](https://phuoc.ng/collection/html-dom/set-css-style-for-an-element) some CSS properties when user starts moving the mouse:
+Last but not least, we can improve the user experience by [setting](https://phuoc.ng/collection/html-dom/set-css-style-for-an-element/) some CSS properties when user starts moving the mouse:
 
 ```js
 const mouseDownHandler = function(e) {
@@ -109,7 +109,7 @@ const mouseUpHandler = function () {
 
 ## Use cases
 
--   [Create a custom scrollbar](https://phuoc.ng/collection/html-dom/create-a-custom-scrollbar)
+-   [Create a custom scrollbar](https://phuoc.ng/collection/html-dom/create-a-custom-scrollbar/)
 
 Hopefully you love the following demo!
 
@@ -196,17 +196,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
 ## See also
 
--   [Attach or detach an event handler](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler)
--   [Calculate the mouse position relative to an element](https://phuoc.ng/collection/html-dom/calculate-the-mouse-position-relative-to-an-element)
--   [Create a range slider](https://phuoc.ng/collection/html-dom/create-a-range-slider)
--   [Create an image comparison slider](https://phuoc.ng/collection/html-dom/create-an-image-comparison-slider)
--   [Create resizable split views](https://phuoc.ng/collection/html-dom/create-resizable-split-views)
--   [Drag and drop element in a list](https://phuoc.ng/collection/html-dom/drag-and-drop-element-in-a-list)
--   [Drag and drop table column](https://phuoc.ng/collection/html-dom/drag-and-drop-table-column)
--   [Drag and drop table row](https://phuoc.ng/collection/html-dom/drag-and-drop-table-row)
--   [Make a draggable element](https://phuoc.ng/collection/html-dom/make-a-draggable-element)
--   [Make a resizable element](https://phuoc.ng/collection/html-dom/make-a-resizable-element)
--   [Resize columns of a table](https://phuoc.ng/collection/html-dom/resize-columns-of-a-table)
--   [Set css style for an element](https://phuoc.ng/collection/html-dom/set-css-style-for-an-element)
--   [Show a ghost element when dragging an element](https://phuoc.ng/collection/html-dom/show-a-ghost-element-when-dragging-an-element)
--   [Zoom an image](https://phuoc.ng/collection/html-dom/zoom-an-image)
+-   [Attach or detach an event handler](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler/)
+-   [Calculate the mouse position relative to an element](https://phuoc.ng/collection/html-dom/calculate-the-mouse-position-relative-to-an-element/)
+-   [Create a range slider](https://phuoc.ng/collection/html-dom/create-a-range-slider/)
+-   [Create an image comparison slider](https://phuoc.ng/collection/html-dom/create-an-image-comparison-slider/)
+-   [Create resizable split views](https://phuoc.ng/collection/html-dom/create-resizable-split-views/)
+-   [Drag and drop element in a list](https://phuoc.ng/collection/html-dom/drag-and-drop-element-in-a-list/)
+-   [Drag and drop table column](https://phuoc.ng/collection/html-dom/drag-and-drop-table-column/)
+-   [Drag and drop table row](https://phuoc.ng/collection/html-dom/drag-and-drop-table-row/)
+-   [Make a draggable element](https://phuoc.ng/collection/html-dom/make-a-draggable-element/)
+-   [Make a resizable element](https://phuoc.ng/collection/html-dom/make-a-resizable-element/)
+-   [Resize columns of a table](https://phuoc.ng/collection/html-dom/resize-columns-of-a-table/)
+-   [Set css style for an element](https://phuoc.ng/collection/html-dom/set-css-style-for-an-element/)
+-   [Show a ghost element when dragging an element](https://phuoc.ng/collection/html-dom/show-a-ghost-element-when-dragging-an-element/)
+-   [Zoom an image](https://phuoc.ng/collection/html-dom/zoom-an-image/)

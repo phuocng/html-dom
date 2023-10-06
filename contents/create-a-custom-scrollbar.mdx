@@ -75,7 +75,7 @@ It's easy to hide the default scrollbar by using a negative margin:
 
 In this step, we'll create an element representing the fake scrollbar. It'll be positioned at the right side of the wrapper, and has the same height as wrapper.
 
-To do so, we will use the third approach mentioned in the [Position an element absolutely to another element](https://phuoc.ng/collection/html-dom/position-an-element-absolutely-to-another-element) post:
+To do so, we will use the third approach mentioned in the [Position an element absolutely to another element](https://phuoc.ng/collection/html-dom/position-an-element-absolutely-to-another-element/) post:
 
 ```html
 <div id="wrapper">...</div>
@@ -148,7 +148,7 @@ These parts are positioned absolutely to the scrollbar, therefore they have the 
 }
 ```
 
-Initially, the thumb's height is calculated based on the ratio between normal and scroll [heights](https://phuoc.ng/collection/html-dom/determine-the-height-and-width-of-an-element) of the content element:
+Initially, the thumb's height is calculated based on the ratio between normal and scroll [heights](https://phuoc.ng/collection/html-dom/determine-the-height-and-width-of-an-element/) of the content element:
 
 ```js
 // Query element
@@ -161,7 +161,7 @@ thumb.style.height = `${scrollRatio * 100}%`;
 
 ## Drag the thumb to scroll
 
-Please visit the [Drag to scroll](https://phuoc.ng/collection/html-dom/drag-to-scroll) post to see the details. Below is the implementation in our use case:
+Please visit the [Drag to scroll](https://phuoc.ng/collection/html-dom/drag-to-scroll/) post to see the details. Below is the implementation in our use case:
 
 ```js
 let pos = { top: 0, y: 0 };
@@ -403,7 +403,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 ## See also
 
--   [Attach or detach an event handler](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler)
--   [Determine the height and width of an element](https://phuoc.ng/collection/html-dom/determine-the-height-and-width-of-an-element)
--   [Drag to scroll](https://phuoc.ng/collection/html-dom/drag-to-scroll)
--   [Position an element absolutely to another element](https://phuoc.ng/collection/html-dom/position-an-element-absolutely-to-another-element)
+-   [Attach or detach an event handler](https://phuoc.ng/collection/html-dom/attach-or-detach-an-event-handler/)
+-   [Determine the height and width of an element](https://phuoc.ng/collection/html-dom/determine-the-height-and-width-of-an-element/)
+-   [Drag to scroll](https://phuoc.ng/collection/html-dom/drag-to-scroll/)
+-   [Position an element absolutely to another element](https://phuoc.ng/collection/html-dom/position-an-element-absolutely-to-another-element/)
