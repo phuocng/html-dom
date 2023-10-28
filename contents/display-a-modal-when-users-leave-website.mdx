@@ -89,7 +89,7 @@ Before showing the modal, we check for the existence of this cookie using the `d
 
 Here's an example implementation for you to try out:
 
-```javascript
+```js
 const hasModalShown = () => {
     const cookie = `; ${document.cookie}`.split(`; ${COOKIE_NAME}=`).pop().split(';').shift();
     return cookie === 'true';
@@ -98,7 +98,7 @@ const hasModalShown = () => {
 
 The `mouseleave` event handler should check both the mouse position and whether the modal has been displayed properly.
 
-```javascript
+```js
 const handleMouseLeave = (e) => {
     if (e.clientY < 10 && !hasModalShown()) {
         // Show the modal ...

@@ -1,0 +1,84 @@
+---
+category: Level 1 — Basic
+created: '2023-10-17'
+description: Change the favicon dynamically based on user's color scheme preference
+openGraphCover: /og/html-dom/change-favicon-dynamically-user-color-scheme-preference.png
+tags: color scheme preference, favicon
+title: Change the favicon dynamically based on user's color scheme preference
+---
+
+Favicons are small icons that help users identify your website in their browser tabs and bookmarks. Changing the favicon dynamically can add a personal touch to the user's browsing experience.
+
+Big websites like Twitter, Reddit, and GitHub have started using dynamic favicons based on user preferences. For example, Twitter changes its favicon to a blue bird for light mode and a white bird for dark mode. Reddit changes its favicon to black for dark mode and orange for light mode. GitHub changes its favicon from a black octocat to a white one based on the user's preference.
+
+These examples show how dynamic favicons can make browsing more personal and help users easily find their favorite websites.
+
+In this post, we'll explore how to change your favicon dynamically based on the user's color scheme preference.
+
+## Adding a favicon to your website
+
+Before we can dynamically change the favicon based on the user's color scheme preference, we need to first add a favicon to our website. This is easily done by adding an HTML `link` element in the head section of your HTML code.
+
+```html
+<head>
+    <link rel="icon" href="favicon.png">
+</head>
+```
+
+The `rel` attribute is used to indicate that the icon we're adding is a favicon, while the `href` attribute is where we specify the location of the favicon file. It's best to use either `.ico` or `.png` format for better browser compatibility, although other image formats are also acceptable.
+
+Once you've added this code to your website's HTML, your users will see your favicon in their browser tab and bookmarks. It's a small but important detail that helps make your website look more professional.
+
+## Dynamically changing favicon with JavaScript
+
+To dynamically change the favicon of your website based on the user's color scheme preference, we need to create two favicon images: one for light mode and one for dark mode. You can use any image editing software to create the images, just make sure the light mode favicon has a light background color and the dark mode favicon has a dark background color.
+
+Once you have both images, we can use JavaScript to detect the user's preference and change the favicon accordingly. Modern browsers support the `prefers-color-scheme` media query, which tells us whether the user prefers a light or dark color scheme.
+
+```js
+if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    // User prefers dark color scheme
+} else {
+    // User prefers light color scheme
+}
+```
+
+We can make a function that sets the `href` attribute of the favicon `link` element to the right image based on the user's color scheme preference.
+
+```js
+const setFavicon = () => {
+    const favicon = document.querySelector('link[rel="icon"]');
+    favicon.href = (window.matchMedia('(prefers-color-scheme: dark)').matches)
+                    ? 'dark-mode-favicon.png'
+                    : 'light-mode-favicon.png';
+};
+
+setFavicon();
+```
+
+We can use this function to update the user's color scheme preference whenever they make a change.
+
+```js
+window
+    .matchMedia('(prefers-color-scheme: dark)')
+    .addEventListener('change', setFavicon);
+```
+
+## Changing favicon dynamically using HTML link tags
+
+In addition to using a JavaScript-based solution as shown above, modern browsers provide a native way to change the favicon dynamically. By using different `link` tags in your HTML file, you can reference different favicons for light and dark modes. The best part? This approach doesn't require any JavaScript code.
+
+```html
+<link href="light-mode-favicon.png" rel="icon" media="(prefers-color-scheme: light)">
+<link href="dark-mode-favicon.png" rel="icon" media="(prefers-color-scheme: dark)">
+```
+
+To ensure our website looks great in both light and dark mode, we create two separate `link` tags for each favicon image. We set the `media` attribute to `(prefers-color-scheme: light)` for the light mode favicon and `(prefers-color-scheme: dark)` for the dark mode favicon.
+
+When someone visits our site, their browser will automatically choose the right favicon based on their color scheme preference. If they change their preference while on our site, they'll need to reload the page to see the new favicon.
+
+This approach is simple and doesn't require any extra code like JavaScript.
+
+## Conclusion
+
+Adding a personal touch to a user's browsing experience can be as simple as dynamically changing the favicon based on their color scheme preference. By detecting whether the user is in light mode or dark mode and creating two favicon images accordingly, we can provide a more seamless and enjoyable user experience. With the help of JavaScript, we can make this possible.
