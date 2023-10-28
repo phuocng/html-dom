@@ -168,7 +168,7 @@ inputs.forEach((input) => {
 
 Similarly, we want to bring the user back to the previous field when they press the left arrow or Backspace key. Just make sure to check if we aren't on the first field by comparing the index with 0.
 
-```javascript
+```js
 switch (e.key) {
     // ...
     case 'ArrowLeft':
@@ -183,7 +183,7 @@ switch (e.key) {
 
 How about making it easier to navigate the first and last fields? We can add support for the Home and End keys to accomplish this. We just need to include a few extra checks in our `switch case` statement.
 
-```javascript
+```js
 switch (e.key) {
     // ...
     case 'Home':

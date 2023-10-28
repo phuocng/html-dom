@@ -35,7 +35,7 @@ const contentEle = document.getElementById('content');
 
 Now it's time to handle the `copy` event, which occurs when the user copies the text.
 
-```javascript
+```js
 contentEle.addEventListener('copy', (e) => {
     // We will add a custom message here ...
 });
@@ -51,7 +51,7 @@ Fortunately, there's another way to [get the selected text](https://phuoc.ng/col
 
 The copy event handler could look like this:
 
-```javascript
+```js
 element.addEventListener('copy', (e) => {
     const clipboardData = e.clipboardData;
     const originalText = window.getSelection().toString();
