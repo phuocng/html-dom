@@ -1,0 +1,411 @@
+---
+category: Level 3 — Advanced
+created: '2023-12-17'
+description: Synchronize scroll positions between two elements in JavaScript
+openGraphCover: /og/html-dom/synchronize-scroll-positions-two-elements.png
+title: Synchronize scroll positions between two elements
+---
+
+Have you ever wished you could compare two elements on a web page and have them scroll simultaneously? Well, you're in luck! In this post, we'll discuss how to synchronize scroll positions using JavaScript. But first, let's explore some use cases for this feature.
+
+One example where synchronized scrolling is particularly useful is when comparing product specifications. Let's say you're designing a website that displays two products side by side. With synchronized scrolling, users can easily compare the features of both products without having to scroll each section separately.
+
+Another use case is with markdown editors. Markdown is a popular markup language used for creating formatted documents. One of the best features of a markdown editor is the ability to preview the formatted text while writing it. However, when working with long markdown documents, it can be challenging to navigate through them. By synchronizing the scroll positions between the markdown source and preview panes, you can easily see how your document will look as you write it.
+
+Synchronizing scroll positions is also extremely helpful when comparing code editors. If you're working on a project that requires comparing code, synchronizing the scroll positions between two editors allows you to see how changes made in one editor affect the other. This feature is especially useful when resolving conflicts between different Git commits.
+
+Similarly, when working on a side-by-side translation project, synchronizing scroll positions can save you time and effort. By having the source text in one pane and the target translation in another, you can easily compare the two without manually scrolling each pane separately.
+
+Overall, synchronizing scroll positions is a versatile feature that has many practical applications in web development and content creation. Whether you're comparing products, code, or translations, this feature can significantly improve your productivity and workflow.
+
+Now that we've explored some use cases for synchronized scrolling, let's dive into how to implement this feature using JavaScript.
+
+## HTML markup
+
+To begin, we need to establish the fundamental HTML structure. Picture two scrollable elements that sit within a container. This post will only demonstrate two elements, but keep in mind that this approach can function with multiple scrollable elements.
+
+```html
+<div class="container" id="container">
+    <div class="scrollable"></div>
+    <div class="scrollable"></div>
+</div>
+```
+
+To simplify things, we can use CSS flexbox to organize and evenly distribute the layout of our scrollable elements. By setting the container to `display: flex`, the available space will be equally shared between the child elements. This means that both scrollable elements inside the container will have the same width and height.
+
+To make the scrollable elements expand and fill up the available space in their parent container, we can set `flex: 1` on both elements. This ensures that both elements will have the same width, regardless of their content.
+
+```css
+.container {
+    display: flex;
+}
+.scrollable {
+    flex: 1;
+}
+```
+
+To enable scrolling in each element, we need to add the `overflow: auto;` property to its CSS declaration. Doing so will add a scrollbar to the element when its content overflows its dimensions. With this property set, users can scroll through the content of each scrollable element independently.
+
+```css
+.scrollable {
+    overflow: auto;
+}
+```
+
+## Adding some fake blocks
+
+To make it easier for users to see where they are on the page when they scroll, we're going to use JavaScript to add some visual cues. We'll randomly generate a number of blocks for each element.
+
+First, we'll select the container and the scrollable elements using their IDs and query selectors. Then, we'll use a function called `randomInteger` to generate a [random number](https://phuoc.ng/collection/1-loc/generate-a-random-integer-in-given-range/) of blocks for each element.
+
+```js
+const container = document.getElementById("container");
+const elements = [...container.querySelectorAll(".scrollable")];
+
+const randomInteger = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+```
+
+Next, we'll go through each `.scrollable` element and create a random number of blocks using the `randomInteger` function. We'll erase any existing content from the element by setting its `innerHTML` property to an empty string. Then, we'll make a new block element for each index from 0 to the random number of blocks we generated. We'll set the text content of each block to its corresponding index plus one (since arrays start at zero).
+
+```js
+elements.forEach((ele) => {
+    ele.innerHTML = '';
+
+    const numBlocks = randomInteger(40, 80);
+
+    Array(numBlocks).fill(0).forEach((_, index) => {
+        const div = document.createElement("div");
+        div.classList.add("block");
+        div.innerHTML = `${index + 1}`;
+        ele.appendChild(div);
+    });
+});
+```
+
+Now that this code is in place, each scrollable element will have a random number of blocks for users to compare side-by-side. Take a look at the preview of these blocks below:
+
+<Playground>
+```css styles.css
+.container {
+    border: 1px solid rgb(203 213 225);
+    display: flex;
+    height: 32rem;
+}
+.scrollable {
+    flex: 1;
+    overflow: auto;
+    gap: 0.5rem;
+}
+.scrollable:first-child {
+    border-right: 1px solid rgb(203 213 225);
+}
+.block {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 3rem;
+}
+.block:not(:last-child) {
+    border-bottom: 1px solid rgb(203 213 225);
+}
+```
+
+```html index.html
+<div class="container" id="container">
+    <div class="scrollable"></div>
+    <div class="scrollable"></div>
+</div>
+```
+
+```js scripts.js
+const randomInteger = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("container");
+    const elements = [...container.querySelectorAll(".scrollable")];
+
+    // Generate random blocks
+    elements.forEach((ele) => {
+        ele.innerHTML = '';
+        const numBlocks = randomInteger(40, 80);
+        Array(numBlocks).fill(0).forEach((_, index) => {
+            const div = document.createElement("div");
+            div.classList.add("block");
+            div.innerHTML = `${index + 1}`;
+            ele.appendChild(div);
+        });
+    });
+});
+```
+</Playground>
+
+## Keeping scroll position in sync
+
+Keeping scroll position in sync is a simple concept. When a user scrolls one of the scrollable elements, we update the scroll position of the other element accordingly.
+
+We add a `scroll` event listener to each element. When the event is triggered, we determine which element triggered it by checking its `target` property. Then, we create an array of all the `.scrollable` elements except for the one that triggered the event. For each of these elements, we call our `syncScroll` function, passing in both the triggered element and the current element as arguments.
+
+```js
+const handleScroll = (e) => {
+    const scrolledEle = e.target;
+    elements.filter((item) => item !== scrolledEle).forEach((ele) => {
+        syncScroll(scrolledEle, ele);
+    });
+};
+
+elements.forEach((ele) => {
+    ele.addEventListener("scroll", handleScroll);
+});
+```
+
+The `syncScroll` function takes care of updating the scroll position of each element. First, it retrieves the current scroll position of the triggered element. Then, it calls the `scrollTo` method on the current element, passing in the desired scroll behavior (`instant`) and the new top and left coordinates, which match those of the triggered element.
+
+```js
+const syncScroll = (scrolledEle, ele) => {
+    const top = scrolledEle.scrollTop;
+    const left = scrolledEle.scrollLeft;
+    ele.scrollTo({
+        behavior: "instant",
+        top,
+        left,
+    });
+};
+```
+
+The approach sounds good in theory, but there are two important issues that we need to tackle.
+
+First, when we use the `scrollTo` function, it triggers a `scroll` event. This can cause an infinite loop in our code if we're not careful. For example, if a user scrolls the first element and we call the `scrollTo` function on the second element, it will trigger the `scroll` event on the second element. This will cause us to call the `scrollTo` function on the first element, which will then trigger its scroll event, and so on and so forth.
+
+Second, the top and left properties calculated in the `syncScroll` function only work if elements have the same height, i.e., the same number of blocks. If they have a different number of blocks, the scroll position won't be synced.
+
+Don't worry though, we'll tackle these two issues in the next sections.
+
+## Preventing the Infinite Loop
+
+To resolve the issue of an infinite loop, we can temporarily remove the `scroll` event listener from the elements that are not being scrolled. We can accomplish this by using the `removeEventListener` method and passing `handleScroll` function as an argument. This ensures that we don't trigger a scroll event on those elements when we call `scrollTo`.
+
+Once we execute `syncScroll`, we use `requestAnimationFrame` to add back the `scroll` event listener to each element. This allows us to avoid triggering an infinite loop while still keeping scroll positions in sync. This is a simple yet effective solution to prevent the infinite loop.
+
+```js
+elements.filter((item) => item !== scrolledEle).forEach((ele) => {
+    ele.removeEventListener("scroll", handleScroll);
+    syncScroll(scrolledEle, ele);
+    window.requestAnimationFrame(() => {
+        ele.addEventListener("scroll", handleScroll);
+    });
+});
+```
+
+Take a look at the demo below, where both scrollable elements contain an equal number of blocks:
+
+<Playground>
+```css styles.css
+.container {
+    border: 1px solid rgb(203 213 225);
+    display: flex;
+    height: 32rem;
+}
+.scrollable {
+    flex: 1;
+    overflow: auto;
+    gap: 0.5rem;
+}
+.scrollable:first-child {
+    border-right: 1px solid rgb(203 213 225);
+}
+.block {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 3rem;
+}
+.block:not(:last-child) {
+    border-bottom: 1px solid rgb(203 213 225);
+}
+```
+
+```html index.html
+<div class="container" id="container">
+    <div class="scrollable"></div>
+    <div class="scrollable"></div>
+</div>
+```
+
+```js scripts.js
+const randomInteger = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("container");
+    const elements = [...container.querySelectorAll(".scrollable")];
+
+    const numBlocks = randomInteger(40, 80);
+
+    // Generate random blocks
+    elements.forEach((ele) => {
+        ele.innerHTML = '';
+        Array(numBlocks).fill(0).forEach((_, index) => {
+            const div = document.createElement("div");
+            div.classList.add("block");
+            div.innerHTML = `${index + 1}`;
+            ele.appendChild(div);
+        });
+    });
+
+    const syncScroll = (scrolledEle, ele) => {
+        const top = scrolledEle.scrollTop;
+        const left = scrolledEle.scrollLeft;
+        ele.scrollTo({
+            behavior: "instant",
+            top,
+            left,
+        });
+    };
+
+    const handleScroll = (e) => {
+        const scrolledEle = e.target;
+        elements.filter((item) => item !== scrolledEle).forEach((ele) => {
+            ele.removeEventListener("scroll", handleScroll);
+            syncScroll(scrolledEle, ele);
+            window.requestAnimationFrame(() => {
+                ele.addEventListener("scroll", handleScroll);
+            });
+        });
+    };
+
+    elements.forEach((ele) => {
+        ele.addEventListener("scroll", handleScroll);
+    });
+});
+```
+</Playground>
+
+## Properly calculating scroll positions
+
+When elements have different heights, scroll positions can become unsynchronized. To fix this issue, we need to calculate the position of each element properly.
+
+When a user scrolls an element, we need to figure out how far they've scrolled as a percentage of the total possible scroll distance. Here's how we do it: we subtract the container's height or width from the element's height or width, respectively. We then divide this value by the maximum scroll distance for that dimension (`scrollHeight` for vertical scrolling and `scrollWidth` for horizontal scrolling).
+
+We can use this percentage to calculate the new scroll position for the other element. We multiply the percentage by its maximum scroll distance (`scrollHeight` or `scrollWidth`).
+
+In our `syncScroll` function, we first calculate the maximum possible scroll distance for both dimensions using `scrollHeight` and `clientHeight` (for vertical) or `scrollWidth` and `clientWidth` (for horizontal). We then calculate how far down or across the user has scrolled as a percentage of that maximum distance.
+
+Next, we multiply this percentage by the maximum possible scroll distance for each dimension on the other element. This gives us a new absolute position that matches where the user was on their original element.
+
+Here's the updated version of the `syncScroll` function:
+
+```js
+const syncScroll = (scrolledEle, ele) => {
+    const scrolledPercent = scrolledEle.scrollTop / (scrolledEle.scrollHeight - scrolledEle.clientHeight);
+    const top = scrolledPercent * (ele.scrollHeight - ele.clientHeight);
+
+    const scrolledWidthPercent = scrolledEle.scrollLeft / (scrolledEle.scrollWidth - scrolledEle.clientWidth);
+    const left = scrolledWidthPercent * (ele.scrollWidth - ele.clientWidth);
+
+    ele.scrollTo({
+        behavior: "instant",
+        top,
+        left,
+     });
+};
+```
+
+With these modifications, our synchronized scrolling feature can now handle multiple scrollable elements with varying numbers of blocks while keeping their scroll positions perfectly in sync.
+
+Check out the demo below to see it in action:
+
+<Playground>
+```css styles.css
+.container {
+    border: 1px solid rgb(203 213 225);
+    display: flex;
+    height: 32rem;
+}
+.scrollable {
+    flex: 1;
+    overflow: auto;
+    gap: 0.5rem;
+}
+.scrollable:first-child {
+    border-right: 1px solid rgb(203 213 225);
+}
+.block {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 3rem;
+}
+.block:not(:last-child) {
+    border-bottom: 1px solid rgb(203 213 225);
+}
+```
+
+```html index.html
+<div class="container" id="container">
+    <div class="scrollable"></div>
+    <div class="scrollable"></div>
+</div>
+```
+
+```js scripts.js
+const randomInteger = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("container");
+    const elements = [...container.querySelectorAll(".scrollable")];
+
+    // Generate random blocks
+    elements.forEach((ele) => {
+        ele.innerHTML = '';
+        const numBlocks = randomInteger(40, 80);
+        Array(numBlocks).fill(0).forEach((_, index) => {
+            const div = document.createElement("div");
+            div.classList.add("block");
+            div.innerHTML = `${index + 1}`;
+            ele.appendChild(div);
+        });
+    });
+
+    const syncScroll = (scrolledEle, ele) => {
+        const scrolledPercent = scrolledEle.scrollTop / (scrolledEle.scrollHeight - scrolledEle.clientHeight);
+        const top = scrolledPercent * (ele.scrollHeight - ele.clientHeight);
+
+        const scrolledWidthPercent = scrolledEle.scrollLeft / (scrolledEle.scrollWidth - scrolledEle.clientWidth);
+        const left = scrolledWidthPercent * (ele.scrollWidth - ele.clientWidth);
+
+        ele.scrollTo({
+            behavior: "instant",
+            top,
+            left,
+        });
+    };
+
+    const handleScroll = (e) => {
+        new Promise((resolve) => {
+            requestAnimationFrame(() => resolve());
+        });
+        const scrolledEle = e.target;
+        elements.filter((item) => item !== scrolledEle).forEach((ele) => {
+            ele.removeEventListener("scroll", handleScroll);
+            syncScroll(scrolledEle, ele);
+            window.requestAnimationFrame(() => {
+                ele.addEventListener("scroll", handleScroll);
+            });
+        });
+    };
+
+    elements.forEach((ele) => {
+        ele.addEventListener("scroll", handleScroll);
+    });
+});
+```
+</Playground>
+
+## Conclusion
+
+To sum it up, synchronized scrolling is a super useful feature that can greatly enhance the user experience on websites with multiple scrollable elements. By using CSS flexbox and JavaScript, we can easily create side-by-side scrollable sections and keep their positions in sync as users scroll through them.
+
+By accurately calculating scroll positions, we can ensure that our synchronized scrolling feature works seamlessly even when dealing with elements of varying heights.
+
+## See also
+
+-   [Generate a random integer in given range](https://phuoc.ng/collection/1-loc/generate-a-random-integer-in-given-range/)

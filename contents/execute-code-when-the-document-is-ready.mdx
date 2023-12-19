@@ -3,18 +3,49 @@ category: Level 1 — Basic
 contributors:
     - welenofsky
 created: '2020-02-16'
-keywords:
+openGraphCover: /og/html-dom/execute-code-when-document-ready.png
+tags: DOMContentLoaded, readyState
 title: Execute code when the document is ready
-updated: '2020-04-10'
+updated: '2023-11-23'
 ---
+
+There are some situations where we need to perform tasks once the document is ready. Here are some examples:
+
+**Manipulating the DOM**
+
+We can use JavaScript to manipulate the elements on a page once they have fully loaded. For example, we can change the text content of an HTML element, add or remove classes, or even create new elements dynamically.
+
+**Initializing plugins and libraries**
+
+Many plugins and libraries require that the page's elements be fully loaded before they can be initialized correctly. By waiting for the document to be ready before initializing these plugins and libraries, we can avoid potential errors caused by accessing non-existent elements.
+
+**Setting event listeners**
+
+We can set up event listeners for user interactions with the page once all necessary resources have been loaded and parsed. For instance, we may want to listen for clicks on a button or submit events from a form.
+
+**Making API requests**
+
+Fetching data from an external API requires that all resources are loaded first so that any necessary authentication tokens or headers are set correctly before making a request.
+
+To ensure that our code runs smoothly without any errors due to missing resources or uninitialized elements, we need to execute our code only when the document is ready. We can use the `document.readyState` property to check the loading status of the document. It can have three values:
+
+-   `loading` while the document is still loading.
+-   `interactive` once it has finished loading and parsing HTML but some resources may not have been loaded yet.
+-   `complete` when everything has finished loading.
+
+If the document is still loading, we can add an event listener to wait for the `DOMContentLoaded` event to fire, which signals that all resources have been loaded and parsed. Once this event fires, we can execute a given callback.
+
+If `document.readyState` returns `interactive` or `complete`, indicating that the document has already finished loading, then it simply executes the provided callback without waiting for any events.
+
+Here is a code snippet that provides a custom implementation of checking whether or not the document has finished loading before executing any code.
 
 ```js
 const ready = function (cb) {
-  // Check if the `document` is loaded completely
-  document.readyState === "loading"
+    // Check if the `document` is loaded completely
+    document.readyState === "loading"
     ? document.addEventListener("DOMContentLoaded", function (e) {
         cb();
-      })
+    })
     : cb();
 };
 
@@ -24,3 +55,5 @@ ready(function() {
     ...
 });
 ```
+
+This implementation is useful because it lets us run our code as soon as all the necessary resources are available, while avoiding errors that can result from trying to access elements that haven't been created yet.
