@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
             lineCount++;
         }
 
-        return lineCount;
+        return lineCount + str.split(/\r\n|\r|\n/).length - 1;
     };
 
     const ro = new ResizeObserver(() => {
