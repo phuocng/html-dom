@@ -16,7 +16,7 @@ To determine the current cursor position in a contenteditable element, we can us
 
 We first retrieve the first range of the selection by using the `getRangeAt()` method. A range is a continuous part of any document object model, and in our case, it represents the location of the text cursor.
 
-Next, we clone this range using the `cloneRange()` method and select all contents within our contenteditable element using the `selectNodeContents()` method. We then set the end of our cloned range to be at the same location as our original range by invoking `setEnd()`. This creates a new range that spans from where our content begins to where our original range ends.
+Next, we create a new range using the `new Range()` method and select all contents within our contenteditable element using the `selectNodeContents()` method. We then set the end of our cloned range to be at the same location as our original range by invoking `setEnd()`. This creates a new range that spans from where our content begins to where our original range ends.
 
 Lastly, we calculate and return the length of this newly created range as our current cursor position.
 
@@ -110,7 +110,7 @@ button {
 ```html index.html
 <div contentEditable="true" class="content" id="content"><p>Under second. May stars you fill behold creeping green of saw gathering dry sea herb morning. Forth third male good face moveth from together fowl over meat. Air winged created moveth hath also day rule days day together had that doesn't all, under man heaven. Cattle. Land i fill morning morning brought whales waters earth may rule. Isn't. Above, subdue. Great called he herb appear second. Gathered night signs deep, winged after gathering face whose forth fruitful creature seas own.</p><p>Hath, years day all and them fifth from itself. Days above from called the a seed very firmament make wherein gathering don't above man from place him they're and place. Whales they're moved. Doesn't. Fowl you man. For said isn't fill them cattle very wherein. Man doesn't life saw above fourth brought. Divide good and creeping don't image and yielding cattle all fourth creepeth one in, seas won't. Together he don't stars have. Meat second whales also air herb behold gathered fish him man. Divide be.</p><p>Spirit appear his midst fly have unto fruit cattle likeness. Moving, make fish creeping you'll evening itself doesn't, in night. Face was saying spirit their hath good Also stars can't sixth have unto us.</p></div>
 <div>
-    Current position: <span id="current-position">-</button>
+    Current position: <span id="current-position">-</span>
 </div>
 <div>
     <button id="jump-button">Jump to a random position</button>
